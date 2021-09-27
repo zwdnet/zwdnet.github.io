@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习笔记,Python,量化投资,pyalgotrade," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="年初学习量化投资，一开始想自己从头写，还是受了C&#x2F;C++的影响。结果困在了计算回测数据那里，结果老也不对，就暂时放下了。最近试了一下python的各个量化投资框架，发现一个能用的——pyalgotrade，重新开始吧。这是一个事件驱动型量化交易框架。使用pyalgotrade的一大问题是数据获取，其支持从yahoo，谷歌等途径获得数据，但要获取A股数据比较麻烦。还是用tushare获取数据比较方便">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记01——初识Pyalgotrade量化交易回测框架">
+<meta property="og:url" content="https://zwdnet.github.io/2019/12/11/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86Pyalgotrade%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93%E5%9B%9E%E6%B5%8B%E6%A1%86%E6%9E%B6/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="年初学习量化投资，一开始想自己从头写，还是受了C&#x2F;C++的影响。结果困在了计算回测数据那里，结果老也不对，就暂时放下了。最近试了一下python的各个量化投资框架，发现一个能用的——pyalgotrade，重新开始吧。这是一个事件驱动型量化交易框架。使用pyalgotrade的一大问题是数据获取，其支持从yahoo，谷歌等途径获得数据，但要获取A股数据比较麻烦。还是用tushare获取数据比较方便">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/01.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/02.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/03.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/04.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/05.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/06.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2019-12-11T01:37:13.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.049Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="pyalgotrade">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2019/12/11/量化投资学习笔记01——初识Pyalgotrade量化交易回测框架/"/>
+
+
+
+
+
+  <title>量化投资学习笔记01——初识Pyalgotrade量化交易回测框架 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2019/12/11/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86Pyalgotrade%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93%E5%9B%9E%E6%B5%8B%E6%A1%86%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记01——初识Pyalgotrade量化交易回测框架</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-11T09:37:13+08:00">
+                2019-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>年初学习量化投资，一开始想自己从头写，还是受了C/C++的影响。结果困在了计算回测数据那里，结果老也不对，就暂时放下了。最近试了一下python的各个量化投资框架，发现一个能用的——pyalgotrade，重新开始吧。这是一个事件驱动型量化交易框架。<br>使用pyalgotrade的一大问题是数据获取，其支持从yahoo，谷歌等途径获得数据，但要获取A股数据比较麻烦。还是用tushare获取数据比较方便。但pyalgotrade并不直接支持tushare数据格式。网上有人介绍了将tushare数据转换成pyalgotrade能接受的数据源的方法，我先按照其方法自己写了一个tsfeed的程序，用于将从tushare获取的数据转化成pyalgotrade可以接受的数据。后来突然发现有个现成的:pyalgotrade_tushare。试用了一下，比我写的好，就用它吧。用pip install pyalgotrade_tushare 安装即可。<br>现在就开始干活了。先要测试一下pyalgotrade回测数据对不对。我找了个参照标准:在聚宽上开通了个账号，按入门教程写了个策略:2016-2018年每个交易日买入100股平安银行(000001)，回测结果如下:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/01.png"><br>现在用pyalgotrade来实现一下这个策略。先用tushare下载平安银行及沪深300指数的2016年数据。首先建立数据源。 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyalgotrade_tushare <span class="keyword">import</span> tools, barfeed    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">instruments = [<span class="string">&quot;000001&quot;</span>]    </span><br><span class="line">feeds = tools.build_feed(instruments, <span class="number">2016</span>, <span class="number">2018</span>, <span class="string">&quot;histdata&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>如果没有下载过数据，会自动下载以后存到histdata目录里，如果下载过，就自动使用目录里的数据了。feeds是BarFeed类型，就是其中的数据驱动pyalgotrade回测框架运行。<br>接着就从Pyalgotrade.strategy.BacktestingStrategy继承自己的策略类。 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStrategy</span>(<span class="params">strategy.BacktestingStrategy</span>):</span>    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, feed, instrument, brk</span>):</span>        </span><br><span class="line">        <span class="built_in">super</span>().__init__(feed, brk)        </span><br><span class="line">        self.__position = <span class="literal">None</span>        </span><br><span class="line">        self.__instrument = instrument        </span><br><span class="line">        self.getBroker()        </span><br><span class="line">        self.__cost = <span class="number">0.0</span>    </span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onEnterOk</span>(<span class="params">self, position</span>):</span>        </span><br><span class="line">        execInfo = position.getEntryOrder().getExecutionInfo()        </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onEnterCanceled</span>(<span class="params">self, position</span>):</span>        </span><br><span class="line">        self.__position = <span class="literal">None</span>    </span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onExitOk</span>(<span class="params">self, position</span>):</span>        </span><br><span class="line">        execInfo = position.getExitOrder().getExecutionInfo()        </span><br><span class="line">        self.info(<span class="string">&quot;卖出 %.2f&quot;</span> % (execInfo.getPrice()))        </span><br><span class="line">        self.__position = <span class="literal">None</span>    </span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onExitCanceled</span>(<span class="params">self, position</span>):</span>        </span><br><span class="line">    <span class="comment"># If the exit was canceled, re-submit it.        </span></span><br><span class="line">        self.__position.exitMarket()            </span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onBars</span>(<span class="params">self, bars</span>):</span>        </span><br><span class="line">        brk = self.getBroker()        </span><br><span class="line">        shares = <span class="number">100</span>        </span><br><span class="line">        price = bars[self.__instrument].getPrice()        </span><br><span class="line">        <span class="keyword">if</span> brk.getCash() &lt; price*shares:             </span><br><span class="line">            self.info(<span class="string">&quot;现金不足&quot;</span>)             </span><br><span class="line">            <span class="keyword">return</span>        </span><br><span class="line">        self.__position = self.enterLong(self.__instrument, shares, <span class="literal">True</span>)        </span><br><span class="line">        self.__cost += brk.getCommission().calculate(brk, price, shares)                                self.info(<span class="string">&quot;可用现金%.2f 股价%.2f 持股数量%d 市值1:%.2f 市值2:%.2f 计算市值:%.2f 交易成本%.2f&quot;</span> % (brk.getCash(), price, brk.getShares(self.__instrument), brk.getEquity(), self.getResult(), (brk.getCash() + brk.getShares(self.__instrument)*price), self.__cost))              <span class="comment"># x = input(&amp;quot;按任意键继续&amp;quot;)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>其中onBar是必须重写的，即每次数据更新要执行的操作。然后设置手续费，滑点等设置。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置手续费    </span></span><br><span class="line">broker_commision = broker.backtesting.TradePercentage(<span class="number">0.0003</span>)    </span><br><span class="line">brk = broker.backtesting.Broker(cash, feeds, broker_commision)</span><br></pre></td></tr></table></figure>
+<p>Broker对象是进行交易的类。然后生成策略对象: </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myStrategy = MyStrategy(feeds,     instruments[<span class="number">0</span>], brk)</span><br></pre></td></tr></table></figure>
+<p>接下来生成用于计算回测指标的四个对象，并将其添加进入策略中: `</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">retAnalyzer = returns.Returns()    </span><br><span class="line">myStrategy.attachAnalyzer(retAnalyzer)    </span><br><span class="line">sharpeAnalyzer = sharpe.SharpeRatio()    </span><br><span class="line">myStrategy.attachAnalyzer(sharpeAnalyzer)    </span><br><span class="line">drawDownAnalyzer = drawdown.DrawDown()   </span><br><span class="line">myStrategy.attachAnalyzer(drawDownAnalyzer)     </span><br><span class="line">tradesAnalyzer = trades.Trades()     </span><br><span class="line">myStrategy.attachAnalyzer(tradesAnalyzer)</span><br></pre></td></tr></table></figure>
+
+<p>如果要作图，类似的，也要将绘图对象添加进入策略对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyalgotrade <span class="keyword">import</span> plotter     </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plter = plotter.StrategyPlotter(myStrategy)    plter.getOrCreateSubplot(<span class="string">&quot;return&quot;</span>).addDataSeries(<span class="string">&quot;retuens&quot;</span>, retAnalyzer.getReturns())    plter.getOrCreateSubplot(<span class="string">&quot;CumReturn&quot;</span>).addDataSeries(<span class="string">&quot;CumReturn&quot;</span>,retAnalyzer.getCumulativeReturns())</span><br></pre></td></tr></table></figure>
+<p>准备工作做完，就可以执行回测了，用myStrategy.run()执行以后就可以输出回测结果，输出图形了。</p>
+<p>限于篇幅，就不放代码了。</p>
+<p>详细代码见:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/blob/master/01/testdata.py">https://github.com/zwdnet/MyQuant/blob/master/01/testdata.py</a></p>
+<p>现在来看看回测结果。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/02.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/03.png"><br>其中年化收益率那里应该是三年的策略收益，这样看两个的回测结果是基本一致的，但并不完全一致。原因呢？我看了一下每个交易日的情况：聚宽上面的：<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/04.png"><br>我本地文件里的数据<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/05.png"><br>在本地输出每个交易日的情况：<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/01/06.png"><br>可以看到2016-01-05，聚宽的股价数据是8.99，tushare下载的数据是9.07。2016-01-06，聚宽的数据是9.10，tushare是9.179。我在聚宽的论坛里发帖问了，被告知可能是数据复权方法，滑点设置等差异引起的。另外，pyalgotrade貌似是第一天产生交易信号第二天再执行交易。好在差别也不大，就这样吧。还有一些问题，比如pyalgotrade里貌似没有没有直接计算alpha值，beta值，信息比率等数据的函数，用到了再说吧。<br>最后再总结一下用pyalgotrade进行量化交易回测的一般步骤:<br>①用数据生成BarFeed对象，作为驱动框架的数据来源。<br>②用Broker对象设置交易成本，滑点等。<br>③从strategy.BacktestingStrategy建立Strategy对象，并重写onBars成员函数，其内容为每次交易事件时都要执行的动作。其中可能会用到technical对象，用于计算一些技术指标。<br>④实例化strategy对象，建立回测指标对象和绘图对象，并将它们与strategy绑定。<br>⑤执行回测。<br>⑥输出回测结果，绘图。<br>下一步，该真正进行量化交易策略的学习研究了。</p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的CSDN博客地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zwdnet">https://blog.csdn.net/zwdnet</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/pyalgotrade/" rel="tag"># pyalgotrade</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/08/%E6%88%91%E7%9A%84%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92%EF%BC%88%E8%8D%89%E7%A8%BF%E4%B8%80%EF%BC%89/" rel="next" title="我的职业生涯规划（草稿一）">
+                <i class="fa fa-chevron-left"></i> 我的职业生涯规划（草稿一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/11/%E8%AF%95%E7%94%A8%E7%BE%8E%E5%A1%91%E6%A0%91%E8%84%82%E7%9B%B4%E6%8E%A5%E4%BF%AE%E5%A4%8D%E5%89%8D%E7%89%99/" rel="prev" title="试用美塑树脂直接修复前牙">
+                试用美塑树脂直接修复前牙 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Mi8xNzU4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">589</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">583</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1343.8k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1275447216&web_id=1275447216" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>
