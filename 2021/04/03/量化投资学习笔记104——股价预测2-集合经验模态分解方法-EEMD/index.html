@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,量化投资,股价预测,支持向量机,EEMD," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="EEMD方法我也是第一次听说，看论文吧。EEMD是在EMD的基础上发展起来的，所以先看看EMD的 原始论文。作者应该是位华人。N. E. Huang et al., “The empirical mode decomposition and the Hilbert spectrum for non-linear and non stationary time series analysis”, P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记104——股价预测2:集合经验模态分解方法(EEMD)">
+<meta property="og:url" content="https://zwdnet.github.io/2021/04/03/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0104%E2%80%94%E2%80%94%E8%82%A1%E4%BB%B7%E9%A2%84%E6%B5%8B2-%E9%9B%86%E5%90%88%E7%BB%8F%E9%AA%8C%E6%A8%A1%E6%80%81%E5%88%86%E8%A7%A3%E6%96%B9%E6%B3%95-EEMD/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="EEMD方法我也是第一次听说，看论文吧。EEMD是在EMD的基础上发展起来的，所以先看看EMD的 原始论文。作者应该是位华人。N. E. Huang et al., “The empirical mode decomposition and the Hilbert spectrum for non-linear and non stationary time series analysis”, P">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/01.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/02.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/03.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/04.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/05.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/06.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/07.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/08.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/09.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/10.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/11.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/12.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2021-04-02T21:09:33.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.049Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="股价预测">
+<meta property="article:tag" content="支持向量机">
+<meta property="article:tag" content="EEMD">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2021/04/03/量化投资学习笔记104——股价预测2-集合经验模态分解方法-EEMD/"/>
+
+
+
+
+
+  <title>量化投资学习笔记104——股价预测2:集合经验模态分解方法(EEMD) | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2021/04/03/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0104%E2%80%94%E2%80%94%E8%82%A1%E4%BB%B7%E9%A2%84%E6%B5%8B2-%E9%9B%86%E5%90%88%E7%BB%8F%E9%AA%8C%E6%A8%A1%E6%80%81%E5%88%86%E8%A7%A3%E6%96%B9%E6%B3%95-EEMD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记104——股价预测2:集合经验模态分解方法(EEMD)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-03T05:09:33+08:00">
+                2021-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>EEMD方法我也是第一次听说，看论文吧。<br>EEMD是在EMD的基础上发展起来的，所以先看看EMD的 原始论文。作者应该是位华人。<br>N. E. Huang et al., “The empirical mode decomposition and the Hilbert spectrum for non-linear and non stationary time series analysis”, Proc. Royal Soc. London A, Vol. 454, pp. 903-995, 1998.<br>EEMD是一种分析非线性不稳定数据的新方法。它可以将任何复杂数据分解为有限的，通常数量很少的“内在模式函数”(intrinsic mode functions，IMF，有的文献叫本征模态函数)，分解方法是自适应的，高效的。结果是一个能量-频率-时间分布。该方法的关键是引入了基于信号局部特征的“内在模式函数”，它使得瞬时频率有意义。而复杂数据的瞬时频率的引入，消除了对非线性和非稳定数据的谐波(spurious harmonics)的需要。<br>傅里叶分析有其局限:系统必须是线性的，数据必须是严格周期性的或稳定的，否则，傅里叶分析的结果可能缺乏物理意义。稳定性是很多数据分析方法的要求。我们面对的数据很少能满足稳定性和线性的要求，但我们常常盲目的使用傅里叶分析。这常导致能量扩散。<br>经验模式分解(empirical  mode decomposition，EMD)方法，生成一些内在模式函数(IMF)，并计算瞬时频率。由此，可以在频率和时间轴上确定任何事件。最重要的是，它是自适应的。<br>传统的非稳定数据的方法:①频谱图(spectrogram)。是有限时间窗口宽度的傅里叶分析。②小波分析(The wavelet analysis)，使用可调时间窗口进行傅里叶分析。其问题是一旦确定了基波就要用其去分析所有数据。③维格纳准概率分布(Wigner–Ville distribution)，它是中心协方差函数(central covariance function)的傅里叶分析。使用时需要进行很多调整。④蜕变频谱(Evolutionary spectrum)，将传统的傅里叶分析从正弦余弦函数扩展到一族正交函数。其难点是找到基函数的定义。⑤经验正交函数展开(The empirical orthogonal function expansion，EOF)。⑥其它方法。<br>处理非线性不稳定数据的方法的要求:完整、正交、局部、自适应。<br>EMD方法分两步，首先对数据进行处理将其分解为IMF，接着对这些分解了的IMF运用希尔伯特变换，生成能量-频率-时间分布。瞬时频率只在数据的一定范围内可以定义(超出范围它就不恒定了)，这也为分解数据提供了方法。方法是找局部零点。具体来说IMF需满足两个条件:①在整个数据中，极值点和穿越0点(extrema and …… zero crossings)的数量必须相等或最多相差1。②在任何点，由局部最大值定义的包络线和由局部最小值定义的包络线的平均值为0。<br>对数据的分解基于下述假设:①数据至少有两个极值——一个极大值和一个极小值。②时间区间在极值之间定义。③如果数据缺乏极值但有波动变化，可以进行一次或多次微分来获得极值。<br>具体方法:用原始数据减去最大值包络线与最小值包络线的平均值，得到的结果作为新的数据再去减包络线的均值，如此迭代，直到结果符合IMF的条件。可以通过计算相继两次迭代结果的标准差来判断迭代停止的条件。然后对每个IMF运用希尔伯特变换，计算瞬时频率。<br>具体计算过程，验证过程，与传统的小波变换等方法比较等内容略过了。来看应用。在看论文的应用部分之前，找到一个python有现成的库的:pyemd，先照着<a target="_blank" rel="noopener" href="https://pyemd.readthedocs.io/en/latest/intro.html">文档</a>试试:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PyEMD <span class="keyword">import</span> EMD</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testPyEMD</span>():</span></span><br><span class="line">    s = np.random.random(<span class="number">100</span>)</span><br><span class="line">    emd = EMD()</span><br><span class="line">    IMFs = emd.emd(s)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(IMFs), <span class="built_in">len</span>(IMFs[<span class="number">0</span>]), <span class="built_in">type</span>(IMFs))</span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    ax = fig.add_subplot(<span class="built_in">len</span>(IMFs)+<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    ax.plot(s)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(IMFs)):</span><br><span class="line">        ax = fig.add_subplot(<span class="built_in">len</span>(IMFs)+<span class="number">1</span>, <span class="number">1</span>, i+<span class="number">2</span>)</span><br><span class="line">        ax.plot(IMFs[i])</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/emd.png&quot;</span>)</span><br><span class="line">    plt.close()</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/01.png"><br>自己动手做就比较清楚一些了。就是找原始数据的局部最大值和最小值，连接形成包络线，两个包络线之间的均值形成新的数据，再进行上述过程，直到无法再进行(没有两个或以上的极值点形成包络线)时，形成的就是所谓的内部特征函数(IMF)。整个过程中会形成不同的对原始数据的分解。<br>再试一个例子。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 例子2</span></span><br><span class="line">t = np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="number">200</span>)</span><br><span class="line">s = np.cos(<span class="number">11</span>*<span class="number">2</span>*np.pi*t*t) + <span class="number">6</span>*t*t</span><br><span class="line"></span><br><span class="line">IMF = EMD().emd(s, t)</span><br><span class="line">N = IMF.shape[<span class="number">0</span>] + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 画结果</span></span><br><span class="line">plt.subplot(N, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">plt.plot(t, s, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Input signal: $S(t)=cos(22\pi t^2) + 6t^2$&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Time [s]&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n, imf <span class="keyword">in</span> <span class="built_in">enumerate</span>(IMF):</span><br><span class="line">    plt.subplot(N, <span class="number">1</span>, n+<span class="number">2</span>)</span><br><span class="line">    plt.plot(t, imf, <span class="string">&#x27;g&#x27;</span>)</span><br><span class="line">    plt.title(<span class="string">&quot;IMF &quot;</span>+<span class="built_in">str</span>(n+<span class="number">1</span>))</span><br><span class="line">    plt.xlabel(<span class="string">&quot;Time [s]&quot;</span>)</span><br><span class="line">    </span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.savefig(<span class="string">&quot;./output/emd2.png&quot;</span>)</span><br><span class="line">plt.close()</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/02.png"><br>至于这些分解具体怎么运用，再去看看原论文吧。<br>其应用主要分两类，一类是对微分方程等求数值解，其与传统方法相比优势是物理意义更明确。这部分略去。另一类是处理实验和观测数据，进行时间序列数据分析。但是作者举的那些应用的例子，分析机械振动，地震数据等，我都看不太懂。先看讨论吧。<br>作者认为该方法是分析非线性不稳定数据的强有力的方法，其优势在于分解的结果具有物理意义。需要改进的地方在于计算包络线的插值方法，作者使用的三次条样插值(cubic spline fitting)能适用于大部分情况，但还是有问题，比如太耗时，需要有更好的拟合方法。其次需要改进末端效应(end effects)。主要在拟合以及希尔伯特变换时。第三，要注意在强信号中包含弱信号的情况。第四，需要对数据进行过采样以获得精确的瞬时频率。第五，如果频率过于接近，则该方法无法对其进行分解。第六，该方法并不保证分解结果有物理意义。<br>再接着把EEMD的原始论文看一下吧。<br>参考PyEMD文档里作者的一段话:“I, the PyEMD’s author, will go even a bit further. If one needs such large resolution then the EMD is not suitable for them. The EMD is not robust. Hundreds of iterations make any small difference to be emphasised and potentially leading to a significant change in final decomposition. This is the reason for creating EEMD and CEEMDAN which add small perturbation in a hope that the ensemble provides a robust solution”。意思是EMD并不健壮，进行数百次迭代后，小的改变会导致结果的很大不同。因此才产生了EEMD和CEEMDAN等改进。<br>EEMD的原始论文: Z. Wu and N. E. Huang, “Ensemble empirical mode decomposition: A noise-assisted data analysis method”, Advances in Adaptive Data Analysis, Vol. 1, No. 1 (2009) 1-41.<br>总体经验模式分解算法(Ensemble Empirical Mode Decomposition ，EEMD)是一种噪音辅助数据分析(noise assisted data analysis，NADA)技术。EMD的最大问题是频率特征的模式混合(frequent appearance of mode  mixing)。模式混合的原因是信号间歇(signal intermittency)。这不仅会导致严重的时间-频率分布混淆，还会使IMF的物理意义丧失。EMMD将真实的IMF视为样本的均值，每个样本为信号加上一个有限振幅的白噪声。经过这个总和过程，可以自然的将数据区分而不用主观选择。<br>EEMD的原则:增加的白噪声是对整个时间-频率空间的抽样，当信号被加入白噪声背景后，不同尺度的频率模式就自然显现在白噪声背景建立的参照系里了。对于足够多的样本，噪声的影响会互相抵消。样本均值即被视为是真实结果。随着样本量的增加，剩下的就是信号本身。<br>再用PyEMD试一下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># eemd</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testEEMD</span>():</span></span><br><span class="line">    t = np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="number">200</span>)</span><br><span class="line">    <span class="comment"># 定义信号</span></span><br><span class="line">    sin = <span class="keyword">lambda</span> x, p: np.sin(<span class="number">2</span>*np.pi*x*t + p)</span><br><span class="line">    S = <span class="number">3</span>*sin(<span class="number">18</span>,<span class="number">0.2</span>)*(t-<span class="number">0.2</span>)**<span class="number">2</span></span><br><span class="line">    S += <span class="number">5</span>*sin(<span class="number">11</span>,<span class="number">2.7</span>)</span><br><span class="line">    S += <span class="number">3</span>*sin(<span class="number">14</span>,<span class="number">1.6</span>)</span><br><span class="line">    S += <span class="number">1</span>*np.sin(<span class="number">4</span>*<span class="number">2</span>*np.pi*(t-<span class="number">0.8</span>)**<span class="number">2</span>)</span><br><span class="line">    S += t**<span class="number">2.1</span> -t</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    eemd = EEMD()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 设置探测极值的方法</span></span><br><span class="line">    emd = eemd.EMD</span><br><span class="line">    emd.extrema_detection=<span class="string">&quot;parabol&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 对信号执行eemd</span></span><br><span class="line">    eIMFs = eemd.eemd(S, t)</span><br><span class="line">    nIMFs = eIMFs.shape[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 画结果</span></span><br><span class="line">    plt.figure(figsize=(<span class="number">12</span>,<span class="number">9</span>))</span><br><span class="line">    plt.subplot(nIMFs+<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    plt.plot(t, S, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(nIMFs):</span><br><span class="line">        plt.subplot(nIMFs+<span class="number">1</span>, <span class="number">1</span>, n+<span class="number">2</span>)</span><br><span class="line">        plt.plot(t, eIMFs[n], <span class="string">&#x27;g&#x27;</span>)</span><br><span class="line">        plt.ylabel(<span class="string">&quot;eIMF %i&quot;</span> %(n+<span class="number">1</span>))</span><br><span class="line">        plt.locator_params(axis=<span class="string">&#x27;y&#x27;</span>, nbins=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    plt.xlabel(<span class="string">&quot;Time [s]&quot;</span>)</span><br><span class="line">    plt.tight_layout()</span><br><span class="line">    plt.savefig(<span class="string">&#x27;./output/eemd.png&#x27;</span>, dpi=<span class="number">120</span>)</span><br><span class="line">    plt.close()</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/03.png"><br>现在，基本会用了，但是具体怎么运用，尤其是在金融领域呢？找了一篇硕士论文看看。<br>蒋国均.我国沪深股票市场价格指数相关性分析及预测研究 ——基于EMD分解技术的应用.暨南大学硕士学位论文(2014).<br>作者将沪市、深市指数进行EMD分解，然后根据不同分量的周期、均值、方差等特征进行构建组合，提取出市场波动项，重大事件影响项和长期趋势项三个时间序列，并对三个时间序列分别构建SVM模型进行预测，得到各序列预测值，最后将各预测值进行组合得到最终预测结果。结果发现这样预测精度更高。<br>我就按作者的方法，预测一下沪深300指数吧。先下载数据，下载2005年1月1日到2020年12月31日的数据，其中2019年到2020年的数据作为测试数据，之前的数据作为训练数据。<br>画一个训练数据<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/04.png"></p>
+<p>下面对数据进行EEMD分解。<br>加入100组标准差为0.2的白噪音。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">eemd = EEMD(trials=<span class="number">100</span>, noise_width=<span class="number">0.2</span>)</span><br><span class="line">eIMFs = eemd.eemd(train_data.values)</span><br><span class="line">plt.figure()</span><br><span class="line">visual = Visualisation()</span><br><span class="line">visual.plot_imfs(eIMFs, include_residue=<span class="literal">False</span>)</span><br><span class="line">plt.savefig(<span class="string">&quot;./output/eemd_hs300.png&quot;</span>)</span><br><span class="line">plt.close()</span><br></pre></td></tr></table></figure>
+<p>分解结果<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/05.png"></p>
+<p>分解为11个IMFs，与论文里类似。<br>然后计算每个IMF的周期，均值，方差，方差占比，pearson相关系数等统计指标。数据与原始总体数据的相关性。<br>其中周期用IMF数据个数除以IMF极值点个数来表示，方差占比用IMF数据方差除以原始总体数据方差来表示，pearson 相关系数则度量了IMF数据与原始总体数据的相关性。<br>计算结果如下:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/06.png"></p>
+<p>从第6个IMF开始，方差占比增大，波动周期变长，和原始数据的相关系数也增大。<br>把第0到5六个IMFs相加作为高频部分，代表市场的正常波动项，6-11项相加作为低频项，代表非金融市场正常波动项，即外部环境重大事件，剩余分量代表市场长期趋势。(这一项前面漏了，加上)。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/07.png"></p>
+<p>有个问题:剩余分量趋势是向下的，市场长期趋势向下?另外跟文章中的分量趋势也不太一样。<br>下面就进行预测了。作者的方法是分别对三个分项用支持向量机SVM进行预测，再把结果进行组合。但是没说怎么组合，就直接相加吧。<br>再找ta的参考文献看看。<br>陶小龙.基于支持向量机的股市预测.北京理工大学理学硕士学位论文(2005).<br>先按照文章进行支持向量机预测。<br>传统金融时间序列有两种研究方法，一种是从基本的经济原理出发建立金融时间序列服从的数学模型，如Markovitz的投资组合理论，资本资产定价模型(CAPM)、套利定价理论(APT)、期权定价模型等，但现实不一定符合其假设。因此实际效果并不理想。另一种是从统计角度进行研究，缺乏理论性，但实际应用中效果较好。统计方法还可以对经济模型的好坏进行检验和评价。<br>股市预测一般基于三点假设：①有效市场理论；②供求决定假设；③历史相似原则。<br>技术分析依赖图表和主观判断，严重依靠经验，可靠性受到质疑。<br>用智齿向量回归机进行预测的步骤：<br>①试验规模的选取，决定训练集的数量、试检测集数量，以及两者的比例。<br>②预测参数的选取，包括参数系统的形式，参数的内容。<br>③标准化形式的选择。<br>④核函数形式的选择。<br>⑤核函数参数的选择。<br>另一篇<br>金得宝.基于支持向量机的股市预测研究.浙江大学硕士学位论文(2010).<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/08.png"></p>
+<p>输入特征向量为开盘价、最高价、最低价、成交量、收盘价、5天/10天/20天指数移动平均。输出为下一日收盘价。用正则均方误差(NMSE)、平均绝对误差(MAE)、方向对称性指标(DS)作为评价标准。前两者越小越好，DS越大表示其预测曲线与实际曲线方向趋势上拟合的越好。核函数参数选择：C一般[10,100]，太小欠拟合，且SV数量随C增加而下降，C太大过拟合，泛化能力下降，相应的训练时间过长。ε = 0.001， ζ = 0.001。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/09.png"></p>
+<p>两篇论文，一篇没具体代码，一篇代码是matlab。还是直接搜吧。<br>参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/JavaArchitect/p/11350683.html">这篇</a><br>先用普通SVM实现一下。用分类算法，数据与前文多元线性回归一致。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/10.png"></p>
+<p>准确率85.7%。<br>下面用这个训练好的模型按照上次的回测程序回测一下看看。<br>年化收益率:1.489342<br>最大回撤    夏普比率     索提比率     α         β<br>-0.013315  4.266112  49.991836 -0.85213  0.471451<br>还不错，但是比多元线性回归的差一些。现在把EEMD加上。将七个特征分别进行EMMD分解，除了最低价分解为6项外，其余特征都分解为7项。像这样的:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/11.png"></p>
+<p>将前3项作为高频项，其余的作为低频项，再加上剩余项。每个特征都分解为三个特征。<br>合并以后是这个样子。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/12.png"></p>
+<p>现在就用这些处理后的特征数据进行训练支持向量机模型，结果，预测准确率反而更低了。<br>预测准确率: 0.7959183673469388<br>回测一把看看。<br>在回测这里卡了几天，始终没调通。后来我突然想通了，在对特征进行eemd分解的时候，我是把所有数据一起分解，然后再划分训练数据和测试数据。这样测试的时候相当于是用了未来数据的。在真正用的时候，是用今天的数据预测明天的收盘价，只有一组特征，喂给模型结果eemd分解那里报错。应该是不能只用一个数据来作为输入。这种方法尝试就到这里吧，不知道我参考的那些论文有没有这个问题的。<br>尝试虽然失败了，但是知道了有EEMD这种方法，将股价数据分解成高频，低频部分，低频部分看着跟股价的中期趋势比较一致，虽然可能没法拿来直接预测第二天的股价，但是拿来判断股价是不是到顶/底了行不行？开发策略时可以用用看。<br>没调通的<a target="_blank" rel="noopener" href="https://github.com/zwdnet/stock/blob/main/EMD_model.py">代码</a><br>接下来再试试其它的预测方法。</p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/%E8%82%A1%E4%BB%B7%E9%A2%84%E6%B5%8B/" rel="tag"># 股价预测</a>
+          
+            <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag"># 支持向量机</a>
+          
+            <a href="/tags/EEMD/" rel="tag"># EEMD</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/30/%E5%AD%A6%E4%B9%A0%E5%A4%B4%E5%BD%B1%E6%B5%8B%E9%87%8F3%E2%80%94%E2%80%94%E5%A4%B4%E5%BD%B1%E6%B5%8B%E9%87%8F%E5%B9%B3%E9%9D%A2/" rel="next" title="学习头影测量3——头影测量平面">
+                <i class="fa fa-chevron-left"></i> 学习头影测量3——头影测量平面
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/04/11/%E5%AD%A6%E4%B9%A0%E5%A4%B4%E5%BD%B1%E6%B5%8B%E9%87%8F4%E2%80%94%E2%80%94%E6%B5%8B%E9%87%8F/" rel="prev" title="学习头影测量4——测量">
+                学习头影测量4——测量 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Mi8xNzU4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">616</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">597</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1376.7k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1275447216&web_id=1275447216" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

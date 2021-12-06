@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="量化投资,实盘,技术分析," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最近实现了几个策略，回测结果都不太理想。会不会是我的回测程序有问题?于是我想验证一下。 先还是用各种库，发现结果各不相同。最后我决定先自己手算一遍吧。 先自己造个数据: 12345    date &#x3D; pd.date_range(&quot;1&#x2F;1&#x2F;2021&quot;, &quot;1&#x2F;10&#x2F;2021&quot;)    priceA &#x3D; [1.0, 1.1, 1.2, 1.3, 0.5, 0.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记140——股票实盘练习31——验证回测指标计算">
+<meta property="og:url" content="https://zwdnet.github.io/2021/08/20/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0140%E2%80%94%E2%80%94%E8%82%A1%E7%A5%A8%E5%AE%9E%E7%9B%98%E7%BB%83%E4%B9%A031%E2%80%94%E2%80%94%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%B5%8B%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="最近实现了几个策略，回测结果都不太理想。会不会是我的回测程序有问题?于是我想验证一下。 先还是用各种库，发现结果各不相同。最后我决定先自己手算一遍吧。 先自己造个数据: 12345    date &#x3D; pd.date_range(&quot;1&#x2F;1&#x2F;2021&quot;, &quot;1&#x2F;10&#x2F;2021&quot;)    priceA &#x3D; [1.0, 1.1, 1.2, 1.3, 0.5, 0.">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/01.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/02.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/03.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/04.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/05.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/06.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/07.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/08.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/09.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/10.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2021-08-20T07:17:47.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.053Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="实盘">
+<meta property="article:tag" content="技术分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2021/08/20/量化投资学习笔记140——股票实盘练习31——验证回测指标计算/"/>
+
+
+
+
+
+  <title>量化投资学习笔记140——股票实盘练习31——验证回测指标计算 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2021/08/20/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0140%E2%80%94%E2%80%94%E8%82%A1%E7%A5%A8%E5%AE%9E%E7%9B%98%E7%BB%83%E4%B9%A031%E2%80%94%E2%80%94%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%B5%8B%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记140——股票实盘练习31——验证回测指标计算</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-20T15:17:47+08:00">
+                2021-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近实现了几个策略，回测结果都不太理想。会不会是我的回测程序有问题?于是我想验证一下。</p>
+<p>先还是用各种库，发现结果各不相同。最后我决定先自己手算一遍吧。</p>
+<p>先自己造个数据:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    date = pd.date_range(<span class="string">&quot;1/1/2021&quot;</span>, <span class="string">&quot;1/10/2021&quot;</span>)</span><br><span class="line"></span><br><span class="line">    priceA = [<span class="number">1.0</span>, <span class="number">1.1</span>, <span class="number">1.2</span>, <span class="number">1.3</span>, <span class="number">0.5</span>, <span class="number">0.8</span>, <span class="number">0.4</span>, <span class="number">0.6</span>, <span class="number">1.0</span>, <span class="number">1.2</span>]</span><br><span class="line"></span><br><span class="line">    priceB = [<span class="number">1.0</span>, <span class="number">1.01</span>, <span class="number">1.02</span>, <span class="number">1.03</span>, <span class="number">1.04</span>, <span class="number">1.05</span>, <span class="number">1.06</span>, <span class="number">1.07</span>, <span class="number">1.08</span>, <span class="number">1.09</span>]</span><br></pre></td></tr></table></figure>
+<p>日期为2021年1月1日至10日，共10天。</p>
+<p>priceA是股价数据，priceB是基准数据。在第一天投入1.0元，开盘买入然后持有。故意造了中间有回撤。</p>
+<p>然后计算每天的收益率数据序列，即比较每天和上一天的市值增长率。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">retA = [<span class="number">0.0</span>, <span class="number">0.1</span>, <span class="number">0.0909</span>, <span class="number">0.0833</span>, -<span class="number">0.6154</span>, <span class="number">0.6</span>, -<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.6667</span>, <span class="number">0.2</span>]</span><br><span class="line"></span><br><span class="line">retB = [<span class="number">0.0</span>, <span class="number">0.01</span>, <span class="number">0.0099</span>, <span class="number">0.0098</span>, <span class="number">0.0097</span>, <span class="number">0.0096</span>, <span class="number">0.0095</span>, <span class="number">0.0094</span>, <span class="number">0.0093</span>, <span class="number">0.0093</span>]</span><br></pre></td></tr></table></figure>
+<p>用程序算一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    data_ret = data.收盘.pct_change().fillna(<span class="number">0</span>).tz_localize(<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">    bench_ret = bench.收盘.pct_change().fillna(<span class="number">0</span>).tz_localize(<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<p>一样的。再传到回测框架里跑一遍，输出收益率数据，结果是一样的。注意要在cerobro初始化时设定cheat_on_open = True，因为backtrader一般是在下单后第二天执行交易的，如此设置就能在第一天买入。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/01.jpg"></p>
+<p>证明backtrader里的bt.analyzers.TimeReturn记录的是每日收益率。</p>
+<p>基础有了，下面开始计算其它回测指标。</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzUyMDk1MDY2MQ==&mid=2247483991&idx=1&sn=7e2a54011706fd88ff7cef2007f840d8&chksm=f9e3c4bdce944daba8cdd20fa7ca26704381779159f2aa25e66a2d1f527590e29c906df9a697&scene=21#wechat_redirect">参考这里</a></p>
+<p>1.计算累积收益率</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/02.jpg"></p>
+<p>期末价格减去期初价格，再除以期初价格。</p>
+<p>RcA = (1.2-1.0)/1.0 = 0.2</p>
+<p>RcB = (1.09-1.0)/1.0 = 0.09</p>
+<p>用程序算一下</p>
+<p>累积收益率 0.19999999999999996 0.09000000000000008</p>
+<p>一样的。</p>
+<p>2.年化收益率</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/03.jpg"></p>
+<p>R是计算周期内的累积收益，m为天数，年化为250，n为周期的天数。</p>
+<p>用程序算一下:</p>
+<p>年化收益率 94.39621664406893 7.623080660403197</p>
+<p>跟回测框架的数据算的不一样啊。先摆着吧。</p>
+<p>3.最大回撤</p>
+<p>在选定周期内任一历史时点往后推，于最低点时的收益率回撤幅度的最大值。最大回撤用来描述可能出现的最糟糕的情况。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/04.jpg"></p>
+<p>i,j为周期中两个时间点，其中j晚于i。</p>
+<p>先手算一下:</p>
+<p>每个时间点的最大回测值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">priceA = [<span class="number">1.0</span>, <span class="number">1.1</span>, <span class="number">1.2</span>, <span class="number">1.3</span>, <span class="number">0.5</span>, <span class="number">0.8</span>, <span class="number">0.4</span>, <span class="number">0.6</span>, <span class="number">1.0</span>, <span class="number">1.2</span>]</span><br><span class="line"></span><br><span class="line">MD_A = [-<span class="number">0.6</span>, -<span class="number">0.6364</span>, -<span class="number">0.6667</span>, -<span class="number">0.6923</span>, -<span class="number">0.2</span>, -<span class="number">0.5</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">MD_B = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p>最大回撤值</p>
+<p>MDA = -0.6923</p>
+<p>MDB = 0</p>
+<p>用程序算一遍，使用pandas的cummax。</p>
+<p>最大回撤: 0.6923076923076923 0.0</p>
+<p>用BackTrader框架回测的值也一样。</p>
+<p>一样的。</p>
+<p>4.Alpha和Beta值</p>
+<p>Beta：相当于业绩评价基准收益的总体波动性。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/05.jpg"></p>
+<p>Pi,Pm为个股和基准的收益率序列。Cov为二者协方差。Varm为基准每日收益的方差。</p>
+<p>意义:如果值为1，策略波动与基准一致，如果大于1，策略波动大于基准，如果小于1，策略波动小于基准。</p>
+<p>先按这个公式计算一下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment"># 计算β值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># covAB = np.cov(data_ret, bench_ret)</span></span><br><span class="line"></span><br><span class="line">    covAB = data_ret.cov(bench_ret)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;协方差&quot;</span>, covAB)</span><br><span class="line"></span><br><span class="line">    varB = np.var(bench_ret)</span><br><span class="line"></span><br><span class="line">    beta = covAB/varB</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;策略β值:&quot;</span>, beta)</span><br><span class="line"></span><br><span class="line">策略β值: <span class="number">10.64411952517551</span></span><br></pre></td></tr></table></figure>
+<p>框架回测的beta值是9.579708，是用empyrical库算的。先摆着，完了再调。</p>
+<p>Alpha:实际收益和按照Beta系数计算的期望收益之间的差额。代表策略多大程度上跑赢了预期的收益率。</p>
+<p>可以使用资本资产定价模型(CAPM)来估计策略的beta和alpha的值。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/06.jpg"></p>
+<p>E(ri)是股票i的预期收益率，rf是无风险利率，rm是市场指数收益率。Alpha可以理解为超额收益率。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment"># 计算α值</span></span><br><span class="line"></span><br><span class="line">    x = data_ret.values</span><br><span class="line"></span><br><span class="line">    y = bench_ret.values</span><br><span class="line"></span><br><span class="line">    b, a, r_value, p_value, std_err = stats.linregress(x, y)</span><br><span class="line"></span><br><span class="line">    alpha = <span class="built_in">round</span>(a*<span class="number">250</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">    beta = <span class="built_in">round</span>(b, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;α:&quot;</span>, alpha, <span class="string">&quot;β:&quot;</span>, beta)</span><br><span class="line"></span><br><span class="line">结果:α: <span class="number">2.1509</span> β: <span class="number">0.0005</span></span><br></pre></td></tr></table></figure>
+<p>跟回测框架的结果不一样，跟上面的计算结果也不一样……</p>
+<p>5.夏普比率</p>
+<p>代表每多承担一份风险，可以获得几份回报，即单位风险所获得的超额回报，该比率越高，策略承担单位风险得到的超额回报越高，所以夏普比率越高越好。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/07.jpg"></p>
+<p>Rp是策略年化收益率，Rf为无风险收益率，σp为年化标准差。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    rf = <span class="number">0.03</span></span><br><span class="line"></span><br><span class="line">    exReturn = data_ret - rf/<span class="number">250.0</span></span><br><span class="line"></span><br><span class="line">    sharpe = np.sqrt(<span class="built_in">len</span>(exReturn)) * exReturn.mean() / exReturn.std()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;夏普比率:&quot;</span>, sharpe)</span><br><span class="line"></span><br><span class="line">结果:</span><br><span class="line"></span><br><span class="line">夏普比率: <span class="number">0.8375901064767365</span></span><br></pre></td></tr></table></figure>
+<p>又跟回测框架的值差很多。</p>
+<p>6.信息比率</p>
+<p>含义与夏普比率类似，用市场基准代替无风险收益率计算。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/08.jpg"></p>
+<p>其中σt为策略与基准每日收益率差值的年化标准差。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    ex_return = data_ret - bench_ret</span><br><span class="line"></span><br><span class="line">    information = np.sqrt(<span class="built_in">len</span>(ex_return)) * ex_return.mean() / ex_return.std()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;信息比率:&quot;</span>, information)</span><br><span class="line"></span><br><span class="line">结果</span><br><span class="line"></span><br><span class="line">信息比率: <span class="number">0.7743390915190407</span></span><br></pre></td></tr></table></figure>
+<p>现在指标计算完了，自己算的跟框架算的差异很大。调试下看看。</p>
+<p>从输出的数据看，收益率序列是一致的，累积收益率，最大回撤也是一致的。不一致的主要是年化收益率，以及那些风险指标。</p>
+<p>折腾半天，终于看起来是对了，其实问题主要是计算的时候除以n还是n-1，以及进行年化转换时一年交易天数设置的问题。另外还发现在画图的时候还可以把benchmark收益率数据也加进去。现在看起来是对了。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/09.jpg"></p>
+<p>接着把代码重构一下，以后就可以放心用了。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zwdnet/stockpractice/blob/main/macd/testbt.py">代码</a></p>
+<p>实盘，今天涨了3分钱，不动。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/10.jpg"></p>
+<p><strong>声明:本文为个人学习记录，不构成投资建议!股市有风险，入市需谨慎!</strong></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p>
+<p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p>
+<p>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p>
+<p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/%E5%AE%9E%E7%9B%98/" rel="tag"># 实盘</a>
+          
+            <a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/" rel="tag"># 技术分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/19/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0139%E2%80%94%E2%80%94%E8%82%A1%E7%A5%A8%E5%AE%9E%E7%9B%98%E7%BB%83%E4%B9%A030%E2%80%94%E2%80%94%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93%E5%AE%9E%E6%88%98%E4%B8%AD%E7%9A%84%E8%87%AA%E6%88%91%E8%AE%A4%E7%9F%A5%E4%B8%8E%E7%BB%86%E8%8A%82%E8%BF%90%E7%94%A8/" rel="next" title="量化投资学习笔记139——股票实盘练习30——量化交易实战中的自我认知与细节运用">
+                <i class="fa fa-chevron-left"></i> 量化投资学习笔记139——股票实盘练习30——量化交易实战中的自我认知与细节运用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/08/20/%E7%BE%8E%E5%AD%A6%E4%BF%AE%E5%A4%8D%E4%B8%AD%E5%85%A8%E7%93%B7%E6%9D%90%E6%96%99%E7%9A%84%E9%80%89%E6%8B%A9%E4%B8%8E%E5%BA%94%E7%94%A8/" rel="prev" title="美学修复中全瓷材料的选择与应用">
+                美学修复中全瓷材料的选择与应用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Mi8xNzU4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">616</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">597</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1376.7k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1275447216&web_id=1275447216" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

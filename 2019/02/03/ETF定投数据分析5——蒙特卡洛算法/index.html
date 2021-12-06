@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ETF,投资理财,定投,Python,蒙特卡洛算法," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="接下来就用蒙特卡洛算法分析一下数据吧。老规矩，先新建一个名为MonteCarlo的分支，新建一个名为MonteCarlo.py的文件。先看一下我的数据，平均每7个交易日交易一次，手续费率0.0003(万分之三,不足0.1元收0.1元)。购买300etf和纳指etf两个股票，金额平分。即交易28次，每次交易金额1000元，剩下的，并到下次交易。以上就是模拟的假设。接下来就是进行交易模拟的函数，比较长">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ETF定投数据分析5——蒙特卡洛算法">
+<meta property="og:url" content="https://zwdnet.github.io/2019/02/03/ETF%E5%AE%9A%E6%8A%95%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%905%E2%80%94%E2%80%94%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="接下来就用蒙特卡洛算法分析一下数据吧。老规矩，先新建一个名为MonteCarlo的分支，新建一个名为MonteCarlo.py的文件。先看一下我的数据，平均每7个交易日交易一次，手续费率0.0003(万分之三,不足0.1元收0.1元)。购买300etf和纳指etf两个股票，金额平分。即交易28次，每次交易金额1000元，剩下的，并到下次交易。以上就是模拟的假设。接下来就是进行交易模拟的函数，比较长">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/01.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/02.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/03.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/04.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/05.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/06.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2019-02-03T01:27:58.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.017Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="ETF">
+<meta property="article:tag" content="投资理财">
+<meta property="article:tag" content="定投">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="蒙特卡洛算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2019/02/03/ETF定投数据分析5——蒙特卡洛算法/"/>
+
+
+
+
+
+  <title>ETF定投数据分析5——蒙特卡洛算法 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2019/02/03/ETF%E5%AE%9A%E6%8A%95%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%905%E2%80%94%E2%80%94%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ETF定投数据分析5——蒙特卡洛算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-03T09:27:58+08:00">
+                2019-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>接下来就用蒙特卡洛算法分析一下数据吧。老规矩，先新建一个名为MonteCarlo的分支，新建一个名为MonteCarlo.py的文件。先看一下我的数据，平均每7个交易日交易一次，手续费率0.0003(万分之三,不足0.1元收0.1元)。购买300etf和纳指etf两个股票，金额平分。即交易28次，每次交易金额1000元，剩下的，并到下次交易。以上就是模拟的假设。<br>接下来就是进行交易模拟的函数，比较长，主要是一些细节的计算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;执行一次交易模拟</span></span><br><span class="line"><span class="string">输入的参数</span></span><br><span class="line"><span class="string">cost 总交易成本</span></span><br><span class="line"><span class="string">time 交易周期的天数</span></span><br><span class="line"><span class="string">freq 交易频率，几天交易一次</span></span><br><span class="line"><span class="string">df_300, df_nas,分别为两个定投的etf的实盘成交数据</span></span><br><span class="line"><span class="string">返回值为一个DataFrame，包含每个交易日的成本，收益，收益率等数据</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">work</span>(<span class="params">cost, time, freq, df_300, df_nad</span>):</span></span><br><span class="line">    <span class="comment">#计算交易次数</span></span><br><span class="line">    tradetimes = <span class="built_in">int</span>(time/freq)</span><br><span class="line">    <span class="built_in">print</span>(tradetimes)</span><br><span class="line">    <span class="comment">#计算每次交易的金额</span></span><br><span class="line">    money = cost/tradetimes</span><br><span class="line">    <span class="built_in">print</span>(money)</span><br><span class="line">    <span class="comment">#手续费比率</span></span><br><span class="line">    fee_rate = <span class="number">0.0003</span></span><br><span class="line">    <span class="comment">#把每次交易金额均分为两部分，分别买两个etf，如果钱不够交易，留到下次</span></span><br><span class="line">    money_300 = money/<span class="number">2.0</span></span><br><span class="line">    money_nas = money/<span class="number">2.0</span></span><br><span class="line">    <span class="comment">#开始模拟前定义相关变量</span></span><br><span class="line">    cost = [] <span class="comment">#投入的总成本</span></span><br><span class="line">    cost3 = [] <span class="comment">#买300etf的成本</span></span><br><span class="line">    costN = [] <span class="comment">#买纳指etf的成本</span></span><br><span class="line">    m3 = <span class="number">0.0</span> <span class="comment">#买300etf的钱</span></span><br><span class="line">    mN = <span class="number">0.0</span> <span class="comment">#买纳指etf的钱</span></span><br><span class="line">    fee = [] <span class="comment">#手续费</span></span><br><span class="line">    V3 = [] <span class="comment">#300etf股票数量</span></span><br><span class="line">    VN = [] <span class="comment">#纳指etf股票数量</span></span><br><span class="line">    Total3 = [] <span class="comment">#300etf的当前市值</span></span><br><span class="line">    TotalN = [] <span class="comment">#纳指etf的当前市值</span></span><br><span class="line">    Total = [] <span class="comment">#当前总市值</span></span><br><span class="line">    Income3 = [] <span class="comment">#300etf的收益</span></span><br><span class="line">    IncomeN = [] <span class="comment">#nasetf的收益</span></span><br><span class="line">    Income = [] <span class="comment">#总收益</span></span><br><span class="line">    Rate3 = [] <span class="comment">#300etf收益率</span></span><br><span class="line">    RateN = [] <span class="comment">#nasetf收益率</span></span><br><span class="line">    Rate = [] <span class="comment">#总收益率</span></span><br><span class="line">    <span class="comment">#每次交易剩下的钱</span></span><br><span class="line">    money_300_rem = <span class="number">0.0</span></span><br><span class="line">    money_nas_rem = <span class="number">0.0</span></span><br><span class="line">   </span><br><span class="line">    <span class="comment">#开始模拟</span></span><br><span class="line">    j = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(time):</span><br><span class="line">        <span class="keyword">if</span> j == <span class="number">0</span>:   <span class="comment">#交易</span></span><br><span class="line">            <span class="comment">#计算可以买的股票数量</span></span><br><span class="line">            num_300 = <span class="built_in">int</span>(money_300/df_300[<span class="string">&quot;close&quot;</span>][i]/<span class="number">100</span>)*<span class="number">100</span></span><br><span class="line">            num_nas = <span class="built_in">int</span>(money_nas/df_nas[<span class="string">&quot;close&quot;</span>][i]/<span class="number">100</span>)*<span class="number">100</span></span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">                V3.append(num_300)</span><br><span class="line">                VN.append(num_nas)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                V3.append(V3[i-<span class="number">1</span>] + num_300)</span><br><span class="line">                VN.append(VN[i-<span class="number">1</span>]+ num_nas)</span><br><span class="line">            <span class="comment">#计算购入成本</span></span><br><span class="line">            m3 = num_300*df_300[<span class="string">&quot;close&quot;</span>][i]</span><br><span class="line">            fee_300 = m3*fee_rate</span><br><span class="line">            <span class="keyword">if</span> fee_300 &lt; <span class="number">0.1</span>:</span><br><span class="line">                fee_300 = <span class="number">0.1</span></span><br><span class="line">            money_300_rem = money_300 - m3 - fee_300</span><br><span class="line">            money_300 += money_300_rem</span><br><span class="line">            mN = num_nas*df_nas[<span class="string">&quot;close&quot;</span>][i]</span><br><span class="line">            fee_nas = mN*fee_rate</span><br><span class="line">            <span class="keyword">if</span> fee_nas &lt; <span class="number">0.1</span>:</span><br><span class="line">                fee_nas = <span class="number">0.1</span></span><br><span class="line">            fee.append(fee_300 + fee_nas)</span><br><span class="line">            money_nas_rem = money_nas - mN - fee_nas</span><br><span class="line">            money_nas += money_nas_rem</span><br><span class="line">           </span><br><span class="line">            <span class="comment">#计算总成本</span></span><br><span class="line">            total_cost = m3+fee_300+mN+fee_nas</span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">                cost3.append(m3+fee_300)</span><br><span class="line">                costN.append(mN+fee_nas)</span><br><span class="line">                cost.append(cost3[i] + costN[i])</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                cost3.append(cost3[i-<span class="number">1</span>] + m3 + fee_300)</span><br><span class="line">                costN.append(costN[i-<span class="number">1</span>] + mN + fee_nas)</span><br><span class="line">                cost.append(cost[i-<span class="number">1</span>] + cost3[i] + costN[i])</span><br><span class="line">            <span class="comment">#其它数据无论是否交易都要算，放最后</span></span><br><span class="line">        <span class="keyword">else</span>:    <span class="comment">#不交易</span></span><br><span class="line">            fee.append(<span class="number">0.0</span>)</span><br><span class="line">            cost.append(cost[i-<span class="number">1</span>])</span><br><span class="line">            cost3.append(cost3[i-<span class="number">1</span>])</span><br><span class="line">            costN.append(costN[i-<span class="number">1</span>])</span><br><span class="line">            V3.append(V3[i-<span class="number">1</span>])</span><br><span class="line">            VN.append(VN[i-<span class="number">1</span>])</span><br><span class="line">        <span class="comment">#无论是否交易都要算的持仓市值，收益，收益率</span></span><br><span class="line">        j += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> j &gt;= freq:</span><br><span class="line">            j = <span class="number">0</span></span><br><span class="line">        Total3.append(V3[i]*df_300[<span class="string">&quot;close&quot;</span>][i])</span><br><span class="line">        TotalN.append(VN[i]*df_nas[<span class="string">&quot;close&quot;</span>][i])</span><br><span class="line">        Total.append(Total3[i] + TotalN[i])</span><br><span class="line">        Income3.append(Total3[i] - cost3[i])</span><br><span class="line">        IncomeN.append(TotalN[i] - costN[i])  </span><br><span class="line">        Income.append(Income3[i] + IncomeN[i])</span><br><span class="line">        Rate3.append(Income3[i]/cost3[i])</span><br><span class="line">        RateN.append(IncomeN[i]/costN[i])</span><br><span class="line">        Rate.append(Income[i]/cost[i])</span><br><span class="line">       </span><br><span class="line">    data = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="string">&quot;成本&quot;</span>:cost,</span><br><span class="line">    <span class="string">&quot;手续费&quot;</span>:fee,</span><br><span class="line">    <span class="string">&quot;市值&quot;</span>:Total,</span><br><span class="line">    <span class="string">&quot;收益&quot;</span>:Income,</span><br><span class="line">    <span class="string">&quot;收益率&quot;</span>:Rate</span><br><span class="line">    &#125;</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+<p>测试一下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进行模拟</span></span><br><span class="line">    <span class="comment">#先获取成本，交易周期等信息</span></span><br><span class="line">    cost = df_etf[<span class="string">&quot;成本&quot;</span>].values[-<span class="number">1</span>]</span><br><span class="line">    <span class="built_in">print</span>(cost)</span><br><span class="line">    time = <span class="built_in">len</span>(df_etf)</span><br><span class="line">    <span class="comment">#进行交易模拟</span></span><br><span class="line">    data = work(cost, time, <span class="number">10</span>, df_300, df_nas)</span><br><span class="line">    <span class="built_in">print</span>(data.head())</span><br><span class="line">    testdata = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="string">&quot;数据&quot;</span>:data[<span class="string">&quot;收益率&quot;</span>].values</span><br><span class="line">    &#125;</span><br><span class="line">    )</span><br><span class="line">    result = index.index(testdata, df_base, <span class="number">0.03</span>)</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/01.png"><br>OK，测试成功。以后还可以进一步完善，比如设定止盈止损规则等。先从最简单的来吧，改变交易频率看看，即从每日进行交易到每30个交易日进行一次交易，看看数据有何不同。<br>建一个函数进行模拟</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#按不同交易频率进行交易</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Run</span>(<span class="params">cost, time, df_300, df_nas</span>):</span></span><br><span class="line">    data = []</span><br><span class="line">    <span class="keyword">for</span> freq <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">31</span>):</span><br><span class="line">        data.append(work(cost, time, freq, df_300, df_nas))</span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+<p>然后调用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#测试成功，现在模拟不同交易频率对结果的影响</span></span><br><span class="line">    testresult = Run(cost, time, df_300, df_nas)</span><br><span class="line">    testindex = [] <span class="comment">#保存测试结果的回测指标</span></span><br><span class="line">    <span class="keyword">for</span> res <span class="keyword">in</span> testresult:</span><br><span class="line">        <span class="built_in">print</span>(res.head())</span><br><span class="line">        test = pd.DataFrame(</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;数据&quot;</span>:res[<span class="string">&quot;收益率&quot;</span>].values</span><br><span class="line">        &#125;</span><br><span class="line">        )</span><br><span class="line">        testindex.append(index.index(test, df_base, <span class="number">0.03</span>))</span><br><span class="line">    <span class="keyword">for</span> test <span class="keyword">in</span> testindex:</span><br><span class="line">        <span class="built_in">print</span>(test.head())</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/02.png"><br>再画图看一下，先比较一下年化收益率。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">AR =[]</span><br><span class="line"><span class="keyword">for</span> test <span class="keyword">in</span> testindex:</span><br><span class="line">    <span class="built_in">print</span>(test.head())</span><br><span class="line">    AR.append(test[<span class="string">&quot;年化收益率&quot;</span>])</span><br><span class="line">    <span class="comment">#数据可视化</span></span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    plt.plot(AR)</span><br><span class="line">    fig.savefig(<span class="string">&quot;montecarlo_ar.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/03.png"><br>随着交易频率的下降，年化收益率也下降？再看看最大回撤<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/04.png"><br>随着交易频率的下降，最大回撤值上升。<br>阿尔法值<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/05.png"><br>夏普系数<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0096-mtkletf/06.png"><br>从中可以总结出各种规律，貌似交易频率越高越好？但第一收益率全是负的而不是正的，第二交易天数仅200余天，好像有点少。不过这算是基本的模拟方法，更进一步的探索，留待下次吧。<br>明天就是春节了，提前祝大家猪年吉祥！明年见！<br>我发文章的三个地方（对，多了一个，计算机方面的文章可能会发CSDN的博客上。所有的文章都会发在github个人博客上），欢迎大家在朋友圈等地方分享，欢迎点“好看”。谢谢。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的CSDN博客地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zwdnet">https://blog.csdn.net/zwdnet</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ETF/" rel="tag"># ETF</a>
+          
+            <a href="/tags/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" rel="tag"># 投资理财</a>
+          
+            <a href="/tags/%E5%AE%9A%E6%8A%95/" rel="tag"># 定投</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AE%97%E6%B3%95/" rel="tag"># 蒙特卡洛算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/03/%E3%80%8A%E7%89%99%E5%91%A8%E5%88%AE%E6%B2%BB%E5%9F%BA%E7%A1%80%E4%B8%8E%E9%AB%98%E7%BA%A7%E6%A0%B9%E9%9D%A2%E5%88%AE%E6%B2%BB%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B020-%E6%A8%A1%E5%9D%9711%EF%BC%9A%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%EF%BC%9A%E5%88%AE%E6%B2%BB%E6%96%BD%E5%8A%9B-Technique-Essentials-Instrumentation-Strokes/" rel="next" title="《牙周刮治基础与高级根面刮治》读书笔记20:模块11：技术基础：刮治施力(Technique Essentials:Instrumentation Strokes)">
+                <i class="fa fa-chevron-left"></i> 《牙周刮治基础与高级根面刮治》读书笔记20:模块11：技术基础：刮治施力(Technique Essentials:Instrumentation Strokes)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/17/%E3%80%8A%E7%89%99%E5%91%A8%E5%88%AE%E6%B2%BB%E5%9F%BA%E7%A1%80%E4%B8%8E%E9%AB%98%E7%BA%A7%E6%A0%B9%E9%9D%A2%E5%88%AE%E6%B2%BB%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B022%EF%BC%9A%E6%A8%A1%E5%9D%9713-%E6%8E%A2%E9%92%88-Explorers/" rel="prev" title="《牙周刮治基础与高级根面刮治》读书笔记22：模块13 探针(Explorers)">
+                《牙周刮治基础与高级根面刮治》读书笔记22：模块13 探针(Explorers) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Mi8xNzU4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">616</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">597</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1376.7k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1275447216&web_id=1275447216" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

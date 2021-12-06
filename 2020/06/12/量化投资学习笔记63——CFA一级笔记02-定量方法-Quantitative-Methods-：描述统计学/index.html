@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习笔记,量化投资,CFA," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="学习目标：货币的时间价值、数据收集及分析、基础统计学、概率论、概率分布理论在金融决策制定中的应用。Reading 6 货币的时间价值(The Time Value of Money)货币的时间价值指现在的少量钱与未来的更多量的钱的价值相等。这个概念主要处理不同时间的现金流的关系。利率(Interest rates)利率是反映不同日期的现金流的关系的量。现在付出9500一年后收到10000，利率为5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记63——CFA一级笔记02:定量方法(Quantitative Methods)：描述统计学">
+<meta property="og:url" content="https://zwdnet.github.io/2020/06/12/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B063%E2%80%94%E2%80%94CFA%E4%B8%80%E7%BA%A7%E7%AC%94%E8%AE%B002-%E5%AE%9A%E9%87%8F%E6%96%B9%E6%B3%95-Quantitative-Methods-%EF%BC%9A%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="学习目标：货币的时间价值、数据收集及分析、基础统计学、概率论、概率分布理论在金融决策制定中的应用。Reading 6 货币的时间价值(The Time Value of Money)货币的时间价值指现在的少量钱与未来的更多量的钱的价值相等。这个概念主要处理不同时间的现金流的关系。利率(Interest rates)利率是反映不同日期的现金流的关系的量。现在付出9500一年后收到10000，利率为5">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/01.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/02.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/03.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/04.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/05.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/06.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2020-06-12T01:22:25.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.057Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="CFA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2020/06/12/量化投资学习笔记63——CFA一级笔记02-定量方法-Quantitative-Methods-：描述统计学/"/>
+
+
+
+
+
+  <title>量化投资学习笔记63——CFA一级笔记02:定量方法(Quantitative Methods)：描述统计学 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2020/06/12/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B063%E2%80%94%E2%80%94CFA%E4%B8%80%E7%BA%A7%E7%AC%94%E8%AE%B002-%E5%AE%9A%E9%87%8F%E6%96%B9%E6%B3%95-Quantitative-Methods-%EF%BC%9A%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记63——CFA一级笔记02:定量方法(Quantitative Methods)：描述统计学</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-12T09:22:25+08:00">
+                2020-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>学习目标：货币的时间价值、数据收集及分析、基础统计学、概率论、概率分布理论在金融决策制定中的应用。<br>Reading 6 货币的时间价值(The Time Value of Money)<br>货币的时间价值指现在的少量钱与未来的更多量的钱的价值相等。这个概念主要处理不同时间的现金流的关系。<br>利率(Interest rates)<br>利率是反映不同日期的现金流的关系的量。现在付出9500一年后收到10000，利率为500/9500=0.0526=5.26%。<br>可以从三个层面理解：首先利率是投资者接受一个投资所能接受的最小收益率；其次，利率可以看做是未来货币对现在的折扣率；第三，利率可以看成是机会成本。即投资者放弃某项选择的成本。<br>经济学家认为利率是债券市场供需决定的。可以将利率看成由无风险利率和其它四个成分组成的。<br>r = 无风险利率+通货膨胀率+违约风险溢价+流动性溢价+到期风险溢价<br>无风险利率(real risk-free interest rate)：指不考虑通胀因素的完全无风险债券的单期利率。反映了个人对当期消费和延期消费的不同选择的时间偏好(time preferences)。<br>通胀率（inflation premium）：对于预期通胀给投资者的补偿，并反映了超过到期债务的平均通胀率的预期。通胀降低了单位货币的购买力。无风险利率和通胀率之和称为名义无风险利率（nominal risk-free interest rate）。一些国家的政府短期债券的利率可以认为代表了名义无风险利率，如90天美国国债。<br>违约风险溢价（default risk premium）：为补偿债务人可能到期违约的风险的收益。违约风险越大利率越高。<br>流动性溢价（liquidity premium）：为了投资者可能因为需要快速赎回部分现金所带来的价值损失。（即流动性差的债券，其利率要比流动性好的债券——如美国国债——高一些。）<br>到期风险溢价（maturity premium）：补偿投资者持有较长期限的债券的敏感性。（即期限长的债券比期限短的债券的年化利率高出来的部分，存10年的利率要比存1年存10次的利率高。）<br>单笔现金流的未来价值：讨论初始投资(现值,present value, PV)与单位时间内取得的收益率(rate, r)和其N年或N期后的终值(future value, FV)的关系。<br>FV1 = PV(1+r)<br>FV2 = FV1(1+r) = PV(1+r)^2<br>FVN = PV(1+r)^N<br>这里的利息称为本金(Principal)的简单利息(本金乘以利率)。其中利率r应该是一个时间周期的利率。<br>这就是复利现象，即用得到的利息再投资。<br>计息频率:计息周期可以低于一年，比如每月计息。常用的概念有名义年利率(stated annual interest rate,rs)或票面利率(quoted interest rate)。等于月利率乘以12。<br>对于一年有m期的计息，公式为<br>FVN = PV(1+rs/m)^mN<br>对于分期m趋于无穷小的时候，<br>FVN = PVe^(rsN)<br>年利率8%按半年计息能得到8.16%的利息，这就是名义年利率与有效年利率(effective annual rate， EAR)的区别。<br>EAR = (1+一个m周期的利率)^m-1=e^rs-1<br>一系列现金流的未来价值<br>与多个时间周期的现金估值有关的概念。①年金(annuity)，是一个无限的定期现金流的集合。②普通年金(ordinary annuity):从现在开始第一个周期即有第一次现金流。③期初应付年金(annuity due):会立即产生的现金流。④永续年金(perpetuity)，一个无穷的现金流序列，从现在开始一个周期后开始。<br>普通年金:相等的现金流。<br>FVN = A[(1+r)^N - 1]/r<br>不相等的现金流。每期单独算再加起来。<br>单笔现金流的现值。<br>PV = FVN(1+r)^-N<br>对于一年内大于一次的复利周期，有<br>PV = FVN(1+rs/m)^(-mN)<br>其中rs为年利率。<br>系列现金流的现值。可以是非常不同，相对相似和完全相同的现金流。时间也可以或长或短甚至是无期限的。<br>一系列相等现金流的现值。<br>PV = A/(1+r) + A/(1+r)^2 + …… + A/(1+r)^N<br>其中A为年金总额。<br>无限期的等量现金流的现值:PV = A/r<br>金额不相等的现金流的现值，挨个计算喽。<br>计算年金的利率，期数，偿还大小。就是上述公式的变换啦。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/01.png"><br>Reading 7 统计学概念和市场收益(Statistical Concepts and Market Returns)<br>一些基本概念<br>统计学有数据和方法两个含义。统计方法分为统计描述和统计推断。统计描述将数据转化为信息。统计推断利用小样本的数据对总体数据进行预测，推断和判断。其基础是概率论。<br>总体是研究的问题的所有元素的集合，用参数来描述总体，如平均值，标准差等。我们常常不能直接研究总体。<br>样本是总体的一个子集。采样时希望样本具有代表性。样本的统计参数代表了样本的特征。统计推断是用样本的统计值去推测总体参数。<br>有四种不同的数据类型:定距型数据（Interval Scale）、定序型数据（Ordinal Scale）、定类型数据（Nominal Scale）和定比型数据 (Ratio Scale)。<br>频率分布:将数据转换成为较小的区间的表格。<br>持有期回报(Holding Period Return Formula)Rt = (Pt - Pt-1 + Dt)/Pt-1 ，其中Pt为周期t后的每股价格，Pt-1为周期t-1的每股价格，Dt为t-1到t之间的现金分红。<br>建立一个频率分布的步骤：<br>①将数据按升序排序。<br>②计算数据的范围，定义为范围=最大值-最小值。<br>③确定将数据划分为k个区间。<br>④确定区间宽度 = 范围/k<br>⑤用最小值+区间宽度，确定每个区间的止点。<br>⑥计数每个区间内数据的个数。<br>⑦建立一个表格，从小到大列出每个区间内数据的出现频数。<br>用python可以做的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">mydata = &#123;<span class="string">&quot;Nations&quot;</span>:[<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span>, <span class="string">&quot;e&quot;</span>, <span class="string">&quot;f&quot;</span>, <span class="string">&quot;g&quot;</span>,</span><br><span class="line"><span class="string">&quot;h&quot;</span>, <span class="string">&quot;i&quot;</span>, <span class="string">&quot;j&quot;</span>, <span class="string">&quot;k&quot;</span>, <span class="string">&quot;l&quot;</span>, <span class="string">&quot;m&quot;</span>, <span class="string">&quot;n&quot;</span>, <span class="string">&quot;o&quot;</span>, <span class="string">&quot;p&quot;</span>, <span class="string">&quot;q&quot;</span>, <span class="string">&quot;r&quot;</span>, <span class="string">&quot;s&quot;</span>],</span><br><span class="line"><span class="string">&quot;Returns&quot;</span>:[<span class="number">8.3</span>, <span class="number">5</span>,<span class="number">3</span>, <span class="number">7.1</span>, <span class="number">7.4</span>, <span class="number">9.3</span>, <span class="number">5.8</span>, <span class="number">8.2</span>, <span class="number">7.0</span>, <span class="number">6.0</span>, <span class="number">8.8</span>, <span class="number">7.2</span>,</span><br><span class="line"><span class="number">8.0</span>, <span class="number">7.3</span>, <span class="number">9.4</span>, <span class="number">5.8</span>, <span class="number">8.0</span>, <span class="number">6.3</span>, <span class="number">7.3</span>]&#125;</span><br><span class="line"><span class="comment"># print(mydata, len(mydata), len(mydata[&quot;Nations&quot;]), len(mydata[&quot;Returns&quot;]))</span></span><br><span class="line">data = pd.DataFrame(mydata)</span><br><span class="line"><span class="built_in">print</span>(data.describe())</span><br><span class="line">data.index.name = <span class="string">&quot;Nations&quot;</span></span><br><span class="line">data.columns = [<span class="string">&quot;Nations&quot;</span>, <span class="string">&quot;Returns&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(data.head())</span><br><span class="line">returns = data.Returns</span><br><span class="line">fanwei = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">5</span>, <span class="number">11</span>, <span class="number">1</span>))</span><br><span class="line">fenzu = pd.cut(returns.values, fanwei, right = <span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(fenzu.codes)</span><br><span class="line"><span class="built_in">print</span>(fenzu.categories)</span><br><span class="line">pinshu = fenzu.value_counts()</span><br><span class="line"><span class="built_in">print</span>(pinshu.index)</span><br><span class="line">qujian = pd.cut(returns, fanwei, right=<span class="literal">False</span>)</span><br><span class="line">data[<span class="string">&quot;区间&quot;</span>] = qujian.values</span><br><span class="line">data.groupby(<span class="string">&quot;区间&quot;</span>).median()</span><br><span class="line">data.groupby(<span class="string">&quot;区间&quot;</span>).mean()</span><br><span class="line">pinshu_df = pd.DataFrame(pinshu, columns = [<span class="string">&quot;频数&quot;</span>])</span><br><span class="line">pinshu_df[<span class="string">&quot;频率f&quot;</span>] = pinshu_df/pinshu_df[<span class="string">&quot;频数&quot;</span>].<span class="built_in">sum</span>()</span><br><span class="line">pinshu_df[<span class="string">&quot;频率%&quot;</span>] = pinshu_df[<span class="string">&quot;频率f&quot;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x: <span class="string">&quot;%.2f%%&quot;</span>%(x*<span class="number">100</span>))</span><br><span class="line">pinshu_df[<span class="string">&quot;累计频率f&quot;</span>] = pinshu_df[<span class="string">&quot;频率f&quot;</span>].cumsum()</span><br><span class="line">pinshu_df[<span class="string">&quot;累计频率%&quot;</span>] = pinshu_df[<span class="string">&quot;累计频率f&quot;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x:<span class="string">&quot;%.4f%%&quot;</span>%(x*<span class="number">100</span>))</span><br><span class="line"><span class="built_in">print</span>(pinshu_df)</span><br></pre></td></tr></table></figure>
+<p>结果<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/02.png"><br>用图形来呈现数据<br>直方图、频率曲线和累积频率曲线。<br>衡量集中趋势<br>算术均数=数据总和/总体或样本总数。<br>算术均数的性质，所有数与均数只差的总和为0。<br>中位数:位于中间位置的数。对比平均数，其优势是极端值不会影响中位数。<br>众数(the mode):出现频率最高的数。如果没有两个数是相同的，则没有众数。但有的区间内的数据个数可能比其它区间多，叫众区间(mode interval)。<br>加权平均数:考虑数据权重的平均数。<br>几何平均数：最常用于随时间变化的平均率或计算变量的增长率。在投资中常用于计算一个收益率的时间序列。或收入、销售量等金融变量的增长率。<br>一个例子：股票购买价格是100元，一年后，股票的交易价格是200元。第二年末，股票的价格又跌到100元。没有股息。计算算术年收益率和几何年收益率。<br>第一年的收益率：200/100 - 1 = 100%<br>第二年的收益率：100/200 - 1 = -50%<br>算术年化收益率：(100%-50%)/2 = 25%<br>几何年化收益率：要先把收益率转换成(1+Rt）的形式，然后计算得到:sqrt(2.0×0.50) - 1 = 0。<br>因此几何年化收益率更能反映真实收益情况。<br>调和平均数(harmonic mean)：用得较少。<br>其它描述位置的方法：分位数。包括四分位数、五分位数、十分位数、百分位数等。<br>测量离散度<br>测量绝对离散度（absolute dispersion，不借助任何参考点的变量的离散程度）的指标：范围、均差(mean absolute deviation)、方差、标准差。<br>范围 = 最大值-最小值<br>均差 = 每个变量取值与算术均值的查的绝对值的算术均值。<br>总体方差=每个值与总体均值的差的平方的算术均值。<br>总体标准差=总体方差开平方。<br>样本方差和标准差：计算算术均值的时候用(n-1)代替n。<br>半方差和半标准差：计算的时候只考虑小于总体/样本均值的值。<br>切比雪夫不等式(Chebyshev’s Inequality)：任意一个数据集中，位于其平均数m个标准差范围内的比例（或部分）总是至少为1-1/m^2，k&gt;1。<br>对于m=2,3,5有如下结果：<br>所有数据中，至少有3/4的数据位于平均数2个标准差范围内。至少有8/9的数据位于平均数3个标准差范围内，至少有24/25的数据位于平均数5个标准差范围内。(这段抄百度百科了）<br>度量相对离散程度(有一个参考点)<br>变异系数（Coefficient of Variation）= 样本标准差/样本平均数<br>收益的对称(symmetry）和不对称(skewness）分布。最重要的对称分布是正态分布，其平均值和中位数相等，能由两个参数——均值和方差——完全描述，大约有68的数据在正负一个标准差的范围内，95%的数据在正负两个标准差范围内，99%的数据在正负三个标准差范围内。不是对称分布的称为非对称分布，正的非对称分布意味着损失较小并有额外收益。衡量偏离程度用偏度(skewness)。<br>峰度（KURTOSIS）表征概率密度分布曲线在平均值处峰值高低的特征数。直观看来，峰度反映了峰部的尖度。峰度高就意味着方差增大是由低频度的大于或小于平均值的极端差值引起的。（这段也是抄自百度百科）具体计算略了。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/03.png"></p>
+<p>Reading 8概率论概念(probability concepts)<br>随机变量:取值不确定的变量。<br>事件:一组特别的结果。<br>概率:代表某组事件发生的可能性的数字，取值范围[0，1]。一组互斥不相容的事件的概率之和为1。<br>概率分为经验概率(empirical probability),主观概率(subjective probability),先验概率(priori probability)。先验概率和经验概率又称客观概率。概率又可分为非条件概率和条件概率。<br>联合概率:多个事件同时发生的概率。<br>条件概率公式: P(A|B) = P(AB)/P(B)<br>概率乘法公式:P(AB) = P(A|B)P(B)<br>概率加法公式:P(A or B) = P(A) + P(B) – P(AB)<br>独立事件的定义:P(A|B)=P(A)<br>独立事件乘法公式:P(AB)=P(A)P(B)<br>全概率公式: P(A)=P(A|B1)P(B1) + P(A|B2)P(B2) + … + P(A|Bn)P(Bn)。B1,B2,…Bn为完备事件组。(抄百度百科)<br>随机变量的期望值:随机变量以概率值为权重的加权平均数。<br>随机变量的方差=E{[X-E(X)]^2}<br>投资组合的期望收益和收益的方差<br>设想一个投资组合，标普500指数基金50%，预期收益13%;美国长期国债25%，预期收益6%;全球市场基金25%，预期收益15%。<br>投资组合的期望收益为:0.5×0.13+0.25×0.06+0.25×0.15=11.75%<br>两个随机变量Ri和Rj的协方差(Covariance)为<br>Cov(Ri, Rj) = E[(Ri-ERi)(Rj-ERj)]<br>可以用样本历史数据来估计，公式略。<br>随机变量的方差=ΣiΣjwiwjCov(Ri, Rj)<br>对于一个随机变量自身，Cov(R,R) = R的方差。<br>计算上述投资组合的协方差矩阵为:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/04.png"><br>据此可以计算随机变量的方差。进而求出组合的标准差为14%。当几个投资品相关性越小时，组合的收益方差也越小，而预期收益保持不变。这就是投资组合理论的关键。<br>Ri,Rj的相关系数ρ(Ri,Rj) = Cov(Ri,Rj)/[σ(Ri)σ(Rj)]<br>上述投资组合的相关系数矩阵<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/05.png"><br>相关系数取值在[-1,1]，0表示完全没关系，-1为完全负相关，1为完全正相关。<br>可以用散点图绘出变量之间的关系。<br>局限:两个变量可能有很强的非线性关系，但相关系数非常低。<br>贝叶斯公式<br>是我们遇到新信息时调整自己观点的理性方法。贝叶斯公式来自于全概率公式。给定一组我们关心的事件的先验概率。如果遇到新的信息，按照下述公式更新关于该事件的概率=(给定事件的新信息的概率/新信息的非条件概率)×事件的先验概率<br>P(事件|信息) = [P(信息|事件)/P(信息)]×P(事件)<br>更新后的概率称为后验概率。<br>计数原理<br>乘法原理:分步，每步的做法总数相乘。<br>加法原理:分类，每类的做法相加。<br>排列组合。从个元素中选出k个，组合顺序不重要。排列顺序很重要。<br>nCr = n!/[(n-r)!r!]<br>nPr = n!/(n-r)!<br>选择计数方法要考虑的问题:<br>①要解决的问题需要有有限的结果。<br>②是否需要考虑所有n个元素?是的话用阶乘。<br>③是否需要分步解决?是的话用乘法原理。<br>④是否需要从n个元素中选出r个，且顺序不重要。是的话用组合公式。<br>⑤是否需要从n个元素中选出r个，且顺序很重要。是的话用排列公式。<br>⑥能否使用计数的乘法原理?如果不能，可能只能一个一个数，或使用更高级的工具了。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/42/06.png"></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/CFA/" rel="tag"># CFA</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/09/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B062%E2%80%94%E2%80%94%E9%80%9A%E8%BF%87%E9%97%AE%E9%A2%98%E5%AD%A6%E7%AE%97%E6%B3%95%EF%BC%9A14%E6%95%B0%E7%8B%AC%E6%B8%B8%E6%88%8F-You-Won-t-Want-to-Play-Sudoku-Again/" rel="next" title="量化投资学习笔记62——通过问题学算法：14数独游戏(You Won't Want to Play Sudoku Again)">
+                <i class="fa fa-chevron-left"></i> 量化投资学习笔记62——通过问题学算法：14数独游戏(You Won't Want to Play Sudoku Again)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/13/%E4%B8%80%E8%B5%B7%E6%9D%A5%E7%94%BB%E7%89%9904/" rel="prev" title="一起来画牙04">
+                一起来画牙04 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Mi8xNzU4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">616</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">597</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1376.7k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1275447216&web_id=1275447216" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="量化投资,pyalgotrade,策略实现,R-Breaker," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="有位网友让我用python实现R-Breaker策略，搜了一下:这个策略荣登《Futures Truth Magazine》Top10最赚钱策略15年，但都是在2010年以前，现在怎么样不得而知。其基本原理为:根据前一交易日的收盘价、最高价和最低价数据计算出六个价位，从大到小依次为：突破买入价、观察卖出价、反转卖出价、反转买入、观察买入价、突破卖出价。先根据三个数据计算枢轴点，即三个数据的平均值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记58——Python实现R-Breaker策略">
+<meta property="og:url" content="https://zwdnet.github.io/2020/06/01/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B058%E2%80%94%E2%80%94Python%E5%AE%9E%E7%8E%B0R-Breaker%E7%AD%96%E7%95%A5/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="有位网友让我用python实现R-Breaker策略，搜了一下:这个策略荣登《Futures Truth Magazine》Top10最赚钱策略15年，但都是在2010年以前，现在怎么样不得而知。其基本原理为:根据前一交易日的收盘价、最高价和最低价数据计算出六个价位，从大到小依次为：突破买入价、观察卖出价、反转卖出价、反转买入、观察买入价、突破卖出价。先根据三个数据计算枢轴点，即三个数据的平均值。">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2020-06-01T05:13:09.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.057Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="pyalgotrade">
+<meta property="article:tag" content="策略实现">
+<meta property="article:tag" content="R-Breaker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2020/06/01/量化投资学习笔记58——Python实现R-Breaker策略/"/>
+
+
+
+
+
+  <title>量化投资学习笔记58——Python实现R-Breaker策略 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2020/06/01/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B058%E2%80%94%E2%80%94Python%E5%AE%9E%E7%8E%B0R-Breaker%E7%AD%96%E7%95%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记58——Python实现R-Breaker策略</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-01T13:13:09+08:00">
+                2020-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>有位网友让我用python实现R-Breaker策略，搜了一下:<br>这个策略荣登《Futures Truth Magazine》Top10最赚钱策略15年，但都是在2010年以前，现在怎么样不得而知。<br>其基本原理为:根据前一交易日的收盘价、最高价和最低价数据计算出六个价位，从大到小依次为：突破买入价、观察卖出价、反转卖出价、反转买入、观察买入价、突破卖出价。<br>先根据三个数据计算枢轴点，即三个数据的平均值。<br>pivot = (high+low+close)/3<br>再计算六个价位:<br>突破买入价<br>bBreak = high+2*(pivot-low)<br>观察卖出价<br>sSetup = pivot+(high-low)<br>反转卖出价<br>sEnter = 2<em>pivot-low<br>反转买入价<br>bEnter = 2</em>pivot-high<br>观察买入价<br>bSetup = pivot-(high-low)<br>突破卖出价<br>sBreak = low-2*(high-pivot)<br>追踪盘中价格走势，实时判断触发条件:<br>1.突破<br>空仓条件下，价格突破买入价，买入(期货是做多)。<br>空仓条件下，价格突破卖出价，不操作(期货是做空)。<br>2.反转<br>满仓(期货为持多单)，当日内最高价超过观察卖出价后，盘中价格出现回落，且进一步跌破反转卖出价构成的支撑线时，卖出(期货为反手做空)。<br>持空单的略了。<br>开始干活，先用tushare获取数据，最小间隔是5分钟。而pyalgotrade默认的数据源格式的数据（雅虎金融，谷歌金融等4个）都只支持日线和周线数据。只能有更初级的GenericBarFeed,又参照网上资料试了半天。终于能让pyalgotrade跑起来了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="comment"># 获取数据并转换成pyalgotrade接受的格式</span></span><br><span class="line"><span class="comment"># 参考https://blog.csdn.net/lawme/article/details/51495349</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tushare <span class="keyword">as</span> ts</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyalgotrade.bar <span class="keyword">import</span> Frequency</span><br><span class="line"><span class="keyword">from</span> pyalgotrade.barfeed.csvfeed <span class="keyword">import</span> GenericBarFeed</span><br><span class="line"><span class="keyword">from</span> pyalgotrade.feed <span class="keyword">import</span> csvfeed</span><br><span class="line"><span class="keyword">from</span> pyalgotrade <span class="keyword">import</span> strategy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">downloadData</span>(<span class="params">code</span>):</span></span><br><span class="line">    data = ts.get_k_data(code, <span class="string">&quot;2019-01-01&quot;</span>, <span class="string">&quot;2019-12-31&quot;</span>, ktype=<span class="string">&quot;5&quot;</span>)</span><br><span class="line">    <span class="comment">#print(data.head())</span></span><br><span class="line"><span class="comment">#    print(data.info())</span></span><br><span class="line">    data.to_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line">    df = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line">    df2 = pd.DataFrame(&#123;<span class="string">&#x27;Date Time&#x27;</span> : df[<span class="string">&#x27;date&#x27;</span>], <span class="string">&#x27;Open&#x27;</span> : df[<span class="string">&#x27;open&#x27;</span>], <span class="string">&#x27;High&#x27;</span> : df[<span class="string">&#x27;high&#x27;</span>],<span class="string">&#x27;Close&#x27;</span> : df[<span class="string">&#x27;close&#x27;</span>], <span class="string">&#x27;Low&#x27;</span> : df[<span class="string">&#x27;low&#x27;</span>],<span class="string">&#x27;Volume&#x27;</span> : df[<span class="string">&#x27;volume&#x27;</span>], <span class="string">&#x27;Adj Close&#x27;</span>:df[<span class="string">&#x27;close&#x27;</span>]&#125;)</span><br><span class="line">    <span class="comment"># 调整数据为yahoo格式</span></span><br><span class="line">    dt = df2.pop(<span class="string">&#x27;Date Time&#x27;</span>)</span><br><span class="line">    df2.insert(<span class="number">0</span>,<span class="string">&#x27;Date Time&#x27;</span>,dt)</span><br><span class="line">    o = df2.pop(<span class="string">&#x27;Open&#x27;</span>)</span><br><span class="line">    df2.insert(<span class="number">1</span>,<span class="string">&#x27;Open&#x27;</span>,o)</span><br><span class="line">    h = df2.pop(<span class="string">&#x27;High&#x27;</span>)</span><br><span class="line">    df2.insert(<span class="number">2</span>,<span class="string">&#x27;High&#x27;</span>,h)</span><br><span class="line">    l = df2.pop(<span class="string">&#x27;Low&#x27;</span>)</span><br><span class="line">    df2.insert(<span class="number">3</span>,<span class="string">&#x27;Low&#x27;</span>,l)</span><br><span class="line">    c = df2.pop(<span class="string">&#x27;Close&#x27;</span>)</span><br><span class="line">    df2.insert(<span class="number">4</span>,<span class="string">&#x27;Close&#x27;</span>,c)</span><br><span class="line">    v = df2.pop(<span class="string">&#x27;Volume&#x27;</span>)</span><br><span class="line">    df2.insert(<span class="number">5</span>,<span class="string">&#x27;Volume&#x27;</span>,v)</span><br><span class="line">    <span class="comment"># 新格式数据存盘，不保存索引编号</span></span><br><span class="line">    filename = code+<span class="string">&quot;.csv&quot;</span></span><br><span class="line">    <span class="comment"># print(filename, type(filename))</span></span><br><span class="line">    df2.to_csv(filename, index=<span class="literal">False</span>)</span><br><span class="line">    <span class="comment">#feed = yahoofeed.Feed()</span></span><br><span class="line">    <span class="comment">#feed.addBarsFromCSV(&quot;CB&quot;, filename)</span></span><br><span class="line">    <span class="keyword">return</span> filename</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment"># 从csv文件数据导入为pyalgotrade数据源</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildFeed</span>(<span class="params">code, filename</span>):</span></span><br><span class="line">    feed = GenericBarFeed(Frequency.MINUTE)</span><br><span class="line">    feed.setDateTimeFormat(<span class="string">&quot;%Y-%m-%d %H:%M&quot;</span>)</span><br><span class="line">    feed.addBarsFromCSV(code, filename)</span><br><span class="line">    <span class="comment">#feed = csvfeed.Feed(&quot;Date Time&quot;, &quot;%Y-%m-%d %H:%M&quot;)</span></span><br><span class="line"><span class="comment">#    feed.addValuesFromCSV(filename)</span></span><br><span class="line">    <span class="comment">#for item in feed:</span></span><br><span class="line"><span class="comment">#        print(item[0], len(item), item[1])</span></span><br><span class="line"><span class="comment">#        print(item.getDateTime())</span></span><br><span class="line">    <span class="keyword">return</span> feed</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStrategy</span>(<span class="params">strategy.BacktestingStrategy</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, feed, instrument</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(MyStrategy, self).__init__(feed)</span><br><span class="line">        self.__instrument = instrument</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onBars</span>(<span class="params">self, bars</span>):</span></span><br><span class="line">        bar = bars[self.__instrument]</span><br><span class="line">        self.info(bar.getClose())</span><br><span class="line">        date = bar.getDateTime()</span><br><span class="line">        <span class="built_in">print</span>(date.year, date.month, date.day)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    code = <span class="string">&quot;601988&quot;</span></span><br><span class="line">    filename = downloadData(code)</span><br><span class="line">    <span class="comment"># filename = &quot;testdata.csv&quot;</span></span><br><span class="line">    feed = buildFeed(code, filename)</span><br><span class="line">    myStrategy = MyStrategy(feed, code)</span><br><span class="line">    myStrategy.run()</span><br></pre></td></tr></table></figure>
+<p>数据搞定了就开始写策略了，程序框架参考了本系列第一篇文章的代码，直接复制过来改。<br>这是一个日内策略，要在每次数据变更的时候判断是否到了买入/卖出点。然而判断依据又是根据上一个交易日的最高/最低/收盘价计算的六个指标。于是先建立一个类来处理指标计算，买入卖出点判断等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 策略要计算的指标</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Index</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.__pivot = <span class="number">0.0</span>     <span class="comment"># 枢轴点</span></span><br><span class="line">        self.__bBreak = <span class="number">0.0</span> <span class="comment"># 突破买入价</span></span><br><span class="line">        self.__sSetup = <span class="number">0.0</span> <span class="comment"># 观察卖出价</span></span><br><span class="line">        self.__sEnter = <span class="number">0.0</span>  <span class="comment"># 反转卖出价</span></span><br><span class="line">        self.__bEnter = <span class="number">0.0</span>  <span class="comment"># 反转买入价</span></span><br><span class="line">        self.__bSetup = <span class="number">0.0</span> <span class="comment"># 观察买入价</span></span><br><span class="line">        self.__sBreak = <span class="number">0.0</span> <span class="comment"># 突破卖出价</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">   <span class="comment"># 根据前一日最高价，最低价，收盘价更新指标</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">updata</span>(<span class="params">self, high, low, close</span>):</span></span><br><span class="line">        self.__pivot = (high+low+close)/<span class="number">3.0</span></span><br><span class="line">        self.__bBreak = high+<span class="number">2.0</span>*(self.__pivot-low)</span><br><span class="line">        self.__sSetup = self.__pivot+(high-low)</span><br><span class="line">        self.__sEnter = <span class="number">2</span>*self.__pivot-low</span><br><span class="line">        self.__bEnter = <span class="number">2</span>*self.__pivot-high</span><br><span class="line">        self.__bSetup = self.__pivot-(high-low)</span><br><span class="line">        self.__sBreak = low-<span class="number">2</span>*(high-self.__pivot)</span><br><span class="line">       </span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 返回所有指标</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIndex</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> (self.__bBreak, self.__sSetup, self.__sEnter, self.__bEnter, self.__bSetup, self.__sBreak)</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 根据当前的价格，判断是否操作</span></span><br><span class="line">    <span class="comment"># 返回值，0-不操作，1-全仓买入，2-全仓卖出</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">judge</span>(<span class="params">self, high, low, close, share, price</span>):</span></span><br><span class="line">        <span class="comment"># 空仓且价格超过突破买入价，全仓买入</span></span><br><span class="line">        <span class="keyword">if</span> share == <span class="number">0</span> <span class="keyword">and</span> price &gt; self.__bBreak:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="comment"># 满仓，日内最高价超过观察卖出价后，盘中价格回落跌破反转卖出价，清仓。</span></span><br><span class="line">        <span class="keyword">if</span> share != <span class="number">0</span> <span class="keyword">and</span> high &gt; self.__sSetup <span class="keyword">and</span> price &lt; self.__sEnter:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">        <span class="comment"># 其它情况，不操作</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>而在pyalgotrade的策略类中，在onBar函数里每次更新数据都检查是否是下一个交易日了，如果是下一个交易日，就调用上面的updata函数重新计算六个指标。然后每次都判断是否到达买入卖出点，到达即全仓买入/卖出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 策略类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStrategy</span>(<span class="params">strategy.BacktestingStrategy</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, feed, instrument, brk</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(feed, brk)</span><br><span class="line">        self.__position = <span class="literal">None</span></span><br><span class="line">        self.__instrument = instrument</span><br><span class="line">        self.getBroker()</span><br><span class="line">        self.__cost = <span class="number">0.0</span></span><br><span class="line">        <span class="comment"># 记录当前的日期</span></span><br><span class="line">        self.__year = <span class="number">0</span></span><br><span class="line">        self.__month = <span class="number">0</span></span><br><span class="line">        self.__day = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 策略的指标，每天更新</span></span><br><span class="line">        self.__index = Index()</span><br><span class="line">        <span class="comment"># 每天的最高价，最低价，收盘价</span></span><br><span class="line">        self.__high = <span class="number">0</span></span><br><span class="line">        self.__low = <span class="number">100000000</span></span><br><span class="line">        self.__close = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onEnterOk</span>(<span class="params">self, position</span>):</span></span><br><span class="line">        execInfo = position.getEntryOrder().getExecutionInfo()</span><br><span class="line">        <span class="comment"># self.info(&quot;买入 %.2f&quot; % (execInfo.getPrice()))</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onEnterCanceled</span>(<span class="params">self, position</span>):</span></span><br><span class="line">        self.__position = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onExitOk</span>(<span class="params">self, position</span>):</span></span><br><span class="line">        execInfo = position.getExitOrder().getExecutionInfo()</span><br><span class="line">        self.info(<span class="string">&quot;卖出 %.2f&quot;</span> % (execInfo.getPrice()))</span><br><span class="line">        self.__position = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onExitCanceled</span>(<span class="params">self, position</span>):</span></span><br><span class="line">        <span class="comment"># If the exit was canceled, re-submit it.</span></span><br><span class="line">        self.__position.exitMarket()</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 日期改变，重新计算那六个指标</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">updateData</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.__index.updata(self.__high, self.__low, self.__close)</span><br><span class="line">        self.__high = <span class="number">0</span></span><br><span class="line">        self.__low = <span class="number">100000000</span></span><br><span class="line">        self.__close = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onBars</span>(<span class="params">self, bars</span>):</span></span><br><span class="line">        brk = self.getBroker()</span><br><span class="line">        bar = bars[self.__instrument]</span><br><span class="line">        <span class="comment"># 先判断是否是新的交易日，是则更新指标</span></span><br><span class="line">        date = bar.getDateTime()</span><br><span class="line">        year = date.year</span><br><span class="line">        month = date.month</span><br><span class="line">        day = date.day</span><br><span class="line">        <span class="built_in">print</span>(date, self.__high, self.__low, self.__close)</span><br><span class="line">        <span class="keyword">if</span> self.__year != year <span class="keyword">or</span> self.__month != month <span class="keyword">or</span> self.__day != day:</span><br><span class="line">            self.__year = year</span><br><span class="line">            self.__month = month</span><br><span class="line">            self.__day = day</span><br><span class="line">            self.updateData()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            price = bars[self.__instrument].getPrice()</span><br><span class="line">            <span class="keyword">if</span> price &gt; self.__high:</span><br><span class="line">                self.__high = price</span><br><span class="line">            <span class="keyword">if</span> price &lt; self.__low:</span><br><span class="line">                self.__low = price</span><br><span class="line">            self.__close = price</span><br><span class="line">        share = brk.getShares(self.__instrument)</span><br><span class="line">        price = bars[self.__instrument].getPrice()</span><br><span class="line">        tradeCode = self.__index.judge(self.__high, self.__low, self.__close, share, price)</span><br><span class="line">        <span class="keyword">if</span> tradeCode == <span class="number">1</span>:</span><br><span class="line">            <span class="comment"># 全仓买入</span></span><br><span class="line">            <span class="keyword">if</span> shares != <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>: <span class="comment">#这里全仓买入</span></span><br><span class="line">                cash = brk.getCash()</span><br><span class="line">                shares = cash/price</span><br><span class="line">                shares = (shares//<span class="number">100</span>)*<span class="number">100</span></span><br><span class="line">                self.__position = self.enterLong(self.__instrument, shares, <span class="literal">True</span>)</span><br><span class="line">                self.__cost += brk.getCommission().calculate(brk, price, shares)</span><br><span class="line">        <span class="keyword">elif</span> tradeCode == <span class="number">2</span>:</span><br><span class="line">            <span class="comment"># 全仓卖出</span></span><br><span class="line">            <span class="keyword">if</span> share == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>: <span class="comment">#这里全仓卖出</span></span><br><span class="line">                self.__position.exitMarket()</span><br><span class="line">                self.__cost += brk.getCommission().calculate(brk, price, shares)</span><br></pre></td></tr></table></figure>
+<p>其它代码不再赘述，可以看<a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/tree/master/45">https://github.com/zwdnet/MyQuant/tree/master/45</a></p>
+<p>参考:<br>1.<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/81793766">https://zhuanlan.zhihu.com/p/81793766</a></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/pyalgotrade/" rel="tag"># pyalgotrade</a>
+          
+            <a href="/tags/%E7%AD%96%E7%95%A5%E5%AE%9E%E7%8E%B0/" rel="tag"># 策略实现</a>
+          
+            <a href="/tags/R-Breaker/" rel="tag"># R-Breaker</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/01/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B057%E2%80%94%E2%80%94%E9%80%9A%E8%BF%87%E9%97%AE%E9%A2%98%E5%AD%A6%E7%AE%97%E6%B3%9511-%E8%AF%B7%E7%BB%99%E9%99%A2%E5%AD%90%E9%93%BA%E7%93%B7%E7%A0%96%EF%BC%88Tile-That-Courtyard-Please%EF%BC%89/" rel="next" title="量化投资学习笔记57——通过问题学算法11:请给院子铺瓷砖（Tile That Courtyard, Please）">
+                <i class="fa fa-chevron-left"></i> 量化投资学习笔记57——通过问题学算法11:请给院子铺瓷砖（Tile That Courtyard, Please）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/02/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B059%E2%80%94%E2%80%94%E9%80%9A%E8%BF%87%E9%97%AE%E9%A2%98%E5%AD%A6%E7%AE%97%E6%B3%9512-%E6%B1%89%E8%AF%BA%E5%A1%94%EF%BC%88The-Towers-of-Brahma-with-a-Twist%EF%BC%89/" rel="prev" title="量化投资学习笔记59——通过问题学算法12:汉诺塔（The Towers of Brahma with a Twist）">
+                量化投资学习笔记59——通过问题学算法12:汉诺塔（The Towers of Brahma with a Twist） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Mi8xNzU4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">616</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">597</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1376.7k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1275447216&web_id=1275447216" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

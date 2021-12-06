@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ETF,投资理财,定投,Python,模拟交易," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="之前写的模拟交易程序，把整个过程放到一个函数里，好几百行，全是if else，导致有问题我也很难找出来。现在打算重写。看了一些网上的资料和开源框架，模拟交易主要有for循环模式和事件驱动模式两种方式，前者速度较快，实现简单，但移植到实盘交易系统里需要重新修改很多。后者速度慢，实现复杂，但可以很方便的用于实盘交易。由于我不是搞高频交易，只是研究，就用for循环模式吧。画了个流程图。从图里可以分出这么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ETF定投数据分析7——模拟交易系统开发">
+<meta property="og:url" content="https://zwdnet.github.io/2019/03/19/ETF%E5%AE%9A%E6%8A%95%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%907%E2%80%94%E2%80%94%E6%A8%A1%E6%8B%9F%E4%BA%A4%E6%98%93%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="之前写的模拟交易程序，把整个过程放到一个函数里，好几百行，全是if else，导致有问题我也很难找出来。现在打算重写。看了一些网上的资料和开源框架，模拟交易主要有for循环模式和事件驱动模式两种方式，前者速度较快，实现简单，但移植到实盘交易系统里需要重新修改很多。后者速度慢，实现复杂，但可以很方便的用于实盘交易。由于我不是搞高频交易，只是研究，就用for循环模式吧。画了个流程图。从图里可以分出这么">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/01.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/02.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/03.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/04.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/05.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/06.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2019-03-19T05:10:11.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.017Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="ETF">
+<meta property="article:tag" content="投资理财">
+<meta property="article:tag" content="定投">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="模拟交易">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2019/03/19/ETF定投数据分析7——模拟交易系统开发/"/>
+
+
+
+
+
+  <title>ETF定投数据分析7——模拟交易系统开发 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2019/03/19/ETF%E5%AE%9A%E6%8A%95%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%907%E2%80%94%E2%80%94%E6%A8%A1%E6%8B%9F%E4%BA%A4%E6%98%93%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ETF定投数据分析7——模拟交易系统开发</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T13:10:11+08:00">
+                2019-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前写的模拟交易程序，把整个过程放到一个函数里，好几百行，全是if else，导致有问题我也很难找出来。现在打算重写。看了一些网上的资料和开源框架，模拟交易主要有for循环模式和事件驱动模式两种方式，前者速度较快，实现简单，但移植到实盘交易系统里需要重新修改很多。后者速度慢，实现复杂，但可以很方便的用于实盘交易。由于我不是搞高频交易，只是研究，就用for循环模式吧。画了个流程图。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/01.png"><br>从图里可以分出这么几个模块：市值计算模块，止盈判断模块，止盈操作模块，退出止盈模块，正常交易模块，数据更新模块，计算回测数据模块。其中会变动的主要是止盈判断，止盈操作，退出止盈模块，其它的变动较小。写一个类吧。<br>新建了一个simulate分支，建立模拟程序框架。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># 模拟交易程序</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">simulate</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, totalTimes</span>):</span></span><br><span class="line">        self.tradeTimes = <span class="number">0</span>  <span class="comment">#已经交易次数</span></span><br><span class="line">        self.totalTimes = totalTimes</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 计算持仓股票市值</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getValue</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 判断是否进行止盈操作</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isStopProfit</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 进行止盈操作</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">doStopProfit</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 进行交易</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">doTrade</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 判断是否需要重新购买</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isReturnBuy</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 用止盈的钱重新购买etf</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">doReturnBuy</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 更新相关数据</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">updateData</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">       </span><br><span class="line">    <span class="comment">#计算回测指标</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIndex</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 执行交易循环</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">while</span> self.tradeTimes &lt; self.totalTimes:</span><br><span class="line">            self.getValue()</span><br><span class="line">            <span class="keyword">if</span> self.isStopProfit():</span><br><span class="line">                self.doStopProfit()</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> self.isReturnBuy():</span><br><span class="line">                    self.doReturnBuy()</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    self.doTrade()</span><br><span class="line">            self.updateData()</span><br><span class="line">            self.tradeTimes += <span class="number">1</span></span><br><span class="line">        self.getIndex()</span><br><span class="line">           </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    test = simulate(<span class="number">10</span>)</span><br><span class="line">    test.run()</span><br></pre></td></tr></table></figure>
+<p>现在就往里面填东西吧。<br>先把不带止盈操作的交易程序给写出来，然后画收益率的图看看。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/02.png"><br>跟之前的差不多了，接下来就是难点，进行止盈操作，和回测数据计算了。<br>距离上次发博文过了很长时间，一方面是我去参加华南口腔展，另一方面是我被卡主了，程序老也调不对。我还在知乎上提问，有大神建议我不要用收益率做止盈止损指标，用股价做指标比较好。又大改程序，主要是止盈和停止止盈的程序，以及计算收益率等数据的程序。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/03.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行交易循环</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">for</span> days <span class="keyword">in</span> <span class="built_in">range</span>(self.totalTimes):</span><br><span class="line">            <span class="keyword">if</span> days % self.freq == <span class="number">0</span>: <span class="comment">#进行交易</span></span><br><span class="line">                self.doTrade(days)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">for</span> code <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">                    self.update(code, days)</span><br><span class="line">            <span class="comment"># print(&quot;位置a&quot;, days, self.value[0][days], self.cost[0][days], self.rate[0][days], self.value[1][days], self.cost[1][days], self.rate[1][days], self.totalrate[days])</span></span><br><span class="line">            <span class="keyword">if</span> days == <span class="number">0</span>:</span><br><span class="line">                self.minPrice[<span class="number">0</span>] = self.data[<span class="number">0</span>][<span class="string">&quot;close&quot;</span>][<span class="number">0</span>]</span><br><span class="line">                self.minPrice[<span class="number">1</span>] = self.data[<span class="number">1</span>][<span class="string">&quot;close&quot;</span>][<span class="number">0</span>]</span><br><span class="line">                self.maxPrice[<span class="number">0</span>] = self.data[<span class="number">0</span>][<span class="string">&quot;close&quot;</span>][<span class="number">0</span>]</span><br><span class="line">                self.maxPrice[<span class="number">1</span>] = self.data[<span class="number">1</span>][<span class="string">&quot;close&quot;</span>][<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">for</span> code <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">                    <span class="keyword">if</span> self.isStopProfit(code, days):</span><br><span class="line">                        self.doStopProfit(code, days)</span><br><span class="line">                        <span class="comment"># print(code, days, &quot;止盈&quot;)</span></span><br><span class="line">                        <span class="comment"># print(code, days, self.cost[code][days-1], self.value[code][days-1], self.cost[code][days], self.value[code][days])</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> code <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">                <span class="keyword">if</span> self.isReturnBuy(code, days):</span><br><span class="line">                    self.doReturnBuy(code, days)</span><br><span class="line">                    <span class="comment"># print(code, days, &quot;停止止盈&quot;)</span></span><br><span class="line">                    <span class="comment"># print(code, days, self.cost[code][days-1], self.value[code][days-1], self.cost[code][days], self.value[code][days])</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># # 止盈后更新数据</span></span><br><span class="line">            <span class="comment"># for code in range(2):</span></span><br><span class="line">            <span class="comment">#     self.cutUpdate(code, days)</span></span><br><span class="line">            self.combine(days)</span><br><span class="line">            <span class="comment"># print(&quot;位置b&quot;, days, self.value[0][days], self.cost[0][days], self.rate[0][days], self.value[1][days], self.cost[1][days], self.rate[1][days], self.totalrate[days])</span></span><br><span class="line">            self.tradeTimes += <span class="number">1</span></span><br><span class="line">            <span class="comment"># print(days, self.totalcost[days], self.totalvalue[days], self.totalrate[days])</span></span><br><span class="line">        self.getIndex()</span><br><span class="line">        <span class="comment"># 作图测试</span></span><br><span class="line">        plt.figure()</span><br><span class="line">        plt.plot(self.rate[<span class="number">0</span>], label = <span class="string">&quot;300etf&quot;</span>, linestyle = <span class="string">&quot;-&quot;</span>)</span><br><span class="line">        plt.plot(self.data[<span class="number">0</span>][<span class="string">&quot;close&quot;</span>]/self.data[<span class="number">0</span>][<span class="string">&quot;close&quot;</span>][<span class="number">0</span>]-<span class="number">1.0</span>, label = <span class="string">&quot;300&quot;</span>, linestyle = <span class="string">&quot;-.&quot;</span>)</span><br><span class="line">        plt.legend(loc=<span class="string">&quot;best&quot;</span>)</span><br><span class="line">        <span class="comment"># plt.show()</span></span><br><span class="line">        plt.savefig(<span class="string">&quot;simulate_01.png&quot;</span>)</span><br><span class="line">        plt.figure()</span><br><span class="line">        plt.plot(self.rate[<span class="number">1</span>], label = <span class="string">&quot;nasetf&quot;</span>, linestyle = <span class="string">&quot;--&quot;</span>)</span><br><span class="line">        plt.plot(self.data[<span class="number">1</span>][<span class="string">&quot;close&quot;</span>]/self.data[<span class="number">1</span>][<span class="string">&quot;close&quot;</span>][<span class="number">0</span>]-<span class="number">1.0</span>, label = <span class="string">&quot;nas&quot;</span>, linestyle = <span class="string">&quot;:&quot;</span>)</span><br><span class="line">        plt.legend(loc=<span class="string">&quot;best&quot;</span>)</span><br><span class="line">        <span class="comment"># plt.show()</span></span><br><span class="line">        plt.savefig(<span class="string">&quot;simulate_02.png&quot;</span>)</span><br><span class="line">        plt.figure()</span><br><span class="line">        plt.plot(self.data[<span class="number">0</span>][<span class="string">&quot;close&quot;</span>]/self.data[<span class="number">0</span>][<span class="string">&quot;close&quot;</span>][<span class="number">0</span>]-<span class="number">1.0</span>, label = <span class="string">&quot;300&quot;</span>, linestyle = <span class="string">&quot;-.&quot;</span>)</span><br><span class="line">        plt.plot(self.data[<span class="number">1</span>][<span class="string">&quot;close&quot;</span>]/self.data[<span class="number">1</span>][<span class="string">&quot;close&quot;</span>][<span class="number">0</span>]-<span class="number">1.0</span>, label = <span class="string">&quot;nas&quot;</span>, linestyle = <span class="string">&quot;:&quot;</span>)</span><br><span class="line">        plt.plot(self.totalrate, label = <span class="string">&quot;total&quot;</span>)</span><br><span class="line">        plt.legend(loc=<span class="string">&quot;best&quot;</span>)</span><br><span class="line">        <span class="comment"># plt.show()</span></span><br><span class="line">        plt.savefig(<span class="string">&quot;simulate_03.png&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        plt.figure()</span><br><span class="line">        </span><br><span class="line">        plt.plot(self.value[<span class="number">0</span>], label = <span class="string">&quot;300value&quot;</span>)</span><br><span class="line">        plt.plot(self.cost[<span class="number">0</span>], label = <span class="string">&quot;300cost&quot;</span>)</span><br><span class="line">        plt.legend(loc = <span class="string">&quot;best&quot;</span>)</span><br><span class="line">        plt.savefig(<span class="string">&quot;debug1.png&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        plt.figure()</span><br><span class="line">        </span><br><span class="line">        plt.plot(self.value[<span class="number">1</span>], label = <span class="string">&quot;nasvalue&quot;</span>)</span><br><span class="line">        plt.plot(self.cost[<span class="number">1</span>], label = <span class="string">&quot;nascost&quot;</span>)</span><br><span class="line">        plt.legend(loc = <span class="string">&quot;best&quot;</span>)</span><br><span class="line">        plt.savefig(<span class="string">&quot;debug2.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>先说下我止盈和停止止盈的策略:当股价从最高点下跌10%，卖出存量股票的一半，再下跌10%，再卖剩下的一半，直到股票数量不足一手的时候停止。当进行了止盈操作，股价从最低点上涨10%，用之前止盈累计剩下的钱中的一半以现价买入股票，再涨10%，再买一半，直到剩下的钱不够买一手时停止。止盈操作不影响正常按期定投。止盈点和停止止盈点(在上面是10%)可以自行设定。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 判断是否进行止盈操作，根据days前的交易情况，code为0或1</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isStopProfit</span>(<span class="params">self, code, days</span>):</span></span><br><span class="line">        <span class="comment"># return False # 测试用</span></span><br><span class="line">        price = self.data[code][<span class="string">&quot;close&quot;</span>][days]</span><br><span class="line">        <span class="comment"># 没有正在进行止盈</span></span><br><span class="line">        <span class="keyword">if</span> self.bStop[code] == <span class="literal">False</span>:</span><br><span class="line">            <span class="keyword">if</span> self.minPrice[code] &gt; price:</span><br><span class="line">                self.minPrice[code] = price</span><br><span class="line">            <span class="keyword">if</span> self.maxPrice[code] &lt; price:</span><br><span class="line">                self.maxPrice[code] = price</span><br><span class="line">            <span class="comment"># 判断止盈条件</span></span><br><span class="line">            <span class="keyword">if</span> price/self.maxPrice[code] &lt;= <span class="number">1.0</span> - self.stopPoint:</span><br><span class="line">                self.bStop[code] = <span class="literal">True</span></span><br><span class="line">                <span class="comment"># 将最高/低价调整到现价</span></span><br><span class="line">                self.maxPrice[code] = price</span><br><span class="line">                self.minPrice[code] = price</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="comment"># 如果已经进行了止盈</span></span><br><span class="line">        <span class="keyword">if</span> self.bStop[code] == <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">if</span> self.minPrice[code] &gt; price:</span><br><span class="line">                self.minPrice[code] = price</span><br><span class="line">            <span class="comment"># 判断止盈条件</span></span><br><span class="line">            <span class="keyword">if</span> price/self.maxPrice[code] &lt;= <span class="number">1.0</span> - self.stopPoint:</span><br><span class="line">                <span class="comment"># 将最高/低价调整到现价</span></span><br><span class="line">                self.maxPrice[code] = price</span><br><span class="line">                self.minPrice[code] = price</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                </span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 进行止盈操作</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">doStopProfit</span>(<span class="params">self, code, days</span>):</span></span><br><span class="line">        money = self.value[code][days-<span class="number">1</span>]/<span class="number">2.0</span></span><br><span class="line">        num = self.getTradeNumber(money, self.data[code][<span class="string">&quot;close&quot;</span>][days])</span><br><span class="line">        value = num * self.data[code][<span class="string">&quot;close&quot;</span>][days]</span><br><span class="line">        fee = self.getFee(num, self.data[code][<span class="string">&quot;close&quot;</span>][days])</span><br><span class="line">        <span class="comment"># 更新数据</span></span><br><span class="line">        <span class="comment"># 只有股票数量大于一手并且交易金额小于预定金额才做</span></span><br><span class="line">        <span class="keyword">if</span> num &gt; <span class="number">100</span> <span class="keyword">and</span> value + fee &lt;= money:</span><br><span class="line">            <span class="comment"># print(&quot;止盈前&quot;, code, days, self.value[code][days], self.cost[code][days], self.stock[code][days], self.rate[code][days], num, value, fee)</span></span><br><span class="line">            self.money_cut[code] += value - fee</span><br><span class="line">        </span><br><span class="line">            <span class="comment"># print(&quot;a&quot;, code, days, money, num, value, fee)</span></span><br><span class="line">            <span class="comment"># 进行止盈操作</span></span><br><span class="line">            self.stock[code][days] -= num</span><br><span class="line">            self.value[code][days] -= value</span><br><span class="line">            self.fee[code][days] += fee</span><br><span class="line">            self.rate[code][days] = (self.value[code][days] + self.money_cut[code])/ self.cost[code][days] -<span class="number">1.0</span></span><br><span class="line">            <span class="comment">#self.cutValue[code] = value</span></span><br><span class="line"><span class="comment">#            self.cutFee[code] = fee</span></span><br><span class="line">            <span class="comment"># print(self.cost[code])</span></span><br><span class="line">            <span class="comment"># print(self.value[code])</span></span><br><span class="line">            <span class="comment"># print(self.rate[code])</span></span><br><span class="line">            <span class="comment"># print(&quot;止盈后&quot;, code, days, self.value[code][days], self.cost[code][days], self.stock[code][days], self.rate[code][days], num, value, fee)</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.bStop[code] = <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    <span class="comment"># 判断是否需要重新购买</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isReturnBuy</span>(<span class="params">self, code, days</span>):</span></span><br><span class="line">        <span class="comment"># return False #测试用</span></span><br><span class="line">        <span class="comment"># 如果进行了止盈，判断是否停止止盈</span></span><br><span class="line">        <span class="keyword">if</span> self.bStop[code] == <span class="literal">True</span> <span class="keyword">or</span> self.bStart[code] == <span class="literal">True</span>:</span><br><span class="line">            price = self.data[code][<span class="string">&quot;close&quot;</span>][days]</span><br><span class="line">            <span class="keyword">if</span> price/self.minPrice[code] &gt;= <span class="number">1.0</span> + self.startPoint:</span><br><span class="line">                self.bStart[code] = <span class="literal">True</span></span><br><span class="line">                <span class="comment"># 将最高/低价调整到现价</span></span><br><span class="line">                self.maxPrice[code] = price</span><br><span class="line">                self.minPrice[code] = price</span><br><span class="line">                <span class="comment"># 停止止盈</span></span><br><span class="line">                self.bStop[code] = <span class="literal">False</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 用止盈的钱重新购买etf</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">doReturnBuy</span>(<span class="params">self, code, days</span>):</span></span><br><span class="line">        <span class="comment"># 用止盈得到的剩余的钱的一半以现价再投资。</span></span><br><span class="line">        money = self.money_cut[code]/<span class="number">2.0</span></span><br><span class="line">        num = self.getTradeNumber(money, self.data[code][<span class="string">&quot;close&quot;</span>][days])</span><br><span class="line">        value = num * self.data[code][<span class="string">&quot;close&quot;</span>][days]</span><br><span class="line">        fee = self.getFee(num, self.data[code][<span class="string">&quot;close&quot;</span>][days])</span><br><span class="line">        <span class="comment"># print(&quot;止盈&quot;, code, days, money, num, value, fee)</span></span><br><span class="line">        <span class="comment"># 如果可以交易的股票数量低于一手，或者股价+手续费大于预定的金额，则停止交易。</span></span><br><span class="line">        <span class="keyword">if</span> num &lt;= <span class="number">100</span> <span class="keyword">or</span> value + fee &gt; money:</span><br><span class="line">            self.bStart[code] = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment"># 进行交易并更新数据。</span></span><br><span class="line">            <span class="comment"># print(&quot;停止止盈前&quot;, code, days, self.value[code][days], self.cost[code][days], self.stock[code][days], self.rate[code][days], num, value, fee)</span></span><br><span class="line">            self.stock[code][days] += num</span><br><span class="line">            self.value[code][days] += value</span><br><span class="line">            self.fee[code][days] += fee</span><br><span class="line">            self.money_cut[code] -= value+fee</span><br><span class="line">            <span class="comment"># print(&quot;停止止盈后&quot;, code, days, self.value[code][days], self.cost[code][days], self.stock[code][days], self.rate[code][days], num, value, fee)</span></span><br></pre></td></tr></table></figure>
+<p>再看计算收益率，一开始我还是用市值/成本的方法，结果一止盈收益率就急降，后来把计算方法改成(市值+止盈得到的钱-手续费)/成本，看起来就差不多了。但画出图来感觉还是有问题，跟完全不止盈效果也差不多啊。<br>这是单独看两个etf的股价和收益率变化情况。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/04.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/05.png"><br>尤其纳指etf，怎么低那么多？<br>总的收益率<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0112-mnjyxt/06.png"><br>感觉还有问题，再仔细看看。另外可以开始写计算回测指标的程序了。之前写的感觉有问题，打算重来。<br>完整代码：<a target="_blank" rel="noopener" href="https://github.com/zwdnet/etfdata/blob/simulate/simulate.py">https://github.com/zwdnet/etfdata/blob/simulate/simulate.py</a><br>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“好看”。谢谢。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的CSDN博客地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zwdnet">https://blog.csdn.net/zwdnet</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ETF/" rel="tag"># ETF</a>
+          
+            <a href="/tags/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" rel="tag"># 投资理财</a>
+          
+            <a href="/tags/%E5%AE%9A%E6%8A%95/" rel="tag"># 定投</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/%E6%A8%A1%E6%8B%9F%E4%BA%A4%E6%98%93/" rel="tag"># 模拟交易</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/18/MRC%E5%9F%B9%E8%AE%AD%E8%AE%B0%E5%BD%95/" rel="next" title="MRC培训记录">
+                <i class="fa fa-chevron-left"></i> MRC培训记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/21/%E3%80%8A%E5%A4%AA%E7%A9%BA%E6%BC%AB%E6%B8%B8%E5%9B%9B%E9%83%A8%E6%9B%B2%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="prev" title="《太空漫游四部曲》读书笔记">
+                《太空漫游四部曲》读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Mi8xNzU4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">616</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">597</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1376.7k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1275447216&web_id=1275447216" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>
