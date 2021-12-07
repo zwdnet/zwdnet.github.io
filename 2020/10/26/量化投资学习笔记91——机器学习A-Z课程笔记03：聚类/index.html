@@ -91,12 +91,12 @@
 
 
 
-<meta name="description" content="k均值算法。能做什么?对数据分类。两个问题:确定分几个类;确定每个类的元素。流程:①选择要分类的数量k。②随机选择k个点，作为聚类的中心。不一定要在数据集中。③计算数据集中每个点与k个聚类中心的距离，距离最短的聚类中心即为该数据点的分类。形成k个类别。④重新计算每个分类的中心。⑤将每个数据点按新的分类中心进行分类。如果有数据不在原来的分类中，进行步骤④。否则就结束。随机初始中心点陷阱:初始中心点位">
+<meta name="description" content="k均值算法。 能做什么?对数据分类。两个问题:确定分几个类;确定每个类的元素。 流程: ①选择要分类的数量k。 ②随机选择k个点，作为聚类的中心。不一定要在数据集中。 ③计算数据集中每个点与k个聚类中心的距离，距离最短的聚类中心即为该数据点的分类。形成k个类别。 ④重新计算每个分类的中心。 ⑤将每个数据点按新的分类中心进行分类。如果有数据不在原来的分类中，进行步骤④。否则就结束。 随机初始中心点陷">
 <meta property="og:type" content="article">
 <meta property="og:title" content="量化投资学习笔记91——机器学习A-Z课程笔记03：聚类">
 <meta property="og:url" content="https://zwdnet.github.io/2020/10/26/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B091%E2%80%94%E2%80%94%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0A-Z%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B003%EF%BC%9A%E8%81%9A%E7%B1%BB/index.html">
 <meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
-<meta property="og:description" content="k均值算法。能做什么?对数据分类。两个问题:确定分几个类;确定每个类的元素。流程:①选择要分类的数量k。②随机选择k个点，作为聚类的中心。不一定要在数据集中。③计算数据集中每个点与k个聚类中心的距离，距离最短的聚类中心即为该数据点的分类。形成k个类别。④重新计算每个分类的中心。⑤将每个数据点按新的分类中心进行分类。如果有数据不在原来的分类中，进行步骤④。否则就结束。随机初始中心点陷阱:初始中心点位">
+<meta property="og:description" content="k均值算法。 能做什么?对数据分类。两个问题:确定分几个类;确定每个类的元素。 流程: ①选择要分类的数量k。 ②随机选择k个点，作为聚类的中心。不一定要在数据集中。 ③计算数据集中每个点与k个聚类中心的距离，距离最短的聚类中心即为该数据点的分类。形成k个类别。 ④重新计算每个分类的中心。 ⑤将每个数据点按新的分类中心进行分类。如果有数据不在原来的分类中，进行步骤④。否则就结束。 随机初始中心点陷">
 <meta property="og:locale">
 <meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/64/01.png">
 <meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/64/02.png">
@@ -398,10 +398,10 @@
       
 
       
-        <p>k均值算法。<br>能做什么?对数据分类。两个问题:确定分几个类;确定每个类的元素。<br>流程:<br>①选择要分类的数量k。<br>②随机选择k个点，作为聚类的中心。不一定要在数据集中。<br>③计算数据集中每个点与k个聚类中心的距离，距离最短的聚类中心即为该数据点的分类。形成k个类别。<br>④重新计算每个分类的中心。<br>⑤将每个数据点按新的分类中心进行分类。如果有数据不在原来的分类中，进行步骤④。否则就结束。<br>随机初始中心点陷阱:初始中心点位置不同会形成不同的聚类结果。<br>用非随机的方法选择聚类中心。<br>确定最佳分组个数。<br>计算组内平方和，即每组内数据点与聚类中心的距离的平方之和的总和。分组越多，组内平方和越小。<br>手肘法则 the elbow method:最佳的分类个数是组内平方和曲线拐点最剧烈(变化速率变化最大的点)时的分类个数。<br>下面实操，先用数据按分成1-10个聚类画组内平方和图形。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/64/01.png" alt=""><br>可以看到最佳组数为5。<br>进行聚类，并画出各组中心点。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/64/02.png" alt=""><br>关联规则学习<br>略<br>强化学习<br>开始时没有数据，自己不断尝试产生数据并从中学习。<br>实操吧。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/64/03.png" alt=""></p>
-<p>代码：<a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/tree/master/49">https://github.com/zwdnet/MyQuant/tree/master/49</a></p>
-<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
-<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg" alt=""></p>
+        <p>k均值算法。 能做什么?对数据分类。两个问题:确定分几个类;确定每个类的元素。 流程: ①选择要分类的数量k。 ②随机选择k个点，作为聚类的中心。不一定要在数据集中。 ③计算数据集中每个点与k个聚类中心的距离，距离最短的聚类中心即为该数据点的分类。形成k个类别。 ④重新计算每个分类的中心。 ⑤将每个数据点按新的分类中心进行分类。如果有数据不在原来的分类中，进行步骤④。否则就结束。 随机初始中心点陷阱:初始中心点位置不同会形成不同的聚类结果。 用非随机的方法选择聚类中心。 确定最佳分组个数。 计算组内平方和，即每组内数据点与聚类中心的距离的平方之和的总和。分组越多，组内平方和越小。 手肘法则 the elbow method:最佳的分类个数是组内平方和曲线拐点最剧烈(变化速率变化最大的点)时的分类个数。 下面实操，先用数据按分成1-10个聚类画组内平方和图形。 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/64/01.png" /> 可以看到最佳组数为5。 进行聚类，并画出各组中心点。 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/64/02.png" /> 关联规则学习 略 强化学习 开始时没有数据，自己不断尝试产生数据并从中学习。 实操吧。 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/64/03.png" /></p>
+<p>代码：https://github.com/zwdnet/MyQuant/tree/master/49</p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。 我的个人博客地址：https://zwdnet.github.io 我的知乎文章地址： https://www.zhihu.com/people/zhao-you-min/posts 我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg" /></p>
 
       
     </div>
@@ -636,7 +636,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1347.4k</span>
+    <span title="Site words total count">1379.4k</span>
   
 </div>
 

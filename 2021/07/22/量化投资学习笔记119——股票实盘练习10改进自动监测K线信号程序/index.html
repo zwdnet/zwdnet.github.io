@@ -91,12 +91,12 @@
 
 
 
-<meta name="description" content="昨天的文章发出后，知乎的知友@阿志 提醒我可以用APScheduler实现程序定时运行。尝试了一下(参考这里) 周一到周五，交易时段每20分钟监控股票形态一次。真的好棒，谢谢@阿志!再说说实盘，今天没操作，昨天卖掉的福田汽车开盘又涨了。 跑早了……还好昨天入的中国建筑也涨了，只是不多。 目前实盘账户情况 接下来要看技术形态了，就是头肩底头肩顶之类的。想找程序来识别，类似Talib之类的库好像不行。">
+<meta name="description" content="昨天的文章发出后，知乎的知友@阿志 提醒我可以用APScheduler实现程序定时运行。尝试了一下(参考这里)  周一到周五，交易时段每20分钟监控股票形态一次。真的好棒，谢谢@阿志! 再说说实盘，今天没操作，昨天卖掉的福田汽车开盘又涨了。  跑早了……还好昨天入的中国建筑也涨了，只是不多。  目前实盘账户情况  接下来要看技术形态了，就是头肩底头肩顶之类的。想找程序来识别，类似Talib之类的库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="量化投资学习笔记119——股票实盘练习10改进自动监测K线信号程序">
 <meta property="og:url" content="https://zwdnet.github.io/2021/07/22/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0119%E2%80%94%E2%80%94%E8%82%A1%E7%A5%A8%E5%AE%9E%E7%9B%98%E7%BB%83%E4%B9%A010%E6%94%B9%E8%BF%9B%E8%87%AA%E5%8A%A8%E7%9B%91%E6%B5%8BK%E7%BA%BF%E4%BF%A1%E5%8F%B7%E7%A8%8B%E5%BA%8F/index.html">
 <meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
-<meta property="og:description" content="昨天的文章发出后，知乎的知友@阿志 提醒我可以用APScheduler实现程序定时运行。尝试了一下(参考这里) 周一到周五，交易时段每20分钟监控股票形态一次。真的好棒，谢谢@阿志!再说说实盘，今天没操作，昨天卖掉的福田汽车开盘又涨了。 跑早了……还好昨天入的中国建筑也涨了，只是不多。 目前实盘账户情况 接下来要看技术形态了，就是头肩底头肩顶之类的。想找程序来识别，类似Talib之类的库好像不行。">
+<meta property="og:description" content="昨天的文章发出后，知乎的知友@阿志 提醒我可以用APScheduler实现程序定时运行。尝试了一下(参考这里)  周一到周五，交易时段每20分钟监控股票形态一次。真的好棒，谢谢@阿志! 再说说实盘，今天没操作，昨天卖掉的福田汽车开盘又涨了。  跑早了……还好昨天入的中国建筑也涨了，只是不多。  目前实盘账户情况  接下来要看技术形态了，就是头肩底头肩顶之类的。想找程序来识别，类似Talib之类的库">
 <meta property="og:locale">
 <meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/89/01.jpg">
 <meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/89/02.jpg">
@@ -397,15 +397,15 @@
       
 
       
-        <p>昨天的文章发出后，知乎的知友@阿志 提醒我可以用APScheduler实现程序定时运行。尝试了一下(<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/144506204">参考这里</a>)<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/89/01.jpg" alt=""></p>
-<p>周一到周五，交易时段每20分钟监控股票形态一次。真的好棒，谢谢@阿志!<br>再说说实盘，今天没操作，昨天卖掉的福田汽车开盘又涨了。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/89/02.jpg" alt=""></p>
-<p>跑早了……还好昨天入的中国建筑也涨了，只是不多。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/89/03.jpg" alt=""></p>
-<p>目前实盘账户情况<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/89/04.jpg" alt=""></p>
+        <p>昨天的文章发出后，知乎的知友@阿志 提醒我可以用APScheduler实现程序定时运行。尝试了一下(<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/144506204">参考这里</a>) <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/89/01.jpg" /></p>
+<p>周一到周五，交易时段每20分钟监控股票形态一次。真的好棒，谢谢@阿志! 再说说实盘，今天没操作，昨天卖掉的福田汽车开盘又涨了。 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/89/02.jpg" /></p>
+<p>跑早了……还好昨天入的中国建筑也涨了，只是不多。 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/89/03.jpg" /></p>
+<p>目前实盘账户情况 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/89/04.jpg" /></p>
 <p>接下来要看技术形态了，就是头肩底头肩顶之类的。想找程序来识别，类似Talib之类的库好像不行。github上找到一些，不行自己写吧。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/zwdnet/stockpractice/blob/main/kline/monitoring.py">本文代码</a></p>
 <p><strong>声明:本文为个人学习记录，不构成投资建议!股市有风险，入市需谨慎!</strong></p>
-<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
-<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg" alt=""></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。 我的个人博客地址：https://zwdnet.github.io 我的知乎文章地址： https://www.zhihu.com/people/zhao-you-min/posts 我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg" /></p>
 
       
     </div>
@@ -636,7 +636,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1347.4k</span>
+    <span title="Site words total count">1379.4k</span>
   
 </div>
 

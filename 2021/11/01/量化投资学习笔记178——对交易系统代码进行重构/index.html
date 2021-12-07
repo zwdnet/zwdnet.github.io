@@ -91,12 +91,12 @@
 
 
 
-<meta name="description" content="这两周尝试对我的交易系统的代码进行了重构。具体过程就不赘述了，看这儿总结一下收获吧。1.什么是代码的“坏味道”?就我自己的代码来说，主要是函数和变量的命名太乱了，函数太长了，还使用了全局变量。一开始写的时候抱着能运行就好的心态，没有一个系统的设计。问题一是debug比较困难，尤其是能正常运行的bug，基本只能靠在代码里到处插print来找错误。另一个问题是扩展困难，交易策略跟回测过程全纠缠在一起，">
+<meta name="description" content="这两周尝试对我的交易系统的代码进行了重构。具体过程就不赘述了，看这儿 总结一下收获吧。 1.什么是代码的“坏味道”?就我自己的代码来说，主要是函数和变量的命名太乱了，函数太长了，还使用了全局变量。一开始写的时候抱着能运行就好的心态，没有一个系统的设计。问题一是debug比较困难，尤其是能正常运行的bug，基本只能靠在代码里到处插print来找错误。另一个问题是扩展困难，交易策略跟回测过程全纠缠在一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="量化投资学习笔记178——对交易系统代码进行重构">
 <meta property="og:url" content="https://zwdnet.github.io/2021/11/01/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0178%E2%80%94%E2%80%94%E5%AF%B9%E4%BA%A4%E6%98%93%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%A0%81%E8%BF%9B%E8%A1%8C%E9%87%8D%E6%9E%84/index.html">
 <meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
-<meta property="og:description" content="这两周尝试对我的交易系统的代码进行了重构。具体过程就不赘述了，看这儿总结一下收获吧。1.什么是代码的“坏味道”?就我自己的代码来说，主要是函数和变量的命名太乱了，函数太长了，还使用了全局变量。一开始写的时候抱着能运行就好的心态，没有一个系统的设计。问题一是debug比较困难，尤其是能正常运行的bug，基本只能靠在代码里到处插print来找错误。另一个问题是扩展困难，交易策略跟回测过程全纠缠在一起，">
+<meta property="og:description" content="这两周尝试对我的交易系统的代码进行了重构。具体过程就不赘述了，看这儿 总结一下收获吧。 1.什么是代码的“坏味道”?就我自己的代码来说，主要是函数和变量的命名太乱了，函数太长了，还使用了全局变量。一开始写的时候抱着能运行就好的心态，没有一个系统的设计。问题一是debug比较困难，尤其是能正常运行的bug，基本只能靠在代码里到处插print来找错误。另一个问题是扩展困难，交易策略跟回测过程全纠缠在一">
 <meta property="og:locale">
 <meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/148/mmexport1634914009933.jpg">
 <meta property="article:published_time" content="2021-11-01T07:18:29.000Z">
@@ -393,13 +393,13 @@
       
 
       
-        <p>这两周尝试对我的交易系统的代码进行了重构。具体过程就不赘述了，看<a target="_blank" rel="noopener" href="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/148/%E9%87%8D%E6%9E%84%E4%BB%A3%E7%A0%81%E7%AC%94%E8%AE%B0.pdf">这儿</a><br>总结一下收获吧。<br>1.什么是代码的“坏味道”?就我自己的代码来说，主要是函数和变量的命名太乱了，函数太长了，还使用了全局变量。一开始写的时候抱着能运行就好的心态，没有一个系统的设计。问题一是debug比较困难，尤其是能正常运行的bug，基本只能靠在代码里到处插print来找错误。另一个问题是扩展困难，交易策略跟回测过程全纠缠在一起，要改策略需要动很多地方，而且往往只能靠往函数里增加新的参数来扩展。<br>2.这些“坏味道”怎么改呢？函数和变量的命名问题，要有一个一致的变量命名规则，比如:类的命名首字母大写，驼峰式命名，比如BackTest;函数名和变量名用小写，单词之间用下划线，如do_trade;全局变量全用大写，比如PI。函数过长的问题，可以拆分为多个短函数。全局变量的问题，可以把这些全局变量和使用全局变量的地方提炼为类。<br>3.关于设计模式的问题，久闻其名，因为一般都是用java或者c++来阐释，也不知道有啥用，就没仔细学过。这次主要是为了解决使用不同的策略的问题，就学了一下。策略模式适合我的需求。但是改着改着，发现这不就是BackTrader这样的框架为我们所做的吗？去看了一下BackTrader的Strategy源代码，比我想象的要复杂很多。设计模式，可能对框架的设计者很有用，对于框架的使用者，还是先掌握框架吧。不过学点设计模式对更好的使用框架还是有帮助的。我还是先用BackTrader吧。设计模式分创建、结构、行为三类，用到再看。<br>4.要提高程序的可测试性，要写单元测试。打算看看测试驱动开发，用用pytest啥的。<br><a target="_blank" rel="noopener" href="https://github.com/zwdnet/stockpractice/blob/main/system/system.py">源代码</a></p>
+        <p>这两周尝试对我的交易系统的代码进行了重构。具体过程就不赘述了，看<a target="_blank" rel="noopener" href="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/148/%E9%87%8D%E6%9E%84%E4%BB%A3%E7%A0%81%E7%AC%94%E8%AE%B0.pdf">这儿</a> 总结一下收获吧。 1.什么是代码的“坏味道”?就我自己的代码来说，主要是函数和变量的命名太乱了，函数太长了，还使用了全局变量。一开始写的时候抱着能运行就好的心态，没有一个系统的设计。问题一是debug比较困难，尤其是能正常运行的bug，基本只能靠在代码里到处插print来找错误。另一个问题是扩展困难，交易策略跟回测过程全纠缠在一起，要改策略需要动很多地方，而且往往只能靠往函数里增加新的参数来扩展。 2.这些“坏味道”怎么改呢？函数和变量的命名问题，要有一个一致的变量命名规则，比如:类的命名首字母大写，驼峰式命名，比如BackTest;函数名和变量名用小写，单词之间用下划线，如do_trade;全局变量全用大写，比如PI。函数过长的问题，可以拆分为多个短函数。全局变量的问题，可以把这些全局变量和使用全局变量的地方提炼为类。 3.关于设计模式的问题，久闻其名，因为一般都是用java或者c++来阐释，也不知道有啥用，就没仔细学过。这次主要是为了解决使用不同的策略的问题，就学了一下。策略模式适合我的需求。但是改着改着，发现这不就是BackTrader这样的框架为我们所做的吗？去看了一下BackTrader的Strategy源代码，比我想象的要复杂很多。设计模式，可能对框架的设计者很有用，对于框架的使用者，还是先掌握框架吧。不过学点设计模式对更好的使用框架还是有帮助的。我还是先用BackTrader吧。设计模式分创建、结构、行为三类，用到再看。 4.要提高程序的可测试性，要写单元测试。打算看看测试驱动开发，用用pytest啥的。 <a target="_blank" rel="noopener" href="https://github.com/zwdnet/stockpractice/blob/main/system/system.py">源代码</a></p>
 <p>再来看看实盘，我在6.30的时候把TCL科技卖了，彻底空仓。账户余额1006.92，净赚6.92元。而总成本7.67元，超过了净收益。所以赚钱的还是券商……</p>
-<p>经常有人问我交易成本的问题，回想我十几年前刚接触股市的时候，完全没有成本的意识。那时佣金比例是千分之三，最低五元。我拿着父亲给的1800一顿猛操作，最后折腾了只剩四百多。后来真正开始投资是这几年，不断换券商，佣金比例才越来越低。我目前的券商是在知乎上找的，业务员已经换工作了。正好有人来找我合作，于是给大家推荐另外一个: <a target="_blank" rel="noopener" href="https://bee.cczq.com:9443/zzbqr.html?id=2182">https://bee.cczq.com:9443/zzbqr.html?id=2182</a><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/148/mmexport1634914009933.jpg" alt="或者扫二维码"><br>股票佣金费率万一不免五，不免五，不免五。要说明的是我自己并没有在其那里开户，具体可以点进去自己咨询，或者私信我给您发详细信息。就这样了。</p>
+<p>经常有人问我交易成本的问题，回想我十几年前刚接触股市的时候，完全没有成本的意识。那时佣金比例是千分之三，最低五元。我拿着父亲给的1800一顿猛操作，最后折腾了只剩四百多。后来真正开始投资是这几年，不断换券商，佣金比例才越来越低。我目前的券商是在知乎上找的，业务员已经换工作了。正好有人来找我合作，于是给大家推荐另外一个: https://bee.cczq.com:9443/zzbqr.html?id=2182 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/148/mmexport1634914009933.jpg" alt="或者扫二维码" /> 股票佣金费率万一不免五，不免五，不免五。要说明的是我自己并没有在其那里开户，具体可以点进去自己咨询，或者私信我给您发详细信息。就这样了。</p>
 <p>目前我正在研究测试驱动开发TDD。</p>
 <p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p>
-<p>我的个人博客地址：<a href="https://zwdnet.github.io">https://zwdnet.github.io</a></p>
-<p>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p>
+<p>我的个人博客地址：https://zwdnet.github.io</p>
+<p>我的知乎文章地址： https://www.zhihu.com/people/zhao-you-min/posts</p>
 <p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
 
       
@@ -631,7 +631,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1347.4k</span>
+    <span title="Site words total count">1379.4k</span>
   
 </div>
 

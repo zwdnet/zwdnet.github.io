@@ -91,12 +91,12 @@
 
 
 
-<meta name="description" content="下面继续分析一下回测均线突破策略的结果。先拿出年化收益率排前10的股票。 股票APP里打开看看。无一例外的，这些股票都是上市不久的股票，最长的才一年多。这个策略比较适合新股？修改一下代码，画交易次数和年化收益率的散点图看看 规律是交易次数越多，年化收益率越趋近于0附近。计算一下二者的相关性吧。交易次数与年化收益率的相关系数为: 0.025，概率为: 0.296。因此，二者不是线性相关的。因为有异常">
+<meta name="description" content="下面继续分析一下回测均线突破策略的结果。先拿出年化收益率排前10的股票。  股票APP里打开看看。 无一例外的，这些股票都是上市不久的股票，最长的才一年多。这个策略比较适合新股？ 修改一下代码，画交易次数和年化收益率的散点图看看  规律是交易次数越多，年化收益率越趋近于0附近。计算一下二者的相关性吧。 交易次数与年化收益率的相关系数为: 0.025，概率为: 0.296。 因此，二者不是线性相关的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="量化投资学习笔记127——股票实盘练习18继续探索均线突破策略">
 <meta property="og:url" content="https://zwdnet.github.io/2021/08/03/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0127%E2%80%94%E2%80%94%E8%82%A1%E7%A5%A8%E5%AE%9E%E7%9B%98%E7%BB%83%E4%B9%A018%E7%BB%A7%E7%BB%AD%E6%8E%A2%E7%B4%A2%E5%9D%87%E7%BA%BF%E7%AA%81%E7%A0%B4%E7%AD%96%E7%95%A5/index.html">
 <meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
-<meta property="og:description" content="下面继续分析一下回测均线突破策略的结果。先拿出年化收益率排前10的股票。 股票APP里打开看看。无一例外的，这些股票都是上市不久的股票，最长的才一年多。这个策略比较适合新股？修改一下代码，画交易次数和年化收益率的散点图看看 规律是交易次数越多，年化收益率越趋近于0附近。计算一下二者的相关性吧。交易次数与年化收益率的相关系数为: 0.025，概率为: 0.296。因此，二者不是线性相关的。因为有异常">
+<meta property="og:description" content="下面继续分析一下回测均线突破策略的结果。先拿出年化收益率排前10的股票。  股票APP里打开看看。 无一例外的，这些股票都是上市不久的股票，最长的才一年多。这个策略比较适合新股？ 修改一下代码，画交易次数和年化收益率的散点图看看  规律是交易次数越多，年化收益率越趋近于0附近。计算一下二者的相关性吧。 交易次数与年化收益率的相关系数为: 0.025，概率为: 0.296。 因此，二者不是线性相关的">
 <meta property="og:locale">
 <meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/01.jpg">
 <meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/02.png">
@@ -398,14 +398,14 @@
       
 
       
-        <p>下面继续分析一下回测均线突破策略的结果。先拿出年化收益率排前10的股票。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/01.jpg" alt=""></p>
-<p>股票APP里打开看看。<br>无一例外的，这些股票都是上市不久的股票，最长的才一年多。这个策略比较适合新股？<br>修改一下代码，画交易次数和年化收益率的散点图看看<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/02.png" alt=""></p>
-<p>规律是交易次数越多，年化收益率越趋近于0附近。计算一下二者的相关性吧。<br>交易次数与年化收益率的相关系数为: 0.025，概率为: 0.296。<br>因此，二者不是线性相关的。因为有异常点的因素？将年化收益率绝对值大于40%的数据剔除，再跑一遍程序看看。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/03.png" alt=""></p>
-<p>还是差不多，交易次数集中在30次到70次之间。<br>再比较一下胜率与交易次数的关系<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/04.png" alt=""></p>
-<p>胜率更集中在50%左右，跟瞎蒙一样。<br><a target="_blank" rel="noopener" href="https://github.com/zwdnet/stockpractice/blob/main/ma/doBacktest.py">回测代码</a><br>下一步，看看怎么计算策略α、β值以及获取交易成本。另外可能需要增加基准值。<br>再来看实盘，今天莱茵生物涨了六分钱，五日均线还在二十日均线上方，没动。<br>账户情况<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/05.jpg" alt=""></p>
+        <p>下面继续分析一下回测均线突破策略的结果。先拿出年化收益率排前10的股票。 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/01.jpg" /></p>
+<p>股票APP里打开看看。 无一例外的，这些股票都是上市不久的股票，最长的才一年多。这个策略比较适合新股？ 修改一下代码，画交易次数和年化收益率的散点图看看 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/02.png" /></p>
+<p>规律是交易次数越多，年化收益率越趋近于0附近。计算一下二者的相关性吧。 交易次数与年化收益率的相关系数为: 0.025，概率为: 0.296。 因此，二者不是线性相关的。因为有异常点的因素？将年化收益率绝对值大于40%的数据剔除，再跑一遍程序看看。 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/03.png" /></p>
+<p>还是差不多，交易次数集中在30次到70次之间。 再比较一下胜率与交易次数的关系 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/04.png" /></p>
+<p>胜率更集中在50%左右，跟瞎蒙一样。 <a target="_blank" rel="noopener" href="https://github.com/zwdnet/stockpractice/blob/main/ma/doBacktest.py">回测代码</a> 下一步，看看怎么计算策略α、β值以及获取交易成本。另外可能需要增加基准值。 再来看实盘，今天莱茵生物涨了六分钱，五日均线还在二十日均线上方，没动。 账户情况 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/97/05.jpg" /></p>
 <p>声明:本文为个人学习记录，不构成投资建议!股市有风险，入市需谨慎!</p>
-<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
-<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg" alt=""></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。 我的个人博客地址：https://zwdnet.github.io 我的知乎文章地址： https://www.zhihu.com/people/zhao-you-min/posts 我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg" /></p>
 
       
     </div>
@@ -636,7 +636,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1347.4k</span>
+    <span title="Site words total count">1379.4k</span>
   
 </div>
 

@@ -91,12 +91,12 @@
 
 
 
-<meta name="description" content="使用backtrader框架进行回测，找了个教程是英文的，正好示例用的策略就是均线突破策略。跟着撸了一遍，感觉写得很好，而且不像咱们中文的教程，老是藏着掖着，要么让你加公众号，要么让你加知识星球。强烈推荐。backertrader数据的使用方法:0为当前数据索引，-1为前一交易日数据索引，以此类推。在backtrader中，我们收到交易信号可以创建一个order，但只有在next()时才会被执行。">
+<meta name="description" content="使用backtrader框架进行回测，找了个教程 是英文的，正好示例用的策略就是均线突破策略。跟着撸了一遍，感觉写得很好，而且不像咱们中文的教程，老是藏着掖着，要么让你加公众号，要么让你加知识星球。强烈推荐。 backertrader数据的使用方法:0为当前数据索引，-1为前一交易日数据索引，以此类推。 在backtrader中，我们收到交易信号可以创建一个order，但只有在next()时才会被">
 <meta property="og:type" content="article">
 <meta property="og:title" content="量化投资学习笔记126——股票实盘练习17BackTrader回测均线突破策略">
 <meta property="og:url" content="https://zwdnet.github.io/2021/08/02/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0126%E2%80%94%E2%80%94%E8%82%A1%E7%A5%A8%E5%AE%9E%E7%9B%98%E7%BB%83%E4%B9%A017BackTrader%E5%9B%9E%E6%B5%8B%E5%9D%87%E7%BA%BF%E7%AA%81%E7%A0%B4%E7%AD%96%E7%95%A5/index.html">
 <meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
-<meta property="og:description" content="使用backtrader框架进行回测，找了个教程是英文的，正好示例用的策略就是均线突破策略。跟着撸了一遍，感觉写得很好，而且不像咱们中文的教程，老是藏着掖着，要么让你加公众号，要么让你加知识星球。强烈推荐。backertrader数据的使用方法:0为当前数据索引，-1为前一交易日数据索引，以此类推。在backtrader中，我们收到交易信号可以创建一个order，但只有在next()时才会被执行。">
+<meta property="og:description" content="使用backtrader框架进行回测，找了个教程 是英文的，正好示例用的策略就是均线突破策略。跟着撸了一遍，感觉写得很好，而且不像咱们中文的教程，老是藏着掖着，要么让你加公众号，要么让你加知识星球。强烈推荐。 backertrader数据的使用方法:0为当前数据索引，-1为前一交易日数据索引，以此类推。 在backtrader中，我们收到交易信号可以创建一个order，但只有在next()时才会被">
 <meta property="og:locale">
 <meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/01.png">
 <meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/02.png">
@@ -398,14 +398,14 @@
       
 
       
-        <p>使用backtrader框架进行回测，找了个<a target="_blank" rel="noopener" href="https://algotrading101.com/learn/backtrader-for-backtesting/">教程</a><br>是英文的，正好示例用的策略就是均线突破策略。跟着撸了一遍，感觉写得很好，而且不像咱们中文的教程，老是藏着掖着，要么让你加公众号，要么让你加知识星球。强烈推荐。<br>backertrader数据的使用方法:0为当前数据索引，-1为前一交易日数据索引，以此类推。<br>在backtrader中，我们收到交易信号可以创建一个order，但只有在next()时才会被执行。<br>我把BackTrader的回测过程封装了一下，以后基本只用改写策略类就行了。用到再学吧。<br>先回测一下我实盘的股票莱茵生物。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/01.png" alt=""></p>
-<p>又用另一个库(quantstats)计算了一些回测指标:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/02.png" alt=""></p>
-<p>回测了五年，收益率是负的，不同年份之间差别很大。胜率46.5%。<br>有个问题是不知道怎么得到交易成本，再完善吧。<br>最后，把股票池里1800多只股票都回测一下，上市满五年的回测五年，不满五年的回测全程。画图看看胜率以及年化收益率的分布。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/03.png" alt=""></p>
-<p>平均胜率低于50%(47%)，平均年化收益率也接近0%(0.01%)。<br>看来这个策略也不咋的。看看这次实盘吧。<br><a target="_blank" rel="noopener" href="https://github.com/zwdnet/stockpractice/blob/main/ma/doBacktest.py">回测代码</a><br>实盘的情况，大盘涨了，我买的莱茵生物却跌了一些，日线上5日均线还在20日均线以上，所以继续持有。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/04.jpg" alt=""><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/05.jpg" alt=""></p>
+        <p>使用backtrader框架进行回测，找了个<a target="_blank" rel="noopener" href="https://algotrading101.com/learn/backtrader-for-backtesting/">教程</a> 是英文的，正好示例用的策略就是均线突破策略。跟着撸了一遍，感觉写得很好，而且不像咱们中文的教程，老是藏着掖着，要么让你加公众号，要么让你加知识星球。强烈推荐。 backertrader数据的使用方法:0为当前数据索引，-1为前一交易日数据索引，以此类推。 在backtrader中，我们收到交易信号可以创建一个order，但只有在next()时才会被执行。 我把BackTrader的回测过程封装了一下，以后基本只用改写策略类就行了。用到再学吧。 先回测一下我实盘的股票莱茵生物。 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/01.png" /></p>
+<p>又用另一个库(quantstats)计算了一些回测指标: <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/02.png" /></p>
+<p>回测了五年，收益率是负的，不同年份之间差别很大。胜率46.5%。 有个问题是不知道怎么得到交易成本，再完善吧。 最后，把股票池里1800多只股票都回测一下，上市满五年的回测五年，不满五年的回测全程。画图看看胜率以及年化收益率的分布。 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/03.png" /></p>
+<p>平均胜率低于50%(47%)，平均年化收益率也接近0%(0.01%)。 看来这个策略也不咋的。看看这次实盘吧。 <a target="_blank" rel="noopener" href="https://github.com/zwdnet/stockpractice/blob/main/ma/doBacktest.py">回测代码</a> 实盘的情况，大盘涨了，我买的莱茵生物却跌了一些，日线上5日均线还在20日均线以上，所以继续持有。 <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/04.jpg" /> <img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/96/05.jpg" /></p>
 <p>账户收益33.53元，3.3%。</p>
 <p><strong>声明:本文为个人学习记录，不构成投资建议!股市有风险，入市需谨慎!</strong></p>
-<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
-<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg" alt=""></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。 我的个人博客地址：https://zwdnet.github.io 我的知乎文章地址： https://www.zhihu.com/people/zhao-you-min/posts 我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg" /></p>
 
       
     </div>
@@ -636,7 +636,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1347.4k</span>
+    <span title="Site words total count">1379.4k</span>
   
 </div>
 
