@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,量化投资,股价预测,粒子群算法,遗传算法,支持向量机," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="主要采用支持向量机算法，参考两篇文章:1.傅航聪，张伟.机器学习算法在股票走势预测中的应用.软件导刊，2017年10日第16卷第10期:31-34，46.2.文成.基于机器学习方法的股票数据研究.重庆理工大学硕士学位论文(2011年).主要参考第二篇。传统技术分析过多依靠主观判断。文章使用了开盘价，收盘价，最高价，最低价，成交量，成交额这六个指标，先对数据进行归一化到[1,2]。 12345678">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记105——股价预测3:机器学习方法">
+<meta property="og:url" content="https://zwdnet.github.io/2021/04/13/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0105%E2%80%94%E2%80%94%E8%82%A1%E4%BB%B7%E9%A2%84%E6%B5%8B3-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="主要采用支持向量机算法，参考两篇文章:1.傅航聪，张伟.机器学习算法在股票走势预测中的应用.软件导刊，2017年10日第16卷第10期:31-34，46.2.文成.基于机器学习方法的股票数据研究.重庆理工大学硕士学位论文(2011年).主要参考第二篇。传统技术分析过多依靠主观判断。文章使用了开盘价，收盘价，最高价，最低价，成交量，成交额这六个指标，先对数据进行归一化到[1,2]。 12345678">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/01.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/02.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/03.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/04.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/05.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/06.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/07.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2021-04-12T19:44:45.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.049Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="股价预测">
+<meta property="article:tag" content="粒子群算法">
+<meta property="article:tag" content="遗传算法">
+<meta property="article:tag" content="支持向量机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2021/04/13/量化投资学习笔记105——股价预测3-机器学习方法/"/>
+
+
+
+
+
+  <title>量化投资学习笔记105——股价预测3:机器学习方法 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2021/04/13/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0105%E2%80%94%E2%80%94%E8%82%A1%E4%BB%B7%E9%A2%84%E6%B5%8B3-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记105——股价预测3:机器学习方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-13T03:44:45+08:00">
+                2021-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>主要采用支持向量机算法，参考两篇文章:<br>1.傅航聪，张伟.机器学习算法在股票走势预测中的应用.软件导刊，2017年10日第16卷第10期:31-34，46.<br>2.文成.基于机器学习方法的股票数据研究.重庆理工大学硕士学位论文(2011年).<br>主要参考第二篇。传统技术分析过多依靠主观判断。<br>文章使用了开盘价，收盘价，最高价，最低价，成交量，成交额这六个指标，先对数据进行归一化到[1,2]。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 准备数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">readData</span>(<span class="params">code=<span class="string">&quot;sh000300&quot;</span>, start=<span class="string">&quot;2018-01-01&quot;</span>, end=<span class="string">&quot;2018-12-31&quot;</span>, refresh = <span class="literal">False</span></span>):</span></span><br><span class="line">    <span class="comment"># 加载数据</span></span><br><span class="line">    tools.initOutput()</span><br><span class="line">    data = tools.loadData(code=code, start=start, end=end, refresh=refresh)</span><br><span class="line">    <span class="comment"># 筛选特征</span></span><br><span class="line">    feature_cols = [<span class="string">&quot;open&quot;</span>, <span class="string">&quot;close&quot;</span>, <span class="string">&quot;high&quot;</span>, <span class="string">&quot;low&quot;</span>, <span class="string">&quot;volume&quot;</span>, <span class="string">&quot;amount&quot;</span>]</span><br><span class="line">    target_cols = [<span class="string">&quot;close&quot;</span>]</span><br><span class="line">    features_data = data.loc[:, feature_cols]</span><br><span class="line">    target_data = data.loc[:, target_cols].shift(-<span class="number">1</span>)</span><br><span class="line">    target_data.fillna(method = <span class="string">&quot;ffill&quot;</span>, inplace = <span class="literal">True</span>)</span><br><span class="line">    <span class="built_in">print</span>(features_data.info())</span><br><span class="line">    <span class="built_in">print</span>(target_data.head())</span><br><span class="line">    scaler = MinMaxScaler(feature_range=(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line">    features = scaler.fit_transform(features_data.values)</span><br><span class="line">    target = scaler.fit_transform(target_data.values)</span><br><span class="line">    <span class="keyword">return</span> (features, target)</span><br></pre></td></tr></table></figure>
+<p>将收盘价上移一行作为目标值，即预测第二天的收盘价。<br>在对数据没有先验知识的情况下，选择高斯径向基核函数。<br>先用默认参数让模型跑起来。<br>用2018年的数据进行训练，80%的训练集，20%测试集。<br>模型评分: 0.9551444471554572<br>再用2019年的数据进行验证:<br>验证数据模型评分: 0.7667456601663809<br>还不错。<br>改进一下，用今天以前的五天的数据来预测今天的收盘价。<br>遇到一个问题是如何准备训练特征，直接用每五天的数据组成新的特征，用第六天的收盘价作为目标值，进行训练，结果sklearn报错，称只接受小于等于二维的数据。于是直接用reshape函数把特征数据拉成二维，再进行训练。<br>测试数据的评分为:-1.3774486958961827<br>验证数据的评分:0.6959191032444751<br>验证数据评分降了很多，测试数据的模型评分居然成了负值。有没有办法改进呢？更换核函数看看，试了一圈，线性核函数效果最好，测试集评分0.35，验证集评分0.91。画图看看。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/01.png"></p>
+<p>看着还行。但是再来比较一下模型预测涨跌的准确率吧。<br>模型预测涨跌准确率:0.495798，跟瞎猜一样的……可能是将五天数据合并成一天有问题吧，我是直接合并成一个列表。应该组合成一个五行六列的矩阵作为一个特征值，但是sklearn的fit只接受n×m的二维矩阵。要不试试用5天的平均数来作为特征值。尝试结果，是完全一样的。再做个试验:用前五天收盘价的均值作为第六天的预测值，看看结果如何。<br>结果是预测准确率0.516807，一样的。<br>现在进行调参，主要是惩罚参数C(默认值1.0)和核函数参数ε(取值范围[0.0001, 0.1]， 默认值0.1)两个。<br>调参方法有穷举法，网格搜索法，交叉验证法，粒子群算法，遗传算法等。<br>先用网格搜索法。最佳参数:{‘C’: 1000, ‘epsilon’: 0.1, ‘kernel’: ‘linear’}<br>模型预测涨跌准确率:0.520833<br>是比前面提升了一点，但是提升太少。尝试缩小搜索的间隔，结果……<br>模型参数: {‘C’: 11, ‘epsilon’: 0.0901, ‘kernel’: ‘linear’}<br>最佳模型准确率评分 -1.023333747321061<br>模型预测涨跌准确率:0.479167<br>更差了!<br>试试其它方法。<br>粒子群算法(Particle Swarm Optimization，PSO)，先看<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/346355572">基础知识</a><br>是受鸟群觅食规律启发想出来的。其优点是收敛速度快、参数少、算法简单易实现。其基本思想是粒子之间共享信息使群体找到最优解。粒子有位置和速度两个属性，速度表示粒子下一步迭代的移动方向和距离，位置是所求问题的一个解。算法的六个参数:粒子速度、位置、个体最优解、群体最优解、个体历史最优适应值(个体搜索到最优解时的优化目标的函数值)、群体历史最优适应值。<br>算法流程(我就直接搬运上文的图啦，图源见水印，致谢!)<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/02.png"></p>
+<p>迭代时粒子速度更新的公式有三项，分别是惯性部分(对之前运动状态的继承)，认知部分(粒子自己的经验)，社会部分(其它粒子共享的经验)。<br>算法的参数有:粒子群规模N(推荐[20, 1000])，粒子维度D(自变量个数)，迭代次数K(推荐[50, 100])，惯性权重w(不宜固定，越大，全局寻优能力越强，局部寻优能力越弱，推荐[0.4，2])，学习因子c1c2(c1粒子自己经验所占比重，c2群体经验所占比重)。<br>大致了解了一下原理，接下来就实操吧。找到一篇现成的用粒子群算法进行SVR调参的<a target="_blank" rel="noopener" href="https://blog.csdn.net/Luqiang_Shi/article/details/84720738">文章</a><br>照搬就行了。<br>具体到我们的SVR模型调参的问题，粒子群规模为每个参数取值范围大小，粒子群维度为待寻优参数的个数，粒子群位置为参数的具体数值，粒子群方向为参数取值变化方向，适应度为粒子对应的模型评价指标。gbest为全局历史最优解，pbest为粒子个体历史最优解。<br>粒子速度更新公式:<br>vi =w×vi + c1×rand()×(pbesti − x i) + c2×rand()×(gbest − xi)<br>位置更新公式:<br>xi =xi + vi<br>下面看具体代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 粒子群算法进行SVR调参</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PSO</span>:</span></span><br><span class="line">    <span class="comment"># max_value和min_value分别为参数的最大/最小值</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, particle_num, particle_dim, iter_num, c1, c2, w, max_value, min_value</span>):</span></span><br><span class="line">        self.particle_num = particle_num</span><br><span class="line">        self.particle_dim = particle_dim</span><br><span class="line">        self.iter_num = iter_num</span><br><span class="line">        self.c1 = c1</span><br><span class="line">        self.c2 = c2</span><br><span class="line">        self.w = w</span><br><span class="line">        self.max_value = max_value</span><br><span class="line">        self.min_value = min_value</span><br><span class="line">        <span class="comment"># 读取数据</span></span><br><span class="line">        features, target = readData()</span><br><span class="line">        self.X_train, self.X_test, self.y_train, self.y_test = splitTimeSeries(features, target)</span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 粒子群初始化</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">swarm_origin</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># 初始化随机数种子</span></span><br><span class="line">        random.seed(time.time())</span><br><span class="line">        particle_loc = []</span><br><span class="line">        particle_dir = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_num):</span><br><span class="line">            tmp1 = []</span><br><span class="line">            tmp2 = []</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_dim):</span><br><span class="line">                a = random.random()</span><br><span class="line">                b = random.random()</span><br><span class="line">                tmp1.append(a * (self.max_value[j] - self.min_value[j]) + self.min_value[j])</span><br><span class="line">                tmp2.append(b)</span><br><span class="line">            particle_loc.append(tmp1)</span><br><span class="line">            particle_dir.append(tmp2)</span><br><span class="line">           </span><br><span class="line">        <span class="keyword">return</span> particle_loc, particle_dir</span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 计算适应度列表，更新pbest,gbest</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fitness</span>(<span class="params">self, particle_loc</span>):</span></span><br><span class="line">        fitness_value = []</span><br><span class="line">        <span class="comment"># 适应度函数为模型预测正确率</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_num):</span><br><span class="line">            clf = svm.SVR(kernel = <span class="string">&quot;linear&quot;</span>, C = particle_loc[i][<span class="number">0</span>], epsilon = particle_loc[i][<span class="number">1</span>])</span><br><span class="line">            clf.fit(self.X_train, self.y_train)</span><br><span class="line">            y_pred = clf.predict(self.X_test)</span><br><span class="line">            fitness_value.append(testHighLow(self.y_test, y_pred))</span><br><span class="line">        <span class="comment"># 当前粒子群最优适应度函数值和对应参数</span></span><br><span class="line">        current_fitness = <span class="number">0.0</span></span><br><span class="line">        current_parameter = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_num):</span><br><span class="line">            <span class="keyword">if</span> current_fitness &lt; fitness_value[i]:</span><br><span class="line">                current_fitness = fitness_value[i]</span><br><span class="line">                current_parameter = particle_loc[i]</span><br><span class="line">               </span><br><span class="line">        <span class="keyword">return</span> fitness_value, current_fitness, current_parameter</span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 粒子位置更新</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span>(<span class="params">self, particle_loc, particle_dir, gbest_parameter, pbest_parameters</span>):</span></span><br><span class="line">        <span class="comment"># 计算新的粒子群方向和位置</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_num):</span><br><span class="line">            a1 = [x*self.w <span class="keyword">for</span> x <span class="keyword">in</span> particle_dir[i]]</span><br><span class="line">            a2 = [y*self.c1*random.random() <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">list</span>(np.array(pbest_parameters[i]) - np.array(particle_loc[i]))]</span><br><span class="line">            a3 = [z*self.c2*random.random() <span class="keyword">for</span> z <span class="keyword">in</span> <span class="built_in">list</span>(np.array(gbest_parameter) - np.array(particle_dir[i]))]</span><br><span class="line">            particle_dir[i] = <span class="built_in">list</span>(np.array(a1) + np.array(a2) + np.array(a3))</span><br><span class="line">            particle_loc[i] = <span class="built_in">list</span>(np.array(particle_loc[i]) + np.array(particle_dir[i]))</span><br><span class="line">        <span class="comment"># 将更新后的粒子位置参数固定</span></span><br><span class="line">        parameter_list = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_dim):</span><br><span class="line">            tmp1 = []</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_num):</span><br><span class="line">                tmp1.append(particle_loc[j][i])</span><br><span class="line">            parameter_list.append(tmp1)</span><br><span class="line">        value = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_dim):</span><br><span class="line">            tmp2 = []</span><br><span class="line">            tmp2.append(<span class="built_in">max</span>(parameter_list[i]))</span><br><span class="line">            tmp2.append(<span class="built_in">min</span>(parameter_list[i]))</span><br><span class="line">            value.append(tmp2)</span><br><span class="line">           </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_num):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_dim):</span><br><span class="line">                particle_loc[i][j] = (particle_loc[i][j] - value[j][<span class="number">1</span>])/(value[j][<span class="number">0</span>] - value[j][<span class="number">1</span>]) * (self.max_value[j] - self.min_value[j]) + self.min_value[j]</span><br><span class="line">               </span><br><span class="line">        <span class="keyword">return</span> particle_loc, particle_dir</span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 画出适应度函数值变化图</span></span><br><span class="line"><span class="meta">    @run.change_dir</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">plot</span>(<span class="params">self, results</span>):</span></span><br><span class="line">        x = []</span><br><span class="line">        y = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.iter_num):</span><br><span class="line">            x.append(i + <span class="number">1</span>)</span><br><span class="line">            y.append(results[i])</span><br><span class="line">        plt.figure()</span><br><span class="line">        plt.plot(x, y)</span><br><span class="line">        plt.xlabel(<span class="string">&quot;Number of iteration&quot;</span>)</span><br><span class="line">        plt.ylabel(<span class="string">&quot;Value of fitness&quot;</span>)</span><br><span class="line">        plt.title(<span class="string">&quot;PSO_SVM&quot;</span>)</span><br><span class="line">        plt.savefig(<span class="string">&quot;./output/PSO_svm.png&quot;</span>)</span><br><span class="line">        plt.close()</span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 主函数</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">self</span>):</span></span><br><span class="line">        results = []</span><br><span class="line">        best_fitness = <span class="number">0.0</span></span><br><span class="line">        <span class="comment"># 粒子群初始化</span></span><br><span class="line">        particle_loc, particle_dir = self.swarm_origin()</span><br><span class="line">        <span class="comment"># 初始化参数</span></span><br><span class="line">        gbest_parameter = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_dim):</span><br><span class="line">            gbest_parameter.append(<span class="number">0.0</span>)</span><br><span class="line">        pbest_parameters = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_num):</span><br><span class="line">            tmp1 = []</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_dim):</span><br><span class="line">                tmp1.append(<span class="number">0.0</span>)</span><br><span class="line">            pbest_parameters.append(tmp1)</span><br><span class="line">        fitness_value = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_num):</span><br><span class="line">            fitness_value.append(<span class="number">0.0</span>)</span><br><span class="line">           </span><br><span class="line">        <span class="comment"># 迭代</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.iter_num):</span><br><span class="line">            <span class="comment"># 计算当前适应度函数值列表</span></span><br><span class="line">            current_fitness_value, current_best_fitness, current_best_parameter = self.fitness(particle_loc)</span><br><span class="line">            <span class="comment"># 求当前最佳参数</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(self.particle_num):</span><br><span class="line">                <span class="keyword">if</span> current_fitness_value[j] &gt; fitness_value[j]:</span><br><span class="line">                    pbest_parameters[j] = particle_loc[j]</span><br><span class="line">            <span class="keyword">if</span> current_best_fitness &gt; best_fitness:</span><br><span class="line">                best_fitness = current_best_fitness</span><br><span class="line">                gbest_parameter = current_best_parameter</span><br><span class="line">               </span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;迭代次数:&quot;</span>, i+<span class="number">1</span>, <span class="string">&quot; 最佳参数:&quot;</span>, gbest_parameter, <span class="string">&quot; 最佳适应度:&quot;</span>, best_fitness)</span><br><span class="line">            results.append(best_fitness)</span><br><span class="line">            <span class="comment"># 更新适应度值</span></span><br><span class="line">            fitness_value = current_fitness_value</span><br><span class="line">            <span class="comment"># 更新粒子群</span></span><br><span class="line">            particle_loc, particle_dir = self.update(particle_loc, particle_dir, gbest_parameter, pbest_parameters)</span><br><span class="line">       </span><br><span class="line">        <span class="comment"># 结果展示</span></span><br><span class="line">        results.sort()</span><br><span class="line">        self.plot(results)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;最终参数:&quot;</span>, gbest_parameter)</span><br><span class="line">        <span class="keyword">return</span> gbest_parameter</span><br><span class="line">       </span><br><span class="line">       </span><br><span class="line"><span class="comment"># 粒子群算法SVM调参</span></span><br><span class="line"><span class="meta">@run.timethis</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">PSO_SVM</span>():</span></span><br><span class="line">    particle_num = <span class="number">100</span></span><br><span class="line">    particle_dim = <span class="number">2</span></span><br><span class="line">    iter_num = <span class="number">500</span></span><br><span class="line">    c1 = <span class="number">0.5</span></span><br><span class="line">    c2 = <span class="number">0.5</span></span><br><span class="line">    w = <span class="number">0.8</span></span><br><span class="line">    max_value = [<span class="number">100</span>, <span class="number">1.0</span>]</span><br><span class="line">    min_value = [<span class="number">1</span>, <span class="number">0.0001</span>]</span><br><span class="line">    pso = PSO(particle_num,particle_dim,iter_num,c1,c2,w,max_value,min_value)</span><br><span class="line">    best_params = pso.main()</span><br><span class="line">    <span class="comment"># 用新数据验证模型</span></span><br><span class="line">    model = svm.SVR(kernel = <span class="string">&quot;linear&quot;</span>, C = best_params[<span class="number">0</span>], epsilon = best_params[<span class="number">1</span>])</span><br><span class="line">    features, target = readData()</span><br><span class="line">    X_train, X_test, y_train, y_test = splitTimeSeries(features, target)</span><br><span class="line">    model.fit(X_train, y_train)</span><br><span class="line">    testModel(model)</span><br></pre></td></tr></table></figure>
+<p>运行结果<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/03.png"></p>
+<p>迭代次数: 500  最佳参数: [1.4696656179315561, 0.0001]  最佳适应度: 0.6041666666666666<br>最终参数: [1.4696656179315561, 0.0001]      验证数据模型评分: 0.7564837943259253                              模型预测涨跌准确率: 0.495798<br>用预测涨跌的准确率作为适应度计算函数，最终结果还是等于瞎猜。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/04.png"></p>
+<p>时间越长，预测结果与真实值相差越大。<br>改改粒子群算法参数看看。改变不大，准确率还是50%左右。<br>最后再试试遗传算法。它是借鉴了自然界的遗传，进化机制，通过遗传、交叉、变异、选择等，保留较优个体，淘汰较差个体，最终找到最优个体。选择、交叉、变异是遗传算法的基本操作。<br>还是找一篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/Luqiang_Shi/article/details/84619456">现成的</a><br>尝试了半天，还是有bug没法顺利运行，于是再找找，果然有现成的库:scikit-opt。<br>用pip install scikit-opt安装。<br><a target="_blank" rel="noopener" href="https://scikit-opt.github.io/scikit-opt/#/zh/">文档地址</a><br>先测试一下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sko.GA <span class="keyword">import</span> GA</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试scikit-opt</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testOpt</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">demo_func</span>(<span class="params">x</span>):</span></span><br><span class="line">        x1, x2, x3 = x</span><br><span class="line">        <span class="keyword">return</span> x1**<span class="number">2</span> + (x2-<span class="number">0.05</span>)**<span class="number">2</span> + x3**<span class="number">2</span></span><br><span class="line">        </span><br><span class="line">    ga = GA(func = demo_func, size_pop = <span class="number">500</span>, n_dim = <span class="number">3</span>, lb = [-<span class="number">1</span>, -<span class="number">10</span>, -<span class="number">5</span>], ub = [<span class="number">2</span>, <span class="number">10</span>, <span class="number">2</span>], max_iter = <span class="number">100</span>)</span><br><span class="line">    best_x, best_y = ga.run()</span><br><span class="line">    <span class="built_in">print</span>(best_x, best_y)</span><br></pre></td></tr></table></figure>
+<p>然后就用遗传算法进行调参，具体代码太长，上github去看吧。运行了半天，最后结果:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/05.png"></p>
+<p>准确率51.6%，回测年化收益率29.4%，好像不行……<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/06.png"></p>
+<p>可以看到开始还行，到后面误差越来越大。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/76/07.png"></p>
+<p>看资产净值图也能看出来，到后半段直接就没交易了。<br>尝试失败，不过主要的收获在于学会了用粒子群算法和遗传算法来调参的方法，还有个体会:在python里很多常规的问题都有相应的库，别上来就自己造轮子。聚焦自己的主要问题吧。<br>本文<a target="_blank" rel="noopener" href="https://github.com/zwdnet/stock/blob/main/ml.py">代码</a></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/%E8%82%A1%E4%BB%B7%E9%A2%84%E6%B5%8B/" rel="tag"># 股价预测</a>
+          
+            <a href="/tags/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95/" rel="tag"># 粒子群算法</a>
+          
+            <a href="/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/" rel="tag"># 遗传算法</a>
+          
+            <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag"># 支持向量机</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/04/13/PMTC/" rel="next" title="PMTC">
+                <i class="fa fa-chevron-left"></i> PMTC
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/04/14/%E5%AD%A6%E4%B9%A0%E5%A4%B4%E5%BD%B1%E6%B5%8B%E9%87%8F5%E2%80%94%E2%80%94%E9%9D%A2%E9%83%A8%E4%BE%A7%E8%B2%8C%E7%BE%8E%E5%AD%A6/" rel="prev" title="学习头影测量5——面部侧貌美学">
+                学习头影测量5——面部侧貌美学 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Mi8xNzU4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">617</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">597</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1377.1k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1275447216&web_id=1275447216" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,量化投资,机器学习,模型融合,Stacking," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="集成把不同模型的预测结果结合起来，生成最终预测，集成的模型越多，效果就越好。另外，由于集成结合了不同的基线预测，它们的性能至少等同于最优的基线模型。集成使得我们几乎免费就获得了性能提升！集成的基本概念：结合多个模型的预测，对特异性误差取平均，从而获得更好的整体预测结果。stacking：stacking是一种分层模型集成框架。以两层为例，第一层由多个基学习器组成，其输入为原始训练集，第二层的模型则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记40——模型融合">
+<meta property="og:url" content="https://zwdnet.github.io/2020/04/13/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B040%E2%80%94%E2%80%94%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="集成把不同模型的预测结果结合起来，生成最终预测，集成的模型越多，效果就越好。另外，由于集成结合了不同的基线预测，它们的性能至少等同于最优的基线模型。集成使得我们几乎免费就获得了性能提升！集成的基本概念：结合多个模型的预测，对特异性误差取平均，从而获得更好的整体预测结果。stacking：stacking是一种分层模型集成框架。以两层为例，第一层由多个基学习器组成，其输入为原始训练集，第二层的模型则">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/01.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/02.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/03.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/04.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/05.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/06.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/07.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2020-04-13T04:23:17.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.053Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="模型融合">
+<meta property="article:tag" content="Stacking">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2020/04/13/量化投资学习笔记40——模型融合/"/>
+
+
+
+
+
+  <title>量化投资学习笔记40——模型融合 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2020/04/13/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B040%E2%80%94%E2%80%94%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记40——模型融合</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-13T12:23:17+08:00">
+                2020-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>集成把不同模型的预测结果结合起来，生成最终预测，集成的模型越多，效果就越好。另外，由于集成结合了不同的基线预测，它们的性能至少等同于最优的基线模型。集成使得我们几乎免费就获得了性能提升！<br>集成的基本概念：结合多个模型的预测，对特异性误差取平均，从而获得更好的整体预测结果。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/01.png"><br>stacking：stacking是一种分层模型集成框架。以两层为例，第一层由多个基学习器组成，其输入为原始训练集，第二层的模型则是以第一层基学习器的输出作为特征加入训练集进行再训练，从而得到完整的stacking模型。<br>不同的模型，是在不同的角度观察我们的数据集。<br>基本步骤:<br>①选择基模型。各种基本的机器学习算法。<br>②把训练集分成不交叉的若干份。<br>③将其中一份作为预测集，使用其它份进行建模，预测预测集，保留结果。<br>④把预测结果按照对应的位置填上，得到对整个数据集在第一个基模型上的一个stacking转换。<br>⑤在④的过程中，每个模型分别对测试集进行预测，并保留这五列结果，取平均值，作为该基模型对测试集数据的一个stacking转换。<br>⑥对其它基模型重复②-⑤步。<br>⑦一般使用LR作为第二层的模型进行建模预测。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/02.png"><br>整个过程比较耗时，尽量增加一些不同类型的模型。<br>下面实操一下吧，参考了[8]<br>问题是假设四个人扔187个飞镖。其中150个飞镖观察是谁扔的，扔到了哪里（训练数据）。剩下的作为测试数据，知道飞镖的位置。我们的学习任务是根据飞镖的位置，猜测是谁扔的。<br>先读取数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    train_data = pd.read_csv(<span class="string">&quot;train.csv&quot;</span>)</span><br><span class="line">    test_data = pd.read_csv(<span class="string">&quot;test.csv&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(train_data.head())</span><br><span class="line">    <span class="built_in">print</span>(train_data.info())</span><br><span class="line">    <span class="built_in">print</span>(test_data.info())</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/03.png"><br>这是有监督学习的分类问题，把能用的算法都用上看看吧。<br>先画图看看</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 画图看看</span></span><br><span class="line">fig = plt.figure()</span><br><span class="line">colors = [<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;g&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;orange&#x27;</span>]</span><br><span class="line">labels = [<span class="string">&#x27;Sue&#x27;</span>, <span class="string">&#x27;Kate&#x27;</span>, <span class="string">&#x27;Mark&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    x = train_data.loc[train_data[<span class="string">&quot;Competitor&quot;</span>] == labels[index]][<span class="string">&quot;XCoord&quot;</span>]</span><br><span class="line">    y = train_data.loc[train_data[<span class="string">&quot;Competitor&quot;</span>] == labels[index]][<span class="string">&quot;YCoord&quot;</span>]</span><br><span class="line">    plt.scatter(x, y, c = colors[index], label = labels[index])</span><br><span class="line">plt.legend(loc = <span class="string">&quot;best&quot;</span>)</span><br><span class="line">plt.savefig(<span class="string">&quot;data.png&quot;</span>)</span><br><span class="line">plt.close()</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/04.png"><br>可以看到四个人投掷的坐标还是有明显差别的。<br>下面就一个算法一个算法先试吧。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression <span class="comment">#逻辑回归</span></span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC, LinearSVC <span class="comment">#支持向量机</span></span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier <span class="comment">#随机森林</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier <span class="comment">#K最邻近算法</span></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB <span class="comment">#朴素贝叶斯</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Perceptron <span class="comment">#感知机算法             </span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> SGDClassifier <span class="comment">#梯度下降分类</span></span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier <span class="comment">#决策树算法</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> StratifiedKFold <span class="comment">#K折交叉切分</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV <span class="comment">#网格搜索</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对模型进行交叉验证</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cross_val</span>(<span class="params">model, X, Y, cv=<span class="number">5</span></span>):</span></span><br><span class="line">    scores = cross_val_score(model, X, Y, cv=cv)</span><br><span class="line">    score = scores.mean()</span><br><span class="line">    <span class="keyword">return</span> score</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment"># 模型评分</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ModelTest</span>(<span class="params">Model, X_train, Y_train</span>):</span></span><br><span class="line">    Model.fit(X_train, Y_train)</span><br><span class="line">    <span class="comment"># 对模型评分</span></span><br><span class="line">    acc_result = <span class="built_in">round</span>(Model.score(X_train, Y_train)*<span class="number">100</span>, <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 基本模型比较</span></span><br><span class="line">    <span class="comment"># 划分数据</span></span><br><span class="line">    X_train = train_data.drop([<span class="string">&quot;Competitor&quot;</span>, <span class="string">&quot;ID&quot;</span>], axis = <span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(X_train.info())</span><br><span class="line">    Y_train = train_data[<span class="string">&quot;Competitor&quot;</span>]</span><br><span class="line">    X_test = test_data.drop([<span class="string">&quot;Competitor&quot;</span>, <span class="string">&quot;ID&quot;</span>], axis = <span class="number">1</span>)</span><br><span class="line">    Y_test = test_data[<span class="string">&quot;Competitor&quot;</span>]</span><br><span class="line">    <span class="comment"># 逻辑回归模型</span></span><br><span class="line">    LogModel = LogisticRegression()</span><br><span class="line">    acc_log = ModelTest(LogModel, X_train, Y_train)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;逻辑回归结果:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc_log))</span><br><span class="line">    cross_log = cross_val(LogModel, X_train, Y_train, cv = <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;交叉验证得分:%.3f&quot;</span> % (cross_log))</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># SVM支持向量机模型</span></span><br><span class="line">    SVMModel = SVC()</span><br><span class="line">    acc_svc = ModelTest(SVMModel, X_train, Y_train)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;支持向量机结果:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc_svc))</span><br><span class="line">    cross_svc = cross_val(SVMModel, X_train, Y_train, cv = <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;交叉验证得分:%.3f&quot;</span> % (cross_svc))</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># knn算法</span></span><br><span class="line">    knnModel = KNeighborsClassifier(n_neighbors = <span class="number">4</span>)</span><br><span class="line">    acc_knn = ModelTest(knnModel, X_train, Y_train)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;knn结果:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc_knn))</span><br><span class="line">    cross_knn = cross_val(knnModel, X_train, Y_train, cv = <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;交叉验证得分:%.3f&quot;</span> % (cross_knn))</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 朴素贝叶斯模型</span></span><br><span class="line">    BYSModel = GaussianNB()</span><br><span class="line">    acc_bys = ModelTest(BYSModel, X_train, Y_train)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;朴素贝叶斯算法结果:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc_bys))</span><br><span class="line">    cross_bys = cross_val(BYSModel, X_train, Y_train, cv = <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;交叉验证得分:%.3f&quot;</span> % (cross_bys))</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 感知机算法</span></span><br><span class="line">    percModel = Perceptron()</span><br><span class="line">    acc_perc = ModelTest(percModel, X_train, Y_train)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;感知机算法算法结果:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc_perc))</span><br><span class="line">    cross_perc = cross_val(percModel, X_train, Y_train, cv = <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;交叉验证得分:%.3f&quot;</span> % (cross_perc))</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 线性分类支持向量机</span></span><br><span class="line">    lin_svcModel = LinearSVC()</span><br><span class="line">    acc_lin_svc = ModelTest(lin_svcModel, X_train, Y_train)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;线性分类支持向量机算法结果:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc_lin_svc))</span><br><span class="line">    cross_lin_svc = cross_val(lin_svcModel, X_train, Y_train, cv = <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;交叉验证得分:%.3f&quot;</span> % (cross_lin_svc))</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 梯度下降分类算法</span></span><br><span class="line">    sgdModel = SGDClassifier()</span><br><span class="line">    acc_sgd = ModelTest(sgdModel, X_train, Y_train)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;梯度下降分类算法结果:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc_sgd))</span><br><span class="line">    cross_sgd = cross_val(sgdModel, X_train, Y_train, cv = <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;交叉验证得分:%.3f&quot;</span> % (cross_sgd))</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 决策树算法</span></span><br><span class="line">    treeModel = DecisionTreeClassifier()</span><br><span class="line">    acc_tree = ModelTest(treeModel, X_train, Y_train)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;决策树算法结果:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc_tree))</span><br><span class="line">    cross_tree = cross_val(treeModel, X_train, Y_train, cv = <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;交叉验证得分:%.3f&quot;</span> % (cross_tree))</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 随机森林算法</span></span><br><span class="line">    forestModel = RandomForestClassifier()</span><br><span class="line">    acc_rand = ModelTest(forestModel, X_train, Y_train)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;随机森林算法结果:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc_rand))</span><br><span class="line">    cross_rand = cross_val(forestModel, X_train, Y_train, cv = <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;交叉验证得分:%.3f&quot;</span> % (cross_rand))</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 模型评分</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;模型评分&quot;</span>)</span><br><span class="line">    models = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">&#x27;Model&#x27;</span>: [<span class="string">&#x27;Support Vector Machines&#x27;</span>, <span class="string">&#x27;KNN&#x27;</span>, <span class="string">&#x27;Logistic Regression&#x27;</span>, <span class="string">&#x27;Random Forest&#x27;</span>, <span class="string">&#x27;Naive Bayes&#x27;</span>, <span class="string">&#x27;Perceptron&#x27;</span>, <span class="string">&#x27;Stochastic Gradient Decent&#x27;</span>, <span class="string">&#x27;Linear SVC&#x27;</span>,<span class="string">&#x27;Decision Tree&#x27;</span>],</span><br><span class="line">    <span class="string">&#x27;Score&#x27;</span>: [acc_svc, acc_knn, acc_log, acc_rand, acc_bys, acc_perc, acc_sgd, acc_lin_svc, acc_tree]&#125;)</span><br><span class="line">    <span class="built_in">print</span>(models.sort_values(by=<span class="string">&#x27;Score&#x27;</span>, ascending=<span class="literal">False</span>))</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 模型交叉验证评分</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;模型交叉验证评分&quot;</span>)</span><br><span class="line">    models_cross_val = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">&#x27;Model&#x27;</span>: [<span class="string">&#x27;Support Vector Machines&#x27;</span>, <span class="string">&#x27;KNN&#x27;</span>, <span class="string">&#x27;Logistic Regression&#x27;</span>, <span class="string">&#x27;Random Forest&#x27;</span>, <span class="string">&#x27;Naive Bayes&#x27;</span>, <span class="string">&#x27;Perceptron&#x27;</span>, <span class="string">&#x27;Stochastic Gradient Decent&#x27;</span>, <span class="string">&#x27;Linear SVC&#x27;</span>,<span class="string">&#x27;Decision Tree&#x27;</span>],</span><br><span class="line">    <span class="string">&#x27;Score&#x27;</span>: [cross_svc, cross_knn, cross_log, cross_rand, cross_bys, cross_perc, cross_sgd, cross_lin_svc, cross_tree]&#125;)</span><br><span class="line">    <span class="built_in">print</span>(models_cross_val.sort_values(by=<span class="string">&#x27;Score&#x27;</span>, ascending=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
+<p>结果如下:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/05.png"><br>用评分前五名的决策树，随机森林，KNN，朴素贝叶斯，支持向量机算法进行stacking。先计算各个模型对测试集预测的正确率。先写一个测试函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用测试集检验模型预测的正确率</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testModel</span>(<span class="params">Model, X_train, Y_train,  X_test, Y_test</span>):</span></span><br><span class="line">    Model.fit(X_train, Y_train)</span><br><span class="line">    <span class="comment"># 用模型对测试集数据进行预测</span></span><br><span class="line">    res = Model.predict(X_test)</span><br><span class="line">    <span class="built_in">print</span>(res, Y_test.values)</span><br><span class="line">    n = <span class="number">0.0</span></span><br><span class="line">    Y_test_value = Y_test.values</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(Y_test_value)):</span><br><span class="line">        <span class="comment"># print(i, res[i], Y_test.iloc[i:1])</span></span><br><span class="line">        <span class="keyword">if</span> res[i] == Y_test_value[i]:</span><br><span class="line">            n += <span class="number">1.0</span></span><br><span class="line">    score = n/<span class="built_in">len</span>(Y_test)</span><br><span class="line">    <span class="keyword">return</span> score</span><br></pre></td></tr></table></figure>
+<p>然后用五个模型分别预测。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#分别测试</span></span><br><span class="line">DT_score = testModel(treeModel, X_train, Y_train, X_test, Y_test)</span><br><span class="line">RF_score = testModel(forestModel, X_train, Y_train, X_test, Y_test)</span><br><span class="line">KNN_score = testModel(knnModel, X_train, Y_train, X_test, Y_test)</span><br><span class="line">NB_score = testModel(BYSModel, X_train, Y_train, X_test, Y_test)</span><br><span class="line">SVM_score = testModel(SVMModel, X_train, Y_train, X_test, Y_test)</span><br></pre></td></tr></table></figure>
+<p>接着照[8]进行Stacking，却怎么也调不通。<br>[9]介绍了一个库vecstack，封装了stacking的第一步，试试。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score, KFold, train_test_split</span><br><span class="line"><span class="keyword">from</span> vecstack <span class="keyword">import</span> stacking</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 进行stacking</span></span><br><span class="line">    <span class="comment"># 用评分前五名的决策树，随机森林，KNN，朴素贝叶斯，支持向量机算法进行stacking。</span></span><br><span class="line">    models = [</span><br><span class="line">    DecisionTreeClassifier(),</span><br><span class="line">    RandomForestClassifier(),</span><br><span class="line">    KNeighborsClassifier(n_neighbors = <span class="number">4</span>),</span><br><span class="line">    GaussianNB(),</span><br><span class="line">    SVC()</span><br><span class="line">    ]</span><br><span class="line">    Y_train.replace(&#123;<span class="string">&quot;Sue&quot;</span>:<span class="number">1.0</span>, <span class="string">&quot;Mark&quot;</span>:<span class="number">2.0</span>, <span class="string">&quot;Kate&quot;</span>:<span class="number">3.0</span>, <span class="string">&quot;Bob&quot;</span>:<span class="number">4.0</span>&#125;, inplace = <span class="literal">True</span>)</span><br><span class="line">    Y_test.replace(&#123;<span class="string">&quot;Sue&quot;</span>:<span class="number">1.0</span>, <span class="string">&quot;Mark&quot;</span>:<span class="number">2.0</span>, <span class="string">&quot;Kate&quot;</span>:<span class="number">3.0</span>, <span class="string">&quot;Bob&quot;</span>:<span class="number">4.0</span>&#125;, inplace = <span class="literal">True</span>)</span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(X_train, Y_train, test_size=<span class="number">0.2</span>, random_state=<span class="number">0</span>)</span><br><span class="line">    S_train, S_test = stacking(models, x_train, y_train, x_test, regression=<span class="literal">False</span>, mode=<span class="string">&#x27;oof_pred_bag&#x27;</span>, needs_proba=<span class="literal">False</span>, save_dir=<span class="literal">None</span>, metric=accuracy_score, n_folds=<span class="number">4</span>, stratified=<span class="literal">True</span>, shuffle=<span class="literal">True</span>, random_state=<span class="number">0</span>, verbose=<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># 第二级，用梯度下降分类</span></span><br><span class="line">    model = SGDClassifier()</span><br><span class="line">    model = model.fit(S_train, y_train)</span><br><span class="line">    y_pred = model.predict(S_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Final prediction score: [%.8f]&#x27;</span> % accuracy_score(y_test, y_pred))</span><br><span class="line">       </span><br><span class="line">    <span class="comment">#分别测试</span></span><br><span class="line">    DT_score = testModel(treeModel, X_train, Y_train,  X_test, Y_test)</span><br><span class="line">    RF_score = testModel(forestModel, X_train, Y_train,  X_test, Y_test)</span><br><span class="line">    KNN_score = testModel(knnModel, X_train, Y_train,  X_test, Y_test)</span><br><span class="line">    NB_score = testModel(BYSModel, X_train, Y_train,  X_test, Y_test)</span><br><span class="line">    SVM_score = testModel(SVMModel, X_train, Y_train,  X_test, Y_test)</span><br><span class="line">    stacking_score = testModel(model, S_train, y_train,  S_test, y_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Stacking结果&quot;</span>)</span><br><span class="line">    stacking_results = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">&#x27;模型&#x27;</span>: [<span class="string">&quot;决策树&quot;</span>, <span class="string">&quot;随机森林&quot;</span>,<span class="string">&quot;KNN&quot;</span>,<span class="string">&quot;朴素贝叶斯&quot;</span>, <span class="string">&quot;支持向量机&quot;</span>, <span class="string">&quot;Stacking&quot;</span>],</span><br><span class="line">    <span class="string">&#x27;预测正确率&#x27;</span>: [DT_score, RF_score, KNN_score, NB_score, SVM_score, stacking_score]&#125;)</span><br><span class="line">    <span class="built_in">print</span>(stacking_results.sort_values(by=<span class="string">&#x27;预测正确率&#x27;</span>, ascending=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/06.png"><br>换了一个二级模型，用逻辑回归模型<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/32/07.png"><br>stacking的结果并不是最好的，跟选用的模型有很大关系。先熟悉流程吧。<br>本篇代码： <a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/tree/master/40">https://github.com/zwdnet/MyQuant/tree/master/40</a></p>
+<p>参考：<br>[1]<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32949396">https://zhuanlan.zhihu.com/p/32949396</a><br>[2]<a target="_blank" rel="noopener" href="https://blog.csdn.net/wstcjf/article/details/77989963">https://blog.csdn.net/wstcjf/article/details/77989963</a><br>[3] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33589222">https://zhuanlan.zhihu.com/p/33589222</a><br>[4] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32896968">https://zhuanlan.zhihu.com/p/32896968</a><br>[5] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26890738">https://zhuanlan.zhihu.com/p/26890738</a><br>[6] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/75411512">https://zhuanlan.zhihu.com/p/75411512</a><br>[7] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27493821">https://zhuanlan.zhihu.com/p/27493821</a><br>[8] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/yucaodie/p/7044737.html">https://www.cnblogs.com/yucaodie/p/7044737.html</a><br>[9] <a target="_blank" rel="noopener" href="https://towardsdatascience.com/automate-stacking-in-python-fc3e7834772e">https://towardsdatascience.com/automate-stacking-in-python-fc3e7834772e</a></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88/" rel="tag"># 模型融合</a>
+          
+            <a href="/tags/Stacking/" rel="tag"># Stacking</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/11/%E4%BD%A0%E4%BC%9A%E5%A4%87%E7%89%99%E5%90%97%E2%80%94%E2%80%94%E4%BF%9D%E5%AD%98%E7%89%99%E4%BD%93%E7%BB%93%E6%9E%84/" rel="next" title="你会备牙吗——保存牙体结构">
+                <i class="fa fa-chevron-left"></i> 你会备牙吗——保存牙体结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/14/%E7%89%99%E9%AB%93%E7%97%85%E6%80%BB%E7%BB%9314%E2%80%94%E2%80%94%E6%A0%B9%E7%AE%A1%E5%85%85%E5%A1%AB%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E3%80%82/" rel="prev" title="牙髓病总结14——根管充填相关问题。">
+                牙髓病总结14——根管充填相关问题。 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Mi8xNzU4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">617</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">597</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1377.1k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1275447216&web_id=1275447216" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

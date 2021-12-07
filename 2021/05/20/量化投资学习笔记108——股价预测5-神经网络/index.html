@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="量化投资,LSTM,神经网络," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="主要还是参考一篇硕士论文：王莎. BP神经网络在股票预测中的应用研究[D]. 中南大学.传统预测方法有一个共同局限性，即被控对象或过程的数学模型必须预先知道。而且没有容错和学习能力。人工神经网络能那些最佳刻画样本数据规律的函数。采用多层bp神经网络，当输出范围在[0，1]之间时，输出层使用S形激活函数，否则输出层采用线性激活函数，中间层采用S形激活函数。用前5天的开盘价、最高价、最低价、收盘价和成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记108——股价预测5:神经网络">
+<meta property="og:url" content="https://zwdnet.github.io/2021/05/20/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0108%E2%80%94%E2%80%94%E8%82%A1%E4%BB%B7%E9%A2%84%E6%B5%8B5-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="主要还是参考一篇硕士论文：王莎. BP神经网络在股票预测中的应用研究[D]. 中南大学.传统预测方法有一个共同局限性，即被控对象或过程的数学模型必须预先知道。而且没有容错和学习能力。人工神经网络能那些最佳刻画样本数据规律的函数。采用多层bp神经网络，当输出范围在[0，1]之间时，输出层使用S形激活函数，否则输出层采用线性激活函数，中间层采用S形激活函数。用前5天的开盘价、最高价、最低价、收盘价和成">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/78/01.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2021-05-20T04:14:22.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.049Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="LSTM">
+<meta property="article:tag" content="神经网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/78/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2021/05/20/量化投资学习笔记108——股价预测5-神经网络/"/>
+
+
+
+
+
+  <title>量化投资学习笔记108——股价预测5:神经网络 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2021/05/20/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0108%E2%80%94%E2%80%94%E8%82%A1%E4%BB%B7%E9%A2%84%E6%B5%8B5-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记108——股价预测5:神经网络</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-20T12:14:22+08:00">
+                2021-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  802
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>主要还是参考一篇硕士论文：王莎. BP神经网络在股票预测中的应用研究[D]. 中南大学.<br>传统预测方法有一个共同局限性，即被控对象或过程的数学模型必须预先知道。而且没有容错和学习能力。人工神经网络能那些最佳刻画样本数据规律的函数。<br>采用多层bp神经网络，当输出范围在[0，1]之间时，输出层使用S形激活函数，否则输出层采用线性激活函数，中间层采用S形激活函数。<br>用前5天的开盘价、最高价、最低价、收盘价和成交量，一共25个数据做为输入数据。其后一天的数据作为网络输出的目标数据。<br>隐藏层神经元数量，要实验，作者的结果是16个神经元。先用这个结果。<br>先进行数据归一化，划分训练集和测试集。<br>写代码的过程中遇到很多问题，老报错。先保持原状，尝试一下另一个神经网络——长短期记忆网络（LSTM）。理论我以前写过一篇文章，现在就照人家的文章直接撸代码吧。<br>参考这个:<a target="_blank" rel="noopener" href="https://www.codenong.com/cs103412077/">https://www.codenong.com/cs103412077/</a><br>结果一顿操作，预测结果……<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/78/01.png"></p>
+<p>这也差太多了吧？算了，就到此为止吧。<br>源代码:<a target="_blank" rel="noopener" href="https://github.com/zwdnet/stock/blob/main/lstm.py">https://github.com/zwdnet/stock/blob/main/lstm.py</a><br>最后再总结一下我这五篇股价预测的文章。五篇文章我分别尝试了集合经验模态分解法(EMMD)，机器学习算法，时间序列分析方法，神经网络算法，结果都不尽如人意，拿预测第二天涨跌作为标准，可能比瞎猜好不了多少。而且有使用未来数据的问题。看来用预测股价来开发策略可能效果不好，当然我的目的主要并不是在此，而是通过这个过程学习一系列的东西，比如机器学习，EMMD，遗传算法等等。而且也尝试了一种学习方法:通过找相关的硕士博士论文来学习某个领域。<br>接下来的计划，有两个:一个是实现《151 Trading Strategies》里的一些策略，目的主要是锻炼自己用代码实现策略的能力。这个想法主要是受知乎网友@云金杞 的启发，他的backtrader的文章很不错，推荐。二是准备搞个1000元试手计划，就是用1000元投入股市，每天至少操作一次，看看一段时间后还剩多少。主要是训练盘感和心态。打算写一些盘后复盘的文章。这个想法主要来自于万门大学的量化投资入门课程。这两个计划都是长期计划，慢慢来吧。</p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/LSTM/" rel="tag"># LSTM</a>
+          
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag"># 神经网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/05/19/%E9%9B%95%E7%89%99%E7%BB%83%E4%B9%A010%E2%80%94%E2%80%94%E5%8F%B3%E4%B8%8B%E9%A2%8C%E7%AC%AC%E4%BA%8C%E5%89%8D%E7%A3%A8%E7%89%99/" rel="next" title="雕牙练习10——右下颌第二前磨牙">
+                <i class="fa fa-chevron-left"></i> 雕牙练习10——右下颌第二前磨牙
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/05/21/%E9%9B%95%E7%89%99%E7%BB%83%E4%B9%A011%E2%80%94%E2%80%94%E5%8F%B3%E4%B8%8A%E9%A2%8C%E7%AC%AC%E4%B8%80%E7%A3%A8%E7%89%99/" rel="prev" title="雕牙练习11——右上颌第一磨牙">
+                雕牙练习11——右上颌第一磨牙 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Mi8xNzU4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">617</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">597</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1377.1k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1275447216&web_id=1275447216" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>
