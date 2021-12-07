@@ -146,7 +146,9 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -351,7 +353,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  864
+                  863
                 </span>
               
 
@@ -390,8 +392,7 @@
       
         
           
-          这次采用机器学习的分类算法，主要用感知机、支持向量机、逻辑回归等几个算法。基本思路就是把股票数据分成盈利和亏损两类，根据回测年化收益率来给股票数据打标签，再进行训练。先给数据打标签。
-123456# 对数据打标签def addItem(data):    data[&quot;res&quot;] 
+          这次采用机器学习的分类算法，主要用感知机、支持向量机、逻辑回归等几个算法。基本思路就是把股票数据分成盈利和亏损两类，根据回测年化收益率来给股票数据打标签，再进行训练。先给数据打标签。123456# 对数据打标签def addItem(data):    data[&quot;res&quot;] =
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -753,8 +754,7 @@
       
         
           
-          接着上次的程序，我想到用机器学习算法来进行多因子选股的方法。之前的程序是先假设因子之间是线性关系，然后求方程的系数。现在我考虑能不能将每个候选股票的各个因子的值，以及每个股票的年化收益率直接当做数据”喂给”算法，看看能有啥结果。首先造数据吧。因子数据的获取跟筛选和之前是一样的。
-1234567891
+          接着上次的程序，我想到用机器学习算法来进行多因子选股的方法。之前的程序是先假设因子之间是线性关系，然后求方程的系数。现在我考虑能不能将每个候选股票的各个因子的值，以及每个股票的年化收益率直接当做数据”喂给”算法，看看能有啥结果。首先造数据吧。因子数据的获取跟筛选和之前是一样的。12345678910
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1116,8 +1116,7 @@
       
         
           
-          下面对上次实现的多因子选股模型进行一些改进。首先来看评分标准，增加几个系数。
-123456789101112131415# 计算评分指标def scale(factors, a1=1.0, a2 = 1.0, a3 = 1.0, a4 = 1.0, a5 = 1.0):    pe = -1.0*a
+          下面对上次实现的多因子选股模型进行一些改进。首先来看评分标准，增加几个系数。123456789101112131415# 计算评分指标def scale(factors, a1=1.0, a2 = 1.0, a3 = 1.0, a4 = 1.0, a5 = 1.0):    pe = -1.0*a1
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2196,7 +2195,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1377.7k</span>
+    <span title="Site words total count">1347.4k</span>
   
 </div>
 

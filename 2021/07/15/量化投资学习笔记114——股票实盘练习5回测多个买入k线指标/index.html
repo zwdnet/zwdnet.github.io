@@ -159,7 +159,9 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -398,17 +400,17 @@
       
 
       
-        <p>昨天到今天修改了一下程序，可以同时回测多个k线买入形态的效果，标准还是10个交易日内涨跌超过10%。<br>测试了以下指标:<br>methods = {<br>        “锤子线”:talib.CDLHAMMER,<br>        “启明星”:talib.CDLMORNINGDOJISTAR,<br>        “看涨吞没”:talib.CDLENGULFING,<br>        “旭日东升”:talib.CDLPIERCING,<br>        “低位孕线”:talib.CDLHARAMI,<br>        “塔形底”:talib.CDLBREAKAWAY,<br>        “红三兵”:talib.CDL3WHITESOLDIERS,<br>        “上升三法”:talib.CDLRISEFALL3METHODS<br>    }<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/01.jpg"></p>
-<p>塔形底胜率比较高一些，不过也才23%，不到1/4。下次实盘试试这个?<br>又尝试了一下改变回测的时间长度和目标涨幅，就用塔形底形态。回测结果差别很大。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/02.jpg"></p>
-<p>画图看看<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/03.png"></p>
-<p>好像看不出啥规律来。<br>再单独画胜率数据看看:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/04.png"></p>
-<p>有点意思了，好像跟回测间隔关系不大，跟目标涨跌幅关系很大。固定时间间隔为10天，再回测看看。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/05.png"></p>
-<p>然后固定目标涨跌幅度为5%，用不同的时间间隔回测。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/06.png"></p>
-<p>第四天的时候达到最高，30%。<br>再来看看实盘的情况，今天两只股票一只涨一只跌，涨的一只刚到买入价。看来以后买入时可以看看60分钟线等超短线信号，免得一买就跌影响心态。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/07.jpg"></p>
+        <p>昨天到今天修改了一下程序，可以同时回测多个k线买入形态的效果，标准还是10个交易日内涨跌超过10%。<br>测试了以下指标:<br>methods = {<br>        “锤子线”:talib.CDLHAMMER,<br>        “启明星”:talib.CDLMORNINGDOJISTAR,<br>        “看涨吞没”:talib.CDLENGULFING,<br>        “旭日东升”:talib.CDLPIERCING,<br>        “低位孕线”:talib.CDLHARAMI,<br>        “塔形底”:talib.CDLBREAKAWAY,<br>        “红三兵”:talib.CDL3WHITESOLDIERS,<br>        “上升三法”:talib.CDLRISEFALL3METHODS<br>    }<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/01.jpg" alt=""></p>
+<p>塔形底胜率比较高一些，不过也才23%，不到1/4。下次实盘试试这个?<br>又尝试了一下改变回测的时间长度和目标涨幅，就用塔形底形态。回测结果差别很大。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/02.jpg" alt=""></p>
+<p>画图看看<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/03.png" alt=""></p>
+<p>好像看不出啥规律来。<br>再单独画胜率数据看看:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/04.png" alt=""></p>
+<p>有点意思了，好像跟回测间隔关系不大，跟目标涨跌幅关系很大。固定时间间隔为10天，再回测看看。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/05.png" alt=""></p>
+<p>然后固定目标涨跌幅度为5%，用不同的时间间隔回测。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/06.png" alt=""></p>
+<p>第四天的时候达到最高，30%。<br>再来看看实盘的情况，今天两只股票一只涨一只跌，涨的一只刚到买入价。看来以后买入时可以看看60分钟线等超短线信号，免得一买就跌影响心态。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/84/07.jpg" alt=""></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/zwdnet/stockpractice/blob/main/kline/backtest.py">代码</a></p>
 <p><strong>声明:本文为个人学习记录，不构成投资建议!股市有风险，入市需谨慎!</strong></p>
-<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
-<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg" alt=""></p>
 
       
     </div>
@@ -639,7 +641,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1377.7k</span>
+    <span title="Site words total count">1347.4k</span>
   
 </div>
 

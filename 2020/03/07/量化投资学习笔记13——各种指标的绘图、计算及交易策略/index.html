@@ -163,7 +163,9 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -402,9 +404,9 @@
       
 
       
-        <p>《量化投资:以python为工具》第五部分笔记<br>先来画k线图，要注意finance模块已经从matplotlib库中去除，现在要用mpl_finance库，单独安装。<br>其中有candlestick_ohlc函数，用来画k线图或者叫蜡烛图。函数接受的日期格式是浮点类型，接受的数据格式是列表型，要进行相应的转换，详见github库里本章的代码。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/01.png"><br>下面尝试几个跟指标有关的交易策略。<br>1.动量交易策略<br>即股价上涨或下跌的惯性。<br>计算方法有作差法，即今天的价格减去一段时间间隔以前的价格。<br>动量m = Pt - Pt-m<br>计算万科的5日动量，作图<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/02.png"><br>动量交易策略:动量大于0，买入，动量小于0，卖出。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/03.png"><br>计算策略的胜率，画出直方图。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/04.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/05.png"><br>胜率大于0.5，但也没有大太多。<br>2.RSI指标<br>用来衡量股票买卖力量的相对强弱。<br>RSI = 100×(UP/(UP+DOWN))<br>UP表示周期内股价上涨幅度的平均值， DOWN表示周期内股价下跌幅度的平均值。<br>RSI取值范围为0~100，大于50越多，表明股价上涨力量超过下跌力量越多。<br>用交通银行股票做例子，先按上述公式计算RSI值，时间周期取6天。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/06.png"><br>最下面一个是RSI值。<br>再计算RSI24的值。<br>当短期rsi线穿过长期rsi线，为黄金交叉，买入信号，反之为死亡交叉，为卖出信号。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/07.png"><br>接着进行具体的策略回测。<br>策略为:当RSI6&gt;80或RSI6向下穿过RSI24为卖出信号。当RSI6&lt;20或RSI向上穿过RSI24为买入信号。<br>策略的收益时序图<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/08.png"><br>策略的胜率计算<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/09.png"><br>58%<br>再画图看一下累积收益率<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/10.png"><br>上面是股票本身的累积收益率，下面是策略的累积收益。可以看到策略还不如直接买入然后持有呢。<br>本章代码: <a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/tree/master/13">https://github.com/zwdnet/MyQuant/tree/master/13</a></p>
-<p>我发文章的四个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的博客园博客地址： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zwdnet/">https://www.cnblogs.com/zwdnet/</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
-<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+        <p>《量化投资:以python为工具》第五部分笔记<br>先来画k线图，要注意finance模块已经从matplotlib库中去除，现在要用mpl_finance库，单独安装。<br>其中有candlestick_ohlc函数，用来画k线图或者叫蜡烛图。函数接受的日期格式是浮点类型，接受的数据格式是列表型，要进行相应的转换，详见github库里本章的代码。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/01.png" alt=""><br>下面尝试几个跟指标有关的交易策略。<br>1.动量交易策略<br>即股价上涨或下跌的惯性。<br>计算方法有作差法，即今天的价格减去一段时间间隔以前的价格。<br>动量m = Pt - Pt-m<br>计算万科的5日动量，作图<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/02.png" alt=""><br>动量交易策略:动量大于0，买入，动量小于0，卖出。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/03.png" alt=""><br>计算策略的胜率，画出直方图。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/04.png" alt=""><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/05.png" alt=""><br>胜率大于0.5，但也没有大太多。<br>2.RSI指标<br>用来衡量股票买卖力量的相对强弱。<br>RSI = 100×(UP/(UP+DOWN))<br>UP表示周期内股价上涨幅度的平均值， DOWN表示周期内股价下跌幅度的平均值。<br>RSI取值范围为0~100，大于50越多，表明股价上涨力量超过下跌力量越多。<br>用交通银行股票做例子，先按上述公式计算RSI值，时间周期取6天。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/06.png" alt=""><br>最下面一个是RSI值。<br>再计算RSI24的值。<br>当短期rsi线穿过长期rsi线，为黄金交叉，买入信号，反之为死亡交叉，为卖出信号。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/07.png" alt=""><br>接着进行具体的策略回测。<br>策略为:当RSI6&gt;80或RSI6向下穿过RSI24为卖出信号。当RSI6&lt;20或RSI向上穿过RSI24为买入信号。<br>策略的收益时序图<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/08.png" alt=""><br>策略的胜率计算<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/09.png" alt=""><br>58%<br>再画图看一下累积收益率<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/09/10.png" alt=""><br>上面是股票本身的累积收益率，下面是策略的累积收益。可以看到策略还不如直接买入然后持有呢。<br>本章代码: <a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/tree/master/13">https://github.com/zwdnet/MyQuant/tree/master/13</a></p>
+<p>我发文章的四个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的博客园博客地址： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zwdnet/">https://www.cnblogs.com/zwdnet/</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg" alt=""></p>
 
       
     </div>
@@ -637,7 +639,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1377.7k</span>
+    <span title="Site words total count">1347.4k</span>
   
 </div>
 

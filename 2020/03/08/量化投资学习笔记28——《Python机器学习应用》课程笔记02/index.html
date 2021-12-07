@@ -159,7 +159,9 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -398,9 +400,9 @@
       
 
       
-        <p>降维<br>PCA算法及其应用<br>主成分分析(PCA)，通常用于高维数据的探索与可视化。可以拔具有相关性的高维变量转化为线性无关的低维变量。称为主成分，能够尽可能保存原始数据的信息。<br>几个概念<br>方差:样本与样本均值的差的平方和的均值，用来度量一组数据的分散程度。<br>协方差:用于度量两个变量的线性相关程度。<br>特征向量:描述数据集结构的非零向量。<br>原理:矩阵的主成分就是其协方差矩阵对应的特征向量，按照对应特征值排序，分为第一主成分，第二主成分，以此类推。<br>在sklearn中使用decomposition模块中的PCA进行降维。<br>实例，用PCA将鸢尾花数据进行降维，可视化。<br>代码见: <a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/blob/master/26/PCAtest.py">https://github.com/zwdnet/MyQuant/blob/master/26/PCAtest.py</a><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/22/01.png"><br>非负矩阵分解(NMF)<br>是在矩阵中所有元素均为非负数约束条件下的矩阵分解方法。<br>基本思想:给定一个非负矩阵V，NMF能够找到一个非负矩阵W和一个非负矩阵H，使得二者的乘积近似等于矩阵V中的值。<br>W矩阵，从原矩阵V中提取的特征。<br>H矩阵，系数矩阵。<br>分解目标，最小化W与H乘积与V的差异。<br>在sklearn中使用decomposition模块中的NMF进行分解。<br>实例，用NMF进行人脸图像数据集Olivetti特征提取。<br>代码见: <a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/blob/master/26/face.py">https://github.com/zwdnet/MyQuant/blob/master/26/face.py</a><br>这是原图<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/22/02.png"><br>NMF算法的结果<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/22/03.png"><br>PCA算法的结果<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/22/04.png"><br>可以看到NMF算法好一点。</p>
-<p>我发文章的四个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的博客园博客地址： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zwdnet/">https://www.cnblogs.com/zwdnet/</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
-<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+        <p>降维<br>PCA算法及其应用<br>主成分分析(PCA)，通常用于高维数据的探索与可视化。可以拔具有相关性的高维变量转化为线性无关的低维变量。称为主成分，能够尽可能保存原始数据的信息。<br>几个概念<br>方差:样本与样本均值的差的平方和的均值，用来度量一组数据的分散程度。<br>协方差:用于度量两个变量的线性相关程度。<br>特征向量:描述数据集结构的非零向量。<br>原理:矩阵的主成分就是其协方差矩阵对应的特征向量，按照对应特征值排序，分为第一主成分，第二主成分，以此类推。<br>在sklearn中使用decomposition模块中的PCA进行降维。<br>实例，用PCA将鸢尾花数据进行降维，可视化。<br>代码见: <a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/blob/master/26/PCAtest.py">https://github.com/zwdnet/MyQuant/blob/master/26/PCAtest.py</a><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/22/01.png" alt=""><br>非负矩阵分解(NMF)<br>是在矩阵中所有元素均为非负数约束条件下的矩阵分解方法。<br>基本思想:给定一个非负矩阵V，NMF能够找到一个非负矩阵W和一个非负矩阵H，使得二者的乘积近似等于矩阵V中的值。<br>W矩阵，从原矩阵V中提取的特征。<br>H矩阵，系数矩阵。<br>分解目标，最小化W与H乘积与V的差异。<br>在sklearn中使用decomposition模块中的NMF进行分解。<br>实例，用NMF进行人脸图像数据集Olivetti特征提取。<br>代码见: <a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/blob/master/26/face.py">https://github.com/zwdnet/MyQuant/blob/master/26/face.py</a><br>这是原图<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/22/02.png" alt=""><br>NMF算法的结果<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/22/03.png" alt=""><br>PCA算法的结果<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/22/04.png" alt=""><br>可以看到NMF算法好一点。</p>
+<p>我发文章的四个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的博客园博客地址： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zwdnet/">https://www.cnblogs.com/zwdnet/</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg" alt=""></p>
 
       
     </div>
@@ -637,7 +639,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1377.7k</span>
+    <span title="Site words total count">1347.4k</span>
   
 </div>
 
