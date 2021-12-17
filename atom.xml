@@ -6,7 +6,7 @@
   <link href="https://zwdnet.github.io/atom.xml" rel="self"/>
   
   <link href="https://zwdnet.github.io/"/>
-  <updated>2021-12-16T08:34:31.253Z</updated>
+  <updated>2021-12-17T02:13:43.031Z</updated>
   <id>https://zwdnet.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>北大口腔正畸学研究生课程2021秋07——数字化技术与口腔正畸</title>
+    <link href="https://zwdnet.github.io/2021/12/17/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B07%E2%80%94%E2%80%94%E6%95%B0%E5%AD%97%E5%8C%96%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
+    <id>https://zwdnet.github.io/2021/12/17/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B07%E2%80%94%E2%80%94%E6%95%B0%E5%AD%97%E5%8C%96%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/</id>
+    <published>2021-12-17T02:11:48.000Z</published>
+    <updated>2021-12-17T02:13:43.031Z</updated>
+    
+    <content type="html"><![CDATA[<p>很多朋友在后台问我听课方式，看这儿<br><a href="https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA">https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA</a></p><h3 id="数字化正畸概述"><a href="#数字化正畸概述" class="headerlink" title="数字化正畸概述"></a>数字化正畸概述</h3><p>外围(诊所运营，财务管理)到核心(CAD/CAN)<br>二维(数字化X片)到三维(数字化牙合模型，cbct)<br>初级替代到人工智能</p><p>流程:初诊、诊断、设计、矫治器制作、术中监控、术后管理。</p><h3 id="数字化正畸诊断与设计"><a href="#数字化正畸诊断与设计" class="headerlink" title="数字化正畸诊断与设计"></a>数字化正畸诊断与设计</h3><p>数字化正畸资料采集与处理<br>数字化牙合模型:STL格式。<br>扫描模型、硅橡胶印模及口扫。<br>数据特征:存在盲区、不能显示牙根形态、缺少牙槽骨信息、缺少颅颌面的骨性结构信息。<br>cbct，大视野剂量58.9-1025.5μSV。空间分辨率较螺旋CT高。<br>三维彩色面像:任何角度信息，可测量。<br>多源数据融合。</p><h3 id="数字化模型测量与分析"><a href="#数字化模型测量与分析" class="headerlink" title="数字化模型测量与分析"></a>数字化模型测量与分析</h3><p>牙列发育阶段<br>拥挤度<br>矢状向咬合关系<br>覆合覆盖<br>定量测量结果<br>虚拟排牙<br>模拟牙齿移动</p><h3 id="CBCT影像资料分析"><a href="#CBCT影像资料分析" class="headerlink" title="CBCT影像资料分析"></a>CBCT影像资料分析</h3><p>三维空间定位，软硬组织结构独立或组合显示。<br>合成头颅侧位片，无放大率和变形，清晰，避免重叠误差。<br>病理性异常诊断:</p><ul><li>阻生牙:空间位置、与邻牙关系、牙根吸收。</li><li>多生牙:空间位置、数目、与邻牙关系、牙根吸收。</li><li>牙根吸收:显示牙根唇舌面吸收。</li><li>气道分析:长度测量、横截面积测量、体积测量。</li><li>牙槽骨情况和根骨关系评估:牙弓断层片(牙槽骨高度、牙槽骨厚度、牙根与牙槽骨位置关系)。</li><li>TMJ形态分析:髁突骨质、关节间隙、多层面多角度观察。</li><li>定位解剖结构:阻生智齿、下颌神经管、上颌窦、牙胚。</li><li>评估治疗前后牙齿及牙槽骨变化:体素重叠</li></ul><h3 id="三维面像诊断分析"><a href="#三维面像诊断分析" class="headerlink" title="三维面像诊断分析"></a>三维面像诊断分析</h3><p>直观、真实、立体。<br>二维及三维测量。</p><h3 id="多源数据整合分析"><a href="#多源数据整合分析" class="headerlink" title="多源数据整合分析"></a>多源数据整合分析</h3><p>构建完整虚拟口颌系统<br>实现全程数字化和远程诊疗<br>cbct(牙根)+激光扫描(牙冠)-＞整合<br>cbct+三维面像-＞面部虚拟现实模型<br>牙齿+颌骨+功能运动数据-＞完整动态虚拟口颌系统</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;很多朋友在后台问我听课方式，看这儿&lt;br&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA&quot;&gt;https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA&lt;/a&gt;&lt;/p</summary>
+      
+    
+    
+    
+    <category term="口腔正畸" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
+    
+    
+    <category term="口腔正畸" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
+    
+    <category term="学习笔记" scheme="https://zwdnet.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="网课" scheme="https://zwdnet.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>为什么医生不用银汞合金充填了</title>
@@ -178,9 +206,9 @@
     
     <category term="量化投资" scheme="https://zwdnet.github.io/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
     
-    <category term="经典策略" scheme="https://zwdnet.github.io/tags/%E7%BB%8F%E5%85%B8%E7%AD%96%E7%95%A5/"/>
-    
     <category term="回测" scheme="https://zwdnet.github.io/tags/%E5%9B%9E%E6%B5%8B/"/>
+    
+    <category term="经典策略" scheme="https://zwdnet.github.io/tags/%E7%BB%8F%E5%85%B8%E7%AD%96%E7%95%A5/"/>
     
   </entry>
   
@@ -262,9 +290,9 @@
     
     <category term="量化投资" scheme="https://zwdnet.github.io/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
     
-    <category term="经典策略" scheme="https://zwdnet.github.io/tags/%E7%BB%8F%E5%85%B8%E7%AD%96%E7%95%A5/"/>
-    
     <category term="回测" scheme="https://zwdnet.github.io/tags/%E5%9B%9E%E6%B5%8B/"/>
+    
+    <category term="经典策略" scheme="https://zwdnet.github.io/tags/%E7%BB%8F%E5%85%B8%E7%AD%96%E7%95%A5/"/>
     
   </entry>
   
@@ -555,35 +583,6 @@
     <category term="重构" scheme="https://zwdnet.github.io/tags/%E9%87%8D%E6%9E%84/"/>
     
     <category term="设计模式" scheme="https://zwdnet.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>全瓷之美</title>
-    <link href="https://zwdnet.github.io/2021/10/22/%E5%85%A8%E7%93%B7%E4%B9%8B%E7%BE%8E/"/>
-    <id>https://zwdnet.github.io/2021/10/22/%E5%85%A8%E7%93%B7%E4%B9%8B%E7%BE%8E/</id>
-    <published>2021-10-22T01:01:09.000Z</published>
-    <updated>2021-10-22T01:04:18.408Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0269-qc/01.jpg"></p><p>分享《全瓷之美》的书。<br>1.美学参数的重要性——美学修复的基础。<br>①整体美观<br>形态、大小、牙长轴，排列，笑线协调。<br>在患者放松是确定。<br>结合多种方法确定。<br>②黄金比例<br>1-3的宽度比例:1.618:1:0.618<br>③错觉<br>牙齿扭转度，斜度等。主要是牙龈位置。<br>④笑线<br>⑤相邻牙之间的协调。<br>⑥从不同位置观察3-3。<br>⑦扭转牙的长轴观察。<br>2.不同的纹理形态，光学性能对美学的影响——前牙美学的修复。<br>前牙美学配色<br>基本规则<br>a.牙本质决定了明亮度值和基本颜色。<br>b.通过增加(或更高半透明)或减少(滤镜效果)釉质瓷影响牙本质的颜色色彩浓度。<br>c.表面纹理的颜色影响着外观，光滑的表明有更深的颜色透射，从而增加透射度。<br>3.不同的咬合接触(牙合位接触)在咬合重建中的作用。<br>前牙形态美学，后牙功能协调。<br>在某个位置反复崩瓷的原因，没上颌架。用全可调颌架。<br>解剖式牙合的变化——杵臼牙合。牙尖牙窝圆钝。咬合力较大，对基牙、种植体的压力大。舌向集中牙合，咀嚼力较小，侧向力小。线性牙合，牙尖较平。咀嚼力最小。长正中牙合，条件更差的。<br>功能、美观、咬合力等不能兼顾，要取舍。<br>荐书:《总义齿的牙合接触》<br>比色:九宫格或六宫格。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0269-qc/01.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;分享《全瓷之美》的书。&lt;br&gt;1.美学参数的重要性——美学修复的基础。&lt;br&gt;①整体美观</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="网课" scheme="https://zwdnet.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
-    
-    <category term="全瓷修复" scheme="https://zwdnet.github.io/tags/%E5%85%A8%E7%93%B7%E4%BF%AE%E5%A4%8D/"/>
     
   </entry>
   
