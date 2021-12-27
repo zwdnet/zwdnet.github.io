@@ -6,7 +6,7 @@
   <link href="https://zwdnet.github.io/atom.xml" rel="self"/>
   
   <link href="https://zwdnet.github.io/"/>
-  <updated>2021-12-27T02:03:06.373Z</updated>
+  <updated>2021-12-27T02:25:54.002Z</updated>
   <id>https://zwdnet.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>量化投资学习笔记186——实现经典交易策略——双移动均线</title>
+    <link href="https://zwdnet.github.io/2021/12/27/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0186%E2%80%94%E2%80%94%E5%AE%9E%E7%8E%B0%E7%BB%8F%E5%85%B8%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5%E2%80%94%E2%80%94%E5%8F%8C%E7%A7%BB%E5%8A%A8%E5%9D%87%E7%BA%BF/"/>
+    <id>https://zwdnet.github.io/2021/12/27/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0186%E2%80%94%E2%80%94%E5%AE%9E%E7%8E%B0%E7%BB%8F%E5%85%B8%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5%E2%80%94%E2%80%94%E5%8F%8C%E7%A7%BB%E5%8A%A8%E5%9D%87%E7%BA%BF/</id>
+    <published>2021-12-27T02:22:17.000Z</published>
+    <updated>2021-12-27T02:25:54.002Z</updated>
+    
+    <content type="html"><![CDATA[<p>还是参考ZuraKakushadze,JuanAndrésSerur. 151 Trading Strategies.的3.12 Strategy: Two Moving Average。<br>使用两个移动均线数据T’ &lt; T，产生交易信号:当MA(T’) &gt; MA(T)，建仓。当MA(T’) &lt; MA(T)，平仓。<br>还可以增加止损规则。<br>下面实现该测量，直接改单移动均线策略就行了。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/155/01.jpg"></p><p>先用一只股票跑跑看。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/155/02.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/155/03.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/155/04.jpg"><br>再调参<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/155/05.jpg"></p><p>短周期16，长周期55，止损线8%时年化收益率最高，15%。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/155/06.jpg"></p><p>用这组参数，对全市场回测看看。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/155/07.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/155/08.jpg"></p><p>我发现这些策略都有个问题:是有表现非常好的股票，但提前是不知道整个市场里哪些股票适合这个策略的。三均线就不试了。</p><p>源代码: <a href="https://github.com/zwdnet/trade_strategy/blob/main/05TMA.py">https://github.com/zwdnet/trade_strategy/blob/main/05TMA.py</a></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;还是参考ZuraKakushadze,JuanAndrésSerur. 151 Trading Strategies.的3.12 Strategy: Two Moving Average。&lt;br&gt;使用两个移动均线数据T’ &amp;lt; T，产生交易信号:当MA(T’) &amp;gt;</summary>
+      
+    
+    
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    <category term="回测" scheme="https://zwdnet.github.io/tags/%E5%9B%9E%E6%B5%8B/"/>
+    
+    <category term="经典策略" scheme="https://zwdnet.github.io/tags/%E7%BB%8F%E5%85%B8%E7%AD%96%E7%95%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>北大口腔正畸学研究生课程2021秋11——错颌畸形的矫治设计1</title>
@@ -537,34 +565,6 @@
       
       
     <summary type="html">&lt;p&gt;很多朋友在后台问我听课方式，看这儿&lt;br&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA&quot;&gt;https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA&lt;/a&gt;&lt;/p</summary>
-      
-    
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    <category term="学习笔记" scheme="https://zwdnet.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="网课" scheme="https://zwdnet.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>北大口腔正畸学研究生课程2021秋02——矫治时机</title>
-    <link href="https://zwdnet.github.io/2021/12/06/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B02%E2%80%94%E2%80%94%E7%9F%AB%E6%B2%BB%E6%97%B6%E6%9C%BA/"/>
-    <id>https://zwdnet.github.io/2021/12/06/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B02%E2%80%94%E2%80%94%E7%9F%AB%E6%B2%BB%E6%97%B6%E6%9C%BA/</id>
-    <published>2021-12-06T04:36:02.000Z</published>
-    <updated>2021-12-08T00:05:03.225Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="上颌扩弓时机"><a href="#上颌扩弓时机" class="headerlink" title="上颌扩弓时机"></a>上颌扩弓时机</h2><p>CS3:腭中缝3期占比最大(57.7%)，4s1期占比较小(13.5%)。<br>CS4:腭中缝3期与4s1期占比接近(3期33%， 4s1期46.6%)。因腭中缝骨化闭合程度存在较大不确定性，应加拍扩弓前CBCT。<br>上颌扩弓原因:</p><ul><li>矫治后牙反颌<br> 应尽早开始，避免下颌不对称。</li><li>创造间隙<br> 在CS2或CS3期</li><li>自发性调整二类磨牙关系</li><li>松解上颌骨缝</li><li>减轻鼻气道阻力</li><li>改善微笑美</li><li>整平Wilson曲度(即调整后牙轴倾度)</li><li>为矫形治疗或正颌手术做准备</li></ul><h2 id="骨性二类错颌下颌后缩的矫治时机"><a href="#骨性二类错颌下颌后缩的矫治时机" class="headerlink" title="骨性二类错颌下颌后缩的矫治时机"></a>骨性二类错颌下颌后缩的矫治时机</h2><p>与下颌骨生长速度有关，最大出现在CS3期和CS4期。<br>常存在上颌宽度不足、矢状向二类关系，需在CS3期前(生长发育高峰前期)进行上颌快速扩弓，然后矫治下颌后缩，必须经历生长发育高峰期(CS3-4)使用功能矫治器。过早使用功能矫治器，效果不明显。</p><h2 id="前牙反颌的矫治时机"><a href="#前牙反颌的矫治时机" class="headerlink" title="前牙反颌的矫治时机"></a>前牙反颌的矫治时机</h2><p>前牙反颌的分类:</p><ul><li>骨性前牙反颌，又可分为上颌发育不足和下颌发育过度，以及二者兼有。</li><li>功能性前牙反颌</li><li>牙性前牙反颌<br>前方牵引器的使用时机:</li><li>以牙龄划分:上颌第一恒磨牙及上颌切牙萌出后是最佳时机。<br> 原因:①允许一定的自我调整。②磨牙完全萌出以加强支抗。</li><li>以年龄划分:替牙早期(6-8岁)治疗效果较好，但矫治最晚时间不能大于14岁。年龄越大，矫形作用越小。</li><li>从颈椎骨龄看，生长发育高峰期前(CS1-2)矫治使上下颌骨发生显著改变。</li><li>生长发育高峰期或之后矫治(CS3)只显著改变下颌骨生长方向以及在一定时期内抑止下颌骨有效长度的变化。</li><li>生长发育高峰期前或之后矫治都可发生显著的牙性变化。</li></ul><h2 id="骨性开颌的矫治时机"><a href="#骨性开颌的矫治时机" class="headerlink" title="骨性开颌的矫治时机"></a>骨性开颌的矫治时机</h2><p>早期矫治的主要目标:改变下颌升支高度——在生长发育高峰期矫治。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;上颌扩弓时机&quot;&gt;&lt;a href=&quot;#上颌扩弓时机&quot; class=&quot;headerlink&quot; title=&quot;上颌扩弓时机&quot;&gt;&lt;/a&gt;上颌扩弓时机&lt;/h2&gt;&lt;p&gt;CS3:腭中缝3期占比最大(57.7%)，4s1期占比较小(13.5%)。&lt;br&gt;CS4:腭中缝3期与4s1</summary>
       
     
     
