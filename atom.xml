@@ -6,7 +6,7 @@
   <link href="https://zwdnet.github.io/atom.xml" rel="self"/>
   
   <link href="https://zwdnet.github.io/"/>
-  <updated>2022-01-09T02:12:56.552Z</updated>
+  <updated>2022-01-10T01:09:20.142Z</updated>
   <id>https://zwdnet.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>量化投资学习笔记187——实现经典交易策略——支撑与阻挡</title>
+    <link href="https://zwdnet.github.io/2022/01/10/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0187%E2%80%94%E2%80%94%E5%AE%9E%E7%8E%B0%E7%BB%8F%E5%85%B8%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5%E2%80%94%E2%80%94%E6%94%AF%E6%92%91%E4%B8%8E%E9%98%BB%E6%8C%A1/"/>
+    <id>https://zwdnet.github.io/2022/01/10/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0187%E2%80%94%E2%80%94%E5%AE%9E%E7%8E%B0%E7%BB%8F%E5%85%B8%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5%E2%80%94%E2%80%94%E6%94%AF%E6%92%91%E4%B8%8E%E9%98%BB%E6%8C%A1/</id>
+    <published>2022-01-10T01:05:50.000Z</published>
+    <updated>2022-01-10T01:09:20.142Z</updated>
+    
+    <content type="html"><![CDATA[<p>还是参考ZuraKakushadze,JuanAndrésSerur. 151 Trading Strategies.的3.14 Strategy: Support and Resistance<br>计算支撑和阻挡值:</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/156/01.jpg"></p><p>其中PL，PH, PC分别为最低/最高/收盘价。<br>股价大于C时入场，股价大于等于R时离场。</p><p>写代码，回测一下看看。<br>判断离场的股价，分别用收盘价、开盘价、最低价、最高价来尝试，发现有的根本没离场信号，即股价一直小于R。最后用最高价来试，成了，但结果是亏的。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/156/02.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/156/03.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/156/04.jpg"></p><p>亏大发了。试试整个市场吧。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/156/05.jpg"></p><p>绝大多数是亏的，盈利的很少。</p><p>源代码: <a href="https://github.com/zwdnet/trade_strategy/blob/main/05TMA.py">https://github.com/zwdnet/trade_strategy/blob/main/05TMA.py</a></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;还是参考ZuraKakushadze,JuanAndrésSerur. 151 Trading Strategies.的3.14 Strategy: Support and Resistance&lt;br&gt;计算支撑和阻挡值:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://z</summary>
+      
+    
+    
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    <category term="回测" scheme="https://zwdnet.github.io/tags/%E5%9B%9E%E6%B5%8B/"/>
+    
+    <category term="经典策略" scheme="https://zwdnet.github.io/tags/%E7%BB%8F%E5%85%B8%E7%AD%96%E7%95%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>北大口腔正畸学研究生课程2021秋18——牙列拥挤及牙弓前突的矫治</title>
@@ -539,34 +568,6 @@
     <category term="口腔全科" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E5%85%A8%E7%A7%91/"/>
     
     <category term="网课" scheme="https://zwdnet.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>量化投资学习笔记184——实现经典交易策略——配对交易</title>
-    <link href="https://zwdnet.github.io/2021/12/17/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0184%E2%80%94%E2%80%94%E5%AE%9E%E7%8E%B0%E7%BB%8F%E5%85%B8%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5%E2%80%94%E2%80%94%E9%85%8D%E5%AF%B9%E4%BA%A4%E6%98%93/"/>
-    <id>https://zwdnet.github.io/2021/12/17/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0184%E2%80%94%E2%80%94%E5%AE%9E%E7%8E%B0%E7%BB%8F%E5%85%B8%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5%E2%80%94%E2%80%94%E9%85%8D%E5%AF%B9%E4%BA%A4%E6%98%93/</id>
-    <published>2021-12-17T06:20:49.000Z</published>
-    <updated>2021-12-17T06:35:59.620Z</updated>
-    
-    <content type="html"><![CDATA[<p>还是参考ZuraKakushadze,JuanAndrésSerur. 151 Trading Strategies.的3.8Strategy: Pairs Trading。<br>策略原理是有的股票相关性较高，当二者发生偏离时，做多低价的股票，做空高价的股票，等其回归而获利。<br>具体来说，计算两只股票在一段时间内的收益以及收益均值，做多收益率低于均值的股票，做空收益率高于均值的股票。因为A股没有做空机制，就只玩单边做多了。<br>具体实现，对于整个市场，用前10年-前6年的数据计算任意两只股票的相关性，找到相关性最高的两只股票。然后用近五年的数据回测。当某只股票高于两者平均收益率一定程度时，就买入股价低的那只，直到其收益率回归到二者均值。<br>代码撸起来，先找相关性最高的股票对。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/153/00.jpg"></p><p>在服务器上又跑了一天半，最后结果</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/153/01.jpg"></p><p>在看盘软件上看了看，都是一个行业的。<br>先用相关性最大的两只股票做回测。如果两只股票累积收益率差大于收益率差值的方差，买入累积收益率低的股票，当差值小于方差时卖出。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/153/02.jpg"></p><p>回测结果:</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/153/03.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/153/04.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/153/05.jpg"></p><p>亏的……<br>换其它几组股票试试。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/153/06.jpg"></p><p>最好的那个，是招商银行，买入持有可能更好。<br>源代码: <a href="https://github.com/zwdnet/trade_strategy/blob/main/03PAIR.py">https://github.com/zwdnet/trade_strategy/blob/main/03PAIR.py</a></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;还是参考ZuraKakushadze,JuanAndrésSerur. 151 Trading Strategies.的3.8Strategy: Pairs Trading。&lt;br&gt;策略原理是有的股票相关性较高，当二者发生偏离时，做多低价的股票，做空高价的股票，等其回归而获</summary>
-      
-    
-    
-    
-    <category term="量化投资" scheme="https://zwdnet.github.io/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
-    
-    
-    <category term="量化投资" scheme="https://zwdnet.github.io/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
-    
-    <category term="回测" scheme="https://zwdnet.github.io/tags/%E5%9B%9E%E6%B5%8B/"/>
-    
-    <category term="经典策略" scheme="https://zwdnet.github.io/tags/%E7%BB%8F%E5%85%B8%E7%AD%96%E7%95%A5/"/>
     
   </entry>
   
