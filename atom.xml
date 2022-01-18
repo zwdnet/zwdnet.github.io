@@ -6,7 +6,7 @@
   <link href="https://zwdnet.github.io/atom.xml" rel="self"/>
   
   <link href="https://zwdnet.github.io/"/>
-  <updated>2022-01-16T01:15:32.937Z</updated>
+  <updated>2022-01-18T09:16:41.905Z</updated>
   <id>https://zwdnet.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>量化投资学习笔记188——实现经典交易策略——通道</title>
+    <link href="https://zwdnet.github.io/2022/01/18/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0188%E2%80%94%E2%80%94%E5%AE%9E%E7%8E%B0%E7%BB%8F%E5%85%B8%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5%E2%80%94%E2%80%94%E9%80%9A%E9%81%93/"/>
+    <id>https://zwdnet.github.io/2022/01/18/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0188%E2%80%94%E2%80%94%E5%AE%9E%E7%8E%B0%E7%BB%8F%E5%85%B8%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5%E2%80%94%E2%80%94%E9%80%9A%E9%81%93/</id>
+    <published>2022-01-18T09:13:27.000Z</published>
+    <updated>2022-01-18T09:16:41.905Z</updated>
+    
+    <content type="html"><![CDATA[<p>还是参考ZuraKakushadze,JuanAndrésSerur. 151 Trading Strategies.的3.15 Strategy: Channel</p><p>原理:当股价突破通道时，会向相反方向变化。计算股价通道，当股价触及通道底线时买入，股价触及通道顶线时卖出。<br>计算周期T内通道线的方法:</p><ul><li>通道上线:周期T内股价的最高值</li><li>通道下线:周期T内股价的最低值</li></ul><p>与此对应的策略为:当股价小于等于通道下线时买入，当股价大于等于通道上线时卖出。</p><p>下面实操。<br>先用一只股票回测。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/157/01.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/157/02.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/157/03.jpg"></p><p>还可以。再做个参数优化。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/157/04.jpg"></p><p>T=17时年化收益率最大，14.6%。就用这个参数，对整个市场回测试试。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/157/05.jpg"></p><p>还行。<br>源代码: <a href="https://github.com/zwdnet/trade_strategy/blob/main/07CHANNEL.py">https://github.com/zwdnet/trade_strategy/blob/main/07CHANNEL.py</a></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;还是参考ZuraKakushadze,JuanAndrésSerur. 151 Trading Strategies.的3.15 Strategy: Channel&lt;/p&gt;
+&lt;p&gt;原理:当股价突破通道时，会向相反方向变化。计算股价通道，当股价触及通道底线时买入，股价触及通道</summary>
+      
+    
+    
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    <category term="回测" scheme="https://zwdnet.github.io/tags/%E5%9B%9E%E6%B5%8B/"/>
+    
+    <category term="经典策略" scheme="https://zwdnet.github.io/tags/%E7%BB%8F%E5%85%B8%E7%AD%96%E7%95%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>北大口腔正畸学研究生课程2021秋20——前牙反颌与安氏三类错颌的治疗</title>
@@ -541,34 +570,6 @@
     <category term="学习笔记" scheme="https://zwdnet.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="网课" scheme="https://zwdnet.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正畸初诊资料收集讲座</title>
-    <link href="https://zwdnet.github.io/2021/12/22/%E6%AD%A3%E7%95%B8%E5%88%9D%E8%AF%8A%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86%E8%AE%B2%E5%BA%A7/"/>
-    <id>https://zwdnet.github.io/2021/12/22/%E6%AD%A3%E7%95%B8%E5%88%9D%E8%AF%8A%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86%E8%AE%B2%E5%BA%A7/</id>
-    <published>2021-12-22T00:25:42.000Z</published>
-    <updated>2021-12-22T00:27:25.644Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>腾讯会议直播的，没回放，没回放，没回放!</strong><br>错颌畸形的临床检查与病史采集<br>基本情况:姓名、性别、年龄(到月)、身高(参考父母)、体重、主诉(患者就诊的主要目的和要求)、现病史(何时发生、是否加重、治疗经过)、既往史(系统性疾病、过敏史、外伤史)、家族史、不良习惯、出诊时间。<br>面部检查:左右是否对称、上唇形态、长度及厚度、描述唇齿关系、肩部有无偏斜情况。(可放图片在图上标注)、分析面部三停五眼、唇颏关系(唇闭合照片，颏部要放松)、微笑像(评价唇齿关系、测量牙中线与面中线)、侧面像(判断面型、凹凸平或审美平面、鼻唇角、TVL上下唇凸度)。<br>口内检查:①口腔卫生、牙周、牙体。②咬合牙列关系。③关节检查。<br>模型分析。<br>辅助检查:全景片、侧位片(要涵盖各个方向指标，还可以看颈椎判断发育情况)、cbct(逐颗牙观察、关节)。<br>列出问题列表:主诉、面部软组织、牙性问题、骨性问题、牙周、TMJ、其它<br>诊断:牙性、骨性、tmj、其它<br>治疗目标:用简单语言确定最终目标。<br>治疗计划:<br>此阶段困惑和需要解决的问题<br>治疗阶段照片</p><p>病例1<br>既往正畸史写详细点。<br>拥挤度要写几毫米。<br>诊断，安氏毛氏最好都写。<br>扩弓完成还要继续戴扩弓器很长时间。<br>侧位片不一定能看到扁桃体。<br>设计了打支抗钉，在治疗初期就打，不建议排齐后才打。</p><p>病例2<br>做有挑战的病例要跟患者及家属交代好。<br>改变垂直关系要拍cbct看TMJ位置。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;strong&gt;腾讯会议直播的，没回放，没回放，没回放!&lt;/strong&gt;&lt;br&gt;错颌畸形的临床检查与病史采集&lt;br&gt;基本情况:姓名、性别、年龄(到月)、身高(参考父母)、体重、主诉(患者就诊的主要目的和要求)、现病史(何时发生、是否加重、治疗经过)、既往史(系统性疾病、过</summary>
-      
-    
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    <category term="学习笔记" scheme="https://zwdnet.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     <category term="网课" scheme="https://zwdnet.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
     
