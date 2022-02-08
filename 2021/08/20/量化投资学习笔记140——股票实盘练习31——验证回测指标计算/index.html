@@ -166,7 +166,7 @@
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  1.6k
                 </span>
               
 
@@ -415,7 +415,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">retA = [<span class="number">0.0</span>, <span class="number">0.1</span>, <span class="number">0.0909</span>, <span class="number">0.0833</span>, -<span class="number">0.6154</span>, <span class="number">0.6</span>, -<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.6667</span>, <span class="number">0.2</span>]</span><br><span class="line"></span><br><span class="line">retB = [<span class="number">0.0</span>, <span class="number">0.01</span>, <span class="number">0.0099</span>, <span class="number">0.0098</span>, <span class="number">0.0097</span>, <span class="number">0.0096</span>, <span class="number">0.0095</span>, <span class="number">0.0094</span>, <span class="number">0.0093</span>, <span class="number">0.0093</span>]</span><br></pre></td></tr></table></figure>
 <p>用程序算一下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    data_ret = data.收盘.pct_change().fillna(<span class="number">0</span>).tz_localize(<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">    bench_ret = bench.收盘.pct_change().fillna(<span class="number">0</span>).tz_localize(<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<p>一样的。再传到回测框架里跑一遍，输出收益率数据，结果是一样的。注意要在cerobro初始化时设定cheat_on_open = True，因为backtrader一般是在下单后第二天执行交易的，如此设置就能在第一天买入。</p>
+<p>一样的。再传到回测框架里跑一遍，输出收益率数据，结果是一样的。注意要在cerobro初始化时设定cheat_on_open &#x3D; True，因为backtrader一般是在下单后第二天执行交易的，如此设置就能在第一天买入。</p>
 <p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/01.jpg"></p>
 <p>证明backtrader里的bt.analyzers.TimeReturn记录的是每日收益率。</p>
 <p>基础有了，下面开始计算其它回测指标。</p>
@@ -423,8 +423,8 @@
 <p>1.计算累积收益率</p>
 <p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/110/02.jpg"></p>
 <p>期末价格减去期初价格，再除以期初价格。</p>
-<p>RcA = (1.2-1.0)/1.0 = 0.2</p>
-<p>RcB = (1.09-1.0)/1.0 = 0.09</p>
+<p>RcA &#x3D; (1.2-1.0)&#x2F;1.0 &#x3D; 0.2</p>
+<p>RcB &#x3D; (1.09-1.0)&#x2F;1.0 &#x3D; 0.09</p>
 <p>用程序算一下</p>
 <p>累积收益率 0.19999999999999996 0.09000000000000008</p>
 <p>一样的。</p>
@@ -442,8 +442,8 @@
 <p>每个时间点的最大回测值</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">priceA = [<span class="number">1.0</span>, <span class="number">1.1</span>, <span class="number">1.2</span>, <span class="number">1.3</span>, <span class="number">0.5</span>, <span class="number">0.8</span>, <span class="number">0.4</span>, <span class="number">0.6</span>, <span class="number">1.0</span>, <span class="number">1.2</span>]</span><br><span class="line"></span><br><span class="line">MD_A = [-<span class="number">0.6</span>, -<span class="number">0.6364</span>, -<span class="number">0.6667</span>, -<span class="number">0.6923</span>, -<span class="number">0.2</span>, -<span class="number">0.5</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">MD_B = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 <p>最大回撤值</p>
-<p>MDA = -0.6923</p>
-<p>MDB = 0</p>
+<p>MDA &#x3D; -0.6923</p>
+<p>MDB &#x3D; 0</p>
 <p>用程序算一遍，使用pandas的cummax。</p>
 <p>最大回撤: 0.6923076923076923 0.0</p>
 <p>用BackTrader框架回测的值也一样。</p>
@@ -724,7 +724,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1413.8k</span>
+    <span title="Site words total count">1416.1k</span>
   
 </div>
 

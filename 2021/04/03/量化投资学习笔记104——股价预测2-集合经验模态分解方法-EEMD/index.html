@@ -170,7 +170,7 @@
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -422,11 +422,11 @@
 <p>分解为11个IMFs，与论文里类似。<br>然后计算每个IMF的周期，均值，方差，方差占比，pearson相关系数等统计指标。数据与原始总体数据的相关性。<br>其中周期用IMF数据个数除以IMF极值点个数来表示，方差占比用IMF数据方差除以原始总体数据方差来表示，pearson 相关系数则度量了IMF数据与原始总体数据的相关性。<br>计算结果如下:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/06.png"></p>
 <p>从第6个IMF开始，方差占比增大，波动周期变长，和原始数据的相关系数也增大。<br>把第0到5六个IMFs相加作为高频部分，代表市场的正常波动项，6-11项相加作为低频项，代表非金融市场正常波动项，即外部环境重大事件，剩余分量代表市场长期趋势。(这一项前面漏了，加上)。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/07.png"></p>
 <p>有个问题:剩余分量趋势是向下的，市场长期趋势向下?另外跟文章中的分量趋势也不太一样。<br>下面就进行预测了。作者的方法是分别对三个分项用支持向量机SVM进行预测，再把结果进行组合。但是没说怎么组合，就直接相加吧。<br>再找ta的参考文献看看。<br>陶小龙.基于支持向量机的股市预测.北京理工大学理学硕士学位论文(2005).<br>先按照文章进行支持向量机预测。<br>传统金融时间序列有两种研究方法，一种是从基本的经济原理出发建立金融时间序列服从的数学模型，如Markovitz的投资组合理论，资本资产定价模型(CAPM)、套利定价理论(APT)、期权定价模型等，但现实不一定符合其假设。因此实际效果并不理想。另一种是从统计角度进行研究，缺乏理论性，但实际应用中效果较好。统计方法还可以对经济模型的好坏进行检验和评价。<br>股市预测一般基于三点假设：①有效市场理论；②供求决定假设；③历史相似原则。<br>技术分析依赖图表和主观判断，严重依靠经验，可靠性受到质疑。<br>用智齿向量回归机进行预测的步骤：<br>①试验规模的选取，决定训练集的数量、试检测集数量，以及两者的比例。<br>②预测参数的选取，包括参数系统的形式，参数的内容。<br>③标准化形式的选择。<br>④核函数形式的选择。<br>⑤核函数参数的选择。<br>另一篇<br>金得宝.基于支持向量机的股市预测研究.浙江大学硕士学位论文(2010).<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/08.png"></p>
-<p>输入特征向量为开盘价、最高价、最低价、成交量、收盘价、5天/10天/20天指数移动平均。输出为下一日收盘价。用正则均方误差(NMSE)、平均绝对误差(MAE)、方向对称性指标(DS)作为评价标准。前两者越小越好，DS越大表示其预测曲线与实际曲线方向趋势上拟合的越好。核函数参数选择：C一般[10,100]，太小欠拟合，且SV数量随C增加而下降，C太大过拟合，泛化能力下降，相应的训练时间过长。ε = 0.001， ζ = 0.001。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/09.png"></p>
+<p>输入特征向量为开盘价、最高价、最低价、成交量、收盘价、5天&#x2F;10天&#x2F;20天指数移动平均。输出为下一日收盘价。用正则均方误差(NMSE)、平均绝对误差(MAE)、方向对称性指标(DS)作为评价标准。前两者越小越好，DS越大表示其预测曲线与实际曲线方向趋势上拟合的越好。核函数参数选择：C一般[10,100]，太小欠拟合，且SV数量随C增加而下降，C太大过拟合，泛化能力下降，相应的训练时间过长。ε &#x3D; 0.001， ζ &#x3D; 0.001。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/09.png"></p>
 <p>两篇论文，一篇没具体代码，一篇代码是matlab。还是直接搜吧。<br>参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/JavaArchitect/p/11350683.html">这篇</a><br>先用普通SVM实现一下。用分类算法，数据与前文多元线性回归一致。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/10.png"></p>
 <p>准确率85.7%。<br>下面用这个训练好的模型按照上次的回测程序回测一下看看。<br>年化收益率:1.489342<br>最大回撤    夏普比率     索提比率     α         β<br>-0.013315  4.266112  49.991836 -0.85213  0.471451<br>还不错，但是比多元线性回归的差一些。现在把EEMD加上。将七个特征分别进行EMMD分解，除了最低价分解为6项外，其余特征都分解为7项。像这样的:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/11.png"></p>
 <p>将前3项作为高频项，其余的作为低频项，再加上剩余项。每个特征都分解为三个特征。<br>合并以后是这个样子。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/75/12.png"></p>
-<p>现在就用这些处理后的特征数据进行训练支持向量机模型，结果，预测准确率反而更低了。<br>预测准确率: 0.7959183673469388<br>回测一把看看。<br>在回测这里卡了几天，始终没调通。后来我突然想通了，在对特征进行eemd分解的时候，我是把所有数据一起分解，然后再划分训练数据和测试数据。这样测试的时候相当于是用了未来数据的。在真正用的时候，是用今天的数据预测明天的收盘价，只有一组特征，喂给模型结果eemd分解那里报错。应该是不能只用一个数据来作为输入。这种方法尝试就到这里吧，不知道我参考的那些论文有没有这个问题的。<br>尝试虽然失败了，但是知道了有EEMD这种方法，将股价数据分解成高频，低频部分，低频部分看着跟股价的中期趋势比较一致，虽然可能没法拿来直接预测第二天的股价，但是拿来判断股价是不是到顶/底了行不行？开发策略时可以用用看。<br>没调通的<a target="_blank" rel="noopener" href="https://github.com/zwdnet/stock/blob/main/EMD_model.py">代码</a><br>接下来再试试其它的预测方法。</p>
+<p>现在就用这些处理后的特征数据进行训练支持向量机模型，结果，预测准确率反而更低了。<br>预测准确率: 0.7959183673469388<br>回测一把看看。<br>在回测这里卡了几天，始终没调通。后来我突然想通了，在对特征进行eemd分解的时候，我是把所有数据一起分解，然后再划分训练数据和测试数据。这样测试的时候相当于是用了未来数据的。在真正用的时候，是用今天的数据预测明天的收盘价，只有一组特征，喂给模型结果eemd分解那里报错。应该是不能只用一个数据来作为输入。这种方法尝试就到这里吧，不知道我参考的那些论文有没有这个问题的。<br>尝试虽然失败了，但是知道了有EEMD这种方法，将股价数据分解成高频，低频部分，低频部分看着跟股价的中期趋势比较一致，虽然可能没法拿来直接预测第二天的股价，但是拿来判断股价是不是到顶&#x2F;底了行不行？开发策略时可以用用看。<br>没调通的<a target="_blank" rel="noopener" href="https://github.com/zwdnet/stock/blob/main/EMD_model.py">代码</a><br>接下来再试试其它的预测方法。</p>
 <p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
 <p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
 
@@ -670,7 +670,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1413.8k</span>
+    <span title="Site words total count">1416.1k</span>
   
 </div>
 

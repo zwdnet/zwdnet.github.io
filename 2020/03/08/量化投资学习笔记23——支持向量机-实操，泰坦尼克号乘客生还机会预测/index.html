@@ -161,7 +161,7 @@
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -363,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  471
+                  476
                 </span>
               
 
@@ -402,7 +402,7 @@
       
         <p>用刚学的支持向量机来解决一下泰坦尼克号问题。<br>数据的载入，清洗完全跟之前的一样，直接复制粘贴。从建模开始。<br>代码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建模，使用SVM模型</span></span><br><span class="line"><span class="comment"># 划分训练集和测试集</span></span><br><span class="line">predictors = [<span class="string">&#x27;Pclass&#x27;</span>, <span class="string">&#x27;Sex&#x27;</span>, <span class="string">&#x27;Age&#x27;</span>, <span class="string">&#x27;Family&#x27;</span>, <span class="string">&#x27;Embarked&#x27;</span>, <span class="string">&#x27;Cabin&#x27;</span>]</span><br><span class="line">x = train_data[predictors]</span><br><span class="line">y = train_data[<span class="string">&quot;Survived&quot;</span>]</span><br><span class="line">train_x, train_y, x_label, y_label = train_test_split(x, y, random_state = <span class="number">1</span>, train_size = <span class="number">0.6</span>, test_size = <span class="number">0.4</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;训练集大小:&quot;</span>, train_x.shape)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;测试集大小:&quot;</span>, train_y.shape)</span><br><span class="line"><span class="comment"># 训练SVM分类器</span></span><br><span class="line">classifier = svm.SVC(C = <span class="number">2</span>, kernel = <span class="string">&quot;rbf&quot;</span>, gamma = <span class="number">10</span>, decision_function_shape = <span class="string">&quot;ovr&quot;</span>)</span><br><span class="line">classifier.fit(train_x, x_label)</span><br><span class="line"><span class="comment"># 计算分类准确率</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;建模的结果&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;训练集:&quot;</span>, classifier.score(train_x, x_label))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;测试集:&quot;</span>, classifier.score(train_y, y_label))</span><br></pre></td></tr></table></figure>
-<p>结果<br>建模的结果<br>训练集: 0.9569288389513109<br>测试集: 0.6190476190476191<br>在测试集上效果不好啊。换个核函数试试。<br>classifier = svm.SVC(C = 2, kernel = “linear”, gamma = 10, decision_function_shape = “ovr”)<br>看看结果<br>建模的结果<br>训练集: 0.8108614232209738<br>测试集: 0.7507002801120448<br>换成线性核函数，好了很多。输出到结果文件，提交。</p>
+<p>结果<br>建模的结果<br>训练集: 0.9569288389513109<br>测试集: 0.6190476190476191<br>在测试集上效果不好啊。换个核函数试试。<br>classifier &#x3D; svm.SVC(C &#x3D; 2, kernel &#x3D; “linear”, gamma &#x3D; 10, decision_function_shape &#x3D; “ovr”)<br>看看结果<br>建模的结果<br>训练集: 0.8108614232209738<br>测试集: 0.7507002801120448<br>换成线性核函数，好了很多。输出到结果文件，提交。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预测，输出结果</span></span><br><span class="line"> pred = classifier.predict(test_data[predictors])</span><br><span class="line"> <span class="built_in">print</span>(pred)</span><br><span class="line"> output = pd.DataFrame(&#123;<span class="string">&#x27;PassengerId&#x27;</span>: test_data.PassengerId, <span class="string">&#x27;Survived&#x27;</span>: pred&#125;)</span><br><span class="line"> output.to_csv(<span class="string">&quot;submit04.csv&quot;</span>, index = <span class="literal">False</span>)</span><br><span class="line"> <span class="built_in">print</span>(<span class="string">&quot;结果输出完毕!&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/16/01.png"><br>跟用逻辑回归一模一样?<br>我用一个测试数据提交了一下，所有结果均为0。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/16/02.png"><br>看来提交是正常的。OK，进行下一个算法的学习吧。<br>本文代码<br><a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/blob/master/titanic/submit04.py">https://github.com/zwdnet/MyQuant/blob/master/titanic/submit04.py</a></p>
 <p>我发文章的四个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的博客园博客地址： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zwdnet/">https://www.cnblogs.com/zwdnet/</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
@@ -650,7 +650,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1413.8k</span>
+    <span title="Site words total count">1416.1k</span>
   
 </div>
 

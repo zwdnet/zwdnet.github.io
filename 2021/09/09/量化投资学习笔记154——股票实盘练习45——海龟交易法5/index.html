@@ -93,12 +93,12 @@
 
 
 
-<meta name="description" content="下面开始具体实现海龟交易策略。原版的海龟交易策略是针对期货的，参考这里改造一下。所需指标:1.唐奇安通道上阻力线:过去N天的最高价。下支撑线:过去N天的最低价。中心线 &#x3D; (上线+下线)&#x2F;22.真实波动AR以下三个值中的最大值:①当前交易日最高价和最低价的波幅。②前一交易日的收盘价与当前交易日最高价的波幅。③前一交易日的收盘价与当前交易日最低价的波幅。3.真实波动幅度均值ATR(N值）ATR&#x3D;MA">
+<meta name="description" content="下面开始具体实现海龟交易策略。原版的海龟交易策略是针对期货的，参考这里改造一下。所需指标:1.唐奇安通道上阻力线:过去N天的最高价。下支撑线:过去N天的最低价。中心线 &#x3D; (上线+下线)&#x2F;22.真实波动AR以下三个值中的最大值:①当前交易日最高价和最低价的波幅。②前一交易日的收盘价与当前交易日最高价的波幅。③前一交易日的收盘价与当前交易日最低价的波幅。3.真实波动幅度均值ATR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="量化投资学习笔记154——股票实盘练习45——海龟交易法5">
 <meta property="og:url" content="https://zwdnet.github.io/2021/09/09/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0154%E2%80%94%E2%80%94%E8%82%A1%E7%A5%A8%E5%AE%9E%E7%9B%98%E7%BB%83%E4%B9%A045%E2%80%94%E2%80%94%E6%B5%B7%E9%BE%9F%E4%BA%A4%E6%98%93%E6%B3%955/index.html">
 <meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
-<meta property="og:description" content="下面开始具体实现海龟交易策略。原版的海龟交易策略是针对期货的，参考这里改造一下。所需指标:1.唐奇安通道上阻力线:过去N天的最高价。下支撑线:过去N天的最低价。中心线 &#x3D; (上线+下线)&#x2F;22.真实波动AR以下三个值中的最大值:①当前交易日最高价和最低价的波幅。②前一交易日的收盘价与当前交易日最高价的波幅。③前一交易日的收盘价与当前交易日最低价的波幅。3.真实波动幅度均值ATR(N值）ATR&#x3D;MA">
+<meta property="og:description" content="下面开始具体实现海龟交易策略。原版的海龟交易策略是针对期货的，参考这里改造一下。所需指标:1.唐奇安通道上阻力线:过去N天的最高价。下支撑线:过去N天的最低价。中心线 &#x3D; (上线+下线)&#x2F;22.真实波动AR以下三个值中的最大值:①当前交易日最高价和最低价的波幅。②前一交易日的收盘价与当前交易日最高价的波幅。③前一交易日的收盘价与当前交易日最低价的波幅。3.真实波动幅度均值ATR">
 <meta property="og:locale">
 <meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/124/01.png">
 <meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/124/02.jpg">
@@ -166,7 +166,7 @@
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  948
+                  953
                 </span>
               
 
@@ -405,7 +405,7 @@
       
 
       
-        <p>下面开始具体实现海龟交易策略。<br>原版的海龟交易策略是针对期货的，参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/114782214">这里</a><br>改造一下。<br>所需指标:<br>1.唐奇安通道<br>上阻力线:过去N天的最高价。<br>下支撑线:过去N天的最低价。<br>中心线 = (上线+下线)/2<br>2.真实波动AR<br>以下三个值中的最大值:<br>①当前交易日最高价和最低价的波幅。<br>②前一交易日的收盘价与当前交易日最高价的波幅。<br>③前一交易日的收盘价与当前交易日最低价的波幅。<br>3.真实波动幅度均值ATR(N值）ATR=MA(TR,M)，即对真实波幅TR进行M日移动平均计算。<br>4.建仓单位：Unit=(1%∗账户总资金)/N<br>具体策略<br>①入场:最新价格突破20日最高价，买入一单元股票。<br>②加仓:最新价格&gt;上一次买入价格+0.5ATR，买入一单元股票，最多3次加仓。<br>③出场:最新价格低于10日价格低点，出场。<br>④止损:最新价格&lt;上一次买入价格-2*ATR，清空仓位。<br>基本按照参考文章写的代码，用300etf回测10年，结果比买入持有策略要好一点，但是也没有好多少。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/124/01.png"></p>
+        <p>下面开始具体实现海龟交易策略。<br>原版的海龟交易策略是针对期货的，参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/114782214">这里</a><br>改造一下。<br>所需指标:<br>1.唐奇安通道<br>上阻力线:过去N天的最高价。<br>下支撑线:过去N天的最低价。<br>中心线 &#x3D; (上线+下线)&#x2F;2<br>2.真实波动AR<br>以下三个值中的最大值:<br>①当前交易日最高价和最低价的波幅。<br>②前一交易日的收盘价与当前交易日最高价的波幅。<br>③前一交易日的收盘价与当前交易日最低价的波幅。<br>3.真实波动幅度均值ATR(N值）ATR&#x3D;MA(TR,M)，即对真实波幅TR进行M日移动平均计算。<br>4.建仓单位：Unit&#x3D;(1%∗账户总资金)&#x2F;N<br>具体策略<br>①入场:最新价格突破20日最高价，买入一单元股票。<br>②加仓:最新价格&gt;上一次买入价格+0.5ATR，买入一单元股票，最多3次加仓。<br>③出场:最新价格低于10日价格低点，出场。<br>④止损:最新价格&lt;上一次买入价格-2*ATR，清空仓位。<br>基本按照参考文章写的代码，用300etf回测10年，结果比买入持有策略要好一点，但是也没有好多少。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/124/01.png"></p>
 <p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/124/02.jpg"></p>
 <p>总共交易了5次，从14年6月买入最后一次就没动静了，15年股灾完全没反应。是不是程序有问题?换一只股票看看，又是对的。真诡异。<br>整个市场回测一下看看。<br>年化收益率分布<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/124/03.png"><br>胜率分布<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/124/04.png"></p>
 <p>没有明显的优势啊。<br>alpha值分布<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/124/05.png"></p>
@@ -656,7 +656,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1413.8k</span>
+    <span title="Site words total count">1416.1k</span>
   
 </div>
 
