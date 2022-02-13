@@ -6,7 +6,7 @@
   <link href="https://zwdnet.github.io/atom.xml" rel="self"/>
   
   <link href="https://zwdnet.github.io/"/>
-  <updated>2022-02-13T02:19:07.149Z</updated>
+  <updated>2022-02-13T05:04:49.688Z</updated>
   <id>https://zwdnet.github.io/</id>
   
   <author>
@@ -15,6 +15,49 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>量化投资学习笔记189——文本分析实操1:分词制作词云图</title>
+    <link href="https://zwdnet.github.io/2022/02/13/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0189%E2%80%94%E2%80%94%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%AE%9E%E6%93%8D1-%E5%88%86%E8%AF%8D%E5%88%B6%E4%BD%9C%E8%AF%8D%E4%BA%91%E5%9B%BE/"/>
+    <id>https://zwdnet.github.io/2022/02/13/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0189%E2%80%94%E2%80%94%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%AE%9E%E6%93%8D1-%E5%88%86%E8%AF%8D%E5%88%B6%E4%BD%9C%E8%AF%8D%E4%BA%91%E5%9B%BE/</id>
+    <published>2022-02-13T04:54:25.000Z</published>
+    <updated>2022-02-13T05:04:49.688Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在学历史，想看下当时的《人民日报》。一搜，在知乎上找到了:<br><a href="https://zhuanlan.zhihu.com/p/359977753">https://zhuanlan.zhihu.com/p/359977753</a><br>1957年到2002年的全文<br>感谢@Evan<br>把数据down下来，文件名是按”日期-版面-序号”的方式排列的。<br>按年份读取文本，合并到一个列表里。排除停用词后，用jieba分词处理。再按年份保存为文本文件。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/158/01.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/158/02.jpg"></p><p>在服务器上跑，花了一夜时间。<br>每年一个文件</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/158/03.jpg"></p><p>然后用WordCloud画词云图，合并。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/158/04.jpg"></p><p>结果</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/158/05.png"></p><p>接下来打算跟着《Python文本分析》实操一把。</p><p>源代码: <a href="https://github.com/zwdnet/text/blob/main/text.py">https://github.com/zwdnet/text/blob/main/text.py</a></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近在学历史，想看下当时的《人民日报》。一搜，在知乎上找到了:&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/359977753&quot;&gt;https://zhuanlan.zhihu.com/p/359977753&lt;/a&gt;&lt;br&gt;1957年到2</summary>
+      
+    
+    
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    
+    <category term="python" scheme="https://zwdnet.github.io/tags/python/"/>
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    <category term="文本分析" scheme="https://zwdnet.github.io/tags/%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90/"/>
+    
+    <category term="自然语言处理" scheme="https://zwdnet.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>量化投资学习笔记189——文本分析实操1:分词，制作词云图</title>
+    <link href="https://zwdnet.github.io/2022/02/13/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0189%E2%80%94%E2%80%94%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%AE%9E%E6%93%8D1-%E5%88%86%E8%AF%8D%EF%BC%8C%E5%88%B6%E4%BD%9C%E8%AF%8D%E4%BA%91%E5%9B%BE/"/>
+    <id>https://zwdnet.github.io/2022/02/13/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0189%E2%80%94%E2%80%94%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%AE%9E%E6%93%8D1-%E5%88%86%E8%AF%8D%EF%BC%8C%E5%88%B6%E4%BD%9C%E8%AF%8D%E4%BA%91%E5%9B%BE/</id>
+    <published>2022-02-13T04:54:25.000Z</published>
+    <updated>2022-02-13T04:54:25.454Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>北大口腔正畸学研究生课程2021秋29——口腔睡眠医学</title>
@@ -528,62 +571,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;舌侧矫治技术&quot;&gt;&lt;a href=&quot;#舌侧矫治技术&quot; class=&quot;headerlink&quot; title=&quot;舌侧矫治技术&quot;&gt;&lt;/a&gt;舌侧矫治技术&lt;/h2&gt;&lt;h3 id=&quot;比较优势&quot;&gt;&lt;a href=&quot;#比较优势&quot; class=&quot;headerlink&quot; title=&quot;比</summary>
-      
-    
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    <category term="学习笔记" scheme="https://zwdnet.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="网课" scheme="https://zwdnet.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>北大口腔正畸学研究生课程2021秋15——无托槽隐形矫治技术</title>
-    <link href="https://zwdnet.github.io/2022/01/01/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B15%E2%80%94%E2%80%94%E6%97%A0%E6%89%98%E6%A7%BD%E9%9A%90%E5%BD%A2%E7%9F%AB%E6%B2%BB%E6%8A%80%E6%9C%AF/"/>
-    <id>https://zwdnet.github.io/2022/01/01/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B15%E2%80%94%E2%80%94%E6%97%A0%E6%89%98%E6%A7%BD%E9%9A%90%E5%BD%A2%E7%9F%AB%E6%B2%BB%E6%8A%80%E6%9C%AF/</id>
-    <published>2022-01-01T03:05:25.000Z</published>
-    <updated>2022-01-01T13:13:27.659Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="祝大家新年快乐！"><a href="#祝大家新年快乐！" class="headerlink" title="祝大家新年快乐！"></a>祝大家新年快乐！</h1><h2 id="无托槽隐形矫治技术"><a href="#无托槽隐形矫治技术" class="headerlink" title="无托槽隐形矫治技术"></a>无托槽隐形矫治技术</h2><h3 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h3><ul><li>1945年:Kesling医生，牙齿正位器</li><li>2000年左右，三维数字化技术， CAD&#x2F;CAM技术，材料科学 -&gt; 无托槽隐形矫正技术</li><li>原理:三维扫描-&gt;牙齿模型数字化-&gt;软件模拟矫治过程-&gt;设计虚拟矫治步骤-&gt;制作一系列透明膜片式可摘矫治器-&gt;临床依次更换佩戴实现牙齿移动</li></ul><h3 id="技术特点和适应症"><a href="#技术特点和适应症" class="headerlink" title="技术特点和适应症"></a>技术特点和适应症</h3><ul><li>生物力学特点<ul><li>力的施加方式:戴入矫治器-&gt;虚拟牙齿移动和实际牙齿位置的微小差异-&gt;膜片发生形变-&gt;产生正畸力</li><li>力的控制方式<ul><li>通过包裹于牙齿表面施力及作用于附件上的加力面，实现牙齿移动。</li><li>临床冠长，表面积大-&gt;牙齿移动的控制越好</li><li>各种类型的附件可以辅助实现较难的牙齿移动(伸长、旋转、控根移动)</li></ul></li></ul></li><li>适应症(初学者)<br> 临床牙冠有足够高度，可以保证矫治器良好固位的不拔牙病例<ul><li>牙量骨量不调≤4MM的轻度拥挤病例</li><li>前牙散在间隙</li><li>牙性反颌病例</li><li>轻度前牙开颌</li><li>一至二度深覆合</li><li>少量牙齿移动的种植前正畸</li></ul></li><li>不建议初学者开展的低度可预测病例<ul><li>前磨牙及下颌尖牙重度扭转的病例</li><li>双颌前突需拔牙内收的深覆合病例</li><li>前磨牙拔牙病例中，需要前移后牙超过2MM的病例</li><li>临床牙冠萌出高度不足的病例</li><li>需正畸正颌联合治疗的病例</li></ul></li></ul><h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><ul><li>临床检查与诊断<ul><li>全面的临床检查:面部和口内检查、头影测量分析、模型分析</li><li>评估临床情况，分析测量结果，做出诊断和治疗方案</li></ul></li><li>资料准备、提交和方案制订<ul><li>医生提交详细临床资料:硅橡胶印模(或扫描)、牙合面照片、X线片。</li><li>医生提交详细的正畸治疗方案:矫治目标、特殊牙齿移动</li></ul></li><li>三维数字化模型建立及虚拟矫治<ul><li>三维建模、虚拟排牙、模拟矫治过程</li><li>模拟矫治过程中，牙齿的移动分割为若干步骤，牙齿移动量约0.25MM，旋转＜4度，确定牙齿移动先后次序及矫治策略。</li></ul></li><li>数字模拟矫治方案的检查、修正及反馈，制作矫治器</li><li>临床矫治程序<ul><li>首次戴用矫治器:矫治器的摘戴注意事项，口腔卫生宣教</li><li>附件的粘接，可以初戴时，也可以第一次复诊时</li><li>透明牙套的更换时间:7-14天，每天戴用20-22小时。复诊间隔:可以8-10周，复杂病例4-8周。</li><li>附加矫治器进行进一步精细调整</li><li>矫治结束，长期保持，定期复诊</li></ul></li></ul><h3 id="临床矫治要点"><a href="#临床矫治要点" class="headerlink" title="临床矫治要点"></a>临床矫治要点</h3><ul><li>三维数字化方案的评估和修改<ul><li>核对初始咬合关系</li><li>审阅意见栏</li><li>评估牙齿移动的矫治步骤和矫治策略</li><li>评估最终咬合</li><li>审阅牙齿移动评估量表</li><li>审阅重叠工具、邻面去釉情况;修改附件和精密切割设计</li></ul></li><li>矫治过程中复诊的检查要点<ul><li>患者依从性</li><li>口腔卫生长期维护</li><li>牙齿有无脱轨</li><li>牙齿邻接点</li><li>本次复诊参照治疗单中的计划</li><li>后续矫治器的医嘱</li></ul></li></ul><p>听课方式，看这儿<br><a href="https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA">https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA</a></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;祝大家新年快乐！&quot;&gt;&lt;a href=&quot;#祝大家新年快乐！&quot; class=&quot;headerlink&quot; title=&quot;祝大家新年快乐！&quot;&gt;&lt;/a&gt;祝大家新年快乐！&lt;/h1&gt;&lt;h2 id=&quot;无托槽隐形矫治技术&quot;&gt;&lt;a href=&quot;#无托槽隐形矫治技术&quot; class=&quot;he</summary>
-      
-    
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    <category term="学习笔记" scheme="https://zwdnet.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="网课" scheme="https://zwdnet.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>北大口腔正畸学研究生课程2021秋14——正畸矫治理念及技术的发展</title>
-    <link href="https://zwdnet.github.io/2021/12/31/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B14%E2%80%94%E2%80%94%E6%AD%A3%E7%95%B8%E7%9F%AB%E6%B2%BB%E7%90%86%E5%BF%B5%E5%8F%8A%E6%8A%80%E6%9C%AF%E7%9A%84%E5%8F%91%E5%B1%95/"/>
-    <id>https://zwdnet.github.io/2021/12/31/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B14%E2%80%94%E2%80%94%E6%AD%A3%E7%95%B8%E7%9F%AB%E6%B2%BB%E7%90%86%E5%BF%B5%E5%8F%8A%E6%8A%80%E6%9C%AF%E7%9A%84%E5%8F%91%E5%B1%95/</id>
-    <published>2021-12-31T01:59:17.000Z</published>
-    <updated>2021-12-31T09:14:19.605Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="正畸矫治理念及技术的发展"><a href="#正畸矫治理念及技术的发展" class="headerlink" title="正畸矫治理念及技术的发展"></a>正畸矫治理念及技术的发展</h2><h3 id="正畸矫治器的发展"><a href="#正畸矫治器的发展" class="headerlink" title="正畸矫治器的发展"></a>正畸矫治器的发展</h3><ol><li>固定矫治器的演化<br>出现最早，使用最广泛，目前最成熟。绝大多数源自美国Angle医生在二十世纪初的一系列发明。</li></ol><ul><li>E型弓矫治器(1907年)，用于扩弓排齐。</li><li>钉管弓矫治器(1911年)，移动牙根。操作要求高。</li><li>带状弓矫治器(1916年)，简化弓丝入槽操作，但控制力不强。</li><li>方丝弓矫治器(1928年)</li></ul><ol start="2"><li>可摘式矫治器的发展</li></ol><ul><li>塑料基托式可摘矫治器(20世纪初)<ul><li>现代早期矫治或辅助性矫治器: 平面导板、颌垫舌簧、分裂基托。</li><li>热压膜成型矫治器——无托槽隐形矫治器(1997年)。少量多次形变，依靠包裹牙齿表面的固位力，力传递的效率不如固定矫治器。</li></ul></li></ul><h3 id="正畸矫治技术的发展"><a href="#正畸矫治技术的发展" class="headerlink" title="正畸矫治技术的发展"></a>正畸矫治技术的发展</h3><h4 id="两大经典固定矫治体系"><a href="#两大经典固定矫治体系" class="headerlink" title="两大经典固定矫治体系"></a>两大经典固定矫治体系</h4><ol><li>经典方丝弓矫治技术</li></ol><ul><li>三维方向控制牙位</li><li>后牙支抗负担重</li><li>支抗预备技术:用J钩头帽将后牙推到后倾状态后，再用它们做支抗去拉前牙。</li></ul><ol start="2"><li>经典Begg矫治技术</li></ol><ul><li>先倾斜移动牙冠(轻力)，后倾斜移动牙根(控根移动)。</li></ul><h4 id="现代固定矫治器及矫治技术"><a href="#现代固定矫治器及矫治技术" class="headerlink" title="现代固定矫治器及矫治技术"></a>现代固定矫治器及矫治技术</h4><ol><li>直丝弓矫治器的理论基础——最佳自然牙合六标准的建立。120例成人最佳自然颌的测量数据。</li><li>Andrews直丝弓矫治器及技术特点——强调整体移动。设计:依据牙齿移动的方向和移动量在每颗牙托槽上增加抗倾斜及抗扭转角。在方丝上用滑动法整体移动牙齿。</li><li>Roth直丝弓矫治器及技术特点——用一套托槽取代Andrews多套托槽的直丝弓技术方案，用宽圆形作为统一弓丝取代Andrews的个体化弓丝，用关闭曲法取代滑动法，减小关闭拔牙间隙时的摩擦力。</li><li>MBT直丝弓矫治器及技术特点——修改托槽数据、宽圆&#x2F;卵圆&#x2F;方圆三种弓形、用细丝轻力、滑动法的矫治理念移动牙齿。</li><li>自锁托槽矫治器的特点:①用盖板(滑盖或翻盖)取代了结扎丝或结扎圈。②降低了弓丝与槽沟之间的滑动阻力。原理:弓丝与沟槽平行时，仅有摩擦力。角度越大，阻力越大。降低角度即降低阻力。</li></ol><h3 id="国产自主创新矫治器及矫治技术"><a href="#国产自主创新矫治器及矫治技术" class="headerlink" title="国产自主创新矫治器及矫治技术"></a>国产自主创新矫治器及矫治技术</h3><h4 id="毛夑均——环托式活动矫治器"><a href="#毛夑均——环托式活动矫治器" class="headerlink" title="毛夑均——环托式活动矫治器"></a>毛夑均——环托式活动矫治器</h4><h4 id="现代直丝弓"><a href="#现代直丝弓" class="headerlink" title="现代直丝弓"></a>现代直丝弓</h4><ul><li>用国人数据设计</li><li>通过倾斜移动提高效率:传动直丝弓矫治器</li><li>成人与青少年数据差异，正常颌与骨性错颌数据差异:生理性支抗PASS矫治系统。</li></ul><p>听课方式，看这儿<br><a href="https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA">https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA</a></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;正畸矫治理念及技术的发展&quot;&gt;&lt;a href=&quot;#正畸矫治理念及技术的发展&quot; class=&quot;headerlink&quot; title=&quot;正畸矫治理念及技术的发展&quot;&gt;&lt;/a&gt;正畸矫治理念及技术的发展&lt;/h2&gt;&lt;h3 id=&quot;正畸矫治器的发展&quot;&gt;&lt;a href=&quot;#正畸矫治器</summary>
       
     
     
