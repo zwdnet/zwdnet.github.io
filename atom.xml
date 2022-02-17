@@ -6,7 +6,7 @@
   <link href="https://zwdnet.github.io/atom.xml" rel="self"/>
   
   <link href="https://zwdnet.github.io/"/>
-  <updated>2022-02-16T22:48:00.549Z</updated>
+  <updated>2022-02-17T04:55:38.195Z</updated>
   <id>https://zwdnet.github.io/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>量化投资学习笔记190——文本分析实操2完善词云图及聚类分析</title>
+    <link href="https://zwdnet.github.io/2022/02/17/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0190%E2%80%94%E2%80%94%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%AE%9E%E6%93%8D2%E5%AE%8C%E5%96%84%E8%AF%8D%E4%BA%91%E5%9B%BE%E5%8F%8A%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/"/>
+    <id>https://zwdnet.github.io/2022/02/17/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0190%E2%80%94%E2%80%94%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%AE%9E%E6%93%8D2%E5%AE%8C%E5%96%84%E8%AF%8D%E4%BA%91%E5%9B%BE%E5%8F%8A%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/</id>
+    <published>2022-02-17T04:51:43.000Z</published>
+    <updated>2022-02-17T04:55:38.195Z</updated>
+    
+    <content type="html"><![CDATA[<p>文文本分析也称为文本挖掘，是从文本数据中获得高质量和可操作信息和见解所遵循的方法和过程。包括:</p><ul><li>文本分类</li><li>文本聚类</li><li>文本摘要</li><li>情感分析</li><li>实体抽取与识别</li><li>相似性分析与关系建模</li></ul><p>上次的文章对每年的人民日报文章画了个词云图，但结果貌似不是按词频来的。我就先计算词频再画词云图吧。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 统计词频</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generateCipin</span>(<span class="params">year</span>):</span></span><br><span class="line">    text = loadText(year)</span><br><span class="line">    text = text.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line">    word_counts = collections.Counter(text)</span><br><span class="line">    <span class="keyword">return</span> word_counts</span><br></pre></td></tr></table></figure><p>然后画词云图</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成图云</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">drawWordCloud</span>(<span class="params">fromyear = <span class="number">1957</span>, endyear = <span class="number">2003</span></span>):</span></span><br><span class="line">    <span class="keyword">for</span> year <span class="keyword">in</span> <span class="built_in">range</span>(fromyear, endyear):</span><br><span class="line">        <span class="comment"># 加载词频结果</span></span><br><span class="line">        cipin = generateCipin(year)</span><br><span class="line">        <span class="comment"># 生成词云</span></span><br><span class="line">        wordcloud = WordCloud(font_path=<span class="string">&quot;./ST.ttf&quot;</span>, collocations = <span class="literal">False</span>, max_words = <span class="number">100</span>, min_font_size=<span class="number">10</span>, max_font_size=<span class="number">500</span>, background_color=<span class="string">&quot;white&quot;</span>)</span><br><span class="line">        wordcloud.generate_from_frequencies(cipin)</span><br><span class="line">        wordcloud.to_file(<span class="string">&quot;./output/&quot;</span> + <span class="built_in">str</span>(year) + <span class="string">&#x27;词云图.png&#x27;</span>)</span><br></pre></td></tr></table></figure><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/159/merged.png"></p><p>现在看起来就差不多了。本来想做个动态词频图，但字体出问题，没弄出来。再尝试一下文本聚类，每年的分词结果作为一个文档。<br>以下参考<a href="https://blog.csdn.net/sinat_40431164/article/details/81092288">这里</a>。<br>分词前面已经完成了，直接读取结果然后计算Tf-idf矩阵。<br>把每年的分词结果作为单独的一行，组成列表来聚类。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文本聚类</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clusteText</span>(<span class="params">fromyear = <span class="number">1957</span>, endyear = <span class="number">2003</span></span>):</span></span><br><span class="line">    tfidf_vectorizer = TfidfVectorizer(use_idf=<span class="literal">True</span>, smooth_idf=<span class="literal">True</span>, norm=<span class="literal">None</span>, max_features=<span class="number">3000</span>, max_df=<span class="number">0.99</span>, min_df=<span class="number">0.1</span>)</span><br><span class="line">    raw_str = []</span><br><span class="line">    <span class="keyword">for</span> year <span class="keyword">in</span> <span class="built_in">range</span>(fromyear, endyear):</span><br><span class="line">        text = loadText(year)</span><br><span class="line">        raw_str.append(text)</span><br><span class="line">    <span class="comment"># raw_str = raw_str.split(&quot; &quot;)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(raw_str))</span><br><span class="line">    tfidf_matrix = tfidf_vectorizer.fit_transform(raw_str)</span><br><span class="line">    <span class="built_in">print</span>(year, tfidf_matrix.shape)</span><br><span class="line">    <span class="comment"># 计算文档相似性</span></span><br><span class="line">    dist = <span class="number">1</span> - cosine_similarity(tfidf_matrix)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文档相似性&quot;</span>, dist)</span><br><span class="line">    <span class="comment"># 获得分类</span></span><br><span class="line">    linkage_matrix = linkage(dist, method=<span class="string">&#x27;ward&#x27;</span>, metric=<span class="string">&#x27;euclidean&#x27;</span>, optimal_ordering = <span class="literal">False</span>)</span><br><span class="line">    <span class="built_in">print</span>(linkage_matrix)</span><br><span class="line">    <span class="comment"># 可视化</span></span><br><span class="line">    plt.figure(figsize = (<span class="number">25</span>, <span class="number">10</span>))</span><br><span class="line">    plt.title(<span class="string">&quot;人民日报全文聚类&quot;</span>)</span><br><span class="line">    dendrogram(</span><br><span class="line">        linkage_matrix,</span><br><span class="line">        labels = [<span class="built_in">str</span>(year) <span class="keyword">for</span> year <span class="keyword">in</span> <span class="built_in">range</span>(fromyear, endyear)],</span><br><span class="line">        leaf_rotation=-<span class="number">70</span>,</span><br><span class="line">        leaf_font_size=<span class="number">12</span></span><br><span class="line">    )</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/cluste.jpg&quot;</span>)</span><br><span class="line">    plt.close()</span><br></pre></td></tr></table></figure><p>看看聚类结果</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/159/cluste.jpg"></p><p>最大的两个分类里，除了一处例外，1980之前跟1980之后基本是分在了两个不同的类别里，还是蛮准的。<br>源代码: <a href="https://github.com/zwdnet/text/blob/main/text.py">https://github.com/zwdnet/text/blob/main/text.py</a></p><p><a href="https://github.com/zwdnet/text/blob/main/text.py">源代码</a></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;文文本分析也称为文本挖掘，是从文本数据中获得高质量和可操作信息和见解所遵循的方法和过程。包括:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文本分类&lt;/li&gt;
+&lt;li&gt;文本聚类&lt;/li&gt;
+&lt;li&gt;文本摘要&lt;/li&gt;
+&lt;li&gt;情感分析&lt;/li&gt;
+&lt;li&gt;实体抽取与识别&lt;/li&gt;
+&lt;li&gt;相似性</summary>
+      
+    
+    
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    
+    <category term="python" scheme="https://zwdnet.github.io/tags/python/"/>
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    <category term="文本分析" scheme="https://zwdnet.github.io/tags/%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90/"/>
+    
+    <category term="自然语言处理" scheme="https://zwdnet.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>大连民营口腔协会病例大赛牙体牙髓专业5年冠军病例分享</title>
@@ -553,34 +590,6 @@
 &lt;li&gt;常与其它错颌畸形同时存在&lt;/li&gt;
 &lt;li&gt;影响面型及口腔功能&lt;/li&gt;
 &lt;</summary>
-      
-    
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    <category term="学习笔记" scheme="https://zwdnet.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="网课" scheme="https://zwdnet.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>北大口腔正畸学研究生课程2021秋17——错颌畸形的早期矫治</title>
-    <link href="https://zwdnet.github.io/2022/01/07/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B17%E2%80%94%E2%80%94%E9%94%99%E9%A2%8C%E7%95%B8%E5%BD%A2%E7%9A%84%E6%97%A9%E6%9C%9F%E7%9F%AB%E6%B2%BB/"/>
-    <id>https://zwdnet.github.io/2022/01/07/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B17%E2%80%94%E2%80%94%E9%94%99%E9%A2%8C%E7%95%B8%E5%BD%A2%E7%9A%84%E6%97%A9%E6%9C%9F%E7%9F%AB%E6%B2%BB/</id>
-    <published>2022-01-07T03:13:08.000Z</published>
-    <updated>2022-01-07T04:20:12.397Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="早期矫治与正畸医生"><a href="#早期矫治与正畸医生" class="headerlink" title="早期矫治与正畸医生"></a>早期矫治与正畸医生</h2><h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><ul><li>涉及人员广</li><li>涉及学科多</li><li>涉及的问题复杂</li></ul><h3 id="正畸医生的作用-规划师、执行者、协调员"><a href="#正畸医生的作用-规划师、执行者、协调员" class="headerlink" title="正畸医生的作用:规划师、执行者、协调员"></a>正畸医生的作用:规划师、执行者、协调员</h3><ul><li>诊断分析</li><li>未来生长发育变化的预判和分析</li><li>选择患者获益最大的方案</li></ul><h2 id="早期矫治主要内容"><a href="#早期矫治主要内容" class="headerlink" title="早期矫治主要内容"></a>早期矫治主要内容</h2><h3 id="间隙问题管理"><a href="#间隙问题管理" class="headerlink" title="间隙问题管理"></a>间隙问题管理</h3><ul><li>狭义间隙保持(乳牙早失，间隙保持器)</li><li>广义间隙保持<ul><li>乳牙早失(间隙保持器)</li><li>乳牙滞留拔除后</li><li>恒牙早失或先天缺失</li><li>恒牙迟萌，阻生或异位</li></ul></li><li>间隙保持手段</li><li>注意事项:不是所有间隙都要保持，先有正确诊断和生长发育评估。</li><li>间隙恢复<ul><li>恒牙存在，但萌出间隙不足</li><li>预计未来没有拔牙矫治需求&#x2F;至少不需要拔除间隙所在牙</li><li>因间隙丧失带来的咬合改变，对颌牙合面的发育或功能不利。</li><li>原则:目标明确;快速，对患儿干扰小;不影响牙根发育。</li><li>常用矫治器:局部固定矫治器、传统活动矫治器、口外弓、下颌唇挡、摆式矫治器、隐形矫治器。</li></ul></li></ul><h3 id="萌出问题管理"><a href="#萌出问题管理" class="headerlink" title="萌出问题管理"></a>萌出问题管理</h3><h3 id="二类颌间关系不调"><a href="#二类颌间关系不调" class="headerlink" title="二类颌间关系不调"></a>二类颌间关系不调</h3><ul><li>策略<ul><li>下颌后缩&gt;50%<ul><li>促进下颌生长:功能性矫治器</li><li>抑制上颌生长:头帽口外弓</li><li>上下颌共同作用:头帽口外弓与功能性矫治器联用</li></ul></li><li>上颌前突<ul><li>抑制上颌生长:头帽口外弓<ul><li>力值:矫形力，每侧约350-450g</li><li>时间:每日戴用不少于10-12小时，推荐夜间戴用</li><li>口内弓宽度:应较牙弓扩宽约2MM</li><li>牵引类型:联合牵引、颈牵引、高位牵引</li><li>牵引方向:需远移上颌骨时，向后上接近上颌阻抗中心(前磨牙根方)</li></ul></li></ul></li><li>功能性矫治器<ul><li>Activators</li><li>Twin-Block矫治器</li><li>Herbst(咬合前移器)</li></ul></li><li>应用时机<ul><li>生长改良矫治，均应在青春生长迸发期结束前进行</li><li>生长高峰期前或初期:抑制上颌发育的头帽口外弓</li><li>青春生长高峰期:前导下颌的功能性矫治器的最佳时机</li><li>青春后期:可试用Herbst类固定式功能性矫治器</li></ul></li></ul></li></ul><h3 id="三类颌间关系不调"><a href="#三类颌间关系不调" class="headerlink" title="三类颌间关系不调"></a>三类颌间关系不调</h3><ul><li>前牙反颌<ul><li><p>分类:牙性、功能性、骨性</p></li><li><p>机制:牙齿拥挤、下颌功能性前移位、上颌发育不足和&#x2F;或下颌发育过度</p></li><li><p>矫治方法:</p><ul><li>牙性:下颌联冠斜导，上颌牙合垫舌簧，局部固定矫治</li><li>功能性:功能性矫治，纠正牙性问题，骨性问题</li><li>骨性:前方牵引，头帽颏兜，观察</li></ul></li><li><p>下颌联冠斜导</p><ul><li>适应症: 乳牙期，功能性反颌</li><li>错颌特点:反覆颌深+反覆盖小+无拥挤+下颌可后退</li><li>联冠斜导特点:包括下颌6颗乳前牙，斜面约45°</li></ul></li><li><p>上颌牙合垫式双曲舌簧矫治器</p><ul><li>适应症:乳牙期、替牙期、牙性反颌</li><li>错颌特点: 上切牙舌倾+反覆盖中度或以下+无明显前牙错位干扰</li><li>矫治器特点:多为平面式颌垫，也可制取下颌后退位牙合蜡，制作解剖式牙合垫，可增加双曲唇弓辅助固位。</li></ul></li><li><p>局部固定矫治器</p><ul><li>适应症:替牙期、恒牙早期、牙性反颌</li><li>错颌特点:前牙拥挤错位干扰+反覆盖轻中度+可伴功能性因素</li></ul></li><li><p>Frankel三型矫治器</p><ul><li>适应症:替牙期为主，功能性前牙反颌</li><li>错颌特点:<ul><li>下颌能后退到对刃</li><li>牙性、骨性因素不严重</li></ul></li><li>临床应用要点<ul><li>印模应包括前庭沟及唇颊系带的塑形</li><li>制取后退位牙合蜡，纠正功能性下颌偏斜</li><li>初戴，应及早复诊及调磨</li><li>每日应戴用20-22小时，至少12小时</li><li>反颌解除后，去除上颌后牙牙合支托</li><li>总疗程一般约1-2年</li><li>必要时调整或更换新的矫治器</li></ul></li></ul></li><li><p>上颌前方牵引矫治器</p><ul><li>适应症: 替牙期、恒牙早期、骨性前牙反颌</li><li>错颌特点: 上颌发育不足为主</li><li>矫治器作用特点:<ul><li>促进上颌矢状与垂直向生长或前移，上牙列前下位移</li><li>抑制下颌向前的生长，改变生长方向，促其后下旋转</li><li>可配合腭中缝快速扩弓，干扰骨缝系统，利于上颌骨改建</li></ul></li><li>最佳时机:6-8岁(女)，9-11(男)</li><li>力量:矫形力，约每侧300-600g</li><li>时间:每日&gt;14小时</li><li>牵引方向:向前下，与牙合平面相交约30°</li><li>牵引位置:开始倾向者靠前，深反覆颌者靠后</li><li>过矫正:建立2-4mm前牙覆盖</li></ul></li><li><p>头帽颏兜矫治器</p><ul><li>适应症:乳牙期、替牙期、恒牙早期、非严重高角骨性反颌。</li><li>错颌特点:下颌过度发育为主，无明显颞下颌关节紊乱</li><li>矫治器特点:<ul><li>使下颌向后下旋转，改变下颌生长方向，几乎不能抑制下颌生长量。</li><li>除非长期戴用到生长发育完成，否则反颌很容易复发。</li><li>无法改变骨性三类面型，许多患者仍需要成人后正畸-正颌联合矫治</li></ul></li></ul></li><li><p>中重度骨性三类错颌的早期矫治</p><ul><li>全局思维:关注三维骨型不调</li><li>终局思维:<ul><li>着眼将来，制订矫治计划</li><li>认识治疗的长期性，不确定性</li><li>对疗程、预后应有充分的预判及告知</li><li>有所为，有所不为</li></ul></li></ul></li></ul></li></ul><h3 id="骨性宽度及高度不调"><a href="#骨性宽度及高度不调" class="headerlink" title="骨性宽度及高度不调"></a>骨性宽度及高度不调</h3><p>听课方式，看这儿<br><a href="https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA">https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA</a></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;早期矫治与正畸医生&quot;&gt;&lt;a href=&quot;#早期矫治与正畸医生&quot; class=&quot;headerlink&quot; title=&quot;早期矫治与正畸医生&quot;&gt;&lt;/a&gt;早期矫治与正畸医生&lt;/h2&gt;&lt;h3 id=&quot;挑战&quot;&gt;&lt;a href=&quot;#挑战&quot; class=&quot;headerlink&quot; </summary>
       
     
     
