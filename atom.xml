@@ -6,7 +6,7 @@
   <link href="https://zwdnet.github.io/atom.xml" rel="self"/>
   
   <link href="https://zwdnet.github.io/"/>
-  <updated>2022-03-01T08:31:04.499Z</updated>
+  <updated>2022-03-03T03:09:03.355Z</updated>
   <id>https://zwdnet.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>量化投资学习笔记191——用深度学习发现牛顿引力定律</title>
+    <link href="https://zwdnet.github.io/2022/03/03/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0191%E2%80%94%E2%80%94%E7%94%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%91%E7%8E%B0%E7%89%9B%E9%A1%BF%E5%BC%95%E5%8A%9B%E5%AE%9A%E5%BE%8B/"/>
+    <id>https://zwdnet.github.io/2022/03/03/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0191%E2%80%94%E2%80%94%E7%94%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%91%E7%8E%B0%E7%89%9B%E9%A1%BF%E5%BC%95%E5%8A%9B%E5%AE%9A%E5%BE%8B/</id>
+    <published>2022-03-03T02:59:08.000Z</published>
+    <updated>2022-03-03T03:09:03.355Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在重新学物理，想到一个有意思的玩法:用深度学习来“发现”物理定律。具体而言就是根据我们已知的物理定律产生一堆数据，然后让深度学习模型来“学习”这些数据，最后用新的数据来预测。就用牛顿引力定律吧。<br>牛顿引力定律，$F &#x3D; G\frac {m_1m_2} {r^2}$。即两个物体之间的引力大小与它们质量的乘积成正比，与它们之间的距离的平方成反比。<br>输入的变量为三个:两个物体质量和它们之间的距离。<br>先用随机数产生一些输入数据，并根据牛顿引力定律计算相应的引力值。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/160/01.jpg"></p><p>为了实验的前后一致性，把生成的数据保存到csv文件，以后直接从文件读取。<br>下面建立深度学习网络模型。<br>先进行数据转换</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/160/02.jpg"></p><p>建立DataLoader</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/160/03.jpg"></p><p>定义模型，参数乱写的。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/160/04.jpg"></p><p>训练过程</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/160/05.jpg"></p><p>结果</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/160/06.jpg"></p><p>结果很差，优化一下网络结构，迭代次数吧。<br>尝试了很多方法，比如增减网络层数，增减神经元数量，增加数据规模，学习率递减，改变权重初始化方式，改变激活函数类型等等，都没啥用。模型误差还是刚开始迅速下降，训练几十次以后就基本不动了。试了一下逼近一元函数和多元函数，一元函数的逼近效果很好，二元就不行了。这是逼近$z &#x3D; x^2+y^2$的结果，训练了1000次。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/160/07.jpg"></p><p>找了个GPU服务器跑了几万次，还是一样的。先摆着吧，当做一个问题。接着学物理吧。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近在重新学物理，想到一个有意思的玩法:用深度学习来“发现”物理定律。具体而言就是根据我们已知的物理定律产生一堆数据，然后让深度学习模型来“学习”这些数据，最后用新的数据来预测。就用牛顿引力定律吧。&lt;br&gt;牛顿引力定律，$F &amp;#x3D; G\frac {m_1m_2} {</summary>
+      
+    
+    
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    
+    <category term="python" scheme="https://zwdnet.github.io/tags/python/"/>
+    
+    <category term="量化投资" scheme="https://zwdnet.github.io/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/"/>
+    
+    <category term="深度学习" scheme="https://zwdnet.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="pytorch" scheme="https://zwdnet.github.io/tags/pytorch/"/>
+    
+    <category term="函数逼近" scheme="https://zwdnet.github.io/tags/%E5%87%BD%E6%95%B0%E9%80%BC%E8%BF%91/"/>
+    
+  </entry>
   
   <entry>
     <title>急性牙髓炎牙槽骨吸收牙根暴露一例</title>
@@ -577,37 +609,6 @@
     <category term="回测" scheme="https://zwdnet.github.io/tags/%E5%9B%9E%E6%B5%8B/"/>
     
     <category term="经典策略" scheme="https://zwdnet.github.io/tags/%E7%BB%8F%E5%85%B8%E7%AD%96%E7%95%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>北大口腔正畸学研究生课程2021秋20——前牙反颌与安氏三类错颌的治疗</title>
-    <link href="https://zwdnet.github.io/2022/01/16/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B20%E2%80%94%E2%80%94%E5%89%8D%E7%89%99%E5%8F%8D%E9%A2%8C%E4%B8%8E%E5%AE%89%E6%B0%8F%E4%B8%89%E7%B1%BB%E9%94%99%E9%A2%8C%E7%9A%84%E6%B2%BB%E7%96%97/"/>
-    <id>https://zwdnet.github.io/2022/01/16/%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AF%BE%E7%A8%8B2021%E7%A7%8B20%E2%80%94%E2%80%94%E5%89%8D%E7%89%99%E5%8F%8D%E9%A2%8C%E4%B8%8E%E5%AE%89%E6%B0%8F%E4%B8%89%E7%B1%BB%E9%94%99%E9%A2%8C%E7%9A%84%E6%B2%BB%E7%96%97/</id>
-    <published>2022-01-16T01:13:27.000Z</published>
-    <updated>2022-01-16T01:15:32.937Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="流行病学"><a href="#流行病学" class="headerlink" title="流行病学"></a>流行病学</h2><ul><li>表现:磨牙为近中关系的错颌畸形，多伴有前牙反颌。</li><li>流行病学:<ul><li>西方发病率约5%-8%</li><li>中国约15%</li><li>家族聚集倾向</li></ul></li></ul><h2 id="病因"><a href="#病因" class="headerlink" title="病因"></a>病因</h2><ul><li>先天因素——遗传<ul><li>Cruson syndrome颅骨锁骨发育不全综合征</li><li>唇腭裂等</li><li>遗传性下颌骨发育过度</li></ul></li><li>后天因素:不当喂养、不良习惯、替牙障碍</li></ul><h2 id="影响与危害"><a href="#影响与危害" class="headerlink" title="影响与危害"></a>影响与危害</h2><ul><li>咬合功能</li><li>容貌<ul><li>侧貌:凹面型</li><li>功能:咀嚼、发音</li><li>心理健康:自卑</li></ul></li></ul><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul><li>骨性<ul><li>轻中度:-4°&lt;ANB&lt;0°</li><li>重度:ANB≤-4°</li></ul></li><li>非骨性:牙性</li><li>非骨性:功能性<br>非骨性下颌能退至对刃位。骨性往往有家族史。<br>治疗原则:早期积极干预。</li></ul><h2 id="矫治原则与策略"><a href="#矫治原则与策略" class="headerlink" title="矫治原则与策略"></a>矫治原则与策略</h2><p>经典拔牙模式:上5下4<br>正畸正颌联合治疗。</p><ul><li>早期恒牙列:双期矫治，第一期纠正前牙反颌。非骨性用牙合垫舌簧矫治器，FRIII功能矫治器。骨性用前方牵引+扩弓。</li><li>恒牙列:非骨性，解决牙量骨量不调，解决反颌，解决磨牙近中关系。拔牙&#x2F;非拔牙矫治，三类颌间牵引。骨性:轻中度，掩饰性正畸，拔牙矫治(上5下4)，种植钉支抗远移下牙列，传动矫治技术。重度:正畸正颌。成年期，正畸正颌联合治疗。</li></ul><p>听课方式，看这儿<br><a href="https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA">https://mp.weixin.qq.com/s/mHDbfLOVjwNwbABkNbQOHA</a></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;流行病学&quot;&gt;&lt;a href=&quot;#流行病学&quot; class=&quot;headerlink&quot; title=&quot;流行病学&quot;&gt;&lt;/a&gt;流行病学&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;表现:磨牙为近中关系的错颌畸形，多伴有前牙反颌。&lt;/li&gt;
-&lt;li&gt;流行病学:&lt;ul&gt;
-&lt;li&gt;西方发病率约5%</summary>
-      
-    
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    
-    <category term="口腔正畸" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E6%AD%A3%E7%95%B8/"/>
-    
-    <category term="学习笔记" scheme="https://zwdnet.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="网课" scheme="https://zwdnet.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
     
   </entry>
   
