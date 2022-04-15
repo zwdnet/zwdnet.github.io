@@ -162,7 +162,7 @@
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -406,7 +406,7 @@
 <p>遇到几个问题，首先是用什么方式来报告?想到的方法大概有微信、短信、邮件等。挨个看了一下。python有相关的库可以发微信的，但是需要手机扫码，就像登录pc版微信一样。我是在ubuntu服务器上跑程序，不太方便，这个pass了。短信，需要在某网站上注册，免费额度只有几百条，超了就要付费，也pass。最后选择邮件通知方式，自己给自己发邮件，再把手机上邮箱app的通知功能打开，就行了。效果如下:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/88/01.jpg"></p>
 <p>第二个问题是数据的问题。之前用akshare来获取60分钟线数据，发邮件时才发现，它是收盘后才更新数据的，在盘中，数据为NaN。这还怎么实时监测?<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/88/02.jpg"></p>
 <p>于是去找另外的数据来源，找到一个库了，叫efinance。试了以后OK了。具体方法参见<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/388088384">这里</a><br>特此感谢作者<a target="_blank" rel="noopener" href="https://www.zhihu.com/people/la-ge-lang-ri-96-69">@顺手牵羊</a><br>有知友推荐pytdx，看了一下，的确也可以。作为备份吧。这两个的区别是，efinance还是用爬虫去爬取网页上的数据，pytdx似乎是直接从数据来源那里获取数据，跟我们股票app上一样。貌似好几年没更新了。<br>最后一个问题，是如何让程序定时自动运行。首先考虑用linux的cron，在服务器上试了，一般的命令echo是OK的，注意要用&gt;&gt;把输出重定向到文件里。但是运行python程序不行，没反应。最后快开盘了，决定用最直接最笨的办法，开个死循环，在循环里用time.sleep暂停程序。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行死循环，定期检测，每隔s秒检测一次</span></span><br><span class="line"><span class="meta">@run.change_dir</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span>(<span class="params">codes, s</span>):</span></span><br><span class="line">    <span class="keyword">if</span> s &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;时间间隔需大于0，程序将退出\n&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        task(codes)</span><br><span class="line">        now = datetime.datetime.now().strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(now, <span class="string">&quot;执行了一次&quot;</span>)</span><br><span class="line">        time.sleep(s)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行死循环，定期检测，每隔s秒检测一次</span></span><br><span class="line"><span class="meta">@run.change_dir</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">codes, s</span>):</span><br><span class="line">    <span class="keyword">if</span> s &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;时间间隔需大于0，程序将退出\n&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        task(codes)</span><br><span class="line">        now = datetime.datetime.now().strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(now, <span class="string">&quot;执行了一次&quot;</span>)</span><br><span class="line">        time.sleep(s)</span><br></pre></td></tr></table></figure>
 <p>然后在命令行里用nohup使其在后台运行。试了一下ok了，有个问题是要停下来只有人工kill掉。我再找找有没有更好的办法。<br>下面来说实盘，今天出了点意外。一开盘，福田汽车就出现大涨，60分钟线已经接近前期的高点了。哥玩的就是短线，卖卖卖!3.6元卖的。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/88/03.jpg"></p>
 <p>然后又找了一只买入，把那几个买入信号都找了一遍，最后还是根据锤子线买入，没办法，其它的都出现好几天了，该涨的都涨了。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/88/04.jpg"></p>
 <p>锤子线还是很明显的。而且股价目前在2015年以后的最低点，应该很安全。<br>最后来看看目前的实验情况。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/88/05.jpg"></p>
@@ -568,7 +568,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">679</span>
+                  <span class="site-state-item-count">678</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -579,7 +579,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -590,7 +590,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">612</span>
+                  <span class="site-state-item-count">611</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -653,7 +653,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1436.7k</span>
+    <span title="Site words total count">1434.6k</span>
   
 </div>
 

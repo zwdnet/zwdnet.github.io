@@ -157,7 +157,7 @@
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -403,9 +403,9 @@
 <p>用id()可以得到变量的内存地址</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">z = <span class="number">3</span>-<span class="number">6j</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(y), <span class="built_in">id</span>(z))</span><br><span class="line">```python</span><br><span class="line">y和z的内存地址是一样的。</span><br><span class="line">```python</span><br><span class="line"><span class="number">531269809744</span> <span class="number">531269809744</span></span><br></pre></td></tr></table></figure>
 <p>python可以为不可变对象分配固定的内存，减少内存占用。<br>当两个变量指向同一对象时，is比较结果为True。当两个变量指向的对象值相等时，&#x3D;&#x3D;为True。<br>如果函数参数为可变对象，在函数内部改变此对象会影响函数外部。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testChange</span>(<span class="params">x, y</span>):</span></span><br><span class="line">  x[<span class="number">0</span>] = <span class="string">&quot;A&quot;</span></span><br><span class="line">  y = <span class="number">7</span></span><br><span class="line">  </span><br><span class="line"> x = [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span>]</span><br><span class="line"> y = <span class="number">6</span></span><br><span class="line"> testChange(x, y)</span><br><span class="line"> <span class="built_in">print</span>(x, y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">testChange</span>(<span class="params">x, y</span>):</span><br><span class="line">  x[<span class="number">0</span>] = <span class="string">&quot;A&quot;</span></span><br><span class="line">  y = <span class="number">7</span></span><br><span class="line">  </span><br><span class="line"> x = [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span>]</span><br><span class="line"> y = <span class="number">6</span></span><br><span class="line"> testChange(x, y)</span><br><span class="line"> <span class="built_in">print</span>(x, y)</span><br></pre></td></tr></table></figure>
 <p>使用个数不定的参数，可以提前打包，或者使用不定参数传递，方法是在参数前加*</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">manyCan</span>(<span class="params">*arg</span>):</span></span><br><span class="line">  <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> arg:</span><br><span class="line">   <span class="built_in">sum</span> = <span class="built_in">sum</span>+i</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line">  </span><br><span class="line"> <span class="built_in">print</span>(manyCan(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">manyCan</span>(<span class="params">*arg</span>):</span><br><span class="line">  <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> arg:</span><br><span class="line">   <span class="built_in">sum</span> = <span class="built_in">sum</span>+i</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line">  </span><br><span class="line"> <span class="built_in">print</span>(manyCan(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
 <p>匿名函数，无需使用def来定义的函数，使用lambda来定义。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 匿名函数</span></span><br><span class="line"> greeting = <span class="keyword">lambda</span> : <span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>)</span><br><span class="line"> greeting()</span><br></pre></td></tr></table></figure>
 <p>若字符串中包含单引号或双引号，要将整个字符串用三个引号包含。<br>文本分析时，应将字符串完全转换成小写再分析。<br>字典对象的keys()函数查看键值，values()函数返回值。</p>
@@ -567,7 +567,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">679</span>
+                  <span class="site-state-item-count">678</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -578,7 +578,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -589,7 +589,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">612</span>
+                  <span class="site-state-item-count">611</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -652,7 +652,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1436.7k</span>
+    <span title="Site words total count">1434.6k</span>
   
 </div>
 

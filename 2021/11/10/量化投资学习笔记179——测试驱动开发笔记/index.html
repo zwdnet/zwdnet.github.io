@@ -154,7 +154,7 @@
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -394,7 +394,7 @@
 
       
         <p>参考《Crafting Test-Driven Software with Python Write test suites that scale with your applications needs and complexity, using Python and PyTest》 Alessandro Molina著<br>使用python标准库自带的unittest库，</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTestCase</span>(<span class="params">unittest.TestCase</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_one</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    unittest.main()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyTestCase</span>(unittest.TestCase):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_one</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    unittest.main()</span><br></pre></td></tr></table></figure>
 <p>unittest.main()会寻找unittest.TestCase的子类，并将test_开头的成员函数作为测试用例。可以同时建立很多测试。同一个测试里可以有多个用例。最好假设测试是随机执行的。可以将测试分布在不同文件，用unittest discover模式寻找一个目录下的测试。可以用-k选项寻找特定名称的测试执行。<br>每个测试用例按照条件-动作-验证的顺序写，条件是进行测试动作前的准备，然后进行测试动作，最后验证结果。条件往往包含在所调用的函数里，不需要单独写。<br>测试驱动开发，在实现代码以前写测试，迫使我们明确自己的需求。写完测试，测试失败，再实现代码，使测试通过。接着就可以重构修改代码了。如此反复更替。<br>单元测试的大小，取决于测试对象，一般为单个函数或类。在某些执行多个任务的类，可以分割成多个单元测试对象。单元是最小的可测试程序组成。<br>集成测试是对两个及以上模块进行测试。包括函数测试、端到端测试、系统测试、接收测试等。<br>实现TDD有自顶向下和自底向上两种方法。test double是用来替代我们程序中尚未完成、不完整的或昂贵的部分进行测试的对象。<br>当开发一个新功能时，第一步是写一个主要接受度测试(acceptance test)，它可以帮助你明确定义自己想要达到的目标。<br>另一个测试库,pytest。与unittest最大的区别是它不用继承一个测试类，而是寻找任何名称包含有test的模块。也可以编辑项目下的文件pytest.ini来改变。<br>其判断语句为assert。<br>用-v选项显示详细信息。<br>用-k选项指定运行特定的测试，如-k first。其中first为特定测试函数所包含的名称。<br>unittest与pytest最大不同是pytest将测试与测试夹具(test fixture)解偶。这主要通过pytest.fixture装饰器实现。任何加了这个装饰器的函数就变成测试夹具，然后在测试模块中使用@pytest.mark.usefixtures装饰器来使用夹具。默认情况pytest会拦截所有程序输出，在执行pytest时加选项-s来输出。<br>可以使用多个测试夹具。别把测试夹具放在离使用它的地方太远的地方。测试夹具不但可以用于函数，也能用于类。可以设定夹具的scope为整个session并且autouse为True。<br>pytest还提供了tmp_path，每次运行测试提供了不同的临时路径。capsys夹具，用于捕捉标准输出。<br>pytest有两个配置文件，pytest.ini用于配置pytest本身，congtest.py用于配置测试用例。<br>pytest.mark.parametrize可以用来进行多参数测试。</p>
 <p>再看看原始来源:《测试驱动开发》kent Beck著<br>测试驱动开发的口号:不可运行&#x2F;可运行&#x2F;重构。<br>测试驱动开发的步骤:</p>
 <ol>
@@ -569,7 +569,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">679</span>
+                  <span class="site-state-item-count">678</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -580,7 +580,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -591,7 +591,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">612</span>
+                  <span class="site-state-item-count">611</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -654,7 +654,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1436.7k</span>
+    <span title="Site words total count">1434.6k</span>
   
 </div>
 
