@@ -406,4 +406,429 @@
 <p>再来几个例子，数独问题。<br>9×9的格子，每行，每列以及每3×3格组成的宫里的数字都不相同。<br>参考这里:<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/99218941">https://zhuanlan.zhihu.com/p/99218941</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="comment"># 数独的回溯解法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">sovSudoku</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, board = []</span>):</span><br><span class="line">        self._b = board.copy()</span><br><span class="line">        self._t = <span class="number">0</span></span><br><span class="line">        self._n = <span class="number">0</span></span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 主循环，尝试x,y处的解答</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">trysxy</span>(<span class="params">self, x, y</span>):</span><br><span class="line">        self._n += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> self._b[x][y] == <span class="number">0</span>:</span><br><span class="line">            pv = self.getPrem(x, y)</span><br><span class="line">            <span class="keyword">for</span> v <span class="keyword">in</span> pv:</span><br><span class="line">                self._t += <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> self.checkNotSame(x, y, v):</span><br><span class="line">                    self._b[x][y] = v</span><br><span class="line">                    nx, ny = self.getNext(x, y)</span><br><span class="line">                    <span class="keyword">if</span> nx == -<span class="number">1</span>:</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        _end = self.trysxy(nx, ny)</span><br><span class="line">                        <span class="keyword">if</span> <span class="keyword">not</span> _end:</span><br><span class="line">                            self._b[x][y] = <span class="number">0</span></span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">           </span><br><span class="line">    <span class="comment"># 得到x, y处可以填的值</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getPrem</span>(<span class="params">self, x, y</span>):</span><br><span class="line">        prem = []</span><br><span class="line">        rows = <span class="built_in">list</span>(self._b[x])</span><br><span class="line">        rows.extend([self._b[i][y] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>)])</span><br><span class="line">        cols = <span class="built_in">set</span>(rows)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> cols:</span><br><span class="line">                prem.append(i)</span><br><span class="line">        <span class="keyword">return</span> prem</span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 检查每行每列和每个宫内是否有与b(x, y)相同的数字</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">checkNotSame</span>(<span class="params">self, x, y, val</span>):</span><br><span class="line">        <span class="comment"># 第x行</span></span><br><span class="line">        <span class="keyword">for</span> row_item <span class="keyword">in</span> self._b[x]:</span><br><span class="line">            <span class="keyword">if</span> row_item == val:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="comment"># 第y列</span></span><br><span class="line">        <span class="keyword">for</span> rows <span class="keyword">in</span> self._b:</span><br><span class="line">            <span class="keyword">if</span> rows[y] == val:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        ax = x//<span class="number">3</span>*<span class="number">3</span></span><br><span class="line">        ab = y//<span class="number">3</span>*<span class="number">3</span></span><br><span class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(ax, ax+<span class="number">3</span>):</span><br><span class="line">            <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">range</span>(ab, ab+<span class="number">3</span>):</span><br><span class="line">                <span class="keyword">if</span> self._b[r][c] == val:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 得到下一个未填项</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getNext</span>(<span class="params">self, x, y</span>):</span><br><span class="line">        <span class="keyword">for</span> ny <span class="keyword">in</span> <span class="built_in">range</span>(y+<span class="number">1</span>, <span class="number">9</span>):</span><br><span class="line">            <span class="keyword">if</span> self._b[x][ny] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> (x, ny)</span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> <span class="built_in">range</span>(x+<span class="number">1</span>, <span class="number">9</span>):</span><br><span class="line">            <span class="keyword">for</span> ny <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">9</span>):</span><br><span class="line">                <span class="keyword">if</span> self._b[row][ny] == <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> (row, ny)</span><br><span class="line">        <span class="keyword">return</span> (-<span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">       </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self._b[<span class="number">0</span>][<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">            self.trysxy(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            x, y = self.getNext(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">            self.trysxy(x, y)</span><br><span class="line">           </span><br><span class="line">            <span class="keyword">def</span> <span class="title function_">updateSudo</span>(<span class="params">self, cb</span>):</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">len</span>(cb) == <span class="number">9</span> <span class="keyword">and</span> <span class="built_in">len</span>(cb[<span class="number">0</span>] == <span class="number">9</span>):</span><br><span class="line">                    self._b = cb</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&quot;错误结果&quot;</span>, <span class="built_in">len</span>(cb), <span class="built_in">len</span>(cb[<span class="number">0</span>]))</span><br><span class="line">                  </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&#123;0&#125;&#123;1&#125;&#123;2&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;[&#x27;</span>,<span class="string">&#x27;,\n&#x27;</span>.join([<span class="built_in">str</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> self._b]),<span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 获得回溯次数</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getTNum</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self._n</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 数独问题</span></span><br><span class="line">    s1 = [</span><br><span class="line">            [<span class="number">8</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">3</span>, <span class="number">6</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">            [<span class="number">0</span>,<span class="number">7</span>,<span class="number">0</span>, <span class="number">0</span>,<span class="number">9</span>,<span class="number">0</span>, <span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">            [<span class="number">0</span>,<span class="number">5</span>,<span class="number">0</span>, <span class="number">0</span>,<span class="number">0</span>,<span class="number">7</span>, <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">0</span>,<span class="number">4</span>,<span class="number">5</span>, <span class="number">7</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">0</span>,<span class="number">3</span>,<span class="number">0</span>],</span><br><span class="line">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>, <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">0</span>,<span class="number">6</span>,<span class="number">8</span>],</span><br><span class="line">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">8</span>, <span class="number">5</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">            [<span class="number">0</span>,<span class="number">9</span>,<span class="number">0</span>, <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">4</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">        ]</span><br><span class="line">    begin = datetime.now()</span><br><span class="line">    ss = sovSudoku(s1)</span><br><span class="line">    ss.solve()</span><br><span class="line">    <span class="built_in">print</span>(datetime.now() - begin)</span><br><span class="line">    <span class="built_in">print</span>(ss)</span><br><span class="line">    <span class="built_in">print</span>(ss.getTNum())</span><br><span class="line">   </span><br><span class="line">    m = [</span><br><span class="line">        [<span class="number">6</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">8</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">        [<span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">9</span>, <span class="number">2</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">        [<span class="number">3</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">6</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">        [<span class="number">9</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">4</span>]</span><br><span class="line">    ]</span><br><span class="line">    begin = datetime.now()</span><br><span class="line">    ss = sovSudoku(m</span><br><span class="line">    )</span><br><span class="line">    ss.solve()</span><br><span class="line">    <span class="built_in">print</span>(datetime.now() - begin)</span><br><span class="line">    <span class="built_in">print</span>(ss)</span><br><span class="line">    <span class="built_in">print</span>(ss.getTNum())</span><br></pre></td></tr></table></figure>
 <p>现在来看另一个问题，0-1背包问题。<br>参考这里:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaomangxie/p/10208441.html">https://www.cnblogs.com/xiaomangxie/p/10208441.html</a><br>有N件物品和一个容量为V的背包。第i件物品的价格（即体积，下同）是w[i]，价值是c[i]。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量，且价值总和最大。<br>回溯法解决看这里:<a target="_blank" rel="noopener" href="http://www.jeepxie.net/article/273672.html">http://www.jeepxie.net/article/273672.html</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 背包问题</span></span><br><span class="line">bestV = <span class="number">0</span></span><br><span class="line">curW = <span class="number">0</span></span><br><span class="line">curV = <span class="number">0</span></span><br><span class="line">bestx = <span class="literal">None</span>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 背包问题</span></span><br><span class="line">bestV = <span class="number">0</span></span><br><span class="line">curW = <span class="number">0</span></span><br><span class="line">curV = <span class="number">0</span></span><br><span class="line">bestx = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">backtrack</span>(<span class="params">i</span>):</span><br><span class="line">    <span class="keyword">global</span> bestV,curW,curV,x,bestx</span><br><span class="line">    <span class="keyword">if</span> i &gt;= n:</span><br><span class="line">        <span class="keyword">if</span> bestV &lt; curV:</span><br><span class="line">            bestV = curV</span><br><span class="line">            bestx = x[:]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> curW + w[i] &lt;= c:</span><br><span class="line">            x[i] = <span class="literal">True</span></span><br><span class="line">            curW += w[i]</span><br><span class="line">            curV += v[i]</span><br><span class="line">            backtrack(i+<span class="number">1</span>)</span><br><span class="line">            curW -= w[i]</span><br><span class="line">            curV -= v[i]</span><br><span class="line">        x[i] = <span class="literal">False</span></span><br><span class="line">        backtrack(i+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">n=<span class="number">5</span></span><br><span class="line">c=<span class="number">10</span></span><br><span class="line">w=[<span class="number">2</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>]</span><br><span class="line">v=[<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>]</span><br><span class="line">x=[<span class="literal">False</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">backtrack(<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(bestV)</span><br><span class="line"><span class="built_in">print</span>(bestx)</span><br></pre></td></tr></table></figure>
+<p>本章代码: <a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/blob/master/43/backtrace.py">https://github.com/zwdnet/MyQuant/blob/master/43/backtrace.py</a></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" rel="tag"># 数据结构算法</a>
+          
+            <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" rel="tag"># 回溯算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/29/%E7%89%99%E9%AB%93%E7%97%85%E6%80%BB%E7%BB%9316%E2%80%94%E2%80%94%E6%A0%B9%E7%AE%A1%E6%B2%BB%E7%96%97%E5%90%8E%E7%9A%84%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%A1%88/" rel="next" title="牙髓病总结16——根管治疗后的修复方案">
+                <i class="fa fa-chevron-left"></i> 牙髓病总结16——根管治疗后的修复方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/30/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B045%E2%80%94%E2%80%94%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%934-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="prev" title="量化投资学习笔记45——基本数据结构算法总结4 动态规划">
+                量化投资学习笔记45——基本数据结构算法总结4 动态规划 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">784</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">682</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1597.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

@@ -461,4 +461,472 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进行预测</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">predict_NN</span>(<span class="params">parameters, x_test</span>):</span><br><span class="line">    A2, cache = fp_NN(x_test, parameters)</span><br><span class="line">    Y_pred = np.zeros((<span class="number">1</span>, x_test.shape[<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(A2.shape[<span class="number">1</span>]):</span><br><span class="line">        <span class="keyword">if</span> A2[<span class="number">0</span>, i] &lt;= <span class="number">0.5</span>:</span><br><span class="line">            Y_pred[<span class="number">0</span>, i] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            Y_pred[<span class="number">0</span>, i] = <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> Y_pred</span><br></pre></td></tr></table></figure>
 
 <p>最后，建立神经网络</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span 
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立两层神经网络</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">NN</span>(<span class="params">x_train, y_train, x_test, y_test, num_iterations</span>):</span><br><span class="line">    cost_list = []</span><br><span class="line">    index_list = []</span><br><span class="line">    <span class="comment"># 初始化参数</span></span><br><span class="line">    parameters = init_nn_parameters(x_train, y_train)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, num_iterations):</span><br><span class="line">        A2, cache = fp_NN(x_train, parameters)</span><br><span class="line">        cost = cost_NN(A2, y_train, parameters)</span><br><span class="line">        grads = bp_NN(parameters, cache, x_train, y_train)</span><br><span class="line">        parameters = update_NN(parameters, grads)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">100</span> == <span class="number">0</span>:</span><br><span class="line">            cost_list.append(cost)</span><br><span class="line">            index_list.append(i)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;第%i次迭代后的成本:%f&quot;</span> % (i, cost))</span><br><span class="line">    </span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.plot(index_list, cost_list)</span><br><span class="line">    plt.savefig(<span class="string">&quot;NN_LC.png&quot;</span>)</span><br><span class="line">    plt.close()</span><br><span class="line">    <span class="comment"># 进行预测</span></span><br><span class="line">    y_pred_test = predict_NN(parameters, x_test)</span><br><span class="line">    y_pred_train = predict_NN(parameters, x_train)</span><br><span class="line">    <span class="comment"># 计算准确率</span></span><br><span class="line">    train_accuracy = <span class="number">100</span> - np.mean(np.<span class="built_in">abs</span>(y_pred_train - y_train))*<span class="number">100</span></span><br><span class="line">    test_accuracy = <span class="number">100</span> - np.mean(np.<span class="built_in">abs</span>(y_pred_test - y_test))*<span class="number">100</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;训练集预测准确率%f&quot;</span> % (train_accuracy))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;测试集预测准确率%f&quot;</span> % (test_accuracy))</span><br></pre></td></tr></table></figure>
+
+<p>最后，看结果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parameters = NN(x_train, y_train, x_test, y_test, num_iterations = <span class="number">2500</span>)</span><br></pre></td></tr></table></figure>
+<p>训练集预测准确率100.000000<br>测试集预测准确率95.161290<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0234-dp/06.png"></p>
+<p>不比逻辑回归好啊？<br>L层神经网络(L layer neural network)<br>当隐藏层数量增加是，它能探测到更复杂的特征。<br>有许多超参数需要我们选择，如学习率，隐藏层层数，迭代次数，激活函数类型等。<br>用keras实现L层神经网络，老调不对，先摆着，看第二篇文章，讲pytorch的。<br><a target="_blank" rel="noopener" href="https://www.kaggle.com/kanncaa1/pytorch-tutorial-for-deep-learning-lovers">https://www.kaggle.com/kanncaa1/pytorch-tutorial-for-deep-learning-lovers</a><br>pytorch是numpy的替代品，可以充分利用GPU的运算能力，是一个深度学习研究平台，提供了最大程度的扩展性和速度。<br>Pytorch基础<br>在pytorch中，矩阵（数组）被称为张量(tensors)。<br>先看numpy数组的例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># numpy数组</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">numpy_array</span>():</span><br><span class="line">    array = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]]</span><br><span class="line">    first_array = np.array(array)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(first_array))</span><br><span class="line">    <span class="built_in">print</span>(np.shape(first_array))</span><br><span class="line">    <span class="built_in">print</span>(first_array)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;numpy.ndarray&#x27;</span>&gt;</span><br><span class="line">(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">[[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line">[<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]]</span><br></pre></td></tr></table></figure>
+<p>下面看张量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="comment"># 张量</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pytorch_tensor</span>(<span class="params">array</span>):</span><br><span class="line">    tensor = torch.Tensor(array)</span><br><span class="line">    <span class="built_in">print</span>(tensor.<span class="built_in">type</span>)</span><br><span class="line">    <span class="built_in">print</span>(tensor.shape)</span><br><span class="line">    <span class="built_in">print</span>(tensor)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;built-<span class="keyword">in</span> method <span class="built_in">type</span> of Tensor <span class="built_in">object</span> at <span class="number">0x7f555a14b690</span>&gt;</span><br><span class="line">torch.Size([<span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">tensor([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>],</span><br><span class="line">        [<span class="number">4.</span>, <span class="number">5.</span>, <span class="number">6.</span>]])</span><br></pre></td></tr></table></figure>
+
+<p>张量与numpy数组的转换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 张量与数组的转换</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">transform</span>():</span><br><span class="line">    array = np.random.rand(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;&#125; &#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>(array), array))</span><br><span class="line">    </span><br><span class="line">    from_numpy_to_tensor = torch.from_numpy(array)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(from_numpy_to_tensor))</span><br><span class="line">    </span><br><span class="line">    tensor = from_numpy_to_tensor</span><br><span class="line">    from_tensor_to_numpy = tensor.numpy()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;&#125; &#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>(from_tensor_to_numpy), from_tensor_to_numpy))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;numpy.ndarray&#x27;</span>&gt; [[<span class="number">0.22831416</span> <span class="number">0.2857514</span> ]</span><br><span class="line">[<span class="number">0.26072294</span> <span class="number">0.01614062</span>]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tensor([[<span class="number">0.2283</span>, <span class="number">0.2858</span>],</span><br><span class="line">        [<span class="number">0.2607</span>, <span class="number">0.0161</span>]], dtype=torch.float64)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;numpy.ndarray&#x27;</span>&gt; [[<span class="number">0.22831416</span> <span class="number">0.2857514</span> ]</span><br><span class="line">[<span class="number">0.26072294</span> <span class="number">0.01614062</span>]]</span><br></pre></td></tr></table></figure>
+
+<p>pytorch基础数学</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基础数学</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">basic_math</span>():</span><br><span class="line">    <span class="comment"># 创建tensor</span></span><br><span class="line">    tensor = torch.ones(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n&quot;</span>, tensor)</span><br><span class="line">    <span class="comment"># 改变大小</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;&#125;&#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(tensor.view(<span class="number">9</span>).shape, tensor.view(<span class="number">9</span>)))</span><br><span class="line">    <span class="comment"># 加</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;加:&#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(torch.add(tensor, tensor)))</span><br><span class="line">    <span class="comment"># 减</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;减:&#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(tensor.sub(tensor)))</span><br><span class="line">    <span class="comment"># 乘</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;乘:&#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(torch.mul(tensor, tensor)))</span><br><span class="line">    <span class="comment"># 除</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;除:&#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(torch.div(tensor, tensor)))</span><br><span class="line">    <span class="comment"># 均值</span></span><br><span class="line">    tensor = torch.Tensor([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;均值:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(tensor.mean()))</span><br><span class="line">    <span class="comment"># 均值</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;标准差:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(tensor.std()))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">tensor([[<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>],</span><br><span class="line">        [<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>],</span><br><span class="line">        [<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>]])</span><br><span class="line">torch.Size([<span class="number">9</span>])tensor([<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">加:tensor([[<span class="number">2.</span>, <span class="number">2.</span>, <span class="number">2.</span>],</span><br><span class="line">        [<span class="number">2.</span>, <span class="number">2.</span>, <span class="number">2.</span>],</span><br><span class="line">        [<span class="number">2.</span>, <span class="number">2.</span>, <span class="number">2.</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">减:tensor([[<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>],</span><br><span class="line">        [<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>],</span><br><span class="line">        [<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">乘:tensor([[<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>],</span><br><span class="line">        [<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>],</span><br><span class="line">        [<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">除:tensor([[<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>],</span><br><span class="line">        [<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>],</span><br><span class="line">        [<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">均值:<span class="number">3.0</span></span><br><span class="line">标准差:<span class="number">1.5811388492584229</span></span><br></pre></td></tr></table></figure>
+
+<p>变量(Variables)<br>它能积累梯度。在神经网络的反向传播过程中，我们将计算梯度。因此我们需要处理梯度。变量与张量的区别是变量能够自动累积梯度。变量同样的也能进行那些数学运算。为了完成反向传播我们需要变量。<br>假设我们有方程y &#x3D; x^2，定义变量x &#x3D; [2,4]，计算后我们发现y &#x3D; [4,16]，Recap o方程（Recap o equation，不知道咋翻）是o &#x3D; (1&#x2F;2)sum(y) &#x3D; (1&#x2F;2)sum(x^2)，o的导数为o &#x3D; x，因此梯度为[2,4]。下面用程序来实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"><span class="comment"># 求y = x^2 在x = [2, 4]的梯度</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">grad</span>():</span><br><span class="line">    var = Variable(torch.ones(<span class="number">3</span>), requires_grad = <span class="literal">True</span>)</span><br><span class="line">    <span class="built_in">print</span>(var)</span><br><span class="line">    array = [<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">    tensor = torch.Tensor(array)</span><br><span class="line">    x = Variable(tensor, requires_grad = <span class="literal">True</span>)</span><br><span class="line">    y = x**<span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;y=&quot;</span>, y)</span><br><span class="line">   </span><br><span class="line">    o = (<span class="number">1</span>/<span class="number">2</span>)*<span class="built_in">sum</span>(y)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;o=&quot;</span>, o)</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 反向传播</span></span><br><span class="line">    o.backward()</span><br><span class="line">   </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;梯度:&quot;</span>, x.grad)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tensor([<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>], requires_grad=<span class="literal">True</span>)</span><br><span class="line">y= tensor([ <span class="number">4.</span>, <span class="number">16.</span>], grad_fn=&lt;PowBackward0&gt;)</span><br><span class="line">o= tensor(<span class="number">10.</span>, grad_fn=&lt;MulBackward0&gt;)</span><br><span class="line">梯度: tensor([<span class="number">2.</span>, <span class="number">4.</span>])</span><br></pre></td></tr></table></figure>
+
+<p>线性回归<br>y &#x3D; Ax + B，A为直线斜率，B为偏差值（y截距）。<br>一个例子：车的价格和销量。<br>先初始化数据，画图看看。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 线性回归的例子</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">linear_regress</span>():</span><br><span class="line">    <span class="comment"># 车价</span></span><br><span class="line">    car_prices_array = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line">    car_price_np = np.array(car_prices_array, dtype = np.float32)</span><br><span class="line">    car_price_np = car_price_np.reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    car_price_tensor = Variable(torch.from_numpy(car_price_np))</span><br><span class="line">    <span class="comment"># 车销量</span></span><br><span class="line">    number_of_car_sell_array = [<span class="number">7.5</span>, <span class="number">7</span>, <span class="number">6.5</span>, <span class="number">6.0</span>, <span class="number">5.5</span>, <span class="number">5.0</span>, <span class="number">4.5</span>]</span><br><span class="line">    number_of_car_sell_np = np.array(number_of_car_sell_array, dtype = np.float32)</span><br><span class="line">    number_of_car_sell_np = number_of_car_sell_np.reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    number_of_car_sell_tensor = Variable(torch.from_numpy(number_of_car_sell_np))</span><br><span class="line">    <span class="comment"># 可视化</span></span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.scatter(car_prices_array, number_of_car_sell_array)</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/price_sell.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0234-dp/07.png"></p>
+<p>现在要问当车价为100时的销量。用线性回归来解决。要用直线来拟合这些数据，目标是误差最小。<br>线性回归的步骤：<br>①创建线性回归类。<br>②从线性回归类定义模型。<br>③计算MSE：平均误差平方（Mean Squared Error）<br>④优化SGD:随机梯度下降（Stochastic Gradient Descent）<br>⑤反向传播过程。<br>⑥预测。<br>下面用Pytorch实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LinearRegression</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_size, output_size</span>):</span><br><span class="line">        <span class="built_in">super</span>(LinearRegression, self).__init__()</span><br><span class="line">        self.linear = nn.Linear(input_size, output_size)</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> self.linear(x)</span><br><span class="line">       </span><br><span class="line">input_dim = <span class="number">1</span></span><br><span class="line">output_dim = <span class="number">1</span></span><br><span class="line">model = LinearRegression(input_dim, output_dim)</span><br><span class="line">loss_fn = nn.MSELoss()</span><br><span class="line">   </span><br><span class="line"><span class="comment"># 优化器</span></span><br><span class="line">learning_rate = <span class="number">0.02</span></span><br><span class="line">optimizer = torch.optim.SGD(model.parameters(), lr = learning_rate)</span><br><span class="line">   </span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">loss_list = []</span><br><span class="line">iteration_number = <span class="number">1001</span></span><br><span class="line"><span class="keyword">for</span> iteration <span class="keyword">in</span> <span class="built_in">range</span>(iteration_number):</span><br><span class="line">    <span class="comment"># 优化</span></span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    <span class="comment"># 前向传播获得输出</span></span><br><span class="line">    results = model(car_price_tensor)</span><br><span class="line">    <span class="comment"># 计算损失</span></span><br><span class="line">    loss = loss_fn(results, number_of_car_sell_tensor)</span><br><span class="line">    <span class="comment"># 反向传播</span></span><br><span class="line">    loss.backward()</span><br><span class="line">    <span class="comment"># 更新参数</span></span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="comment"># 保存损失值</span></span><br><span class="line">    loss_list.append(loss.data)</span><br><span class="line">    <span class="comment"># 打印损失值</span></span><br><span class="line">    <span class="keyword">if</span> iteration % <span class="number">50</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;epoch &#123;&#125;, loss &#123;&#125;&quot;</span>.<span class="built_in">format</span>(iteration, loss.data))</span><br><span class="line">       </span><br><span class="line"><span class="comment"># 画图</span></span><br><span class="line">plt.figure()</span><br><span class="line">plt.plot(<span class="built_in">range</span>(iteration_number), loss_list)</span><br><span class="line">plt.savefig(<span class="string">&quot;./output/lr_curve.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0234-dp/08.png"></p>
+<p>进行了1001次迭代。在1000次迭代后，损失接近为0。现在进行预测。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进行预测</span></span><br><span class="line">predicted = model(car_price_tensor).data.numpy()</span><br><span class="line">plt.figure()</span><br><span class="line">plt.scatter(car_prices_array, number_of_car_sell_array, color = <span class="string">&quot;red&quot;</span>)</span><br><span class="line">plt.scatter(car_prices_array, predicted, color = <span class="string">&quot;blue&quot;</span>)</span><br><span class="line">plt.savefig(<span class="string">&quot;./output/result.png&quot;</span>)</span><br><span class="line">plt.close()</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0234-dp/09.png"></p>
+<p>逻辑回归<br>对于分类问题，线性回归表现并不好。<br>线性回归+逻辑方程(softmax)&#x3D;逻辑回归。<br>步骤:<br>①导入库。<br>②准备数据，采用MNIST，是一些标记为0-9十个数字的28×28的图片，把其转换为一维的256个数据，划分为训练集和测试集，创建tensor变量。batch_size的意思:例如我们有1000个样本，可以把1000个样本拿到一起训练，也可以把样本划分为10组，每组100个样本，依次进行10次训练。batch_size是每组的样本量，在这个例子中，等于100。确定迭代次数(epoch)，即把所有样本训练一次。在本例中，有33600个样本，训练一次要训练33600个样本，分成了336组，进行29次迭代，一共的迭代次数是9744次(接近10000次)。使用TensorDataset()封装数据。DataLoader()将数据和样本结合到一起，也提供了对数据的并行迭代功能。将数据可视化。<br>③创建逻辑回归模型。<br>④实例化模型。<br>输入维度2828， 输出维度10。<br>⑤计算损失，采用交叉熵(Cross entropy loss)。<br>⑥定义优化器，采用SGD优化器。<br>⑦训练模型。<br>⑧预测。</p>
+<p>程序调不对，用<a target="_blank" rel="noopener" href="https://blog.csdn.net/a946971688/article/details/89671885">另一个</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 逻辑回归的例子</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">logistic_regress2</span>():</span><br><span class="line">    <span class="keyword">import</span> torch</span><br><span class="line">    <span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line">    <span class="keyword">import</span> torchvision</span><br><span class="line">    <span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line">    <span class="keyword">from</span> torchvision.datasets <span class="keyword">import</span> MNIST</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 定义超参数</span></span><br><span class="line">    input_size = <span class="number">784</span>    <span class="comment">#输入层神经元大小</span></span><br><span class="line">    num_classes = <span class="number">10</span> <span class="comment">#图像类别</span></span><br><span class="line">    num_epochs = <span class="number">25</span>  <span class="comment">#迭代次数</span></span><br><span class="line">    batch_size = <span class="number">100</span>   <span class="comment">#每次训练取得样本数</span></span><br><span class="line">    learning_rate = <span class="number">0.05</span> <span class="comment">#学习率</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 加载数据</span></span><br><span class="line">    train_dataset = torchvision.datasets.MNIST(root=<span class="string">&#x27;./&#x27;</span>, train=<span class="literal">True</span>, transform=transforms.ToTensor(), download=<span class="literal">True</span>)</span><br><span class="line">    test_dataset = torchvision.datasets.MNIST(root=<span class="string">&#x27;./&#x27;</span>, train=<span class="literal">False</span>, transform=transforms.ToTensor(), download=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建dataloader</span></span><br><span class="line">    train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=<span class="literal">True</span>)</span><br><span class="line">    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建模型</span></span><br><span class="line">    model = nn.Linear(input_size, num_classes)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 损失函数和优化器</span></span><br><span class="line">    loss_fn = nn.CrossEntropyLoss()<span class="comment">#交叉熵损失函数</span></span><br><span class="line">    optimizer = torch.optim.SGD(model.parameters(), lr = learning_rate)</span><br><span class="line">    <span class="comment"># 训练模型</span></span><br><span class="line">    loss_list = []</span><br><span class="line">    total_step = <span class="built_in">len</span>(train_loader)</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">        <span class="keyword">for</span> i, (images, labels) <span class="keyword">in</span> <span class="built_in">enumerate</span>(train_loader):</span><br><span class="line">            <span class="comment"># 将数据变换为[每批大小, 图像大小]</span></span><br><span class="line">            images = images.reshape(-<span class="number">1</span>, <span class="number">28</span>*<span class="number">28</span>)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 前向传播</span></span><br><span class="line">            outputs = model(images)</span><br><span class="line">            loss = loss_fn(outputs, labels)</span><br><span class="line">            loss_list.append(loss)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 反向传播</span></span><br><span class="line">            optimizer.zero_grad()</span><br><span class="line">            loss.backward()</span><br><span class="line">            optimizer.step()</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (i+<span class="number">1</span>) % <span class="number">100</span> == <span class="number">0</span>:</span><br><span class="line">                <span class="built_in">print</span> (<span class="string">&#x27;Epoch [&#123;&#125;/&#123;&#125;], Step [&#123;&#125;/&#123;&#125;], Loss: &#123;:.4f&#125;&#x27;</span> .<span class="built_in">format</span>(epoch+<span class="number">1</span>, num_epochs, i+<span class="number">1</span>, total_step, loss.item()))</span><br><span class="line">                </span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.plot(loss_list)</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/lr_loss.png&quot;</span>)</span><br><span class="line">    plt.close()</span><br><span class="line">                </span><br><span class="line">    <span class="comment"># 测试</span></span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        correct = <span class="number">0</span></span><br><span class="line">        total = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> images, labels <span class="keyword">in</span> test_loader:</span><br><span class="line">            images = images.reshape(-<span class="number">1</span>, <span class="number">28</span>*<span class="number">28</span>)</span><br><span class="line">            outputs = model(images)</span><br><span class="line">            _, pred = torch.<span class="built_in">max</span>(outputs.data, <span class="number">1</span>)</span><br><span class="line">            total += labels.size()[<span class="number">0</span>]</span><br><span class="line">            correct += (pred == labels).<span class="built_in">sum</span>()</span><br><span class="line">            </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;模型预测准确率&#123;&#125;%&quot;</span>.<span class="built_in">format</span>(<span class="number">100</span>*correct.item()/total))</span><br></pre></td></tr></table></figure>
+<p>模型准确率92%。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0234-dp/10.png"></p>
+<p>人工神经网络(Artificial Neural Network, ANN)<br>逻辑回归处理分类问题很好，但当复杂性(非线性)增加时，模型准确性下降。为了增加模型的复杂性，需要增加更多的非线性函数的隐藏层。<br>具体步骤:<br>①导入库。<br>②准备数据。<br>③创建ANN模型:增加三个隐藏层，用ReLU, Tanh和ELU做为激活函数。<br>④实例化模型。隐藏层维度150，随便选的。这也是超参数之一。<br>⑤选择损失函数，跟逻辑回归一样。<br>⑥优化器也一样。<br>⑦训练模型。<br>⑧预测。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 人工神经网络</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ANN</span>():</span><br><span class="line">    <span class="keyword">import</span> torch</span><br><span class="line">    <span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line">    <span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line">    <span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line">    <span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">    <span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">    <span class="keyword">import</span> os</span><br><span class="line">    <span class="keyword">import</span> torchvision</span><br><span class="line">    <span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line">    <span class="keyword">from</span> torchvision.datasets <span class="keyword">import</span> MNIST</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;ANN\n&quot;</span>)</span><br><span class="line">    <span class="comment"># print(os.getcwd())</span></span><br><span class="line">    <span class="comment"># 加载数据</span></span><br><span class="line">    train_dataset = torchvision.datasets.MNIST(root=<span class="string">&#x27;./&#x27;</span>, train=<span class="literal">True</span>, transform=transforms.ToTensor(), download=<span class="literal">True</span>)</span><br><span class="line">    test_dataset = torchvision.datasets.MNIST(root=<span class="string">&#x27;./&#x27;</span>, train=<span class="literal">False</span>, transform=transforms.ToTensor(), download=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 定义超参数</span></span><br><span class="line">    batch_size = <span class="number">100</span></span><br><span class="line">    num_epochs = <span class="number">100</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建dataloader</span></span><br><span class="line">    train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=<span class="literal">True</span>)</span><br><span class="line">    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 定义模型</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">ANNModel</span>(nn.Module):</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_dim, hidden_dim, output_dim</span>):</span><br><span class="line">            <span class="built_in">super</span>(ANNModel, self).__init__()</span><br><span class="line">            <span class="comment"># 第一层 784-&gt;150</span></span><br><span class="line">            self.fc1 = nn.Linear(input_dim, hidden_dim)</span><br><span class="line">            <span class="comment"># 非线性成分</span></span><br><span class="line">            self.relu1 = nn.ReLU()</span><br><span class="line">            <span class="comment"># 第二层 150-150</span></span><br><span class="line">            self.fc2 = nn.Linear(hidden_dim, hidden_dim)</span><br><span class="line">            <span class="comment"># 非线性成分</span></span><br><span class="line">            self.tanh2 = nn.Tanh()</span><br><span class="line">            <span class="comment"># 第三层 150-150</span></span><br><span class="line">            self.fc3 = nn.Linear(hidden_dim, hidden_dim)</span><br><span class="line">            <span class="comment"># 非线性成分</span></span><br><span class="line">            self.elu3 = nn.ELU()</span><br><span class="line">            <span class="comment"># 第四层 150-10</span></span><br><span class="line">            self.fc4 = nn.Linear(hidden_dim, output_dim)</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># 前向传播</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">            out = self.fc1(x)</span><br><span class="line">            out = self.relu1(out)</span><br><span class="line">            out = self.fc2(out)</span><br><span class="line">            out = self.tanh2(out)</span><br><span class="line">            out = self.fc3(out)</span><br><span class="line">            out = self.elu3(out)</span><br><span class="line">            out = self.fc4(out)</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> out</span><br><span class="line">            </span><br><span class="line">    <span class="comment"># 初始化ANN</span></span><br><span class="line">    input_dim = <span class="number">28</span>*<span class="number">28</span></span><br><span class="line">    hidden_dim = <span class="number">150</span> <span class="comment"># 这个可以调参的</span></span><br><span class="line">    output_dim = <span class="number">10</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建ANN</span></span><br><span class="line">    model = ANNModel(input_dim, hidden_dim, output_dim)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 超参数</span></span><br><span class="line">    loss_fn = nn.CrossEntropyLoss()</span><br><span class="line">    learning_rate = <span class="number">0.02</span></span><br><span class="line">    optimizer = torch.optim.SGD(model.parameters(), lr = learning_rate) </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 训练ANN</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    loss_list = []</span><br><span class="line">    iteration_list = []</span><br><span class="line">    accuracy_list = []</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">        <span class="keyword">for</span> i, (images, labels) <span class="keyword">in</span> <span class="built_in">enumerate</span>(train_loader):</span><br><span class="line">            <span class="comment"># print(epoch, i)</span></span><br><span class="line">            train = images.reshape(-<span class="number">1</span>, <span class="number">28</span>*<span class="number">28</span>)</span><br><span class="line">            labels = Variable(labels)</span><br><span class="line">            <span class="comment"># 梯度清零</span></span><br><span class="line">            optimizer.zero_grad()</span><br><span class="line">            <span class="comment"># 前向过程</span></span><br><span class="line">            outputs = model(train)</span><br><span class="line">            <span class="comment"># 计算损失</span></span><br><span class="line">            loss = loss_fn(outputs, labels)</span><br><span class="line">            <span class="comment"># 计算梯度</span></span><br><span class="line">            loss.backward()</span><br><span class="line">            <span class="comment"># 更新参数</span></span><br><span class="line">            optimizer.step()</span><br><span class="line">            </span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> count % <span class="number">50</span> == <span class="number">0</span>:</span><br><span class="line">                <span class="comment"># 计算准确率</span></span><br><span class="line">                correct = <span class="number">0</span></span><br><span class="line">                total = <span class="number">0</span></span><br><span class="line">                <span class="keyword">for</span> images, labels <span class="keyword">in</span> test_loader:</span><br><span class="line">                    test = images.reshape(-<span class="number">1</span>, <span class="number">28</span>*<span class="number">28</span>)</span><br><span class="line">                    outputs = model(test)</span><br><span class="line">                    pred = torch.<span class="built_in">max</span>(outputs.data, <span class="number">1</span>)[<span class="number">1</span>]</span><br><span class="line">                    total += <span class="built_in">len</span>(labels)</span><br><span class="line">                    correct += (pred == labels).<span class="built_in">sum</span>()</span><br><span class="line">                    accuracy = <span class="number">100</span>*correct/<span class="built_in">float</span>(total)</span><br><span class="line">                loss_list.append(loss.data)</span><br><span class="line">                iteration_list.append(count)</span><br><span class="line">                accuracy_list.append(accuracy)</span><br><span class="line">            <span class="keyword">if</span> count % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&#x27;迭代次数: &#123;&#125;  损失: &#123;&#125;  准确率: &#123;&#125; %&#x27;</span>.<span class="built_in">format</span>(count, loss.data, accuracy))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 结果可视化</span></span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.plot(iteration_list,loss_list)</span><br><span class="line">    plt.title(<span class="string">&quot;ANN loss&quot;</span>)</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/ANN_loss.png&quot;</span>)</span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.plot(iteration_list,accuracy_list,color = <span class="string">&quot;red&quot;</span>)</span><br><span class="line">    plt.title(<span class="string">&quot;ANN accuracy&quot;</span>)</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/ANN_accuracy.png&quot;</span>)</span><br><span class="line">    plt.close()</span><br></pre></td></tr></table></figure>
+<p>结果，正确率97.8%，花了大概一小时。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0234-dp/11.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0234-dp/12.png"></p>
+<p>还有卷积神经网络，图像处理用得比较多，先pass了。<br>总结一下，机器学习也好，深度学习也好，其实质都是拟合数据，拟合的方法(模型)不一样而已。用已知数据训练模型(求出一组参数)，然后用模型对未知数据做出预测。深度学习的模型是神经网络，由神经节组成。每个神经节接受若干输入，经过激活函数(通常为非线性函数，以拟合非线性关系)，产生一个输出。若干个神经节形成一层，前一层的输出作为下一层的输入，一直向前传递直到输出层。用输出结果与真实值对比(用损失函数)计算出损失值(前向传播)。接着，用梯度下降的方法沿着路径反向计算使损失值最小的参数，并更新参数(反向传播)。上述步骤重复若干次，损失值和预测准确率收敛到一定程度，即停止训练，运用模型进行预测。<br>整个过程，pytorch等框架为我们做了什么呢？数据准备(tensor，便于GPU运算; Variable，自动进行梯度运算并保存结果;dataLoader，便于分组训练)、定义模型(nn.Module，定义神经网络结构，定义前向传播过程，计算出输出值)、进行训练(Optimizer，梯度清零，更新参数;model，前向传播过程，计算输出值;提供损失函数:计算损失值，反向传播过程:backward)。其中核心是自动求导的过程。tensorflow我没了解过，应该也差不多。<br>这几天听了一个自己实现深度网络框架的课，正在整理笔记，下次奉上。<br>本文<a target="_blank" rel="noopener" href="https://github.com/zwdnet/JSMPwork/blob/main/DP.py">代码</a></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/kaggle%E7%AB%9E%E8%B5%9B/" rel="tag"># kaggle竞赛</a>
+          
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/pytorch/" rel="tag"># pytorch</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/16/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B097%E2%80%94%E2%80%94kaggle%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E6%AF%94%E8%B5%9B%E8%AE%B0%E5%BD%956-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" rel="next" title="量化投资学习笔记97——kaggle量化投资比赛记录6-深度学习模型">
+                <i class="fa fa-chevron-left"></i> 量化投资学习笔记97——kaggle量化投资比赛记录6-深度学习模型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/23/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B099%E2%80%94%E2%80%94%E5%88%9B%E9%80%A0%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" rel="prev" title="量化投资学习笔记99——创造你的第一个深度学习框架">
+                量化投资学习笔记99——创造你的第一个深度学习框架 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">784</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">682</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1597.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

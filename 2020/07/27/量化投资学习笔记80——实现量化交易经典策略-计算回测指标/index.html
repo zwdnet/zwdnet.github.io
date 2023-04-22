@@ -432,4 +432,439 @@
 <p>并不一致。<br>经过不断试验，发现是参数的问题:<br>annualization &#x3D; 1就完全一样啦。这个参数是设置收益率是多长时间间隔的收益率，1代表每天的收益率。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alpha, beta = ey.alpha_beta(returns = stock_ret, factor_returns = mkt_ret, annualization = <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/53/04.png"><br>再回测一下双均线策略<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/53/05.png"><br>现在的问题就剩夏普值的计算了，这又是一个比较重要的数据。还是用一样的方法调试：自己实现一下计算夏普值，再跟empyrical计算的结果对比。<br>照这篇文章： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/61949367">https://zhuanlan.zhihu.com/p/61949367</a> 的方法来。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 测试夏普值的计算</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">testSharpe</span>():</span><br><span class="line">    <span class="comment"># 读取数据</span></span><br><span class="line">    stock_data = pd.read_csv(<span class="string">&quot;stock_data.csv&quot;</span>, parse_dates = [<span class="string">&quot;Date&quot;</span>], index_col = [<span class="string">&quot;Date&quot;</span>]).dropna()</span><br><span class="line">    benchmark_data = pd.read_csv(<span class="string">&quot;benchmark_data.csv&quot;</span>, parse_dates = [<span class="string">&quot;Date&quot;</span>], index_col = [<span class="string">&quot;Date&quot;</span>]).dropna()</span><br><span class="line">    <span class="comment"># 了解数据</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Stocks\n&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(stock_data.info())</span><br><span class="line">    <span class="built_in">print</span>(stock_data.head())</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nBenchmarks\n&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(benchmark_data.info())</span><br><span class="line">    <span class="built_in">print</span>(benchmark_data.head())</span><br><span class="line">    <span class="comment"># 输出统计量</span></span><br><span class="line">    <span class="built_in">print</span>(stock_data.describe())</span><br><span class="line">    <span class="built_in">print</span>(benchmark_data.describe())</span><br><span class="line">    <span class="comment"># 计算每日回报率</span></span><br><span class="line">    stock_returns = stock_data.pct_change()</span><br><span class="line">    <span class="built_in">print</span>(stock_returns.describe())</span><br><span class="line">    sp_returns = benchmark_data.pct_change()</span><br><span class="line">    <span class="built_in">print</span>(sp_returns.describe())</span><br><span class="line">    <span class="comment"># 每日超额回报</span></span><br><span class="line">    excess_returns = pd.DataFrame()</span><br><span class="line">    excess_returns[<span class="string">&quot;Amazon&quot;</span>] = stock_returns[<span class="string">&quot;Amazon&quot;</span>] - sp_returns[<span class="string">&quot;S&amp;P 500&quot;</span>]</span><br><span class="line">    excess_returns[<span class="string">&quot;Facebook&quot;</span>] = stock_returns[<span class="string">&quot;Facebook&quot;</span>] - sp_returns[<span class="string">&quot;S&amp;P 500&quot;</span>]</span><br><span class="line">    <span class="built_in">print</span>(excess_returns.describe())</span><br><span class="line">    <span class="comment"># 超额回报的均值</span></span><br><span class="line">    avg_excess_return = excess_returns.mean()</span><br><span class="line">    <span class="built_in">print</span>(avg_excess_return)</span><br><span class="line">    <span class="comment"># 超额回报的标准差</span></span><br><span class="line">    std_excess_return = excess_returns.std()</span><br><span class="line">    <span class="built_in">pr
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 测试夏普值的计算</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">testSharpe</span>():</span><br><span class="line">    <span class="comment"># 读取数据</span></span><br><span class="line">    stock_data = pd.read_csv(<span class="string">&quot;stock_data.csv&quot;</span>, parse_dates = [<span class="string">&quot;Date&quot;</span>], index_col = [<span class="string">&quot;Date&quot;</span>]).dropna()</span><br><span class="line">    benchmark_data = pd.read_csv(<span class="string">&quot;benchmark_data.csv&quot;</span>, parse_dates = [<span class="string">&quot;Date&quot;</span>], index_col = [<span class="string">&quot;Date&quot;</span>]).dropna()</span><br><span class="line">    <span class="comment"># 了解数据</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Stocks\n&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(stock_data.info())</span><br><span class="line">    <span class="built_in">print</span>(stock_data.head())</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nBenchmarks\n&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(benchmark_data.info())</span><br><span class="line">    <span class="built_in">print</span>(benchmark_data.head())</span><br><span class="line">    <span class="comment"># 输出统计量</span></span><br><span class="line">    <span class="built_in">print</span>(stock_data.describe())</span><br><span class="line">    <span class="built_in">print</span>(benchmark_data.describe())</span><br><span class="line">    <span class="comment"># 计算每日回报率</span></span><br><span class="line">    stock_returns = stock_data.pct_change()</span><br><span class="line">    <span class="built_in">print</span>(stock_returns.describe())</span><br><span class="line">    sp_returns = benchmark_data.pct_change()</span><br><span class="line">    <span class="built_in">print</span>(sp_returns.describe())</span><br><span class="line">    <span class="comment"># 每日超额回报</span></span><br><span class="line">    excess_returns = pd.DataFrame()</span><br><span class="line">    excess_returns[<span class="string">&quot;Amazon&quot;</span>] = stock_returns[<span class="string">&quot;Amazon&quot;</span>] - sp_returns[<span class="string">&quot;S&amp;P 500&quot;</span>]</span><br><span class="line">    excess_returns[<span class="string">&quot;Facebook&quot;</span>] = stock_returns[<span class="string">&quot;Facebook&quot;</span>] - sp_returns[<span class="string">&quot;S&amp;P 500&quot;</span>]</span><br><span class="line">    <span class="built_in">print</span>(excess_returns.describe())</span><br><span class="line">    <span class="comment"># 超额回报的均值</span></span><br><span class="line">    avg_excess_return = excess_returns.mean()</span><br><span class="line">    <span class="built_in">print</span>(avg_excess_return)</span><br><span class="line">    <span class="comment"># 超额回报的标准差</span></span><br><span class="line">    std_excess_return = excess_returns.std()</span><br><span class="line">    <span class="built_in">print</span>(std_excess_return)</span><br><span class="line">    <span class="comment"># 计算夏普比率</span></span><br><span class="line">    <span class="comment"># 日夏普比率</span></span><br><span class="line">    daily_sharpe_ratio = avg_excess_return.div(std_excess_return)</span><br><span class="line">    <span class="comment"># 年化夏普比率</span></span><br><span class="line">    annual_factor = np.sqrt(<span class="number">252</span>)</span><br><span class="line">    annual_sharpe_ratio = daily_sharpe_ratio.mul(annual_factor)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;年化夏普比率\n&quot;</span>, annual_sharpe_ratio)</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/53/06.png"><br>接下来再用empyrical算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用empyrical算</span></span><br><span class="line">sharpe = pd.DataFrame()</span><br><span class="line">a = ey.sharpe_ratio(stock_returns[<span class="string">&quot;Amazon&quot;</span>])</span><br><span class="line">b = ey.sharpe_ratio(stock_returns[<span class="string">&quot;Facebook&quot;</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;empyrical计算结果&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(a, b)</span><br><span class="line"><span class="built_in">print</span>(a/annual_sharpe_ratio[<span class="string">&quot;Amazon&quot;</span>], b/annual_sharpe_ratio[<span class="string">&quot;Facebook&quot;</span>])</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/53/07.png"><br>结果还是不对。还是参数问题？改改试试。<br>把上面程序作为基准的标普500换成固定的年化4%，设定</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">risk_free = <span class="number">0.04</span>/<span class="number">252.0</span></span><br></pre></td></tr></table></figure>
+<p>empyrical计算程序设定risk_free参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用empyrical算</span></span><br><span class="line">sharpe = pd.DataFrame()</span><br><span class="line">a = ey.sharpe_ratio(stock_returns[<span class="string">&quot;Amazon&quot;</span>], risk_free = risk_free)<span class="comment">#, annualization = 252)</span></span><br><span class="line">b = ey.sharpe_ratio(stock_returns[<span class="string">&quot;Facebook&quot;</span>], risk_free = risk_free)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;empyrical计算结果&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(a, b)</span><br><span class="line"><span class="built_in">print</span>(a/annual_sharpe_ratio[<span class="string">&quot;Amazon&quot;</span>], b/annual_sharpe_ratio[<span class="string">&quot;Facebook&quot;</span>])</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/53/08.png"><br>这下对了!说明empyrical算的没问题(废话!)，现在来解决我回测中的计算夏普值差异的问题。<br>搜了一下backtrader的文档，例子里就有计算年化夏普值的程序，照着来吧:<br><a target="_blank" rel="noopener" href="https://www.backtrader.com/docu/analyzers/analyzers/">https://www.backtrader.com/docu/analyzers/analyzers/</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算年化夏普值，参考backtrader的文档</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SharpeRatio</span>(<span class="title class_ inherited__">Analyzer</span>):</span><br><span class="line">    params = ((<span class="string">&quot;timeframe&quot;</span>, TimeFrame.Years), (<span class="string">&quot;riskfreerate&quot;</span>, <span class="number">0.02</span>))</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(SharpeRatio, self).__init__()</span><br><span class="line">        self.anret = AnnualReturn()</span><br><span class="line">       </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">start</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">       </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">next</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">       </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">stop</span>(<span class="params">self</span>):</span><br><span class="line">        retfree = [self.p.riskfreerate] * <span class="built_in">len</span>(self.anret.rets)</span><br><span class="line">        retavg = average(<span class="built_in">list</span>(<span class="built_in">map</span>(operator.sub, self.anret.rets, retfree)))</span><br><span class="line">        retdev = standarddev(self.anret.rets)</span><br><span class="line">       </span><br><span class="line">        self.ratio = retavg/retdev</span><br><span class="line">       </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_analysis</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">dict</span>(sharperatio = self.ratio)</span><br></pre></td></tr></table></figure>
+<p>输出结果<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/53/09.png"><br>还是一个不同于一个啊?再试试SharpeRatio_A分析器吧。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/53/10.png"><br>四个不同的结果……先用backtrader框架的数据吧。反正不同的策略对比用的是同一个计算方法。<br>代码地址还是： <a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/tree/master/47">https://github.com/zwdnet/MyQuant/tree/master/47</a><br>主要修改了backtest.py文件。</p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/%E5%9B%9E%E6%B5%8B%E6%8C%87%E6%A0%87/" rel="tag"># 回测指标</a>
+          
+            <a href="/tags/Backtrader/" rel="tag"># Backtrader</a>
+          
+            <a href="/tags/empyrical/" rel="tag"># empyrical</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/25/%E6%A0%B9%E7%AE%A1%E5%86%8D%E6%B2%BB%E7%96%97%E5%90%8E%E4%BF%AE%E5%A4%8D%EF%BC%8C%E5%8C%BB%E6%8A%80%E6%B2%9F%E9%80%9A%E3%80%82/" rel="next" title="根管再治疗后修复，医技沟通。">
+                <i class="fa fa-chevron-left"></i> 根管再治疗后修复，医技沟通。
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/29/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B081%E2%80%94%E2%80%94%E5%AE%9E%E7%8E%B0%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93%E7%BB%8F%E5%85%B8%E7%AD%96%E7%95%A5-%E5%B8%83%E6%9E%97%E5%B8%A6%E7%AD%96%E7%95%A5/" rel="prev" title="量化投资学习笔记81——实现量化交易经典策略:布林带策略">
+                量化投资学习笔记81——实现量化交易经典策略:布林带策略 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">784</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">682</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1597.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>
