@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习笔记,量化投资,深度学习,pytorch,机器学习,MNIST," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="赵瑜敏的口腔医学专业学习博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="MNIST是一个开源手写数字(0-9共10个数字)图片数据集，格式为28×28大小的图片灰度值。有60000个训练数据和10000个测试数据。标记值为图片所写的数字。任务是用计算机程序来读取图片数据灰度值，判断所写的数字。就尝试用各种方法来解决这个问题。导入需要的库 12345678910111213141516171819202122232425import torchimport torch.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记101——MNIST手写数字识别">
+<meta property="og:url" content="https://zwdnet.github.io/2021/02/25/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0101%E2%80%94%E2%80%94MNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="MNIST是一个开源手写数字(0-9共10个数字)图片数据集，格式为28×28大小的图片灰度值。有60000个训练数据和10000个测试数据。标记值为图片所写的数字。任务是用计算机程序来读取图片数据灰度值，判断所写的数字。就尝试用各种方法来解决这个问题。导入需要的库 12345678910111213141516171819202122232425import torchimport torch.">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/01.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/02.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/03.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/04.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/05.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/06.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/07.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/08.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/09.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/10.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/11.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/12.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2021-02-24T23:10:11.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.000Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="pytorch">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="MNIST">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2021/02/25/量化投资学习笔记101——MNIST手写数字识别/"/>
+
+
+
+
+
+  <title>量化投资学习笔记101——MNIST手写数字识别 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2021/02/25/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0101%E2%80%94%E2%80%94MNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记101——MNIST手写数字识别</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-25T07:10:11+08:00">
+                2021-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  23
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>MNIST是一个开源手写数字(0-9共10个数字)图片数据集，格式为28×28大小的图片灰度值。有60000个训练数据和10000个测试数据。标记值为图片所写的数字。任务是用计算机程序来读取图片数据灰度值，判断所写的数字。就尝试用各种方法来解决这个问题。<br>导入需要的库</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torchvision.datasets <span class="keyword">import</span> MNIST</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> datasets, transforms</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader, random_split</span><br><span class="line"><span class="keyword">import</span> torch.utils.data <span class="keyword">as</span> Data</span><br><span class="line"><span class="keyword">from</span> torchsummary <span class="keyword">import</span> summary</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="comment"># run是用于在服务器上运行代码的工具，</span></span><br><span class="line"><span class="comment"># 如果你在本地运行，可以把所有@run.change_dir等装饰器删掉</span></span><br><span class="line"><span class="keyword">import</span> run  </span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"><span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> joblib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io,data,transform</span><br></pre></td></tr></table></figure>
+<p>首先下载数据，用torchvision下载。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载并加载数据</span></span><br><span class="line"><span class="meta">@run.change_dir</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">loadData</span>(<span class="params">batch_size = <span class="number">64</span></span>):</span><br><span class="line">    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((<span class="number">0.1307</span>,), (<span class="number">0.3081</span>,))])</span><br><span class="line">    mnist_train = MNIST(os.getcwd(), train=<span class="literal">True</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line">    mnist_test = MNIST(os.getcwd(), train=<span class="literal">False</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line">    </span><br><span class="line">    mnist_train, mnist_val = random_split(mnist_train, [<span class="number">55000</span>, <span class="number">5000</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建 DataLoader</span></span><br><span class="line">    mnist_train = DataLoader(mnist_train, batch_size)</span><br><span class="line">    mnist_val = DataLoader(mnist_val, batch_size)</span><br><span class="line">    mnist_test = DataLoader(mnist_test, batch_size)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> mnist_train, mnist_val, mnist_test</span><br></pre></td></tr></table></figure>
+<p>因为还要使用sklearn里的一些算法，还需要numpy.array的数据，自己写了个转换程序，用的最笨的办法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将DataLoader数据转换为numpy数组</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Loader2numpy</span>(<span class="params">Loader</span>):</span><br><span class="line">    X = []</span><br><span class="line">    Y = []</span><br><span class="line">    <span class="keyword">for</span> x, y <span class="keyword">in</span> Loader:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> x:</span><br><span class="line">            i = i.view(<span class="number">1</span>, -<span class="number">1</span>).detach().numpy()</span><br><span class="line">            <span class="comment"># print(&quot;测试&quot;, i.shape)</span></span><br><span class="line">            X.append(i[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> y.detach().numpy():</span><br><span class="line">            Y.append(j)</span><br><span class="line">    <span class="keyword">return</span> np.array(X), np.array(Y)</span><br></pre></td></tr></table></figure>
+<p>然后在主程序里调用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    torch.manual_seed(<span class="number">666</span>)</span><br><span class="line">    mnist_train, mnist_val, mnist_test = loadData()</span><br><span class="line">    X_train, Y_train = Loader2numpy(mnist_train)</span><br><span class="line">    X_val, Y_val = Loader2numpy(mnist_val)</span><br><span class="line">    X_test, Y_test = Loader2numpy(mnist_test)</span><br><span class="line">    <span class="comment"># 合并训练集和验证集</span></span><br><span class="line">    X_train = np.concatenate((X_train, X_val), axis = <span class="number">0</span>)</span><br><span class="line">    Y_train = np.concatenate((Y_train, Y_val), axis = <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>这样数据就准备好了。在为sklearn准备的数据里把训练集和验证集又合并了，因为它可能有自己的划分方式。<br>先试试最简单的算法:随机瞎猜</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 算法1:随机算法</span></span><br><span class="line"><span class="meta">@run.timethis</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Random_Model</span>(<span class="params">X_train, Y_train, X_test, Y_test</span>):</span><br><span class="line">    y_pred = np.random.randint(low = <span class="number">0</span>, high = <span class="number">10</span>, size = Y_test.shape[<span class="number">0</span>])</span><br><span class="line">    acc = accuracy(y_pred, Y_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;随机算法预测准确率:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc))</span><br><span class="line">    <span class="keyword">return</span> acc</span><br></pre></td></tr></table></figure>
+<p>结果当然是准确率10%左右了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">算法<span class="number">1</span>:瞎猜                                                    </span><br><span class="line">随机算法预测率:<span class="number">0.1032</span>                                     __main__.Random_Model的运行时间为 : <span class="number">0.0015346029977081344</span>秒</span><br></pre></td></tr></table></figure>
+<p>下面尝试机器学习算法。<br>逻辑回归<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011734144/article/details/79717470">参考:</a><br>本来逻辑回归只能用于二分类问题，但可以用”one vs rest”方法(即下文模型定义中的”ovr”，将某类与其余类别做为两类，分别进行逻辑回归，取概率最大的分类作为预测结果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 算法2:逻辑回归</span></span><br><span class="line"><span class="meta">@run.timethis</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">LogisticRegression_Model</span>(<span class="params">X_train, Y_train, X_test, Y_test</span>):</span><br><span class="line">    lor = LogisticRegression(C=<span class="number">100</span>,multi_class=<span class="string">&#x27;ovr&#x27;</span>)</span><br><span class="line">    <span class="comment"># 训练模型</span></span><br><span class="line">    lor.fit(X_train,Y_train)</span><br><span class="line">    <span class="comment"># score = lor.score(X_std_test, Y_test)</span></span><br><span class="line">    y_pred = lor.predict(X_test)</span><br><span class="line">    acc = accuracy(y_pred, Y_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;逻辑回归算法预测准确率:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc))</span><br><span class="line">    <span class="keyword">return</span> acc</span><br></pre></td></tr></table></figure>
+<p>结果:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">算法<span class="number">2</span>:逻辑回归                                               </span><br><span class="line">逻辑回归算法预测准确率:<span class="number">0.9169</span></span><br><span class="line">__main__.LogisticRegression_Model的运行时间为 : <span class="number">156.33382360900578</span></span><br></pre></td></tr></table></figure>
+<p>准确率达到91.69%，突破90%了。但时间也用了两分多钟。<br>朴素贝叶斯算法<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pinard/p/6074222.html">参考:</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 算法3:朴素贝叶斯</span></span><br><span class="line"><span class="meta">@run.timethis</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Bayes_Model</span>(<span class="params">X_train, Y_train, X_test, Y_test</span>):</span><br><span class="line">    clf = GaussianNB()</span><br><span class="line">    clf.fit(X_train, Y_train)</span><br><span class="line">    y_pred = clf.predict(X_test)</span><br><span class="line">    acc = accuracy(y_pred, Y_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;朴素贝叶斯算法预测准确率:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc))</span><br><span class="line">    <span class="keyword">return</span> acc</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">算法<span class="number">3</span>:朴素贝叶斯</span><br><span class="line">朴素贝叶斯算法预测准确率:<span class="number">0.556</span> __main__.Bayes_Model的运行时间为 : <span class="number">1.8668527510017157</span></span><br></pre></td></tr></table></figure>
+<p>准确率55.6%，不过时间只要1.8秒。<br>支持向量机<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/42334376">参考:</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 算法4:支持向量机</span></span><br><span class="line"><span class="meta">@run.timethis</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">SVM_Model</span>(<span class="params">X_train, Y_train, X_test, Y_test</span>):</span><br><span class="line">    model = SVC()</span><br><span class="line">    model.fit(X_train, Y_train)</span><br><span class="line">    y_pred = model.predict(X_test)</span><br><span class="line">    acc = accuracy(y_pred, Y_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;支持向量机算法预测准确率:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc))</span><br><span class="line">    <span class="keyword">return</span> acc</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">算法<span class="number">4</span>:支持向量机 </span><br><span class="line">支持向量机算法预测准确率:<span class="number">0.9792</span> __main__.SVM_Model的运行时间为 : <span class="number">1482.80279673099</span>秒</span><br></pre></td></tr></table></figure>
+<p>一开始照那篇文章里的用LinearSVC，结果提示有”段错误”，调了半天都不行。于是改用SVC，时间最长，二十多分钟，准确率也最高，近98%。<br>下面试试knn算法。<br>算法5:KNN算法 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> KNN算法预测准确率:<span class="number">0.9688</span> __main__.KNN_Model的运行时间为 : <span class="number">1802.849214115995</span></span><br></pre></td></tr></table></figure>
+<p>用时半小时，准确率目前第二高，96.8%。<br>接下来，随机森林。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 算法6:随机森林</span></span><br><span class="line"><span class="meta">@run.timethis</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">RF_Model</span>(<span class="params">X_train, Y_train, X_test, Y_test</span>):</span><br><span class="line">    model = RandomForestClassifier()</span><br><span class="line">    model.fit(X_train, Y_train)</span><br><span class="line">    y_pred = model.predict(X_test)</span><br><span class="line">    acc = accuracy(y_pred, Y_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;随机森林算法预测准确率:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc))</span><br><span class="line">    <span class="keyword">return</span> acc</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">算法<span class="number">6</span>:随机森林算法 </span><br><span class="line"> 随机森林算法预测准确率:<span class="number">0.97</span> __main__.RF_Model的运行时间为 : <span class="number">127.43228440599341</span>秒</span><br></pre></td></tr></table></figure>
+<p>准确率97%，训练时间两分钟。这个也比较好。<br>接下来用深度学习。<br>先用一般的神经网络。<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/43478538bbc6">参考:</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 算法7:一般神经网络</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">fc_net</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, batch_size = <span class="number">64</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(fc_net, self).__init__()</span><br><span class="line">        self.layer_1 = nn.Linear(<span class="number">28</span>*<span class="number">28</span>, <span class="number">200</span>)</span><br><span class="line">        self.layer_2 = nn.Linear(<span class="number">200</span>, <span class="number">100</span>)</span><br><span class="line">        self.layer_3 = nn.Linear(<span class="number">100</span>, <span class="number">20</span>)</span><br><span class="line">        self.layer_4 = nn.Linear(<span class="number">20</span>, <span class="number">10</span>)</span><br><span class="line">        self.batch_size = batch_size</span><br><span class="line">       </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.layer_1(x)</span><br><span class="line">        nn.ReLU()</span><br><span class="line">        x = self.layer_2(x)</span><br><span class="line">        nn.ReLU()</span><br><span class="line">        x = self.layer_3(x)</span><br><span class="line">        nn.ReLU()</span><br><span class="line">        x = self.layer_4(x)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line"><span class="meta">@run.change_dir</span></span><br><span class="line"><span class="meta">@run.timethis</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">NN_Model</span>(<span class="params">mnist_train, mnist_val, mnist_test, batch_size = <span class="number">64</span>, lr = <span class="number">0.001</span></span>):</span><br><span class="line">    epochs = <span class="number">20</span></span><br><span class="line">    net = fc_net(batch_size)</span><br><span class="line">    criterion = nn.CrossEntropyLoss()</span><br><span class="line">    optim = torch.optim.Adam(net.parameters(), lr = lr, weight_decay=<span class="number">0.0</span>)</span><br><span class="line">    <span class="built_in">print</span>(batch_size)</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">        <span class="comment"># 训练过程</span></span><br><span class="line">        train_loss = []</span><br><span class="line">        <span class="keyword">for</span> x, y <span class="keyword">in</span> mnist_train:</span><br><span class="line">            <span class="comment">#print(x.shape)</span></span><br><span class="line">            x = x.view(batch_size, -<span class="number">1</span>)</span><br><span class="line">            y_pred = net.forward(x)</span><br><span class="line">            loss = criterion(y_pred, y)</span><br><span class="line">            train_loss.append(loss.item())</span><br><span class="line">            optim.zero_grad()</span><br><span class="line">            loss.backward()</span><br><span class="line">            optim.step()</span><br><span class="line">        mean_train_loss = torch.mean(torch.tensor(train_loss))</span><br><span class="line">        <span class="comment"># 验证过程</span></span><br><span class="line">        <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">            val_loss = []</span><br><span class="line">            <span class="keyword">for</span> x, y <span class="keyword">in</span> mnist_val:</span><br><span class="line">                x = x.view(batch_size, -<span class="number">1</span>)</span><br><span class="line">                y_pred = net.forward(x)</span><br><span class="line">                <span class="comment"># y_pred = torch.max(y_pred.data, 1).indices</span></span><br><span class="line">                loss = criterion(y_pred, y)</span><br><span class="line">                val_loss.append(loss.item())</span><br><span class="line">            mean_val_loss = torch.mean(torch.tensor(val_loss))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;第&#123;&#125;次迭代，训练集平均损失&#123;&#125;，验证集平均损失&#123;&#125;&quot;</span>.<span class="built_in">format</span>(epoch, mean_train_loss, mean_val_loss))</span><br><span class="line">    <span class="comment"># 画损失值曲线</span></span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.plot(train_loss)</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/NN_train_loss.png&quot;</span>)</span><br><span class="line">    plt.close()</span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.plot(val_loss)</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/NN_val_loss.png&quot;</span>)</span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 用测试数据测试</span></span><br><span class="line">    test_accuracy = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> x, y <span class="keyword">in</span> mnist_test:</span><br><span class="line">        x = x.view(batch_size, -<span class="number">1</span>)</span><br><span class="line">        y_pred = net.forward(x)</span><br><span class="line">        y_pred = torch.<span class="built_in">max</span>(y_pred.data, <span class="number">1</span>).indices</span><br><span class="line">        test_accuracy += (y_pred == y).<span class="built_in">sum</span>().item()</span><br><span class="line">        <span class="comment"># print(test_accuracy, len(mnist_test)*batch_size)</span></span><br><span class="line">    accuracy = test_accuracy/(<span class="built_in">len</span>(mnist_test)*batch_size)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;一般神经网络算法预测准确率:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(accuracy))</span><br><span class="line">    <span class="keyword">return</span> accuracy</span><br></pre></td></tr></table></figure>
+<p>这里有个坑:batch_size要设置了能整除数据总量，否则最后一个batch的数据量与之前的batch不一样，会报错。我调了好久才发现。<br>迭代20次，最后结果:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一般神经网络算法预测准确率:<span class="number">0.9258</span></span><br><span class="line">__main__.NN_Model的运行时间为 : <span class="number">655.4456413289881</span>秒</span><br></pre></td></tr></table></figure>
+<p>时间很长，但最后结果还不如随机森林呢。<br>再来试试其它神经网络模型。<br>卷积神经网络以前只是知道个名称，没仔细了解过，写详细一点。<br>先看原理，看这两个视频: <a target="_blank" rel="noopener" href="https://b23.tv/55a0bN">1</a> <a target="_blank" rel="noopener" href="https://b23.tv/MgmQi0">2</a><br>全连接神经网络的缺点:网络层次越深，计算量越大，多个神经元输出作为下一级神经元输入时，形成多个复杂的嵌套关系。<br>卷积神经网络包括输入层(input layer)，卷积层(convolutional layer)，池化层(pooling layer)和输出层(全连接层+softmax layer)。<br>①总有至少1个卷积层，用以提取特征。<br>②卷积层级之间的神经元是局部连接和权值共享，这样的设计大大减少了权值的数量，加快了训练。<br>卷积层是压缩提纯的。卷积核在上一层滑动过程中做卷积运算(卷积核w与其所覆盖的区域的数据进行点积)，结果映射到卷积层。<br>池化层对卷积层输出的特征图进一步特征抽样，池化层主要分为最大池化(max polling)和平均池化(average polling)。即选取池化区域的最大值&#x2F;平均值作为池化层的输出。<br>最后输出层用softmax层使得所有输出的概率总和为1。<br>超参数设置<br>padding，保持边界信息。<br>stride步幅，卷积核滑动幅度，默认为1。<br>下面代码撸起来，参考<a target="_blank" rel="noopener" href="https://github.com/liamlycoder/PyTorch_Primer/tree/master/PyTorch_Primer/05CNNonMNIST">这个项目:</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 算法8:卷积神经网络</span></span><br><span class="line"><span class="comment"># 需要将数据转换成二维图片形式</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">conv_net</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(conv_net, self).__init__()</span><br><span class="line">        self.layer1 = nn.Sequential(</span><br><span class="line">            nn.Conv2d(<span class="number">1</span>, <span class="number">25</span>, kernel_size = <span class="number">3</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">25</span>),</span><br><span class="line">            nn.ReLU(inplace = <span class="literal">True</span>)</span><br><span class="line">        )</span><br><span class="line">        self.layer2 = nn.Sequential(</span><br><span class="line">            nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">        )</span><br><span class="line">        self.layer3 = nn.Sequential(</span><br><span class="line">            nn.Conv2d(<span class="number">25</span>, <span class="number">50</span>, kernel_size = <span class="number">3</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">50</span>),</span><br><span class="line">            nn.ReLU(inplace = <span class="literal">True</span>)</span><br><span class="line">        )</span><br><span class="line">        self.layer4 = nn.Sequential(</span><br><span class="line">            nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">        )</span><br><span class="line">        self.fc = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">50</span>*<span class="number">5</span>*<span class="number">5</span>, <span class="number">1024</span>),</span><br><span class="line">            nn.ReLU(inplace = <span class="literal">True</span>),</span><br><span class="line">            nn.Linear(<span class="number">1024</span>, <span class="number">128</span>),</span><br><span class="line">            nn.ReLU(inplace = <span class="literal">True</span>),</span><br><span class="line">            nn.Linear(<span class="number">128</span>, <span class="number">10</span>)</span><br><span class="line">        )</span><br><span class="line">       </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.layer1(x)</span><br><span class="line">        x = self.layer2(x)</span><br><span class="line">        x = self.layer3(x)</span><br><span class="line">        x = self.layer4(x)</span><br><span class="line">        x = x.view(x.size(<span class="number">0</span>), -<span class="number">1</span>)</span><br><span class="line">        x = self.fc(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line"><span class="meta">@run.change_dir</span></span><br><span class="line"><span class="meta">@run.timethis</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">CONV_Model</span>(<span class="params">mnist_train, mnist_val, mnist_test, batch_size = <span class="number">64</span>, lr = <span class="number">0.001</span></span>):</span><br><span class="line">    epochs = <span class="number">20</span></span><br><span class="line">    net = conv_net()</span><br><span class="line">    criterion = nn.CrossEntropyLoss()</span><br><span class="line">    optim = torch.optim.Adam(net.parameters(), lr = lr, weight_decay=<span class="number">0.0</span>)</span><br><span class="line">    <span class="comment"># print(batch_size)</span></span><br><span class="line">   </span><br><span class="line">    net.train()</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> tqdm.tqdm(<span class="built_in">range</span>(epochs)):</span><br><span class="line">        <span class="comment"># 训练过程</span></span><br><span class="line">        train_loss = []</span><br><span class="line">        accuracy = <span class="number">0.0</span></span><br><span class="line">        train_accuracy = []</span><br><span class="line">        <span class="keyword">for</span> x, y <span class="keyword">in</span> mnist_train:</span><br><span class="line">            y_pred = net.forward(x)</span><br><span class="line">            loss = criterion(y_pred, y)</span><br><span class="line">            train_loss.append(loss.item())</span><br><span class="line">            optim.zero_grad()</span><br><span class="line">            loss.backward()</span><br><span class="line">            optim.step()</span><br><span class="line">            <span class="comment"># 计算预测准确率</span></span><br><span class="line">            <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">                y_pred = torch.<span class="built_in">max</span>(y_pred.data, <span class="number">1</span>).indices</span><br><span class="line">                accuracy += (y_pred == y).<span class="built_in">sum</span>().item()</span><br><span class="line">        train_accuracy.append(accuracy/(<span class="built_in">len</span>(mnist_train)*batch_size))</span><br><span class="line">        mean_train_loss = torch.mean(torch.tensor(train_loss))</span><br><span class="line">        <span class="comment"># 验证过程</span></span><br><span class="line">        <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">            val_loss = []</span><br><span class="line">            accuracy = <span class="number">0.0</span></span><br><span class="line">            val_accuracy = []</span><br><span class="line">            <span class="keyword">for</span> x, y <span class="keyword">in</span> mnist_val:</span><br><span class="line">                <span class="comment"># x = x.view(batch_size, -1)</span></span><br><span class="line">                y_pred = net.forward(x)</span><br><span class="line">                <span class="comment"># y_pred = torch.max(y_pred.data, 1).indices</span></span><br><span class="line">                loss = criterion(y_pred, y)</span><br><span class="line">                val_loss.append(loss.item())</span><br><span class="line">                <span class="comment"># 计算预测准确率</span></span><br><span class="line">                y_pred = torch.<span class="built_in">max</span>(y_pred.data, <span class="number">1</span>).indices</span><br><span class="line">                accuracy += (y_pred == y).<span class="built_in">sum</span>().item()</span><br><span class="line">            val_accuracy.append(accuracy/(<span class="built_in">len</span>(mnist_val)*batch_size))</span><br><span class="line">            mean_val_loss = torch.mean(torch.tensor(val_loss))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;第&#123;&#125;次迭代，训练集平均损失&#123;&#125;，预测准确率&#123;&#125;，验证集平均损失&#123;&#125;，预测准确率&#123;&#125;&quot;</span>.<span class="built_in">format</span>(epoch, mean_train_loss, train_accuracy[-<span class="number">1</span>], mean_val_loss, val_accuracy[-<span class="number">1</span>]))</span><br><span class="line">    <span class="comment"># 画损失值曲线和正确率曲线</span></span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.plot(train_loss)</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/CONV_train_loss.png&quot;</span>)</span><br><span class="line">    plt.close()</span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.plot(val_loss)</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/CONV_val_loss.png&quot;</span>)</span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.plot(train_accuracy)</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/CONV_train_accuracy.png&quot;</span>)</span><br><span class="line">    plt.close()</span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.plot(val_accuracy)</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/CONV_val_accuracy.png&quot;</span>)</span><br><span class="line">       </span><br><span class="line">    <span class="comment"># 用测试数据测试</span></span><br><span class="line">    net.<span class="built_in">eval</span>()</span><br><span class="line">    test_accuracy = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> x, y <span class="keyword">in</span> mnist_test:</span><br><span class="line">        <span class="comment"># x = x.view(batch_size, -1)</span></span><br><span class="line">        y_pred = net.forward(x)</span><br><span class="line">        y_pred = torch.<span class="built_in">max</span>(y_pred.data, <span class="number">1</span>).indices</span><br><span class="line">        test_accuracy += (y_pred == y).<span class="built_in">sum</span>().item()</span><br><span class="line">        <span class="comment"># print(test_accuracy, len(mnist_test)*batch_size)</span></span><br><span class="line">    accuracy = test_accuracy/(<span class="built_in">len</span>(mnist_test)*batch_size)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;卷积神经网络算法预测准确率:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(accuracy))</span><br><span class="line">    <span class="keyword">return</span> accuracy</span><br></pre></td></tr></table></figure>
+<p>迭代20次，运行结果:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">,随机算法,逻辑回归算法,朴素贝叶斯算法,支持向量机算法,随机森林算法,一般神经网络算法,卷积神经网络算法</span><br><span class="line"><span class="number">0</span>,<span class="number">0.0979</span>,<span class="number">0.9194</span>,<span class="number">0.556</span>,<span class="number">0.9688</span>,<span class="number">0.9701</span>,<span class="number">0.9258</span>,<span class="number">0.9886</span></span><br></pre></td></tr></table></figure>
+<p>卷积网络模型运行时间最长，准确率也最高。但似乎迭代两次跟迭代20次差别不大?<br>不管了，先这样吧，准确率也蛮高了。<br>现在进行运用，用程序识别新的手写输入数据。先造一个数据，自己写吧。写了100个。<br>这是原图。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/01.jpg"><br>这是用手机相机的文档模式拍的黑白图片。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/02.jpg"><br>下面就是怎么把图片转换成mnist的28×28灰度值格式的问题了。<br>先用这个在线工具(<a target="_blank" rel="noopener" href="http://www.zuohaotu.com/cut-image.aspx)%E6%8A%8A%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E6%88%90100%E4%BB%BD%EF%BC%8C%E7%84%B6%E5%90%8E%E4%BA%BA%E8%82%89%E5%88%A0%E9%99%A4%E6%B2%A1%E5%88%86%E5%89%B2%E5%A5%BD%E7%9A%84%E5%9B%BE%E7%89%87%EF%BC%8C%E6%AF%94%E5%A6%82%E5%8F%AA%E6%9C%89%E4%B8%80%E5%8D%8A%E6%95%B0%E5%AD%97%EF%BC%8C%E6%88%96%E8%80%85%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97%E5%88%86%E5%89%B2%E5%88%B0%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87%E4%B8%8A%E7%9A%84%E6%83%85%E5%86%B5%E3%80%82">http://www.zuohaotu.com/cut-image.aspx)把图像分割成100份，然后人肉删除没分割好的图片，比如只有一半数字，或者两个数字分割到一张图片上的情况。</a><br>分割以后是这样的<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/03.jpg"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/04.jpg"><br>文件名用“序号_标签”的形式命名，比如09_9.jpg。接下来就将图片转换成28×28的数据。<br>照<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40358998/article/details/79281936">这里:</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将图片文件转换为MNIST数据</span></span><br><span class="line"><span class="meta">@run.change_dir</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">changeData</span>(<span class="params">path = <span class="string">&quot;./mynum/num/&quot;</span></span>):</span><br><span class="line">    <span class="comment"># path = &quot;./mynum/num/&quot;</span></span><br><span class="line">    dir_or_files = os.listdir(path)</span><br><span class="line">    files = []</span><br><span class="line">    <span class="keyword">for</span> dir_file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        files.append(dir_file)</span><br><span class="line">        </span><br><span class="line">    MNIST_SIZE = <span class="number">28</span></span><br><span class="line">    datas = []</span><br><span class="line">    labels = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">        <span class="comment"># 处理图片</span></span><br><span class="line">        <span class="comment"># print(path+files[0])</span></span><br><span class="line">        <span class="comment"># 读入图片并变成灰色</span></span><br><span class="line">        img = io.imread(path+file, as_gray=<span class="literal">True</span>)</span><br><span class="line">        <span class="comment"># 缩小到28*28</span></span><br><span class="line">        translated_img = transform.resize(img, (MNIST_SIZE, MNIST_SIZE))</span><br><span class="line">        <span class="comment"># 变成1*784的一维数组</span></span><br><span class="line">        flatten_img = np.reshape(translated_img, <span class="number">784</span>)</span><br><span class="line">        <span class="comment"># 1代表黑，0代表白</span></span><br><span class="line">        result = np.array([<span class="number">1</span> - flatten_img])</span><br><span class="line">        <span class="comment"># 提取标签</span></span><br><span class="line">        labels.append([<span class="built_in">int</span>(file[-<span class="number">5</span>])])</span><br><span class="line">        datas.append(result)</span><br><span class="line">        <span class="built_in">print</span>(file)</span><br><span class="line">    datas = np.array(datas)</span><br><span class="line">    labels = np.array(labels)</span><br><span class="line">    <span class="keyword">return</span> datas, labels</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment"># 将数据画图看看</span></span><br><span class="line"><span class="meta">@run.change_dir</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">drawData</span>(<span class="params">data</span>):</span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.imshow(data.reshape(<span class="number">28</span>, <span class="number">28</span>))</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/num.png&quot;</span>)</span><br><span class="line">    plt.close()</span><br></pre></td></tr></table></figure>
+<p>根据文件名提取标签，原始图片是这样。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/05.jpg"><br>转换以后的数据画图是这样<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/06.png"><br>差不多，还是能看出来的。<br>下面就开始用模型预测了。先选取准确率最高的机器学习模型随机森林(逻辑回归准确率更高，但随机森林也差不多而且要快得多)和准确率最高的深度学习模型卷积网络模型作为实际工作模型。先用mnist数据进行训练并保存模型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 训练要用的模型并保存，一般只运行一次</span></span><br><span class="line"><span class="meta">@run.change_dir</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">doTraining</span>():</span><br><span class="line">    <span class="comment"># 准备训练数据</span></span><br><span class="line">    batch_size = <span class="number">500</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;准备数据&quot;</span>)</span><br><span class="line">    mnist_train, mnist_val, mnist_test = loadData(batch_size)</span><br><span class="line">    X_train, Y_train = Loader2numpy(mnist_train)</span><br><span class="line">    X_val, Y_val = Loader2numpy(mnist_val)</span><br><span class="line">    X_test, Y_test = Loader2numpy(mnist_test)</span><br><span class="line">    <span class="comment"># 合并训练集和验证集</span></span><br><span class="line">    X_train = np.concatenate((X_train, X_val), axis = <span class="number">0</span>)</span><br><span class="line">    Y_train = np.concatenate((Y_train, Y_val), axis = <span class="number">0</span>)</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># print(&quot;a&quot;, X_train.shape)</span></span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 训练机器学习的随机森林模型</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;训练随机森林模型&quot;</span>)</span><br><span class="line">    MLmodel = RandomForestClassifier()</span><br><span class="line">    MLmodel.fit(X_train, Y_train)</span><br><span class="line">    <span class="comment"># 保存模型</span></span><br><span class="line">    joblib.dump(MLmodel, <span class="string">&quot;./MLmodel.pkl&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;模型保存完毕&quot;</span>)</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 训练深度学习卷积网络模型</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;训练卷积网络模型&quot;</span>)</span><br><span class="line">    epochs = <span class="number">10</span></span><br><span class="line">    lr = <span class="number">0.001</span></span><br><span class="line">    net = conv_net()</span><br><span class="line">    criterion = nn.CrossEntropyLoss()</span><br><span class="line">    optim = torch.optim.Adam(net.parameters(), lr = lr, weight_decay=<span class="number">0.0</span>)</span><br><span class="line">    <span class="comment"># print(batch_size)</span></span><br><span class="line">   </span><br><span class="line">    net.train()</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> tqdm.tqdm(<span class="built_in">range</span>(epochs)):</span><br><span class="line">        <span class="comment"># 训练过程</span></span><br><span class="line">        <span class="keyword">for</span> x, y <span class="keyword">in</span> mnist_train:</span><br><span class="line">            <span class="comment"># print(x.shape)</span></span><br><span class="line">            <span class="comment"># x = x.view(len(x), 28, 28)</span></span><br><span class="line">            y_pred = net.forward(x)</span><br><span class="line">            loss = criterion(y_pred, y)</span><br><span class="line">            optim.zero_grad()</span><br><span class="line">            loss.backward()</span><br><span class="line">            optim.step()</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 保存模型</span></span><br><span class="line">    joblib.dump(net, <span class="string">&quot;./DLmodel.pkl&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;模型保存完毕&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>基本跟前面一样，多了保持模型的步骤。<br>接下来就可以用保存的模型进行识别了，折腾了几天，主要是数据形状不对。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 实际运用模型来识别手写数据</span></span><br><span class="line"><span class="meta">@run.change_dir</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">work</span>(<span class="params">datas, labels</span>):</span><br><span class="line">    <span class="comment"># doTraining()</span></span><br><span class="line">    <span class="comment"># 数据转换</span></span><br><span class="line">    X_test = datas.reshape(-<span class="number">1</span>, <span class="number">784</span>)</span><br><span class="line">    Y_test = labels</span><br><span class="line">    <span class="comment"># 加载模型并对数据进行识别，得到正确率</span></span><br><span class="line">    <span class="comment"># 随机森林模型</span></span><br><span class="line">    MLmodel = joblib.load(<span class="string">&quot;./MLmodel.pkl&quot;</span>)</span><br><span class="line">    y_pred = MLmodel.predict(X_test)</span><br><span class="line">    acc = accuracy(y_pred, Y_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;随机森林算法实际识别准确率:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(acc))</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 数据转换</span></span><br><span class="line">    batch_size = <span class="number">2</span></span><br><span class="line">    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((<span class="number">0.1307</span>,), (<span class="number">0.3081</span>,))])</span><br><span class="line">    datas = datas.reshape(-<span class="number">1</span>, <span class="number">28</span>, <span class="number">28</span>)</span><br><span class="line">    datas = datas.transpose(<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>)</span><br><span class="line">    <span class="comment"># print(&quot;b-1&quot;, datas.shape)</span></span><br><span class="line">    test_data = transform(datas)</span><br><span class="line">    <span class="comment"># print(&quot;b&quot;, test_data.shape)</span></span><br><span class="line">    <span class="comment">#test_datas = torch.from_numpy(datas)</span></span><br><span class="line">    labels = torch.from_numpy(labels)</span><br><span class="line">    <span class="comment">#print(&quot;c_1&quot;, test_data.size())</span></span><br><span class="line"><span class="comment">#    print(&quot;c_1&quot;, labels.size())</span></span><br><span class="line">    testdataset = Data.TensorDataset(test_data, labels)</span><br><span class="line">    testdata = DataLoader(testdataset, batch_size = batch_size, shuffle = <span class="literal">False</span>)</span><br><span class="line">   </span><br><span class="line">    <span class="comment">#test_data = test_data.view(-1, 1, 28, 28)</span></span><br><span class="line"><span class="comment">#    print(&quot;c&quot;, test_data.shape)</span></span><br><span class="line">    DLmodel = joblib.load(<span class="string">&quot;./DLmodel.pkl&quot;</span>)</span><br><span class="line">   </span><br><span class="line">    DLmodel.<span class="built_in">eval</span>()</span><br><span class="line">    test_accuracy = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> x, y <span class="keyword">in</span> testdata:</span><br><span class="line">        x = x.view(batch_size, <span class="number">1</span>, <span class="number">28</span>, <span class="number">28</span>)</span><br><span class="line">        x = torch.tensor(x, dtype=torch.float32)</span><br><span class="line">        y_pred = DLmodel.forward(x)</span><br><span class="line">        y_pred = torch.<span class="built_in">max</span>(y_pred.data, <span class="number">1</span>).indices</span><br><span class="line">        test_accuracy += (y_pred == y).<span class="built_in">sum</span>().item()</span><br><span class="line">        <span class="comment"># print(test_accuracy, len(mnist_test)*batch_size)</span></span><br><span class="line">    dlaccuracy = test_accuracy/(<span class="built_in">len</span>(testdata)*batch_size)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;卷积神经网络算法实际识别准确率:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(dlaccuracy))</span><br></pre></td></tr></table></figure>
+<p>运行结果:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">随机森林算法实际识别准确率:<span class="number">0.10227272727272728</span>                </span><br><span class="line">卷积神经网络算法实际识别准确率:<span class="number">0.11363636363636363</span></span><br></pre></td></tr></table></figure>
+<p>我晕，跟瞎猜差不多，虽然CNN要好一点。这就是运用机器学习的难点之一:测试时很好，运用时很差。由于在研究时用的是独立的测试数据测试的，所以首先怀疑是数据的问题。先换黑白图片看看。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">随机森林算法实际识别准确率:<span class="number">0.12359550561797752</span>                </span><br><span class="line">卷积神经网络算法实际识别准确率:<span class="number">0.20224719101123595</span></span><br></pre></td></tr></table></figure>
+<p>好一点了，尤其CNN模型，准确率提高了近一倍，不过还是很低。<br>人肉把一些不太好的图片删了，再看看。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">随机森林算法实际识别准确率:<span class="number">0.07692307692307693</span>                </span><br><span class="line">卷积神经网络算法实际识别准确率:<span class="number">0.333333333333333</span></span><br></pre></td></tr></table></figure>
+<p>到33%了!哈哈。看来得重新整个手写数据试试。<br>又重新写了一份，110个数字，认真了一点，并且手动在电脑上截图，尽量把数字放到中央。<br>像这样:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/07.jpg"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/08.png"><br>数据转换以后画的图是这样:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/09.png"><br>还是一样的文件命名方法，再试一次。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">随机森林算法实际识别准确率:<span class="number">0.16363636363636364</span></span><br><span class="line">卷积神经网络算法实际识别准确率:<span class="number">0.9</span></span><br></pre></td></tr></table></figure>
+<p>随机森林的准确率依然不高，但是卷积神经网络的准确率提高到90%了!哈哈，看来数据才是最重要的!<br>输出错误的情况看看:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">实际数字为<span class="number">8</span>，预测值为<span class="number">6</span></span><br><span class="line">实际数字为<span class="number">8</span>，预测值为<span class="number">6</span></span><br><span class="line">实际数字为<span class="number">9</span>，预测值为<span class="number">1</span></span><br><span class="line">实际数字为<span class="number">9</span>，预测值为<span class="number">1</span></span><br><span class="line">实际数字为<span class="number">0</span>，预测值为<span class="number">9</span></span><br><span class="line">实际数字为<span class="number">8</span>，预测值为<span class="number">6</span></span><br><span class="line">实际数字为<span class="number">4</span>，预测值为<span class="number">8</span></span><br><span class="line">实际数字为<span class="number">8</span>，预测值为<span class="number">6</span></span><br><span class="line">实际数字为<span class="number">0</span>，预测值为<span class="number">9</span></span><br><span class="line">实际数字为<span class="number">0</span>，预测值为<span class="number">9</span></span><br><span class="line">实际数字为<span class="number">0</span>，预测值为<span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>都是6跟8，9跟0，4跟8，9跟1混淆了。<br>那能不能再提高的?或者说让模型对数据不那么挑?看看别人做的吧。<br>找到<a target="_blank" rel="noopener" href="https://paperswithcode.com/paper/effective-handwritten-digit-recognition-using">一篇:</a><br>Yellapragada SS Bharadwaj, Rajaram P, Sriram V.P, et al. Effective Handwritten Digit Recognition using Deep Convolution Neural Network. International Journal of Advanced Trends in Computer Science and Engineering, Volume 9 No.2, March -April 2020. <a target="_blank" rel="noopener" href="https://doi.org/10.30534/ijatcse/2020/66922020">https://doi.org/10.30534/ijatcse/2020/66922020</a><br>作者声称模型对MNIST训练集的错误率达到低于0.1%，对真实手写数字的识别准确率达到98.5%。这就是我想要的，还有代码实现，可是用的是tensorflow，我没用过，尝试用pytorch实现一下看看吧。<br>论文里给的模型参数：<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/10.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/11.png"></p>
+<p>就按这个移植吧。<br>迭代次数过多会造成过拟合，因此当准确率达到98%时就停止迭代。<br>用torchsummary.summary输出了一下模型参数，发现跟论文的好像不对。<br>尝试了半天，终于改了跟论文上的模型参数一模一样了，再跑了试试。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">improve_conv_net</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, drop_rate = <span class="number">0.0</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(improve_conv_net, self).__init__()</span><br><span class="line">        self.layer1 = nn.Sequential(</span><br><span class="line">            nn.Conv2d(<span class="number">1</span>, <span class="number">32</span>, kernel_size = <span class="number">3</span>),</span><br><span class="line">            <span class="comment"># nn.BatchNorm2d(32),</span></span><br><span class="line">            nn.ReLU(inplace = <span class="literal">True</span>)</span><br><span class="line">        )</span><br><span class="line">        self.layer2 = nn.Sequential(</span><br><span class="line">            nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">        )</span><br><span class="line">        self.layer3 = nn.Sequential(</span><br><span class="line">            nn.Conv2d(<span class="number">32</span>, <span class="number">64</span>, kernel_size = <span class="number">3</span>),</span><br><span class="line">            <span class="comment"># nn.BatchNorm2d(64),</span></span><br><span class="line">            nn.ReLU(inplace = <span class="literal">True</span>)</span><br><span class="line">        )</span><br><span class="line">        self.layer4 = nn.Sequential(</span><br><span class="line">            nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">        )</span><br><span class="line">        self.fc = nn.Sequential(</span><br><span class="line">            nn.Flatten(),</span><br><span class="line">            <span class="comment"># nn.Dropout(p = drop_rate),</span></span><br><span class="line">            nn.Linear(<span class="number">1600</span>, <span class="number">128</span>),</span><br><span class="line">            <span class="comment"># nn.ReLU(inplace = True),</span></span><br><span class="line">            nn.Linear(<span class="number">128</span>, <span class="number">10</span>),</span><br><span class="line">            <span class="comment"># nn.Softmax()</span></span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.layer1(x)</span><br><span class="line">        x = self.layer2(x)</span><br><span class="line">        x = self.layer3(x)</span><br><span class="line">        x = self.layer4(x)</span><br><span class="line">        <span class="comment"># x = x.view(x.size(0), -1)</span></span><br><span class="line">        <span class="comment"># print(x.shape)</span></span><br><span class="line">        x = self.fc(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/72/12.jpg"><br>尝试了半天，预测正确率84.5%……还不如我自己的。把学习率改小，到0.0001试试。正确率80%……<br>把学习率改回0.001，减少迭代次数(通过限定当验证集的准确率大于一定值——如98%——时停止迭代)，结果:迭代了3次，预测准确率0.8727272727272727。<br>把学习率再调高10倍到0.01看看。准确率60%，改回去吧。</p>
+<p>论文复现就到这儿吧。看来还是模型过拟合了。这是我第一次复现论文中的算法，也没想象中那么难。不是所有文章都是通篇的公式的。<br>最后，再来自己探索一下能不能再提高一点吧。主要是解决模型过拟合的问题。找了篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/58903870">文章:</a><br>防止模型过拟合的方法之一是正则化(Regularization)，其目的是要同时让经验风险和模型复杂度较小。<br>正则化的方法之一，是上面的提前结束迭代。下面试试另一个方法:Dropout。它属于模型集成的一种，在训练过程中随机丢弃一部分输入，对应的参数不再更新。<br>先在最先的位置增加nn.Dropout，概率20%<br>迭代了六次，识别准确率82.8%。<br>换到卷积操作之后，迭代四次，识别准确率86.4%。<br>概率增加到50%看看。准确率还是86.4%，迭代次数减少到4次。<br>尝试了几次，貌似都没啥用。下面试试参数正则化。<br>pytorch的optim里实现了L2正则化，先尝试这个，设置weight_decay参数即可。设为0.01，准确率85.5%。<br>还用改进前的模型跑一下新数据吧。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zwdnet/mnist/blob/main/mnist.py">本文代码:</a></p>
+<p>到这里，所有的改进似乎都失败了，还不如我改进以前的预测准确率高。就先到这吧，本文主要是尝试机器学习的运用过程。首先定义问题，考虑能否使用机器学习模型来解决。尝试各个模型，选择有效的，调参。对实际的新数据进行预测，评估结果。如果不满意，再调参或看看其他人是怎么做的。重复这个过程直到满意。这当中的难点，是对训练和测试数据有效的模型和参数，对实际数据未必有效，甚至效果很差。另外，数据的处理似乎比模型的选择以及调参对预测的结果影响更大。</p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/pytorch/" rel="tag"># pytorch</a>
+          
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/MNIST/" rel="tag"># MNIST</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/16/%E5%8F%A3%E8%85%94%E5%8C%BB%E7%94%9F%E5%A6%82%E4%BD%95%E8%A7%84%E5%88%92%E6%82%A8%E7%9A%84%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF/" rel="next" title="口腔医生如何规划您的职业生涯">
+                <i class="fa fa-chevron-left"></i> 口腔医生如何规划您的职业生涯
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/04/%E5%AE%9A%E6%9C%9F%E8%80%83%E6%A0%B8%E6%98%AF%E5%90%A6%E6%B5%AA%E8%B4%B9%E5%8C%BB%E7%94%9F%E7%9A%84%E6%97%B6%E9%97%B4%E5%92%8C%E9%87%91%E9%92%B1/" rel="prev" title="定期考核是否浪费医生的时间和金钱?">
+                定期考核是否浪费医生的时间和金钱? <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">791</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">685</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1607.1k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

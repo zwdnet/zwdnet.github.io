@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ETF,投资理财,定投,Python,数据分析," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="赵瑜敏的口腔医学专业学习博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="上一篇文章用Python对定投数据进行了处理，计算出了总的收益率随时间的变化数据，保存到了csv文件里。现在我们就开始对数据进行具体的分析。具体如何分析，我也没谱，是第一次，走到哪儿就算哪儿吧。首先，先建立一个git分支，在分支上编辑新代码，完成以后再合并。git分支功能我以前也没怎么用过，只是知道有这么个功能。搜了一下，又动手实验，成功了。先建立名为data_analysis的分支，然后转移到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ETF定投数据分析3——金融数据分析">
+<meta property="og:url" content="https://zwdnet.github.io/2019/01/21/ETF%E5%AE%9A%E6%8A%95%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%902%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="上一篇文章用Python对定投数据进行了处理，计算出了总的收益率随时间的变化数据，保存到了csv文件里。现在我们就开始对数据进行具体的分析。具体如何分析，我也没谱，是第一次，走到哪儿就算哪儿吧。首先，先建立一个git分支，在分支上编辑新代码，完成以后再合并。git分支功能我以前也没怎么用过，只是知道有这么个功能。搜了一下，又动手实验，成功了。先建立名为data_analysis的分支，然后转移到">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/01.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/02.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/03.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/04.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/05.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/06.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/07.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/08.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/09.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2019-01-21T05:36:43.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.000Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="ETF">
+<meta property="article:tag" content="投资理财">
+<meta property="article:tag" content="定投">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2019/01/21/ETF定投数据分析2——数据分析/"/>
+
+
+
+
+
+  <title>ETF定投数据分析3——金融数据分析 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2019/01/21/ETF%E5%AE%9A%E6%8A%95%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%902%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ETF定投数据分析3——金融数据分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-21T13:36:43+08:00">
+                2019-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> 上一篇文章用Python对定投数据进行了处理，计算出了总的收益率随时间的变化数据，保存到了csv文件里。现在我们就开始对数据进行具体的分析。具体如何分析，我也没谱，是第一次，走到哪儿就算哪儿吧。首先，先建立一个git分支，在分支上编辑新代码，完成以后再合并。git分支功能我以前也没怎么用过，只是知道有这么个功能。搜了一下，又动手实验，成功了。先建立名为data_analysis的分支，然后转移到该分支中:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch data_analysisgit checkout data_analysis</span><br></pre></td></tr></table></figure>
+<p>或者可以直接新建分支并转移</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b data_analysis</span><br></pre></td></tr></table></figure>
+<p>然后就可以增加代码啦。新建一个data_analysis.py的文件，用于数据分析。先从csv文件中导入数据到DataFrame变量中，再输出看看。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd    </span><br><span class="line">etf_total = pd.read_csv(<span class="string">&quot;total_etf.csv&quot;</span>)    </span><br><span class="line">etf_300 = pd.read_csv(<span class="string">&quot;300etf.csv&quot;</span>)    </span><br><span class="line">etf_nas = pd.read_csv(<span class="string">&quot;nasetf.csv&quot;</span>)    </span><br><span class="line"><span class="built_in">print</span>(etf_total.head())    </span><br><span class="line"><span class="built_in">print</span>(etf_300.head())    </span><br><span class="line"><span class="built_in">print</span>(etf_nas.head())</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/01.png"></p>
+<p>没问题啦。再提交代码。最后将本地分支推送到github上。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin data_analysis</span><br></pre></td></tr></table></figure>
+<p>再把数据可视化一下吧，先尝试一下各种不同的图形类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#数据可视化</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Display</span>(<span class="params">data</span>):    </span><br><span class="line">    fig = plt.figure()    </span><br><span class="line">    ax1 = fig.add_subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)    </span><br><span class="line">    ax2 = fig.add_subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>)    </span><br><span class="line">    ax3 = fig.add_subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>)    </span><br><span class="line">    ax4 = fig.add_subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)    </span><br><span class="line">    <span class="comment">#用各种不同的形式画图    </span></span><br><span class="line">    ax1.plot(data.收益率)    </span><br><span class="line">    ax2.hist(data.收益率, bins =<span class="number">10</span>, alpha = <span class="number">0.8</span>, facecolor = <span class="string">&#x27;b&#x27;</span>, normed = <span class="number">1</span>)    </span><br><span class="line">    ax3.scatter(<span class="built_in">range</span>(<span class="built_in">len</span>(data)), data.收益率, marker =<span class="string">&#x27;.&#x27;</span>)    </span><br><span class="line">    ax4.plot(data.收益率, <span class="string">&#x27;k--&#x27;</span>)        </span><br><span class="line">    fig.savefig(<span class="string">&quot;可视化数据.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/02.png"></p>
+<p>还可以用另一种方法建立子图绘图</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#另一种方法    </span></span><br><span class="line">fig,ax = plt.subplots(<span class="number">2</span>,<span class="number">2</span>)    </span><br><span class="line">ax[<span class="number">0</span>, <span class="number">0</span>].plot(data.收益率)    </span><br><span class="line">ax[<span class="number">0</span>, <span class="number">1</span>].plot(data.收益率, <span class="string">&#x27;k--&#x27;</span>)    </span><br><span class="line">ax[<span class="number">1</span>, <span class="number">0</span>].plot(data.收益率, <span class="string">&#x27;k-&#x27;</span>, drawstyle=<span class="string">&#x27;steps-post&#x27;</span>)    </span><br><span class="line">ax[<span class="number">1</span>, <span class="number">1</span>].plot(data.收益率, linestyle=<span class="string">&#x27;dashed&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)    fig.savefig(<span class="string">&quot;可视化数据2.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/03.png"><br>给图形增加图例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#绘图并增加图例    </span></span><br><span class="line">fig,ax = plt.subplots(<span class="number">1</span>,<span class="number">1</span>)    </span><br><span class="line">ax.plot(data.收益率, label =<span class="string">&quot;收益率&quot;</span>)    </span><br><span class="line">fc = data.手续费/data.成本    </span><br><span class="line">ax.plot(fc, label=<span class="string">&quot;手续费占比&quot;</span>)    plt.legend(loc=<span class="string">&quot;best&quot;</span>)    </span><br><span class="line">fig.savefig(<span class="string">&quot;可视化数据3.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/04.png"><br>中文是乱码，搜了一圈，要显示中文好麻烦，貌似还要root手机，还是放弃了，就用英文吧。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/05.png"><br>matplotlib是一个低阶的工具，要考虑作图的很多细节。pandas还有很多高阶的绘图工具。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用pandas画图    </span></span><br><span class="line">fig = plt.figure()    </span><br><span class="line">data.收益率.plot(kind = <span class="string">&#x27;bar&#x27;</span>)    </span><br><span class="line">fig.savefig(<span class="string">&quot;pandas作图.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/06.png"><br>横坐标有问题</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()    </span><br><span class="line">data.收益率.hist(bins =<span class="number">20</span>, normed = <span class="literal">True</span>)    </span><br><span class="line">fig.savefig(<span class="string">&quot;pandas作图2.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/07.png"><br>可视化显示就到这里吧，下面再试试用时间序列分析。pandas提供了很多时间序列分析工具。移动窗口分析，一看就是均线嘛。想当初我分析定投的时候还自己从数据里算均线，结果人家有现成的！画月线和双月线。书上的方法是用rolling_mean，结果提示该函数会被废弃，于是照其提示用最新的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#移动时间窗口分析</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">MovementWindows</span>(<span class="params">data</span>):    </span><br><span class="line">    mean_30 = data.收益率.rolling(window=<span class="number">30</span>, center = <span class="literal">False</span>).mean()          mean_60 = data.收益率.rolling(window=<span class="number">60</span>, center = <span class="literal">False</span>).mean()          fig = plt.figure()    </span><br><span class="line">    data.收益率.plot()    </span><br><span class="line">    mean_30.plot()    </span><br><span class="line">    mean_60.plot()    </span><br><span class="line">    fig.savefig(<span class="string">&quot;均线图&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/08.png"><br>同理可以算出标准差的移动窗口</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">std_30 = data.收益率.rolling(window=<span class="number">30</span>, center = <span class="literal">False</span>).std()    </span><br><span class="line">std_60 = data.收益率.rolling(window=<span class="number">60</span>, center = <span class="literal">False</span>).std()    </span><br><span class="line">fig = plt.figure()    </span><br><span class="line">std_30.plot(label=<span class="string">&quot;30std&quot;</span>)    std_60.plot(label=<span class="string">&quot;60std&quot;</span>)    plt.legend(loc=<span class="string">&quot;best&quot;</span>)    </span><br><span class="line">fig.savefig(<span class="string">&quot;标准差图.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0087-etfinverstment/09.png"><br>这次先到这里吧，还是参考的《Python for data analysis》。我发文章的两个地方，欢迎大家在朋友圈等地方分享，欢迎点“好看”。谢谢。我的个人博客地址：<a href="https://zwdnet.github.io我的微信个人订阅号：赵瑜敏的口腔医学学习园地">https://zwdnet.github.io我的微信个人订阅号：赵瑜敏的口腔医学学习园地</a><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ETF/" rel="tag"># ETF</a>
+          
+            <a href="/tags/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" rel="tag"># 投资理财</a>
+          
+            <a href="/tags/%E5%AE%9A%E6%8A%95/" rel="tag"># 定投</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag"># 数据分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/21/ETF%E5%AE%9A%E6%8A%95%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%903%E2%80%94%E2%80%94%E9%87%91%E8%9E%8D%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="next" title="ETF定投数据分析3——金融数据分析">
+                <i class="fa fa-chevron-left"></i> ETF定投数据分析3——金融数据分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/21/%E3%80%8A%E7%89%99%E5%91%A8%E5%88%AE%E6%B2%BB%E5%9F%BA%E7%A1%80%E4%B8%8E%E9%AB%98%E7%BA%A7%E6%A0%B9%E9%9D%A2%E5%88%AE%E6%B2%BB%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B017-%E6%A8%A1%E5%9D%978%EF%BC%9A%E5%99%A8%E6%A2%B0%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%88%86%E7%B1%BB/" rel="prev" title="《牙周刮治基础与高级根面刮治》读书笔记17:模块8：器械设计和分类">
+                《牙周刮治基础与高级根面刮治》读书笔记17:模块8：器械设计和分类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">791</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">685</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1607.1k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275447216'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1275447216%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>
