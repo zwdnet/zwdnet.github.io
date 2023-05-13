@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ETF,投资理财,定投,Python,模拟交易,回测框架,BT," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="赵瑜敏的口腔医学专业学习博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="距离上次文章已经过去几个月了，我一直在与模拟交易挣扎。代码已经能运行了，但是想添加止盈止损的策略，总是调不对。具体可以看项目github库(https:&#x2F;&#x2F;github.com&#x2F;zwdnet&#x2F;etfdata)里的simulate分支里的simulater2.py。后来，我想不能再这么挣扎下去了。于是就在网上找量化投资的python库。几番尝试找到一个叫bt的库，是建立在ffn基础上的。试了一下，p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ETF定投数据分析9——使用BT框架模拟交易">
+<meta property="og:url" content="https://zwdnet.github.io/2019/06/03/ETF%E5%AE%9A%E6%8A%95%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%909%E2%80%94%E2%80%94%E4%BD%BF%E7%94%A8BT%E6%A1%86%E6%9E%B6%E6%A8%A1%E6%8B%9F%E4%BA%A4%E6%98%93/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="距离上次文章已经过去几个月了，我一直在与模拟交易挣扎。代码已经能运行了，但是想添加止盈止损的策略，总是调不对。具体可以看项目github库(https:&#x2F;&#x2F;github.com&#x2F;zwdnet&#x2F;etfdata)里的simulate分支里的simulater2.py。后来，我想不能再这么挣扎下去了。于是就在网上找量化投资的python库。几番尝试找到一个叫bt的库，是建立在ffn基础上的。试了一下，p">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0137-etfdata/01.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0137-etfdata/02.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0137-etfdata/03.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0137-etfdata/04.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2019-06-03T07:41:04.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.000Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="ETF">
+<meta property="article:tag" content="投资理财">
+<meta property="article:tag" content="定投">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="模拟交易">
+<meta property="article:tag" content="回测框架">
+<meta property="article:tag" content="BT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0137-etfdata/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2019/06/03/ETF定投数据分析9——使用BT框架模拟交易/"/>
+
+
+
+
+
+  <title>ETF定投数据分析9——使用BT框架模拟交易 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2019/06/03/ETF%E5%AE%9A%E6%8A%95%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%909%E2%80%94%E2%80%94%E4%BD%BF%E7%94%A8BT%E6%A1%86%E6%9E%B6%E6%A8%A1%E6%8B%9F%E4%BA%A4%E6%98%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ETF定投数据分析9——使用BT框架模拟交易</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T15:41:04+08:00">
+                2019-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>距离上次文章已经过去几个月了，我一直在与模拟交易挣扎。代码已经能运行了，但是想添加止盈止损的策略，总是调不对。具体可以看项目github库(<a target="_blank" rel="noopener" href="https://github.com/zwdnet/etfdata)%E9%87%8C%E7%9A%84simulate%E5%88%86%E6%94%AF%E9%87%8C%E7%9A%84simulater2.py%E3%80%82">https://github.com/zwdnet/etfdata)里的simulate分支里的simulater2.py。</a><br>后来，我想不能再这么挣扎下去了。于是就在网上找量化投资的python库。几番尝试找到一个叫bt的库，是建立在ffn基础上的。试了一下，pydroid3里能装的，就用它吧。<br>官方文档地址: <a target="_blank" rel="noopener" href="http://pmorissette.github.io/bt/index.html">http://pmorissette.github.io/bt/index.html</a><br>以下翻译自官方文档:<br>bt是一个灵活的用于测试量化投资策略的Python回测框架。回测(Backtesting)是用给定的数据集测试量化投资策略的过程。本框架能使您容易的建立混合和匹配不同算法的策略。<br>目标是节省量化投资者重新造轮子的时间，使他们专注于工作的重要部分——策略开发。<br>一个例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 首先下载数据</span></span><br><span class="line">data = bt.get(<span class="string">&#x27;spy,agg&#x27;</span>, start=<span class="string">&#x27;2010-01-01&#x27;</span>)</span><br><span class="line"><span class="string">&quot;&quot;&quot;这是通过yahoo下载的数据，要下载A股数据要用其它工具，例如tushare&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 接着，创建策略</span></span><br><span class="line">s = bt.Strategy(<span class="string">&#x27;s1&#x27;</span>, [bt.algos.RunMonthly(),</span><br><span class="line">                       bt.algos.SelectAll(),</span><br><span class="line">                       bt.algos.WeighEqually(),</span><br><span class="line">                       bt.algos.Rebalance()])</span><br><span class="line"><span class="string">&quot;&quot;&quot;第一个参数是策略名称，第二个策略是一个包含策略具体内容的list，包括操作间隔，选股策略，权重，和再平衡策略。这里都使用algos类里的函数，如果没满足需要也可以自定义。&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;最后，建立一个回测Backtest，在策略与数据之间建立逻辑联系。&quot;&quot;&quot;</span></span><br><span class="line">test = bt.Backtest(s, data)</span><br><span class="line"><span class="comment"># 然后就可以运行回测了</span></span><br><span class="line">res = bt.run(test)</span><br><span class="line"><span class="comment"># 之后就可以查看结果了</span></span><br><span class="line">res.plot()</span><br><span class="line">res.display()</span><br></pre></td></tr></table></figure>
+<p>以上是文档里的例子，还有其它例子，我照着敲了一遍，详见btExample.py。<br>总结一下，使用bt框架的主要步骤是:获取数据-&gt;建立策略-&gt;建立回测-&gt;运行回测-&gt;获得结果。关键是建立策略。<br>下面开始用bt跑我自己的数据跟策略吧。首先先获得数据，就用我之前下载到csv文件的数据吧。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取数据</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">GetData</span>():</span><br><span class="line">    <span class="comment">#读取数据</span></span><br><span class="line">    df_300 = pd.read_csv(<span class="string">&quot;df_300_hist.csv&quot;</span>)</span><br><span class="line">    df_nas = pd.read_csv(<span class="string">&quot;df_nas_hist.csv&quot;</span>)</span><br><span class="line">    <span class="comment">#只保留收盘价</span></span><br><span class="line">    length1 = <span class="built_in">len</span>(df_300)</span><br><span class="line">    length2 = <span class="built_in">len</span>(df_nas)</span><br><span class="line">    df_300 = df_300.loc[<span class="number">0</span>:length1, [<span class="string">&quot;date&quot;</span>, <span class="string">&quot;close&quot;</span>]]</span><br><span class="line">    df_nas = df_nas.loc[<span class="number">0</span>:length2, [<span class="string">&quot;date&quot;</span>, <span class="string">&quot;close&quot;</span>]]</span><br><span class="line">    <span class="comment"># 更改数据格式，使其符合bt要求</span></span><br><span class="line">    df_300.columns = [<span class="string">&quot;Date&quot;</span>, <span class="string">&quot;300etf&quot;</span>]</span><br><span class="line">    df_300[<span class="string">&quot;Date&quot;</span>] = pd.to_datetime(df_300[<span class="string">&quot;Date&quot;</span>])</span><br><span class="line">    df_300.set_index(<span class="string">&quot;Date&quot;</span>, inplace = <span class="literal">True</span>)</span><br><span class="line">   </span><br><span class="line">    df_nas.columns = [<span class="string">&quot;Date&quot;</span>, <span class="string">&quot;nasetf&quot;</span>]</span><br><span class="line">    df_nas[<span class="string">&quot;Date&quot;</span>] = pd.to_datetime(df_nas[<span class="string">&quot;Date&quot;</span>])</span><br><span class="line">    df_nas.set_index(<span class="string">&quot;Date&quot;</span>, inplace = <span class="literal">True</span>)</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 合并数据</span></span><br><span class="line">    data = pd.concat([df_300, df_nas], axis = <span class="number">1</span>, join = <span class="string">&quot;inner&quot;</span>)</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># 返回数据</span></span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+<p>bt框架对数据的要求是以”Date”为index，所以进行了相应的转换，最后把数据合并。<br>接着开始建立策略，先用没有止盈止损的策略。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立策略</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">CreateStrategy</span>(<span class="params">name</span>):</span><br><span class="line">    strategy = bt.Strategy(name,</span><br><span class="line">    [bt.alogs.RunWeekly(),</span><br><span class="line">     bt.algos.SelectAll(),</span><br><span class="line">     bt.algos.WeighEqually(),</span><br><span class="line">     bt.algos.Rebalance()</span><br><span class="line">    ])</span><br><span class="line">    <span class="keyword">return</span> strategy</span><br></pre></td></tr></table></figure>
+<p>主要参数就是策略名称，还有一个列表，包含的内容主要为执行策略的间隔，选股策略，权重，以及是否再平衡。一些常用的选项都在bt.algos模块里定义了，如果不满足需要，可以自行定义。<br>策略建立好以后就建立回测，所谓回测就是把策略和数据结合在一起的结构。在其中也可以指定投入初始资金等。注意策略会进行深度复制，即在回测中原始数据不会被改变，可以用在其它回测中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test = bt.Backtest(strategy, data)</span><br></pre></td></tr></table></figure>
+<p>最后运行回测</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res = bt.run(test)</span><br></pre></td></tr></table></figure>
+<p>以不同的方式输出回测结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出回测结果</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">outputResult</span>(<span class="params">res</span>):</span><br><span class="line">    fig = res.plot()</span><br><span class="line">    plt.savefig(<span class="string">&quot;BTStimulateTest.png&quot;</span>)</span><br><span class="line">    res.display()</span><br><span class="line">    fig = res.plot_histogram()</span><br><span class="line">    plt.savefig(<span class="string">&quot;BTStimulateHistTest.png&quot;</span>)</span><br><span class="line">    res.plot_security_weights()</span><br><span class="line">    plt.savefig(<span class="string">&quot;BTStimulateWeights.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0137-etfdata/01.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0137-etfdata/02.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0137-etfdata/03.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0137-etfdata/04.png"><br>搞定!总收益率110%，最大回撤26.5%。还不错。但是还有个问题，怎么设定添加交易手续费？<br>方法是定义一个计算手续费的函数，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算交易手续费</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getFee</span>(<span class="params">quantity, price</span>):</span><br><span class="line">    rate = <span class="number">0.0003</span></span><br><span class="line">    fee = quantity*price*rate</span><br><span class="line">    <span class="keyword">if</span> fee &lt; <span class="number">0.1</span>:</span><br><span class="line">        fee = <span class="number">0.1</span></span><br><span class="line">    <span class="keyword">return</span> fee</span><br></pre></td></tr></table></figure>
+<p>然后用strategy.set_commissions(getFee)将该函数传递给策略。测试了一下(把佣金费率改大，到3%。再大，比如到30%，运行会报错。)，总收益率是下降的。说明是对的。<br>接下来就是怎么把止盈止损策略加到策略里的问题了。下次吧。<br>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“好看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的CSDN博客地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zwdnet">https://blog.csdn.net/zwdnet</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ETF/" rel="tag"># ETF</a>
+          
+            <a href="/tags/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" rel="tag"># 投资理财</a>
+          
+            <a href="/tags/%E5%AE%9A%E6%8A%95/" rel="tag"># 定投</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/%E6%A8%A1%E6%8B%9F%E4%BA%A4%E6%98%93/" rel="tag"># 模拟交易</a>
+          
+            <a href="/tags/%E5%9B%9E%E6%B5%8B%E6%A1%86%E6%9E%B6/" rel="tag"># 回测框架</a>
+          
+            <a href="/tags/BT/" rel="tag"># BT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/02/%E3%80%8A%E5%89%8D%E7%89%99%E7%93%B7%E7%B2%98%E7%BB%93%E6%80%A7%E4%BB%BF%E7%94%9F%E4%BF%AE%E5%A4%8D%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03-%E7%AC%AC3%E7%AB%A0-%E6%9C%80%E5%A4%A7%E9%99%90%E5%BA%A6%E4%BF%9D%E5%AD%98%E7%89%99%E4%BD%93%E7%BB%84%E7%BB%87%E7%9A%84%E6%B2%BB%E7%96%97%E9%80%89%E6%8B%A9/" rel="next" title="《前牙瓷粘结性仿生修复》读书笔记3: 第3章 最大限度保存牙体组织的治疗选择">
+                <i class="fa fa-chevron-left"></i> 《前牙瓷粘结性仿生修复》读书笔记3: 第3章 最大限度保存牙体组织的治疗选择
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/03/%E3%80%8A%E5%89%8D%E7%89%99%E7%93%B7%E7%B2%98%E7%BB%93%E6%80%A7%E4%BB%BF%E7%94%9F%E4%BF%AE%E5%A4%8D%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B04-%E7%AC%AC4%E7%AB%A0-%E5%89%8D%E7%89%99%E7%B2%98%E7%BB%93%E6%80%A7%E7%93%B7%E4%BF%AE%E5%A4%8D%E4%BD%93%EF%BC%88%E7%93%B7%E8%B4%B4%E9%9D%A2%EF%BC%89%E9%80%82%E5%BA%94%E8%AF%81%E7%9A%84%E5%8F%91%E5%B1%95/" rel="prev" title="《前牙瓷粘结性仿生修复》读书笔记4: 第4章 前牙粘结性瓷修复体（瓷贴面）适应证的发展">
+                《前牙瓷粘结性仿生修复》读书笔记4: 第4章 前牙粘结性瓷修复体（瓷贴面）适应证的发展 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">791</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">685</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1607.1k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

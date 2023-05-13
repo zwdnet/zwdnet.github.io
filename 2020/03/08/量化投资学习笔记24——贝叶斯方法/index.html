@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,量化投资,机器学习,分类算法，贝叶斯方法," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="赵瑜敏的口腔医学专业学习博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="随机试验:可重复性，可观察性，不确定性。条件概率P(B|A) &#x3D; P(AB)&#x2F;P(A)，为事件A发生的条件下事件B的发生概率。概率乘法公式:P(AB) &#x3D; P(B|A)P(A) &#x3D; P(A|B)P(B)事件独立:两事件的发生没有影响。P(B|A) &#x3D; P(B)。P(AB) &#x3D; P(B|A)P(A) &#x3D; P(A)P(B)全概率公式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记24——贝叶斯方法">
+<meta property="og:url" content="https://zwdnet.github.io/2020/03/08/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B024%E2%80%94%E2%80%94%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="随机试验:可重复性，可观察性，不确定性。条件概率P(B|A) &#x3D; P(AB)&#x2F;P(A)，为事件A发生的条件下事件B的发生概率。概率乘法公式:P(AB) &#x3D; P(B|A)P(A) &#x3D; P(A|B)P(B)事件独立:两事件的发生没有影响。P(B|A) &#x3D; P(B)。P(AB) &#x3D; P(B|A)P(A) &#x3D; P(A)P(B)全概率公式">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/17/01.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/17/02.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2020-03-08T03:14:44.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.000Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="分类算法，贝叶斯方法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/17/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2020/03/08/量化投资学习笔记24——贝叶斯方法/"/>
+
+
+
+
+
+  <title>量化投资学习笔记24——贝叶斯方法 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2020/03/08/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B024%E2%80%94%E2%80%94%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记24——贝叶斯方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T11:14:44+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>随机试验:可重复性，可观察性，不确定性。<br>条件概率<br>P(B|A) &#x3D; P(AB)&#x2F;P(A)，为事件A发生的条件下事件B的发生概率。<br>概率乘法公式:<br>P(AB) &#x3D; P(B|A)P(A) &#x3D; P(A|B)P(B)<br>事件独立:两事件的发生没有影响。P(B|A) &#x3D; P(B)。<br>P(AB) &#x3D; P(B|A)P(A) &#x3D; P(A)P(B)<br>全概率公式<br>如果事件A1,A2,…,An是完备事件组，且都有正概率，则有P(B) &#x3D; P(A1)P(B|A1) + P(A2)P(B|A2) + … + P(An)P(B|An)<br>贝叶斯公式，对一完备事件组A1,A2,…,An，对仍一事件B,P(B)&gt;0，则有<br>P(Ai|B) &#x3D; P(AiB)&#x2F;P(B)，对P(B)应用全概率公式，<br>P(Ai|B) &#x3D; P(Ai)P(B|Ai)&#x2F;ΣP(Ai)P(B|Ai)<br>已知某事件已发生，可以通过贝叶斯公式考察引发该事件的各种原因和可能性的大小。<br>贝叶斯推断<br>应用观察到的现象对主观概率(先验概率)进行修正。支持某项属性的事件发生得越多，该属性成立的可能性越大。<br>先验概率:由以往经验和分析中得到的概率，作为“由因求果”问题中“因”出现的概率。一般是单独的概率，如患病概率，下雨概率，购物概率等。<br>后验概率:在得到“结果”的信息后重新修正的概率，是“执果索因”中的“果”。后验概率的计算要以先验概率为基础。形式一般和条件概率相同。<br>最大似然估计:以当前样本的分布参数作为总体的参数的最佳估计。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/17/01.png"><br>P(H|E) 后验概率<br>P(H) 先验概率<br>P(E|H), P(E) 证据。<br>最大后验概率估计:融入了要估计的先验分布，是最大似然估计的规则化。<br>朴素贝叶斯<br>一种分类算法，通过计算样本归属于不同类别的概率进行分类。<br>贝叶斯理论:基于能获得的最好证据，来计算信念度的有效方法。信念度即为对事物真实性和正确性所具有的信心。<br>朴素:单纯、简单假设给定目标值时属性之间相互条件独立。如果这个条件不成立，不能用朴素贝叶斯。<br>朴素贝叶斯模型<br>m个样本，每个样本n个特征，输出为k个类。<br>通过样本学习得到先验概率，即分类为某个值的概率。<br>通过样本学习条件概率，即分类为某值时样本为某个的概率。<br>计算联合概率，分类为某项时样本为某个分布的概率。<br>一个例子<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/17/02.png"><br>课程是用手算的，我试试用sklearn。<br>sklearn主要提供GaussianNB(高斯朴素贝叶斯)、MultinomialNB(多项式朴素贝叶斯)、BernoulliNB(伯努利朴素贝叶斯)。后两者主要用于离散特征分类。<br>手工将数据输入csv文件，读入以后再将数据数值化，最后建模，输出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="comment"># 朴素贝叶斯的例子</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据转换</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">transform</span>(<span class="params">data</span>):</span><br><span class="line">    data.loc[data.Age == <span class="string">&quot;青少年&quot;</span>, <span class="string">&quot;Age&quot;</span>] = <span class="number">1</span></span><br><span class="line">    data.loc[data.Age == <span class="string">&quot;中年&quot;</span>, <span class="string">&quot;Age&quot;</span>] = <span class="number">2</span></span><br><span class="line">    data.loc[data.Age == <span class="string">&quot;老年&quot;</span>, <span class="string">&quot;Age&quot;</span>] = <span class="number">3</span></span><br><span class="line">    data.loc[data.Income == <span class="string">&quot;高&quot;</span>, <span class="string">&quot;Income&quot;</span>] = <span class="number">1</span></span><br><span class="line">    data.loc[data.Income == <span class="string">&quot;中&quot;</span>, <span class="string">&quot;Income&quot;</span>] = <span class="number">2</span></span><br><span class="line">    data.loc[data.Income == <span class="string">&quot;低&quot;</span>, <span class="string">&quot;Income&quot;</span>] = <span class="number">3</span></span><br><span class="line">    data.loc[data.Alone == <span class="string">&quot;是&quot;</span>, <span class="string">&quot;Alone&quot;</span>] = <span class="number">1</span></span><br><span class="line">    data.loc[data.Alone == <span class="string">&quot;否&quot;</span>, <span class="string">&quot;Alone&quot;</span>] = <span class="number">2</span></span><br><span class="line">    data.loc[data.Credit == <span class="string">&quot;良好&quot;</span>, <span class="string">&quot;Credit&quot;</span>] = <span class="number">1</span></span><br><span class="line">    data.loc[data.Credit == <span class="string">&quot;一般&quot;</span>, <span class="string">&quot;Credit&quot;</span>] = <span class="number">2</span></span><br><span class="line">    data.loc[data.Buy == <span class="string">&quot;是&quot;</span>, <span class="string">&quot;Buy&quot;</span>] = <span class="number">1</span></span><br><span class="line">    data.loc[data.Buy == <span class="string">&quot;否&quot;</span>, <span class="string">&quot;Buy&quot;</span>] = <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br><span class="line">    data = transform(data)</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br><span class="line">    train_data = data[[<span class="string">&quot;Age&quot;</span>, <span class="string">&quot;Income&quot;</span>, <span class="string">&quot;Alone&quot;</span>, <span class="string">&quot;Credit&quot;</span>]]</span><br><span class="line">    test_data = data[<span class="string">&quot;Buy&quot;</span>]</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># test = pd.Series(&#123;&quot;Age&quot;:3, &quot;Income&quot;:3, &quot;Alone&quot;:2, &quot;Credit&quot;:2&#125;)</span></span><br><span class="line">    test = np.array([<span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>])</span><br><span class="line">    <span class="built_in">print</span>(test)</span><br><span class="line">   </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;测试输出&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(data.values)</span><br><span class="line">    <span class="comment"># 进行朴素贝叶斯分类模型训练</span></span><br><span class="line">    clf = MultinomialNB(alpha = <span class="number">2.0</span>)</span><br><span class="line">    clf.fit(data.values, test_data)</span><br><span class="line">    <span class="built_in">print</span>(clf.class_log_prior_)</span><br><span class="line">    <span class="comment"># 用模型预测</span></span><br><span class="line">    <span class="built_in">print</span>(clf.predict(test))</span><br><span class="line">    <span class="built_in">print</span>(clf.predict_proba(test))</span><br></pre></td></tr></table></figure>
+<p>运行结果<br>[1]<br>[[0.66684573 0.33315427]]<br>拉普拉斯平滑<br>有时会碰到零概率的问题，由于其中某个概率为0，相乘导致整个概率为0。拉普拉斯平滑通过在分子分母上加上调整解决这一问题。即上面程序里的alpha参数。<br>优点<br>有统计理论背书，分类效率稳定。<br>支持多分类任务。<br>对缺失数据不敏感。<br>算法简单，模型容易解释。<br>计算量小，支持海量数据。<br>支持增量式计算，可做在线预测。<br>缺点<br>需要有先验概率，不同值对结果有影响。<br>分类决策存在错误率。<br>对输入数据表达形式敏感。<br>“朴素”的假设对结果影响大。<br>接下来，试试用这个算法来解决泰坦尼克号问题吧。<br>课程也看完了，好像不全，还有其它方法没讲。再找找看有没有其它课程。<br>本文代码:<br><a target="_blank" rel="noopener" href="https://github.com/zwdnet/MyQuant/tree/master/21">https://github.com/zwdnet/MyQuant/tree/master/21</a></p>
+<p>我发文章的四个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的博客园博客地址： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zwdnet/">https://www.cnblogs.com/zwdnet/</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95%EF%BC%8C%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%B9%E6%B3%95/" rel="tag"># 分类算法，贝叶斯方法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/08/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B023%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA-%E5%AE%9E%E6%93%8D%EF%BC%8C%E6%B3%B0%E5%9D%A6%E5%B0%BC%E5%85%8B%E5%8F%B7%E4%B9%98%E5%AE%A2%E7%94%9F%E8%BF%98%E6%9C%BA%E4%BC%9A%E9%A2%84%E6%B5%8B/" rel="next" title="量化投资学习笔记23——支持向量机:实操，泰坦尼克号乘客生还机会预测">
+                <i class="fa fa-chevron-left"></i> 量化投资学习笔记23——支持向量机:实操，泰坦尼克号乘客生还机会预测
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/08/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B025%E2%80%94%E2%80%94%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF-%E5%AE%9E%E6%93%8D%EF%BC%8C%E6%B3%B0%E5%9D%A6%E5%B0%BC%E5%85%8B%E5%8F%B7%E4%B9%98%E5%AE%A2%E7%94%9F%E8%BF%98%E6%9C%BA%E4%BC%9A%E9%A2%84%E6%B5%8B/" rel="prev" title="量化投资学习笔记25——朴素贝叶斯:实操，泰坦尼克号乘客生还机会预测">
+                量化投资学习笔记25——朴素贝叶斯:实操，泰坦尼克号乘客生还机会预测 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">791</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">685</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1607.1k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>
