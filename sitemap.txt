@@ -1,3 +1,4 @@
+https://zwdnet.github.io/2023/08/11/%E9%9D%9E%E5%85%B8%E5%9E%8B%E6%80%A7%E7%89%99%E7%97%9B%E7%97%87%E7%8A%B6%E7%97%85%E4%BE%8B%E7%9A%84%E8%AF%8A%E6%96%AD%E6%80%9D%E8%B7%AF%E5%8F%8A%E6%80%9D%E8%80%83/
 https://zwdnet.github.io/2023/08/07/%E5%8F%A3%E8%85%94%E6%B2%BB%E7%96%97%E6%9C%AF%E5%89%8D%E5%85%A8%E8%BA%AB%E7%B3%BB%E7%BB%9F%E7%96%BE%E7%97%85%E8%AF%84%E4%BC%B0/
 https://zwdnet.github.io/2023/08/04/%E5%BC%80%E9%AB%93%E4%B9%8B%E8%B7%AF/
 https://zwdnet.github.io/2023/07/31/%E6%B5%81%E5%8A%A8%E5%A4%8D%E5%90%88%E6%A0%91%E8%84%82%E7%9A%84%E4%B8%B4%E5%BA%8A%E5%BA%94%E7%94%A8/
@@ -1470,6 +1471,7 @@ https://zwdnet.github.io/tags/XGBoost/
 https://zwdnet.github.io/tags/%E9%92%99%E5%8C%96%E6%A0%B9%E7%AE%A1/
 https://zwdnet.github.io/tags/%E7%89%99%E9%AB%93%E7%97%85%E5%AD%A6/
 https://zwdnet.github.io/tags/%E9%AB%93%E5%AE%A4%E7%A9%BF%E9%80%9A/
+https://zwdnet.github.io/tags/%E9%9D%9E%E7%89%99%E6%BA%90%E6%80%A7%E7%96%BC%E7%97%9B/
 https://zwdnet.github.io/tags/%E9%A2%8C%E9%AA%A8%E7%96%BE%E7%97%85/
 https://zwdnet.github.io/tags/%E9%AB%93%E8%85%94%E5%85%A5%E8%B7%AF/
 https://zwdnet.github.io/tags/%E6%8A%9B%E5%85%89/
