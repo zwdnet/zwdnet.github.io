@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="量化投资,实盘,技术分析," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="赵瑜敏的口腔医学专业学习博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="主要参考了:ANDREW W. LO, HARRY MAMAYSKY, AND JIANG WANG.Foundations of Technical Analysis:Computational Algorithms, Statistical Inference, and Empirical Implementation.TEIE JOURNAL OF FINANCE VOL. LV. NO.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记121——股票实盘练习12实现程序判断K线顶底形态">
+<meta property="og:url" content="https://zwdnet.github.io/2021/07/26/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0121%E2%80%94%E2%80%94%E8%82%A1%E7%A5%A8%E5%AE%9E%E7%9B%98%E7%BB%83%E4%B9%A012%E5%AE%9E%E7%8E%B0%E7%A8%8B%E5%BA%8F%E5%88%A4%E6%96%ADK%E7%BA%BF%E9%A1%B6%E5%BA%95%E5%BD%A2%E6%80%81/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="主要参考了:ANDREW W. LO, HARRY MAMAYSKY, AND JIANG WANG.Foundations of Technical Analysis:Computational Algorithms, Statistical Inference, and Empirical Implementation.TEIE JOURNAL OF FINANCE VOL. LV. NO.">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/01.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/02.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/03.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/04.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/05.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/06.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/07.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/08.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/09.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/10.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/11.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/12.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/13.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/14.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/15.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/16.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/17.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/18.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/19.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2021-07-26T08:21:50.000Z">
+<meta property="article:modified_time" content="2021-09-24T16:10:59.000Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="实盘">
+<meta property="article:tag" content="技术分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2021/07/26/量化投资学习笔记121——股票实盘练习12实现程序判断K线顶底形态/"/>
+
+
+
+
+
+  <title>量化投资学习笔记121——股票实盘练习12实现程序判断K线顶底形态 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2021/07/26/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0121%E2%80%94%E2%80%94%E8%82%A1%E7%A5%A8%E5%AE%9E%E7%9B%98%E7%BB%83%E4%B9%A012%E5%AE%9E%E7%8E%B0%E7%A8%8B%E5%BA%8F%E5%88%A4%E6%96%ADK%E7%BA%BF%E9%A1%B6%E5%BA%95%E5%BD%A2%E6%80%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记121——股票实盘练习12实现程序判断K线顶底形态</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-26T16:21:50+08:00">
+                2021-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>主要参考了:<br>ANDREW W. LO, HARRY MAMAYSKY, AND JIANG WANG.Foundations of Technical Analysis:Computational Algorithms, Statistical Inference, and Empirical Implementation.TEIE JOURNAL OF FINANCE VOL. LV. NO. 4 AUGUST 2000.<br>技术分析的一般目标是从有噪音的数据中提取出非线性模式，以在价格的时间序列数据中找到规律。这个目标意味着一些价格运动很重要，而其它的价格运动则为随机波动，应该被忽略。使用平滑估计(Smoothing Estimators)适合于该项任务。<br>先假设t时刻的价格Pt &#x3D; m(Xt) + ε，其中m(Xt)是未知的非线性函数，ε是白噪声。<br>设Xt &#x3D; t。<br>估计非线性关系最普遍的方法是平滑，估计误差可以用各种方法来估计。基本思想:在时间序列某点附近进行多次观测，将所得结果取平均值，就可以将误差抵消，从而获得对该时间序列的非线性估计。观测点与目标点距离越远，权重越小。反之权重越大。选取的点离目标点太远或太近都不好。<br>核回归<br>权重按照某种随机概率密度分布函数来分布，这也叫核(kernel)。通过调整核的带宽(bandwidth)来调整取样的距离。最常用的核函数是高斯核函数。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/01.jpg"></p>
+<p>选择带宽<br>很关键，取值较小，波动较剧烈。取值较大，波动较平滑。<br>找到一个库，叫pyGRNN，是实现Nadaraya-Watson Estimator。试了一下复现论文中的正弦函数的例子。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/02.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/03.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/04.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/05.png"></p>
+<p>可以看到带宽太大或太小，效果都不好。<br>用网格搜索，最佳参数为0.24。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/06.png"></p>
+<p>可以看到对于技术分析来说，用网格搜索出来的参数“太光滑”了。作者考虑用最佳参数的0.3倍作为实际使用的参数。<br>下面就开始进行自动技术分析。<br>算法分三步:<br>①从技术形态的几何性质方面对其进行定义，例如，局部极值(极大或极小值)。<br>②对于一个给定的时间序列数据，进行核估计，这样可以得到其极值的数值。<br>③检查估计的曲线是否包含相应的技术特征。<br>后两步是核回归的直接应用。<br>第一步是考验专业技术分析人员技能和判断的时候。没有一个算法能完全掌握一位有经验的技术分析人员的技能。但如果技术分析是一门可以被教授的艺术，那在某种程度上它就可以被定量和程序化。<br>定义五对(十个)技术形态。<br>在股价时间序列的核估计函数中可以找到一系列极值点(极大值或极小值)，依次标记为E1,E2,E3,…,En。<br>下面对几个技术形态进行定义:<br>定义1:头肩顶(Head-and-Shoulders, HS)和头肩顶(inverted head-and-shoulders, IHS)。<br>由5个极值点定义。<br>HS:<br>①E1是一个极大值。<br>②E3&gt;E1，E3&gt;E5。<br>③E1和E5在其平均值的1.5倍范围内。<br>④E2和E4在其平均值的1.5倍范围内。<br>IHS:<br>①E1是一个极小值。<br>②E3&lt;E1，E3&lt;E5。<br>③E1和E5在其平均值的1.5倍范围内。<br>④E2和E4在其平均值的1.5倍范围内。<br>原论文没图，我画一个吧。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/07.jpg"></p>
+<p>定义2:顶部扩散(Broadening tops,BTOP),底部扩散(Broadening bottoms,BBOT)<br>由五个极值定义。<br>BTOP<br>①E1是极大值。<br>②E1&lt;E3&lt;E5<br>③E2&gt;E4<br>BBOT<br>①E1是极小值。<br>②E1&gt;E3&gt;E5<br>③E2&lt;E4<br>定义3:三角顶(Triangle tops, TTOP)和三角底(Triangle bottoms, TBOT)<br>由五个极值定义<br>TTOP<br>①E1是极大值。<br>②E1&gt;E3&gt;E5<br>③E2&lt;E4<br>TBOT<br>①E1是极小值。<br>②E1&lt;E3&lt;E5<br>③E2&gt;E4<br>定义4:矩形顶(Rectangle tops,RTOP)和矩形底(Rectangle bottoms, RBOT)<br>由五个极值组成。<br>RTOP<br>①E1是极大值。<br>②顶和底与它们的均值偏离均在75%以内。<br>③最低的高点&gt;最高的低点。<br>RBOT<br>①E1是极小值。<br>②顶和底与它们的均值偏离均在75%以内。<br>③最低的高点&gt;最高的低点。<br>定义五:双顶(Double tops, DTOP)和双底(Double bottoms, DBOT)<br>由一个极值E1和后续的极大值Ea和极小值Eb组成。<br>DTOP<br>①E1是极大值。<br>②E1和Ea位于其均值的150%的范围内。<br>③Ea和E1的间隔在22个交易日以上。<br>DTOP<br>①E1是极小值。<br>②E1和Eb位于其均值的150%的范围内。<br>③Eb和E1的间隔在22个交易日以上。<br>来看具体的算法。<br>对于一个价格序列{Pt}，定义子集或窗口从t到t+l+d-1，这里l和d为固定参数。在论文中l&#x3D;35，d&#x3D;3。因此每个窗口包含38个交易数据。这使我们能把注意力集中在窗口内，避免出现较多的技术形态。但这也有个缺陷:它只能识别完整发生在窗口以内的技术形态。这一点在使用时需要牢记。<br>设定参数d的原因是在实操中我们并不会在形态刚刚发生的时候就能识别出形态来。在形态完成和我们能识别出形态来之间有个间隔。因此最后一个极值点应在t+l-1之内。这确保了我们实操时不会使用未来数据。<br>在每个窗口内，使用核回归进行估计。然后对估计结果求导，如果前后两个导数值符号相反，这就是一个极值点。<br>一个有用的结果是算法产生的极值都是间隔的，即一个极大值后面一定跟着的是极小值，反之亦然。使用和回归的好处是可以避免陷入局部极值。在找到窗口中的所有极值后，就可以按照技术形态的定义进行判断了。然后滑动到下一个窗口。<br>下面写代码，随便找了只股票，先下载最近六个月的数据。k线图是这样的。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/08.png"></p>
+<p>然后用收盘价作为原始数据，用pyGRNN做核回归，网格搜索，然后用最佳参数结果作图:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/09.png"></p>
+<p>最佳参数: {‘calibration’: ‘None’, ‘kernel’: ‘RBF’, ‘sigma’: 4.589999999999997}<br>好像太光滑了……<br>然后尝试用论文里的最佳参数的0.3倍作为实际使用的参数。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/10.png"></p>
+<p>这就差不多了。用肉眼可以看到一些技术形态了，但关键问题是用程序找出来。<br>接下来进入到识别阶段，先划分窗口，按照论文，窗口宽度为从t到t+l+d-1,l&#x3D;35,d&#x3D;3,在t到t+l-1这个范围内找技术形态。<br>写了两天，终于折腾得差不多了。我就不堆代码了，在这儿<a target="_blank" rel="noopener" href="https://github.com/zwdnet/stockpractice/blob/main/shape/shape.py">https://github.com/zwdnet/stockpractice/blob/main/shape/shape.py</a><br>先找头肩底。在筛选出来的600多只股票的股票池里找，服务器上跑了一个多小时(因为每只股票都要用核回归拟合出其参数)。运行结果:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/11.jpg"></p>
+<p>从底向上在股票软件里打开人肉看。<br>怎么找到的都不太像啊，最后选定一只，目标价(所谓颈线)，4.11。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/12.jpg"></p>
+<p>再找一下其它形态。<br>三角底<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/13.jpg"></p>
+<p>感觉都很小，找了一只，目标价4.0<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/14.jpg"></p>
+<p>矩形底没有，看看底部扩散。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/15.jpg"></p>
+<p>随便选几只吧，这个到历史最低价了。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/16.jpg"></p>
+<p>这个也差不多<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/17.jpg"></p>
+<p>到开盘看买哪只吧<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/18.jpg"></p>
+<p>今天大盘大跌，我选定这几只也在跌。于是一直观望。到了收盘前最后两分钟，我看60分钟线已经有反转了，于是以3.67入了一手嘉泽新能(601619)，止损价3.3。应该会持有的久一点，因为是按做波段的逻辑买入的。<br>目前的实操账户情况。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/91/19.jpg"></p>
+<p>接下来想改一下监控程序，增加到达止损价格就报警的功能。</p>
+<p><strong>声明:本文为个人学习记录，不构成投资建议!股市有风险，入市需谨慎!</strong></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。<br>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a><br>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a><br>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/%E5%AE%9E%E7%9B%98/" rel="tag"># 实盘</a>
+          
+            <a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/" rel="tag"># 技术分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/07/26/%E7%94%BB%E7%89%99%E7%BB%83%E4%B9%A01%E2%80%94%E2%80%94%E5%B7%A6%E4%B8%8A%E4%B8%AD%E5%88%87%E7%89%99/" rel="next" title="画牙练习1——左上中切牙">
+                <i class="fa fa-chevron-left"></i> 画牙练习1——左上中切牙
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/07/27/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0122%E2%80%94%E2%80%94%E8%82%A1%E7%A5%A8%E5%AE%9E%E7%9B%98%E7%BB%83%E4%B9%A013%E6%94%B9%E8%BF%9B%E8%82%A1%E7%A5%A8%E7%9B%91%E6%8E%A7%E7%A8%8B%E5%BA%8F/" rel="prev" title="量化投资学习笔记122——股票实盘练习13改进股票监控程序">
+                量化投资学习笔记122——股票实盘练习13改进股票监控程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">876</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">743</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1703.3k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

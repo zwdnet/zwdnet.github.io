@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,量化投资,文本分析,自然语言处理," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="赵瑜敏的口腔医学专业学习博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="文文本分析也称为文本挖掘，是从文本数据中获得高质量和可操作信息和见解所遵循的方法和过程。包括:  文本分类 文本聚类 文本摘要 情感分析 实体抽取与识别 相似性分析与关系建模  上次的文章对每年的人民日报文章画了个词云图，但结果貌似不是按词频来的。我就先计算词频再画词云图吧。 123456# 统计词频def generateCipin(year):    text &#x3D; loadText(year)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记190——文本分析实操2完善词云图及聚类分析">
+<meta property="og:url" content="https://zwdnet.github.io/2022/02/17/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0190%E2%80%94%E2%80%94%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%AE%9E%E6%93%8D2%E5%AE%8C%E5%96%84%E8%AF%8D%E4%BA%91%E5%9B%BE%E5%8F%8A%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="文文本分析也称为文本挖掘，是从文本数据中获得高质量和可操作信息和见解所遵循的方法和过程。包括:  文本分类 文本聚类 文本摘要 情感分析 实体抽取与识别 相似性分析与关系建模  上次的文章对每年的人民日报文章画了个词云图，但结果貌似不是按词频来的。我就先计算词频再画词云图吧。 123456# 统计词频def generateCipin(year):    text &#x3D; loadText(year)">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/159/merged.png">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/159/cluste.jpg">
+<meta property="article:published_time" content="2022-02-17T04:51:43.000Z">
+<meta property="article:modified_time" content="2022-02-17T04:55:38.000Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="量化投资">
+<meta property="article:tag" content="文本分析">
+<meta property="article:tag" content="自然语言处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/159/merged.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2022/02/17/量化投资学习笔记190——文本分析实操2完善词云图及聚类分析/"/>
+
+
+
+
+
+  <title>量化投资学习笔记190——文本分析实操2完善词云图及聚类分析 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2022/02/17/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0190%E2%80%94%E2%80%94%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%AE%9E%E6%93%8D2%E5%AE%8C%E5%96%84%E8%AF%8D%E4%BA%91%E5%9B%BE%E5%8F%8A%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记190——文本分析实操2完善词云图及聚类分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-02-17T12:51:43+08:00">
+                2022-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  595
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>文文本分析也称为文本挖掘，是从文本数据中获得高质量和可操作信息和见解所遵循的方法和过程。包括:</p>
+<ul>
+<li>文本分类</li>
+<li>文本聚类</li>
+<li>文本摘要</li>
+<li>情感分析</li>
+<li>实体抽取与识别</li>
+<li>相似性分析与关系建模</li>
+</ul>
+<p>上次的文章对每年的人民日报文章画了个词云图，但结果貌似不是按词频来的。我就先计算词频再画词云图吧。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 统计词频</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generateCipin</span>(<span class="params">year</span>):</span><br><span class="line">    text = loadText(year)</span><br><span class="line">    text = text.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line">    word_counts = collections.Counter(text)</span><br><span class="line">    <span class="keyword">return</span> word_counts</span><br></pre></td></tr></table></figure>
+<p>然后画词云图</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成图云</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">drawWordCloud</span>(<span class="params">fromyear = <span class="number">1957</span>, endyear = <span class="number">2003</span></span>):</span><br><span class="line">    <span class="keyword">for</span> year <span class="keyword">in</span> <span class="built_in">range</span>(fromyear, endyear):</span><br><span class="line">        <span class="comment"># 加载词频结果</span></span><br><span class="line">        cipin = generateCipin(year)</span><br><span class="line">        <span class="comment"># 生成词云</span></span><br><span class="line">        wordcloud = WordCloud(font_path=<span class="string">&quot;./ST.ttf&quot;</span>, collocations = <span class="literal">False</span>, max_words = <span class="number">100</span>, min_font_size=<span class="number">10</span>, max_font_size=<span class="number">500</span>, background_color=<span class="string">&quot;white&quot;</span>)</span><br><span class="line">        wordcloud.generate_from_frequencies(cipin)</span><br><span class="line">        wordcloud.to_file(<span class="string">&quot;./output/&quot;</span> + <span class="built_in">str</span>(year) + <span class="string">&#x27;词云图.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/159/merged.png"></p>
+<p>现在看起来就差不多了。本来想做个动态词频图，但字体出问题，没弄出来。再尝试一下文本聚类，每年的分词结果作为一个文档。<br>以下参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_40431164/article/details/81092288">这里</a>。<br>分词前面已经完成了，直接读取结果然后计算Tf-idf矩阵。<br>把每年的分词结果作为单独的一行，组成列表来聚类。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文本聚类</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">clusteText</span>(<span class="params">fromyear = <span class="number">1957</span>, endyear = <span class="number">2003</span></span>):</span><br><span class="line">    tfidf_vectorizer = TfidfVectorizer(use_idf=<span class="literal">True</span>, smooth_idf=<span class="literal">True</span>, norm=<span class="literal">None</span>, max_features=<span class="number">3000</span>, max_df=<span class="number">0.99</span>, min_df=<span class="number">0.1</span>)</span><br><span class="line">    raw_str = []</span><br><span class="line">    <span class="keyword">for</span> year <span class="keyword">in</span> <span class="built_in">range</span>(fromyear, endyear):</span><br><span class="line">        text = loadText(year)</span><br><span class="line">        raw_str.append(text)</span><br><span class="line">    <span class="comment"># raw_str = raw_str.split(&quot; &quot;)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(raw_str))</span><br><span class="line">    tfidf_matrix = tfidf_vectorizer.fit_transform(raw_str)</span><br><span class="line">    <span class="built_in">print</span>(year, tfidf_matrix.shape)</span><br><span class="line">    <span class="comment"># 计算文档相似性</span></span><br><span class="line">    dist = <span class="number">1</span> - cosine_similarity(tfidf_matrix)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文档相似性&quot;</span>, dist)</span><br><span class="line">    <span class="comment"># 获得分类</span></span><br><span class="line">    linkage_matrix = linkage(dist, method=<span class="string">&#x27;ward&#x27;</span>, metric=<span class="string">&#x27;euclidean&#x27;</span>, optimal_ordering = <span class="literal">False</span>)</span><br><span class="line">    <span class="built_in">print</span>(linkage_matrix)</span><br><span class="line">    <span class="comment"># 可视化</span></span><br><span class="line">    plt.figure(figsize = (<span class="number">25</span>, <span class="number">10</span>))</span><br><span class="line">    plt.title(<span class="string">&quot;人民日报全文聚类&quot;</span>)</span><br><span class="line">    dendrogram(</span><br><span class="line">        linkage_matrix,</span><br><span class="line">        labels = [<span class="built_in">str</span>(year) <span class="keyword">for</span> year <span class="keyword">in</span> <span class="built_in">range</span>(fromyear, endyear)],</span><br><span class="line">        leaf_rotation=-<span class="number">70</span>,</span><br><span class="line">        leaf_font_size=<span class="number">12</span></span><br><span class="line">    )</span><br><span class="line">    plt.savefig(<span class="string">&quot;./output/cluste.jpg&quot;</span>)</span><br><span class="line">    plt.close()</span><br></pre></td></tr></table></figure>
+<p>看看聚类结果</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/159/cluste.jpg"></p>
+<p>最大的两个分类里，除了一处例外，1980之前跟1980之后基本是分在了两个不同的类别里，还是蛮准的。<br>源代码: <a target="_blank" rel="noopener" href="https://github.com/zwdnet/text/blob/main/text.py">https://github.com/zwdnet/text/blob/main/text.py</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zwdnet/text/blob/main/text.py">源代码</a></p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p>
+<p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p>
+<p>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p>
+<p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+            <a href="/tags/%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90/" rel="tag"># 文本分析</a>
+          
+            <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" rel="tag"># 自然语言处理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/02/17/%E5%A4%A7%E8%BF%9E%E6%B0%91%E8%90%A5%E5%8F%A3%E8%85%94%E5%8D%8F%E4%BC%9A%E7%97%85%E4%BE%8B%E5%A4%A7%E8%B5%9B%E7%89%99%E4%BD%93%E7%89%99%E9%AB%93%E4%B8%93%E4%B8%9A5%E5%B9%B4%E5%86%A0%E5%86%9B%E7%97%85%E4%BE%8B%E5%88%86%E4%BA%AB/" rel="next" title="大连民营口腔协会病例大赛牙体牙髓专业5年冠军病例分享">
+                <i class="fa fa-chevron-left"></i> 大连民营口腔协会病例大赛牙体牙髓专业5年冠军病例分享
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/02/18/%E5%86%B7%E7%89%99%E8%83%B6%E4%BE%A7%E6%96%B9%E5%8A%A0%E5%8E%8B%E4%B8%8E%E7%83%AD%E7%89%99%E8%83%B6%E5%85%85%E5%A1%AB%E9%80%89%E5%93%AA%E4%B8%AA%EF%BC%9F/" rel="prev" title="冷牙胶侧方加压与热牙胶充填选哪个？">
+                冷牙胶侧方加压与热牙胶充填选哪个？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">876</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">743</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1703.3k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>

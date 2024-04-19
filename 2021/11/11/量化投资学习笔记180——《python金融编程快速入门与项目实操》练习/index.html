@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="实操,python,量化投资," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="赵瑜敏的口腔医学专业学习博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="这是我参加高顿的引流课程送的书。python我基本熟悉了，就看看实操项目吧。  实操1.货币兑换输入汇率和兑换金额及币种，输出换算金额。尝试用刚学的测试驱动开发方法进行，先写测试。 123456789101112# 测试换算程序def test_currency():    assert currency(6.0, &quot;3.0CNY&quot;) &#x3D;&#x3D; &quot;0.5USD&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化投资学习笔记180——《python金融编程快速入门与项目实操》练习">
+<meta property="og:url" content="https://zwdnet.github.io/2021/11/11/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0180%E2%80%94%E2%80%94%E3%80%8Apython%E9%87%91%E8%9E%8D%E7%BC%96%E7%A8%8B%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E4%B8%8E%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%93%8D%E3%80%8B%E7%BB%83%E4%B9%A0/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="这是我参加高顿的引流课程送的书。python我基本熟悉了，就看看实操项目吧。  实操1.货币兑换输入汇率和兑换金额及币种，输出换算金额。尝试用刚学的测试驱动开发方法进行，先写测试。 123456789101112# 测试换算程序def test_currency():    assert currency(6.0, &quot;3.0CNY&quot;) &#x3D;&#x3D; &quot;0.5USD&quot;">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/01.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/02.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/03.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/04.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/05.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/06.jpg">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/07.jpg">
+<meta property="article:published_time" content="2021-11-11T08:36:46.000Z">
+<meta property="article:modified_time" content="2021-11-11T08:40:25.000Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="实操">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="量化投资">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2021/11/11/量化投资学习笔记180——《python金融编程快速入门与项目实操》练习/"/>
+
+
+
+
+
+  <title>量化投资学习笔记180——《python金融编程快速入门与项目实操》练习 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2021/11/11/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0180%E2%80%94%E2%80%94%E3%80%8Apython%E9%87%91%E8%9E%8D%E7%BC%96%E7%A8%8B%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E4%B8%8E%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%93%8D%E3%80%8B%E7%BB%83%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">量化投资学习笔记180——《python金融编程快速入门与项目实操》练习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-11T16:36:46+08:00">
+                2021-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" itemprop="url" rel="index">
+                    <span itemprop="name">量化投资</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这是我参加高顿的引流课程送的书。python我基本熟悉了，就看看实操项目吧。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/01.jpg"></p>
+<h3 id="实操1-货币兑换"><a href="#实操1-货币兑换" class="headerlink" title="实操1.货币兑换"></a>实操1.货币兑换</h3><p>输入汇率和兑换金额及币种，输出换算金额。<br>尝试用刚学的测试驱动开发方法进行，先写测试。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 测试换算程序</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_currency</span>():</span><br><span class="line">    <span class="keyword">assert</span> currency(<span class="number">6.0</span>, <span class="string">&quot;3.0CNY&quot;</span>) == <span class="string">&quot;0.5USD&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> currency(<span class="number">6.0</span>, <span class="string">&quot;5.0USD&quot;</span>) == <span class="string">&quot;30CNY&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> currency(-<span class="number">3.0</span>, <span class="string">&quot;2.0USD&quot;</span>) == <span class="string">&quot;汇率需大于0&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> currency(<span class="number">3.0</span>, <span class="string">&quot;-2.0CNY&quot;</span>) == <span class="string">&quot;金额需大于0&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> currency(<span class="number">3.0</span>, <span class="string">&quot;5.0USA&quot;</span>) == <span class="string">&quot;货币单位错误，需为CNY或USD&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 货币兑换程序</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">currency</span>(<span class="params">rate, amount</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;测试&quot;</span></span><br></pre></td></tr></table></figure>
+<p>运行测试</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/02.jpg"></p>
+<p>然后实现currency使测试通过。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 货币兑换程序</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">currency</span>(<span class="params">rate, amount</span>):</span><br><span class="line">    <span class="keyword">if</span> rate &lt;= <span class="number">0.0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;汇率需大于0&quot;</span></span><br><span class="line">    curr = amount[-<span class="number">3</span>:]</span><br><span class="line">    money = <span class="built_in">eval</span>(amount[<span class="number">0</span>:<span class="number">3</span>])</span><br><span class="line">    <span class="keyword">if</span> curr != <span class="string">&quot;CNY&quot;</span> <span class="keyword">and</span> curr != <span class="string">&quot;USD&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;货币单位错误，需为CNY或USD&quot;</span></span><br><span class="line">    <span class="keyword">if</span> money &lt;= <span class="number">0.0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;金额需大于0&quot;</span></span><br><span class="line">    <span class="keyword">if</span> curr == <span class="string">&quot;CNY&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(money / rate) + <span class="string">&quot;USD&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> curr == <span class="string">&quot;USD&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(money * rate) + <span class="string">&quot;CNY&quot;</span></span><br></pre></td></tr></table></figure>
+<p>测试通过了，现在写输入程序和主程序。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输入程序</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_input</span>():</span><br><span class="line">    rate = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入汇率:&quot;</span>))</span><br><span class="line">    amount = <span class="built_in">input</span>(<span class="string">&quot;请输入换算金额，以CNY/USD结尾:&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> rate, amount</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    datas = get_input()</span><br><span class="line">    result = currency(datas[<span class="number">0</span>], datas[<span class="number">1</span>])</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;换算结果为:&quot;</span>, result)</span><br></pre></td></tr></table></figure>
+<p>现在程序可以运行了。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/03.jpg"></p>
+<p>但还是有bug，如果除了最后3位输入的不是数字会有问题。再增加测试。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span> currency(<span class="number">6.0</span>, <span class="string">&quot;6.5DUSA&quot;</span>) == <span class="string">&quot;输入的金额不是数字&quot;</span></span><br></pre></td></tr></table></figure>
+<p>测试失败，还要增加个判断字符串是否是数字的函数:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 测试字符串判断函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_isdigit</span>():</span><br><span class="line">    <span class="keyword">assert</span> isdigit(<span class="string">&quot;666&quot;</span>) == <span class="literal">True</span></span><br><span class="line">    <span class="keyword">assert</span> isdigit(<span class="string">&quot;666.66&quot;</span>) == <span class="literal">True</span></span><br><span class="line">    <span class="keyword">assert</span> isdigit(<span class="string">&quot;-555.66&quot;</span>) == <span class="literal">True</span></span><br><span class="line">    <span class="keyword">assert</span> isdigit(<span class="string">&quot;655.54+&quot;</span>) == <span class="literal">False</span></span><br><span class="line">    <span class="keyword">assert</span> isdigit(<span class="string">&quot;-544gf&quot;</span>) == <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="comment"># 判断字符串是否为数字</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">isdigit</span>(<span class="params">money</span>):</span><br><span class="line">    <span class="keyword">if</span> money.count(<span class="string">&#x27;.&#x27;</span>) == <span class="number">1</span>:</span><br><span class="line">        left = money.split(<span class="string">&quot;.&quot;</span>)[<span class="number">0</span>]</span><br><span class="line">        right = money.split(<span class="string">&quot;.&quot;</span>)[<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> right.isdigit():</span><br><span class="line">            <span class="keyword">if</span> left.count(<span class="string">&quot;-&quot;</span>) == <span class="number">1</span> <span class="keyword">and</span> left.startswith(<span class="string">&quot;-&quot;</span>):</span><br><span class="line">                num = left[<span class="number">1</span>:]</span><br><span class="line">                <span class="keyword">if</span> num.isdigit():</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">elif</span> left.isdigit():</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">elif</span> money.count(<span class="string">&#x27;.&#x27;</span>) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> money.isdigit()</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<p>测试通过了。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/04.jpg"></p>
+<p>接下来可以重构，把错误检测的程序提炼成一个函数吧。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 货币兑换程序</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">currency</span>(<span class="params">rate, amount</span>):</span><br><span class="line">    res = judge(rate, amount)</span><br><span class="line">    <span class="keyword">if</span> res != <span class="string">&quot;OK&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    curr = amount[-<span class="number">3</span>:]</span><br><span class="line">    money = <span class="built_in">eval</span>(amount[<span class="number">0</span>:-<span class="number">3</span>])</span><br><span class="line">    <span class="keyword">if</span> curr == <span class="string">&quot;CNY&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(money / rate) + <span class="string">&quot;USD&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> curr == <span class="string">&quot;USD&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(money * rate) + <span class="string">&quot;CNY&quot;</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="comment"># 测试判断程序</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_judge</span>():</span><br><span class="line">    <span class="keyword">assert</span> judge(<span class="number">6.0</span>, <span class="string">&quot;3.0CNY&quot;</span>) == <span class="string">&quot;OK&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> judge(<span class="number">6.0</span>, <span class="string">&quot;5.0USD&quot;</span>) == <span class="string">&quot;OK&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> judge(-<span class="number">3.0</span>, <span class="string">&quot;2.0USD&quot;</span>) == <span class="string">&quot;汇率需大于0&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> judge(<span class="number">3.0</span>, <span class="string">&quot;-2.0CNY&quot;</span>) == <span class="string">&quot;金额需大于0&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> judge(<span class="number">3.0</span>, <span class="string">&quot;5.0USA&quot;</span>) == <span class="string">&quot;货币单位错误，需为CNY或USD&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> judge(<span class="number">6.0</span>, <span class="string">&quot;6.5DUSA&quot;</span>) == <span class="string">&quot;输入的金额不是数字&quot;</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="comment"># 判断参数是否合法</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">judge</span>(<span class="params">rate, amount</span>):</span><br><span class="line">    <span class="keyword">if</span> rate &lt;= <span class="number">0.0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;汇率需大于0&quot;</span></span><br><span class="line">    curr = amount[-<span class="number">3</span>:]</span><br><span class="line">    <span class="keyword">if</span> isdigit(amount[<span class="number">0</span>:-<span class="number">3</span>]) == <span class="literal">False</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;输入的金额不是数字&quot;</span></span><br><span class="line">    <span class="keyword">if</span> curr != <span class="string">&quot;CNY&quot;</span> <span class="keyword">and</span> curr != <span class="string">&quot;USD&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;货币单位错误，需为CNY或USD&quot;</span></span><br><span class="line">    money = <span class="built_in">eval</span>(amount[<span class="number">0</span>:-<span class="number">3</span>])</span><br><span class="line">    <span class="keyword">if</span> money &lt;= <span class="number">0.0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;金额需大于0&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;OK&quot;</span></span><br></pre></td></tr></table></figure>
+<p>基本搞定。<br>完整程序: <a target="_blank" rel="noopener" href="https://github.com/zwdnet/gaodun/blob/main/01_currency.py">https://github.com/zwdnet/gaodun/blob/main/01_currency.py</a></p>
+<h3 id="实操2-计算资金的时间价值"><a href="#实操2-计算资金的时间价值" class="headerlink" title="实操2:计算资金的时间价值"></a>实操2:计算资金的时间价值</h3><p>套公式，直接写吧。<br>代码:<a target="_blank" rel="noopener" href="https://github.com/zwdnet/gaodun/blob/main/02_value.py">https://github.com/zwdnet/gaodun/blob/main/02_value.py</a></p>
+<h3 id="实操3-期权定价模型"><a href="#实操3-期权定价模型" class="headerlink" title="实操3:期权定价模型"></a>实操3:期权定价模型</h3><p>其它实例都是语言的直接运用，pass了。<br>期权赋予持有人在某一特定日期或该日期之前的任何时间以固定价格购进或出售标的的资产的权利。<br>看涨期权，也称认购期权，是指期权买方向卖方支付一定数额的权利金之后，即拥有在期权的有效期内，按约定价格向期权卖方买入一定数量的标的资产的权利。对买方为权利，对卖方为义务。看跌期权，也称认沽期权。买方在约定时间内以约定价格向卖方卖出一定量资产的权利。<br>欧式期权:在约定日当日决定是否行权，美式期权:再约定期前任何交易日觉得是否行权。<br>直接撸代码吧。<br>代码:<a target="_blank" rel="noopener" href="https://github.com/zwdnet/gaodun/blob/main/03_future.py">https://github.com/zwdnet/gaodun/blob/main/03_future.py</a></p>
+<h3 id="实操4-寻找最优投资组合"><a href="#实操4-寻找最优投资组合" class="headerlink" title="实操4:寻找最优投资组合"></a>实操4:寻找最优投资组合</h3><p>期望收益率给定时，寻求风险最小的投资组合;风险给定时，寻求预期收益率最高的投资组合。<br>模型:马科维茨的均值-方差模型。<br>实操，用建行、上汽、茅台三只股票的历史数据来构建投资组合。原文是直接读取csv文件数据，但数据要扫码加客服才有(引流……)，我自己下载数据计算每日收益率组成数据，比较了一下，书上用的应该是不复权的数据。<br>先模拟10000次不同权重的投资组合结果，输出收益率与标准差(风险)的比值:</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/05.jpg"></p>
+<p>接着确定投资组合的有效前沿。</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/06.jpg"></p>
+<p>加入无风险资产后的最优市场组合</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/149/07.jpg"></p>
+<p>最后结果:<br>[array([0.548, 0.   , 0.452])]<br>跟原文有差异。<br>代码:<a target="_blank" rel="noopener" href="https://github.com/zwdnet/gaodun/blob/main/04_invest.py">https://github.com/zwdnet/gaodun/blob/main/04_invest.py</a></p>
+<p>看了这本书，感觉对0基础的挺合适，讲得很细。</p>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p>
+<p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p>
+<p>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p>
+<p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AE%9E%E6%93%8D/" rel="tag"># 实操</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84/" rel="tag"># 量化投资</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/11/10/%E9%87%8F%E5%8C%96%E6%8A%95%E8%B5%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0179%E2%80%94%E2%80%94%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" rel="next" title="量化投资学习笔记179——测试驱动开发笔记">
+                <i class="fa fa-chevron-left"></i> 量化投资学习笔记179——测试驱动开发笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/11/19/%E5%8F%A3%E8%85%94%E7%96%BE%E7%97%85%E5%A4%9A%E5%AD%A6%E7%A7%91%E5%8D%8F%E4%BD%9C%E8%AF%8A%E7%96%97%E5%AD%A6%E6%9C%AF%E8%AE%BA%E5%9D%9B%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0/" rel="prev" title="口腔疾病多学科协作诊疗学术论坛听课笔记">
+                口腔疾病多学科协作诊疗学术论坛听课笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">876</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">743</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E6%93%8D1-%E8%B4%A7%E5%B8%81%E5%85%91%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">实操1.货币兑换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E6%93%8D2-%E8%AE%A1%E7%AE%97%E8%B5%84%E9%87%91%E7%9A%84%E6%97%B6%E9%97%B4%E4%BB%B7%E5%80%BC"><span class="nav-number">2.</span> <span class="nav-text">实操2:计算资金的时间价值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E6%93%8D3-%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">实操3:期权定价模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E6%93%8D4-%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E6%8A%95%E8%B5%84%E7%BB%84%E5%90%88"><span class="nav-number">4.</span> <span class="nav-text">实操4:寻找最优投资组合</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1703.3k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>
