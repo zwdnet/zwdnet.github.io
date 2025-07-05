@@ -165,7 +165,7 @@
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -406,7 +406,7 @@
       
         <p>先看看能不能直接用talib。<br>用真实的股价数据测试，发现结果跟数据规模有关。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/104/01.jpg"></p>
 <p>在回测里使用，发现有问题，backtrader的数据是LineBuffer，而talib要求为np.array。我都想自己写了，后来一搜，发现用backtrader自带的talib库，前面加个bt就行了。<br>退出条件想了半天，发现backtrader有自带的跟踪止损。在下买单时设置:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p1 = self.datas[<span class="number">0</span>].close</span><br><span class="line">p2 = p1*(<span class="number">1</span>+self.params.stopup) <span class="comment"># 止盈价</span></span><br><span class="line">p3 = p1*(<span class="number">1</span>-self.params.stopdown) <span class="comment"># 止损价</span></span><br><span class="line">buy_ord = self.buy_bracket(limitprice = p2, stopprice = p3, exectype = bt.Order.Market)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p1 = <span class="variable language_">self</span>.datas[<span class="number">0</span>].close</span><br><span class="line">p2 = p1*(<span class="number">1</span>+<span class="variable language_">self</span>.params.stopup) <span class="comment"># 止盈价</span></span><br><span class="line">p3 = p1*(<span class="number">1</span>-<span class="variable language_">self</span>.params.stopdown) <span class="comment"># 止损价</span></span><br><span class="line">buy_ord = <span class="variable language_">self</span>.buy_bracket(limitprice = p2, stopprice = p3, exectype = bt.Order.Market)</span><br></pre></td></tr></table></figure>
 <p>如上是股价上涨到p2时止盈，股价下跌到p3时止损。<br>对我实盘买的电子城股票进行一下五年的回测:<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/104/02.png"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/104/03.png"></p>
 <p>持股的时间很短，年化收益2.34%。还是去买余额宝吧……<br>哈哈，调一下参数看看。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/104/04.jpg"></p>
 <p>调参结果，最佳参数是判断成交量用6天均线，比例用110%，止盈20%，止损5%。但年化收益率仍然只有2.14%。还是买余额宝吧。哈哈。<br>这也许跟选的个股有关系，中间两年一直大跌。明天在1700多只的股票池里回测看看。<a target="_blank" rel="noopener" href="https://github.com/zwdnet/stockpractice/blob/main/vva/doTest.py">代码</a><br>再来看实盘，我买了又跌了……哈哈。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/104/05.jpg"><br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0178-QTLearn/104/06.jpg"></p>
