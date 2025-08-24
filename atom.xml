@@ -6,7 +6,7 @@
   <link href="https://zwdnet.github.io/atom.xml" rel="self"/>
   
   <link href="https://zwdnet.github.io/"/>
-  <updated>2025-08-23T11:18:57.864Z</updated>
+  <updated>2025-08-24T10:22:46.481Z</updated>
   <id>https://zwdnet.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>47口腔数字化种植修复技术应用与进展-全程数字化种植导板的拟合原理</title>
+    <link href="https://zwdnet.github.io/2025/08/24/47%E5%8F%A3%E8%85%94%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E4%B8%8E%E8%BF%9B%E5%B1%95-%E5%85%A8%E7%A8%8B%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E5%AF%BC%E6%9D%BF%E7%9A%84%E6%8B%9F%E5%90%88%E5%8E%9F%E7%90%86/"/>
+    <id>https://zwdnet.github.io/2025/08/24/47%E5%8F%A3%E8%85%94%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E4%B8%8E%E8%BF%9B%E5%B1%95-%E5%85%A8%E7%A8%8B%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E5%AF%BC%E6%9D%BF%E7%9A%84%E6%8B%9F%E5%90%88%E5%8E%9F%E7%90%86/</id>
+    <published>2025-08-24T04:36:35.000Z</published>
+    <updated>2025-08-24T10:22:46.481Z</updated>
+    
+    <content type="html"><![CDATA[<p>主讲人:周宏志老师</p><h3 id="全程数字化导板"><a href="#全程数字化导板" class="headerlink" title="全程数字化导板"></a>全程数字化导板</h3><ul><li>数字化信息采集与设计</li><li>数字化制作</li></ul><h3 id="数据采集"><a href="#数据采集" class="headerlink" title="数据采集"></a>数据采集</h3><ul><li>术前CBCT</li><li>口扫获取数字化印模</li><li>用软件将二者融合，三维重建，个性化设计，制作导板。</li><li>较大的缺隙，用放射导板提供一个或多个阻射点来对齐帮助重建。</li><li>扫描过程中必须收集患者颌骨信息。</li><li>建议在放射导板上做一个凹槽并在填充阻射材料前进行扫描。</li><li>STL和DICOM文件必须包含相同的信息。如果患者需要使用放射导板，需要用放射导板进行口内&#x2F;口外扫描。</li></ul><h4 id="种植导板的优势"><a href="#种植导板的优势" class="headerlink" title="种植导板的优势"></a>种植导板的优势</h4><ul><li>设计软件的应用</li><li>整合了颌骨信息与临床医生的术前设计</li><li>冠部修复信息与种植体设计信息、骨组织信息结合在一起</li><li>提高了种植的精确度</li><li>减少种植以及修复并发症的发生</li><li>缩短了手术时间</li><li>减少了手术创伤</li><li>提高了美学预期</li><li>通过术前修复效果与各治疗步骤的可视化展示，减少纠纷</li><li>种植医生的专业知识、外科技巧、临床经验、以及对数字化软件和配套工具的驾驭能力和对数字化导板误差的纠错能力——数字化体系的构成要素</li><li>种植医生是种植完成的总设计师，种植导板的技术人员只是辅助参与工作，所以对临床种植医生要全面要求</li></ul><h4 id="导板设计软件"><a href="#导板设计软件" class="headerlink" title="导板设计软件"></a>导板设计软件</h4><p>国外国内都有。<br>该美、Eguide、3-3d、天津彩立方、杭州六维</p><h4 id="数字化导板应用范围和条件"><a href="#数字化导板应用范围和条件" class="headerlink" title="数字化导板应用范围和条件"></a>数字化导板应用范围和条件</h4><ul><li>广泛应用于不翻瓣技术、特殊解剖结构区、美学区、种植即刻修复、全口无牙合等复杂病例的修复中</li><li>但数字化导板不是万能的，它不能完全替代医生的临床经验和对复杂手术的把握</li><li>其准确度也需要临床医生掌握和遵循数字化导板的设计操作流程，清晰的三维CT影像和合格的模型或口内准确的扫描数据</li><li>避免或减少骨增量手术同时有效避开解剖风险</li><li>为医生提供颌骨三维解剖结构和预期修复体轮廓信息</li><li>从而实现以修复为导向的种植体设计方案及手术植入</li></ul><h4 id="数字化种植导板的原理"><a href="#数字化种植导板的原理" class="headerlink" title="数字化种植导板的原理"></a>数字化种植导板的原理</h4><p>预备深度的控制:需要准确计算-导环顶-种植体平台距离-补偿距离S</p><h4 id="数字化种植导板分类"><a href="#数字化种植导板分类" class="headerlink" title="数字化种植导板分类"></a>数字化种植导板分类</h4><p>按约束引导程度:</p><ul><li>全程导板<ul><li>开口度良好，种植体距离邻牙的位置能够放置套环。</li></ul></li><li>半程导板<ul><li>开口度良好，种植体距离邻牙的位置能够放置套环</li></ul></li><li>先锋钻导板<ul><li>开口受限，种植体距离邻牙不能放置套环。</li></ul></li></ul><p>口内就位后支持方式:</p><ul><li>牙支持导板</li><li>粘膜支持导板</li><li>骨支持导板</li><li>混合支持导板</li></ul><p>导板制作生成方式:</p><ul><li>数控切削种植导板</li><li>快速制造技术种植导板</li><li>光固化树脂速成型种植导板3D打印法</li></ul><h3 id="数字化导板的制作"><a href="#数字化导板的制作" class="headerlink" title="数字化导板的制作"></a>数字化导板的制作</h3><p>软件有NobelGuide、Simplant、Med3D、Strumann codiagnostix</p><ul><li>数据匹配</li><li>修复体设计<ul><li>相邻天然牙边缘相距7mm以上</li><li>植体之间中轴线相距7mm以上</li><li>避免关键位点和颌力较大区域出现悬臂</li><li>修复体长期稳定、复合生物力学、生物学、美学原则</li><li>生成虚拟导板，放置导环。</li><li>加工导板</li></ul></li></ul><h3 id="全程数字化导板手术流程"><a href="#全程数字化导板手术流程" class="headerlink" title="全程数字化导板手术流程"></a>全程数字化导板手术流程</h3><ul><li>全程数字化导板也就是常说的全程完全限制性导板，由于术前已将种植体三维空间位置反映到导板上，故手术操作相对简单，只需按步骤操作进行即可，但需要专门配套外科手术引导压板工具；</li><li>一般先将种植导板口内就位固定，牙列缺失粘膜支持式的必须用固位钉骨内固定，使用与逐级备洞扩孔钻直径匹配的引导压板，按设计逐级备洞，植入种植体，戴入临时修复体；</li><li>数字化导板使用使手术简单化，但不允许在手术中改变种植体位置及方向，同时由于导板套筒、压板、钻针之间缝隙极小，导致水冷不充分，易过度产热。</li><li>种植导板清洗:95%以上酒精超声清洗2次。</li><li>避光、阴凉、干燥</li><li>导板消毒:碘伏或者75%酒精，75%酒精清洗2次，0.9%生理盐水冲洗3次。</li></ul><h3 id="全程数字化导板精确度"><a href="#全程数字化导板精确度" class="headerlink" title="全程数字化导板精确度"></a>全程数字化导板精确度</h3><ul><li>每个环节都有可能有误差，误差会积累。</li><li>使用导板偏差要低于不使用导板。</li><li>增加模板固位钉数目可以减少偏差 </li><li>牙支持式外科导板误差最小</li><li>增加稳定性的方法:<ul><li>增加导板覆盖范围</li><li>在缺牙区的唇颊侧或舌腭侧添加固位钉</li><li>助手采用跨牙弓手压种植导板的辅助稳定方法</li></ul></li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;主讲人:周宏志老师&lt;/p&gt;
+&lt;h3 id=&quot;全程数字化导板&quot;&gt;&lt;a href=&quot;#全程数字化导板&quot; class=&quot;headerlink&quot; title=&quot;全程数字化导板&quot;&gt;&lt;/a&gt;全程数字化导板&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;数字化信息采集与设计&lt;/li&gt;
+&lt;li&gt;数字化制作&lt;/</summary>
+      
+    
+    
+    
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    
+    
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    
+    <category term="线上课" scheme="https://zwdnet.github.io/tags/%E7%BA%BF%E4%B8%8A%E8%AF%BE/"/>
+    
+    <category term="数字化" scheme="https://zwdnet.github.io/tags/%E6%95%B0%E5%AD%97%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>46口腔数字化种植修复技术应用与进展-无牙合种植修复中数字化辅助临床诊疗程序</title>
@@ -593,37 +626,6 @@
       
     <summary type="html">&lt;p&gt;主讲人:谭荣老师&lt;/p&gt;
 &lt;h3 id=&quot;美学区种植并发症的分类&quot;&gt;&lt;a href=&quot;#美学区种植并发症的分类&quot; class=&quot;headerlink&quot; title=&quot;美学区种植并发症的分类&quot;&gt;&lt;/a&gt;美学区种植并发症的分类&lt;/h3&gt;&lt;h4 id=&quot;美学并发症&quot;&gt;&lt;a hre</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="线上课" scheme="https://zwdnet.github.io/tags/%E7%BA%BF%E4%B8%8A%E8%AF%BE/"/>
-    
-    <category term="位点定点" scheme="https://zwdnet.github.io/tags/%E4%BD%8D%E7%82%B9%E5%AE%9A%E7%82%B9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>28口腔种植及修复过程中相关并发症的处理-种植位点的简易定点方式</title>
-    <link href="https://zwdnet.github.io/2025/08/02/28%E5%8F%A3%E8%85%94%E7%A7%8D%E6%A4%8D%E5%8F%8A%E4%BF%AE%E5%A4%8D%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9B%B8%E5%85%B3%E5%B9%B6%E5%8F%91%E7%97%87%E7%9A%84%E5%A4%84%E7%90%86-%E7%A7%8D%E6%A4%8D%E4%BD%8D%E7%82%B9%E7%9A%84%E7%AE%80%E6%98%93%E5%AE%9A%E7%82%B9%E6%96%B9%E5%BC%8F/"/>
-    <id>https://zwdnet.github.io/2025/08/02/28%E5%8F%A3%E8%85%94%E7%A7%8D%E6%A4%8D%E5%8F%8A%E4%BF%AE%E5%A4%8D%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9B%B8%E5%85%B3%E5%B9%B6%E5%8F%91%E7%97%87%E7%9A%84%E5%A4%84%E7%90%86-%E7%A7%8D%E6%A4%8D%E4%BD%8D%E7%82%B9%E7%9A%84%E7%AE%80%E6%98%93%E5%AE%9A%E7%82%B9%E6%96%B9%E5%BC%8F/</id>
-    <published>2025-08-02T02:55:02.000Z</published>
-    <updated>2025-08-02T10:01:24.451Z</updated>
-    
-    <content type="html"><![CDATA[<p>主讲人:蔡炜老师</p><h3 id="种植位点的三维关系"><a href="#种植位点的三维关系" class="headerlink" title="种植位点的三维关系"></a>种植位点的三维关系</h3><p>非常关键。<br>位置正确，远期效果有保障。</p><h3 id="决定因素"><a href="#决定因素" class="headerlink" title="决定因素"></a>决定因素</h3><ul><li>定位</li><li>方向</li><li>深度</li></ul><h3 id="定位异常"><a href="#定位异常" class="headerlink" title="定位异常"></a>定位异常</h3><ul><li>视觉误差引起偏差<br>最常见为后牙定位偏远中。原因是从前往后看的时候前面邻牙阻挡视线引起误差。<br>损伤邻牙，侧方偏斜穿孔。</li><li>植入位置过深 </li><li>植体长度选择不当，穿通鼻底</li><li>植入植体过浅:修复形态异常，穿龈角度过大</li><li>植入植体过深:损伤神经</li></ul><h3 id="正确定位"><a href="#正确定位" class="headerlink" title="正确定位"></a>正确定位</h3><h4 id="术前导板"><a href="#术前导板" class="headerlink" title="术前导板"></a>术前导板</h4><p>缺点:费用、时间、便捷性<br>要求:操作简便。节省时间，一次性完成种植。效果可靠，定位准确。</p><h4 id="基本操作习惯和要求"><a href="#基本操作习惯和要求" class="headerlink" title="基本操作习惯和要求"></a>基本操作习惯和要求</h4><ul><li>正确角度:摆正视线方向，防止视线阻挡</li><li>随时验证:随时平行杆验证</li><li>多向观察:颊侧、颌向</li><li>垂直上下:手腕不动，上下提拉。</li></ul><h4 id="设定牙齿宽度边界点"><a href="#设定牙齿宽度边界点" class="headerlink" title="设定牙齿宽度边界点"></a>设定牙齿宽度边界点</h4><ul><li>多牙缺失，可以翻瓣后根据缺牙间隙宽度，先定点合理分配每个牙齿的宽度。</li><li>在牙槽骨上确定了每个牙齿分配位置以后，在相应的位置正中定点决定种植位点。</li><li>定位:上下颌7正中咬合时远中位置平齐。远中V字形切口切开翻瓣。定位点远中的牙龈不需要翻瓣。可据此确定修复间隙。</li><li>平整:刃状的牙槽嵴，要进行牙槽嵴顶的修整。</li><li>定间隔点:用球钻。</li><li>定种植点。在种植牙位的中心点。</li><li>种植:用平行杆验证。发现问题及时纠正。每一钻都要验证。</li></ul><h4 id="简易导板"><a href="#简易导板" class="headerlink" title="简易导板"></a>简易导板</h4><p>取模灌模-在模型上定点-压膜机压膜，在相应位置打孔，作为备洞时的定点依据。<br>简易导板只能用来定位，对方向深度没用。需要术者精准控制</p><h4 id="导板工具盒协助定位"><a href="#导板工具盒协助定位" class="headerlink" title="导板工具盒协助定位"></a>导板工具盒协助定位</h4><ul><li>颈部有不同直径金属环的导杆。不同直径的硅胶圈。可以定位修复体的宽度。</li><li>限位深度卡盒。确定深度。</li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;主讲人:蔡炜老师&lt;/p&gt;
-&lt;h3 id=&quot;种植位点的三维关系&quot;&gt;&lt;a href=&quot;#种植位点的三维关系&quot; class=&quot;headerlink&quot; title=&quot;种植位点的三维关系&quot;&gt;&lt;/a&gt;种植位点的三维关系&lt;/h3&gt;&lt;p&gt;非常关键。&lt;br&gt;位置正确，远期效果有保障。&lt;/p&gt;</summary>
       
     
     

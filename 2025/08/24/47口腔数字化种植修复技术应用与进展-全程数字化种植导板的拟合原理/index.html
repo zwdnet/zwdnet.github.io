@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<meta name="google-site-verification" content="E9deYnivN5MuHMuIfiMZZfS0alv-d_0UjcwjBL79lGU" />
+
+
+
+<meta name="baidu-site-verification" content="iHYWJxscwD" />
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="口腔修复,种植,线上课,数字化," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="赵瑜敏的口腔医学专业学习博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="主讲人:周宏志老师 全程数字化导板 数字化信息采集与设计 数字化制作  数据采集 术前CBCT 口扫获取数字化印模 用软件将二者融合，三维重建，个性化设计，制作导板。 较大的缺隙，用放射导板提供一个或多个阻射点来对齐帮助重建。 扫描过程中必须收集患者颌骨信息。 建议在放射导板上做一个凹槽并在填充阻射材料前进行扫描。 STL和DICOM文件必须包含相同的信息。如果患者需要使用放射导板，需要用放射导板">
+<meta property="og:type" content="article">
+<meta property="og:title" content="47口腔数字化种植修复技术应用与进展-全程数字化种植导板的拟合原理">
+<meta property="og:url" content="https://zwdnet.github.io/2025/08/24/47%E5%8F%A3%E8%85%94%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E4%B8%8E%E8%BF%9B%E5%B1%95-%E5%85%A8%E7%A8%8B%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E5%AF%BC%E6%9D%BF%E7%9A%84%E6%8B%9F%E5%90%88%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="赵瑜敏的口腔医学专业学习博客">
+<meta property="og:description" content="主讲人:周宏志老师 全程数字化导板 数字化信息采集与设计 数字化制作  数据采集 术前CBCT 口扫获取数字化印模 用软件将二者融合，三维重建，个性化设计，制作导板。 较大的缺隙，用放射导板提供一个或多个阻射点来对齐帮助重建。 扫描过程中必须收集患者颌骨信息。 建议在放射导板上做一个凹槽并在填充阻射材料前进行扫描。 STL和DICOM文件必须包含相同的信息。如果患者需要使用放射导板，需要用放射导板">
+<meta property="og:locale">
+<meta property="og:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+<meta property="article:published_time" content="2025-08-24T04:36:35.000Z">
+<meta property="article:modified_time" content="2025-08-24T10:22:46.481Z">
+<meta property="article:author" content="赵瑜敏">
+<meta property="article:tag" content="口腔修复">
+<meta property="article:tag" content="种植">
+<meta property="article:tag" content="线上课">
+<meta property="article:tag" content="数字化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zwdnet.github.io/2025/08/24/47口腔数字化种植修复技术应用与进展-全程数字化种植导板的拟合原理/"/>
+
+
+
+
+
+  <title>47口腔数字化种植修复技术应用与进展-全程数字化种植导板的拟合原理 | 赵瑜敏的口腔医学专业学习博客</title>
+  
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵瑜敏的口腔医学专业学习博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zwdnet.github.io/2025/08/24/47%E5%8F%A3%E8%85%94%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E4%B8%8E%E8%BF%9B%E5%B1%95-%E5%85%A8%E7%A8%8B%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E5%AF%BC%E6%9D%BF%E7%9A%84%E6%8B%9F%E5%90%88%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵瑜敏的口腔医学专业学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">47口腔数字化种植修复技术应用与进展-全程数字化种植导板的拟合原理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2025-08-24T12:36:35+08:00">
+                2025-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/" itemprop="url" rel="index">
+                    <span itemprop="name">口腔修复</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>主讲人:周宏志老师</p>
+<h3 id="全程数字化导板"><a href="#全程数字化导板" class="headerlink" title="全程数字化导板"></a>全程数字化导板</h3><ul>
+<li>数字化信息采集与设计</li>
+<li>数字化制作</li>
+</ul>
+<h3 id="数据采集"><a href="#数据采集" class="headerlink" title="数据采集"></a>数据采集</h3><ul>
+<li>术前CBCT</li>
+<li>口扫获取数字化印模</li>
+<li>用软件将二者融合，三维重建，个性化设计，制作导板。</li>
+<li>较大的缺隙，用放射导板提供一个或多个阻射点来对齐帮助重建。</li>
+<li>扫描过程中必须收集患者颌骨信息。</li>
+<li>建议在放射导板上做一个凹槽并在填充阻射材料前进行扫描。</li>
+<li>STL和DICOM文件必须包含相同的信息。如果患者需要使用放射导板，需要用放射导板进行口内&#x2F;口外扫描。</li>
+</ul>
+<h4 id="种植导板的优势"><a href="#种植导板的优势" class="headerlink" title="种植导板的优势"></a>种植导板的优势</h4><ul>
+<li>设计软件的应用</li>
+<li>整合了颌骨信息与临床医生的术前设计</li>
+<li>冠部修复信息与种植体设计信息、骨组织信息结合在一起</li>
+<li>提高了种植的精确度</li>
+<li>减少种植以及修复并发症的发生</li>
+<li>缩短了手术时间</li>
+<li>减少了手术创伤</li>
+<li>提高了美学预期</li>
+<li>通过术前修复效果与各治疗步骤的可视化展示，减少纠纷</li>
+<li>种植医生的专业知识、外科技巧、临床经验、以及对数字化软件和配套工具的驾驭能力和对数字化导板误差的纠错能力——数字化体系的构成要素</li>
+<li>种植医生是种植完成的总设计师，种植导板的技术人员只是辅助参与工作，所以对临床种植医生要全面要求</li>
+</ul>
+<h4 id="导板设计软件"><a href="#导板设计软件" class="headerlink" title="导板设计软件"></a>导板设计软件</h4><p>国外国内都有。<br>该美、Eguide、3-3d、天津彩立方、杭州六维</p>
+<h4 id="数字化导板应用范围和条件"><a href="#数字化导板应用范围和条件" class="headerlink" title="数字化导板应用范围和条件"></a>数字化导板应用范围和条件</h4><ul>
+<li>广泛应用于不翻瓣技术、特殊解剖结构区、美学区、种植即刻修复、全口无牙合等复杂病例的修复中</li>
+<li>但数字化导板不是万能的，它不能完全替代医生的临床经验和对复杂手术的把握</li>
+<li>其准确度也需要临床医生掌握和遵循数字化导板的设计操作流程，清晰的三维CT影像和合格的模型或口内准确的扫描数据</li>
+<li>避免或减少骨增量手术同时有效避开解剖风险</li>
+<li>为医生提供颌骨三维解剖结构和预期修复体轮廓信息</li>
+<li>从而实现以修复为导向的种植体设计方案及手术植入</li>
+</ul>
+<h4 id="数字化种植导板的原理"><a href="#数字化种植导板的原理" class="headerlink" title="数字化种植导板的原理"></a>数字化种植导板的原理</h4><p>预备深度的控制:需要准确计算-导环顶-种植体平台距离-补偿距离S</p>
+<h4 id="数字化种植导板分类"><a href="#数字化种植导板分类" class="headerlink" title="数字化种植导板分类"></a>数字化种植导板分类</h4><p>按约束引导程度:</p>
+<ul>
+<li>全程导板<ul>
+<li>开口度良好，种植体距离邻牙的位置能够放置套环。</li>
+</ul>
+</li>
+<li>半程导板<ul>
+<li>开口度良好，种植体距离邻牙的位置能够放置套环</li>
+</ul>
+</li>
+<li>先锋钻导板<ul>
+<li>开口受限，种植体距离邻牙不能放置套环。</li>
+</ul>
+</li>
+</ul>
+<p>口内就位后支持方式:</p>
+<ul>
+<li>牙支持导板</li>
+<li>粘膜支持导板</li>
+<li>骨支持导板</li>
+<li>混合支持导板</li>
+</ul>
+<p>导板制作生成方式:</p>
+<ul>
+<li>数控切削种植导板</li>
+<li>快速制造技术种植导板</li>
+<li>光固化树脂速成型种植导板3D打印法</li>
+</ul>
+<h3 id="数字化导板的制作"><a href="#数字化导板的制作" class="headerlink" title="数字化导板的制作"></a>数字化导板的制作</h3><p>软件有NobelGuide、Simplant、Med3D、Strumann codiagnostix</p>
+<ul>
+<li>数据匹配</li>
+<li>修复体设计<ul>
+<li>相邻天然牙边缘相距7mm以上</li>
+<li>植体之间中轴线相距7mm以上</li>
+<li>避免关键位点和颌力较大区域出现悬臂</li>
+<li>修复体长期稳定、复合生物力学、生物学、美学原则</li>
+<li>生成虚拟导板，放置导环。</li>
+<li>加工导板</li>
+</ul>
+</li>
+</ul>
+<h3 id="全程数字化导板手术流程"><a href="#全程数字化导板手术流程" class="headerlink" title="全程数字化导板手术流程"></a>全程数字化导板手术流程</h3><ul>
+<li>全程数字化导板也就是常说的全程完全限制性导板，由于术前已将种植体三维空间位置反映到导板上，故手术操作相对简单，只需按步骤操作进行即可，但需要专门配套外科手术引导压板工具；</li>
+<li>一般先将种植导板口内就位固定，牙列缺失粘膜支持式的必须用固位钉骨内固定，使用与逐级备洞扩孔钻直径匹配的引导压板，按设计逐级备洞，植入种植体，戴入临时修复体；</li>
+<li>数字化导板使用使手术简单化，但不允许在手术中改变种植体位置及方向，同时由于导板套筒、压板、钻针之间缝隙极小，导致水冷不充分，易过度产热。</li>
+<li>种植导板清洗:95%以上酒精超声清洗2次。</li>
+<li>避光、阴凉、干燥</li>
+<li>导板消毒:碘伏或者75%酒精，75%酒精清洗2次，0.9%生理盐水冲洗3次。</li>
+</ul>
+<h3 id="全程数字化导板精确度"><a href="#全程数字化导板精确度" class="headerlink" title="全程数字化导板精确度"></a>全程数字化导板精确度</h3><ul>
+<li>每个环节都有可能有误差，误差会积累。</li>
+<li>使用导板偏差要低于不使用导板。</li>
+<li>增加模板固位钉数目可以减少偏差 </li>
+<li>牙支持式外科导板误差最小</li>
+<li>增加稳定性的方法:<ul>
+<li>增加导板覆盖范围</li>
+<li>在缺牙区的唇颊侧或舌腭侧添加固位钉</li>
+<li>助手采用跨牙弓手压种植导板的辅助稳定方法</li>
+</ul>
+</li>
+</ul>
+<p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p>
+<p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p>
+<p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p>
+<p>我的知乎文章地址： <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p>
+<p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p>
+<p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎打赏！感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/mm_facetoface_collect_qrcode_1542944836634.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/1542944857770.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/" rel="tag"># 口腔修复</a>
+          
+            <a href="/tags/%E7%A7%8D%E6%A4%8D/" rel="tag"># 种植</a>
+          
+            <a href="/tags/%E7%BA%BF%E4%B8%8A%E8%AF%BE/" rel="tag"># 线上课</a>
+          
+            <a href="/tags/%E6%95%B0%E5%AD%97%E5%8C%96/" rel="tag"># 数字化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2025/08/23/46%E5%8F%A3%E8%85%94%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E4%B8%8E%E8%BF%9B%E5%B1%95-%E6%97%A0%E7%89%99%E5%90%88%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E4%B8%AD%E6%95%B0%E5%AD%97%E5%8C%96%E8%BE%85%E5%8A%A9%E4%B8%B4%E5%BA%8A%E8%AF%8A%E7%96%97%E7%A8%8B%E5%BA%8F/" rel="next" title="46口腔数字化种植修复技术应用与进展-无牙合种植修复中数字化辅助临床诊疗程序">
+                <i class="fa fa-chevron-left"></i> 46口腔数字化种植修复技术应用与进展-无牙合种植修复中数字化辅助临床诊疗程序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/tx.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">984</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">783</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E7%A8%8B%E6%95%B0%E5%AD%97%E5%8C%96%E5%AF%BC%E6%9D%BF"><span class="nav-number">1.</span> <span class="nav-text">全程数字化导板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">数据采集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%8D%E6%A4%8D%E5%AF%BC%E6%9D%BF%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-number">2.1.</span> <span class="nav-text">种植导板的优势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BC%E6%9D%BF%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">导板设计软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E5%8C%96%E5%AF%BC%E6%9D%BF%E5%BA%94%E7%94%A8%E8%8C%83%E5%9B%B4%E5%92%8C%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">数字化导板应用范围和条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E5%AF%BC%E6%9D%BF%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">数字化种植导板的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E5%AF%BC%E6%9D%BF%E5%88%86%E7%B1%BB"><span class="nav-number">2.5.</span> <span class="nav-text">数字化种植导板分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E5%8C%96%E5%AF%BC%E6%9D%BF%E7%9A%84%E5%88%B6%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">数字化导板的制作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E7%A8%8B%E6%95%B0%E5%AD%97%E5%8C%96%E5%AF%BC%E6%9D%BF%E6%89%8B%E6%9C%AF%E6%B5%81%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">全程数字化导板手术流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E7%A8%8B%E6%95%B0%E5%AD%97%E5%8C%96%E5%AF%BC%E6%9D%BF%E7%B2%BE%E7%A1%AE%E5%BA%A6"><span class="nav-number">5.</span> <span class="nav-text">全程数字化导板精确度</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本站版权归赵瑜敏所有，如欲转载请与本人联系。</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1826.8k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+</body>
+</html>
