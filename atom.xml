@@ -6,7 +6,7 @@
   <link href="https://zwdnet.github.io/atom.xml" rel="self"/>
   
   <link href="https://zwdnet.github.io/"/>
-  <updated>2025-09-02T10:55:06.838Z</updated>
+  <updated>2025-09-03T10:06:02.234Z</updated>
   <id>https://zwdnet.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>56口腔数字化种植修复技术应用与进展-数字化技术在种植外科及修复中的应用</title>
+    <link href="https://zwdnet.github.io/2025/09/03/56%E5%8F%A3%E8%85%94%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E4%B8%8E%E8%BF%9B%E5%B1%95-%E6%95%B0%E5%AD%97%E5%8C%96%E6%8A%80%E6%9C%AF%E5%9C%A8%E7%A7%8D%E6%A4%8D%E5%A4%96%E7%A7%91%E5%8F%8A%E4%BF%AE%E5%A4%8D%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/"/>
+    <id>https://zwdnet.github.io/2025/09/03/56%E5%8F%A3%E8%85%94%E6%95%B0%E5%AD%97%E5%8C%96%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E4%B8%8E%E8%BF%9B%E5%B1%95-%E6%95%B0%E5%AD%97%E5%8C%96%E6%8A%80%E6%9C%AF%E5%9C%A8%E7%A7%8D%E6%A4%8D%E5%A4%96%E7%A7%91%E5%8F%8A%E4%BF%AE%E5%A4%8D%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</id>
+    <published>2025-09-03T00:20:11.000Z</published>
+    <updated>2025-09-03T10:06:02.234Z</updated>
+    
+    <content type="html"><![CDATA[<p>主讲人:王闻天老师</p><h3 id="数字化口腔种植技术概述"><a href="#数字化口腔种植技术概述" class="headerlink" title="数字化口腔种植技术概述"></a>数字化口腔种植技术概述</h3><p>数字化信息采集-数字化诊断设计-数字化口腔种植外科-数字化口腔种植修复</p><h3 id="口腔种植数字化信息采集"><a href="#口腔种植数字化信息采集" class="headerlink" title="口腔种植数字化信息采集"></a>口腔种植数字化信息采集</h3><ol><li>体数据：颌骨、关节、牙、神经管、颏孔、上颌窦、鼻底及皮肤等解剖结构的数据。CBCT</li><li>面数据：牙列及黏膜数据、颜面部三维数据数据。口扫，分直接扫描和间接扫描。</li><li>运动（动态）数据：颌运动数据、动态面部表情数据。下颌运动轨迹描记。指导排牙，检测咬合关系。</li><li>其他数据：语音、视频、二维照片等</li></ol><h3 id="口腔种植数字化诊断评估与设计"><a href="#口腔种植数字化诊断评估与设计" class="headerlink" title="口腔种植数字化诊断评估与设计"></a>口腔种植数字化诊断评估与设计</h3><h4 id="数字化信息整合"><a href="#数字化信息整合" class="headerlink" title="数字化信息整合"></a>数字化信息整合</h4><p>将不同类型和区域的数据进行匹配，形成一个虚拟的颌面部软硬组织形态，以便全面准确地进行诊断分析与修复设计。</p><h4 id="诊断与评估"><a href="#诊断与评估" class="headerlink" title="诊断与评估"></a>诊断与评估</h4><p>要点:</p><ul><li>美学评估</li><li>咬合关系评估</li><li>前牙位置、软硬组织缺损程度以及修复类型</li></ul><h3 id="数字化导板外科的设计和实现"><a href="#数字化导板外科的设计和实现" class="headerlink" title="数字化导板外科的设计和实现"></a>数字化导板外科的设计和实现</h3><h4 id="导板外科"><a href="#导板外科" class="headerlink" title="导板外科"></a>导板外科</h4><p>引导植入。<br>优点:</p><ul><li>可以重建CT数据，使医师更直观地了解颌骨解剖形态、测量缺牙区骨的<br>高度和宽度</li><li>避免损伤下颌神经管、上颌窦等重要的解剖结构，避开邻牙，提高了手术的安全性</li><li>完善的术前计划实现了更精准的植入</li><li>实现了“以修复维导向”的理想种植体的植入</li><li>可实现微创手术，减轻患者术后不适，肿胀和疼痛，提高医师的工作效率，提高患者的接受度和满意度，同时降低手术风险</li></ul><p>缺点:</p><ul><li>在进行导板外科手术时，术中不能实时更改种植体的位置</li><li>对患者开口度要求较高</li><li>术中容易产热，冷却不足</li><li>需要特殊的软件及设备进行术前设计，术中需要特殊的钻针，所需设备价格高昂，患者需要承担额外的费用。</li><li>导板的制作精度依赖于从数据整合，到设计、加工的各个阶段，细小误差，累加起来便可对种植体的精度产生较大的影响，增大了并发症的风险。</li></ul><p>分类</p><ul><li>按引导方式分为全程引导和非全程引导。</li><li>按支持方式分为牙支持式、骨支持式、黏膜支持式和混合支持式。</li><li>按导板功能分为:取骨植骨定位导板、截骨导板、龈缘指示导板、固位钉导板、临时修复体导板。</li></ul><p>规划及设计流程:</p><ul><li>数据输入与整合</li><li>种植外科规划与设计</li><li>导板设计与数据输出</li></ul><h4 id="导航外科"><a href="#导航外科" class="headerlink" title="导航外科"></a>导航外科</h4><p>由软件、硬件和导航工具组成。</p><h3 id="口腔种植数字化印模技术及修复"><a href="#口腔种植数字化印模技术及修复" class="headerlink" title="口腔种植数字化印模技术及修复"></a>口腔种植数字化印模技术及修复</h3><h4 id="数字化印模技术"><a href="#数字化印模技术" class="headerlink" title="数字化印模技术"></a>数字化印模技术</h4><p>分为间接法和直接法。<br>扫描杆:原厂数据是数字化模型精度的保证。<br>口内扫描适应症:</p><ul><li>种植体支持的单冠或≤三单位的短桥&#x2F;联冠</li><li>缺失牙数少于5颗</li><li>牙周炎(牙齿松动，牙缝较大)患者</li><li>正畸治疗中的患者，牙面粘接有托槽、附件等</li></ul><p>口扫流程及要点</p><ul><li>扫描前准备<ul><li>连接扫描仪，预热</li><li>安放唇颊屏障，干燥牙齿及牙龈表面</li><li>关闭强光</li><li>体位准备</li></ul></li><li>扫描获取全牙弓信息<ul><li>取景器聚焦范围</li><li>稳定匀速连续扫描</li><li>按一定顺序扫描颌-腭-颊侧</li><li>减少补扫与重复扫描</li></ul></li><li>扫描获取扫描杆三维位置信息<ul><li>扫描杆标志面外形清晰连续</li><li>以正确扭力连接扫描杆与种植体</li></ul></li><li>扫描获取咬合关系信息<ul><li>患者直立坐姿</li><li>正确咬合于ICP</li><li>扫描后与口内咬合关系对比</li></ul></li></ul><p>不同穿龈轮廓获取方法:</p><ul><li>直接扫描穿龈轮廓<ul><li>种植体平台直径≥4mm</li><li>种植体平台到龈缘距离≤4mm</li><li>软组织相对稳定</li><li>穿龈轮廓扫描时间10s</li><li>不用喷粉</li></ul></li><li>扫描临时修复体颈部形态<ul><li>种植体平台直径＜4mm</li><li>种植体平台到龈缘距离＞4mm</li><li>软组织易塌陷</li><li>穿龈轮廓扫描时间无限制</li><li>喷粉&#x2F;不喷粉</li></ul></li></ul><p>口内扫描精度影响因素</p><ul><li>环境因素<ul><li>口腔固有环境<ul><li>唾液、血液、温度、开口度</li><li>口腔修复材料、扫描区域</li></ul></li><li>诊室光源<ul><li>全牙弓扫描——室内光(1003lux)更佳</li><li>区段扫描——牙椅照明(10000lux)更佳</li></ul></li></ul></li><li>操作者相关因素<ul><li>速度与路径:均匀、稳定、按一定路径，防止遗漏或不断补扫</li><li>离被扫描物的距离</li><li>多次重复扫描，精度下降</li></ul></li><li>设备相关因素</li><li>种植体相关因素<ul><li>扫描杆</li><li>种植体间距:距离越大，误差越大</li><li>种植体角度:不影响扫描精度</li></ul></li><li>优点<ul><li>效率高</li><li>舒适度高</li><li>便于沟通（医患、医技)</li><li>特殊病例的应用（正畸牙周病牙弓宽大）</li><li>数据可长期存留</li><li>防止交叉感染（即刻修复，可避免感染创口）</li></ul></li><li>局限性<ul><li>影响数字化印模精准性的因素较多</li><li>软组织还原度低</li><li>数字化印模技术的适应症相对较窄</li></ul></li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a><br>的<br>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;主讲人:王闻天老师&lt;/p&gt;
+&lt;h3 id=&quot;数字化口腔种植技术概述&quot;&gt;&lt;a href=&quot;#数字化口腔种植技术概述&quot; class=&quot;headerlink&quot; title=&quot;数字化口腔种植技术概述&quot;&gt;&lt;/a&gt;数字化口腔种植技术概述&lt;/h3&gt;&lt;p&gt;数字化信息采集-数字化诊断设计-数</summary>
+      
+    
+    
+    
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    
+    
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    
+    <category term="线上课" scheme="https://zwdnet.github.io/tags/%E7%BA%BF%E4%B8%8A%E8%AF%BE/"/>
+    
+    <category term="数字化" scheme="https://zwdnet.github.io/tags/%E6%95%B0%E5%AD%97%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>55口腔数字化种植修复技术应用与进展-伴有错颌畸形的牙列缺损治疗方案</title>
@@ -613,37 +644,6 @@
     <category term="线上课" scheme="https://zwdnet.github.io/tags/%E7%BA%BF%E4%B8%8A%E8%AF%BE/"/>
     
     <category term="组织增量" scheme="https://zwdnet.github.io/tags/%E7%BB%84%E7%BB%87%E5%A2%9E%E9%87%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>36美学区的种植修复-即刻种植适应症及外科要点</title>
-    <link href="https://zwdnet.github.io/2025/08/11/36%E7%BE%8E%E5%AD%A6%E5%8C%BA%E7%9A%84%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D-%E5%8D%B3%E5%88%BB%E7%A7%8D%E6%A4%8D%E9%80%82%E5%BA%94%E7%97%87%E5%8F%8A%E5%A4%96%E7%A7%91%E8%A6%81%E7%82%B9/"/>
-    <id>https://zwdnet.github.io/2025/08/11/36%E7%BE%8E%E5%AD%A6%E5%8C%BA%E7%9A%84%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D-%E5%8D%B3%E5%88%BB%E7%A7%8D%E6%A4%8D%E9%80%82%E5%BA%94%E7%97%87%E5%8F%8A%E5%A4%96%E7%A7%91%E8%A6%81%E7%82%B9/</id>
-    <published>2025-08-11T06:31:53.000Z</published>
-    <updated>2025-08-11T09:55:42.491Z</updated>
-    
-    <content type="html"><![CDATA[<p>主讲人:李昀生老师</p><h3 id="基础背景"><a href="#基础背景" class="headerlink" title="基础背景"></a>基础背景</h3><h4 id="拔牙后软硬组织变化"><a href="#拔牙后软硬组织变化" class="headerlink" title="拔牙后软硬组织变化"></a>拔牙后软硬组织变化</h4><p>拔牙后牙槽骨吸收与唇侧骨板厚度相关，越厚垂直吸收越少。<br>薄龈生物型，拔牙后软组织显著增厚，厚龈生物型，拔牙后软组织变薄但较少。</p><h4 id="种植体植入时机"><a href="#种植体植入时机" class="headerlink" title="种植体植入时机"></a>种植体植入时机</h4><ul><li>一型:即刻种植</li><li>二型:早期种植(6-8周)</li><li>三型:早期种植(12-16周)</li><li>四型:延期种植(6个月后)</li></ul><h4 id="美学区种植时机"><a href="#美学区种植时机" class="headerlink" title="美学区种植时机"></a>美学区种植时机</h4><ul><li>拔牙同期<ul><li>即刻种植(做或不做骨增量)</li><li>位点保存(做或不做骨增量)</li></ul></li><li>软组织愈合:4-8周</li><li>部分骨愈合:3-4月</li><li>完全骨愈合:6个月后</li></ul><h4 id="即刻种植"><a href="#即刻种植" class="headerlink" title="即刻种植"></a>即刻种植</h4><p>能否保留拔牙窝骨板?实验证明并不能。<br>优点:能缩短治疗时间，维持软组织形态，即刻美学修复。<br>缺点:唇侧牙龈退缩，需要更高的临床操作技巧。</p><h3 id="术前评估"><a href="#术前评估" class="headerlink" title="术前评估"></a>术前评估</h3><h4 id="诊断及治疗计划"><a href="#诊断及治疗计划" class="headerlink" title="诊断及治疗计划"></a>诊断及治疗计划</h4><ul><li>即刻拔牙窝的分类<ul><li>一型:牙根靠近唇侧骨板，大部分属于该型。</li><li>二型:牙根位于中央，不靠近唇侧及腭侧</li><li>三型:牙根靠近腭侧骨板</li><li>四型:牙根位于中央，超过2&#x2F;3的牙根同时靠近唇腭侧骨壁，不适合即刻种植</li></ul></li><li>位点牙龈水平与邻牙牙龈水平的关系<ul><li>理想的与对侧同名牙相同水平或稍偏冠方，形态协调。</li><li>若不协调，需正畸牵引。</li></ul></li><li>位点唇侧牙龈与骨组织的位置关系<ul><li>薄龈生物型:牙周探针能透出</li><li>厚龈生物型:牙周探针不能透出</li></ul></li><li>牙龈生物型（牙周表型)</li><li>位点唇腭侧宽度</li><li>位点与邻牙根间近远中向距离</li><li>美学风险评估</li></ul><h4 id="即刻种植适应症"><a href="#即刻种植适应症" class="headerlink" title="即刻种植适应症"></a>即刻种植适应症</h4><ul><li>拔牙窝骨壁完整</li><li>唇侧骨板厚度不小于1mm</li><li>厚龈生物型</li><li>位点没有急性感染</li><li>拔牙窝根方及腭侧有足够骨壁以获得初期稳定性</li></ul><h3 id="即刻种植的外科操作"><a href="#即刻种植的外科操作" class="headerlink" title="即刻种植的外科操作"></a>即刻种植的外科操作</h3><h4 id="即刻种植即刻修复治疗程序"><a href="#即刻种植即刻修复治疗程序" class="headerlink" title="即刻种植即刻修复治疗程序"></a>即刻种植即刻修复治疗程序</h4><ul><li>不翻瓣微创拔牙</li><li>种植位点预备</li><li>偏腭侧植入种植体</li><li>唇侧骨板间隙植入骨替代材料</li><li>临时基台制作临时修复体</li></ul><h4 id="颊腭向位置"><a href="#颊腭向位置" class="headerlink" title="颊腭向位置"></a>颊腭向位置</h4><ul><li>天然牙舌隆突的位置</li><li>唇侧骨板厚度不低于2mm</li><li>应偏腭侧种植（保留hmm腭侧骨板)</li><li>植体肩台唇侧边缘，应位于未来修复体唇侧颈缘线内侧15-2mm</li></ul><h4 id="近远中位置-邻间软组织管理"><a href="#近远中位置-邻间软组织管理" class="headerlink" title="近远中位置:邻间软组织管理"></a>近远中位置:邻间软组织管理</h4><ul><li>植体与天然牙距离不小于15mm</li><li>植体间距离不低于3mm</li><li>留下更大的近中组织量</li></ul><h4 id="植入深度"><a href="#植入深度" class="headerlink" title="植入深度"></a>植入深度</h4><p>3A2B原则不够，建议4A2B</p><h4 id="植入轴向"><a href="#植入轴向" class="headerlink" title="植入轴向"></a>植入轴向</h4><p>长轴偏修复体腭侧，或切端，较理想。<br>长轴从唇侧穿出，不可接受。</p><h4 id="间隙植骨的必要性"><a href="#间隙植骨的必要性" class="headerlink" title="间隙植骨的必要性"></a>间隙植骨的必要性</h4><ul><li>至少可部分保存牙槽嵴间隙</li><li>颊侧间隙植骨在美学区益处更明显</li><li>没有充分证据显示不同植骨材料之间的优劣。</li><li>牙槽窝完整的即刻种植，采用屏障膜GBR技术并没有改善临床效果</li><li>不翻瓣技术可以保存唇侧牙槽嵴轮廓，提高患者满意度。</li><li>三型拔牙窝不建议采用即刻种植</li></ul><h3 id="根盾技术-SST"><a href="#根盾技术-SST" class="headerlink" title="根盾技术(SST)"></a>根盾技术(SST)</h3><p>保留牙片，牙片与植体直接接触。<br>根据牙片位置分四型。</p><h4 id="适应症"><a href="#适应症" class="headerlink" title="适应症"></a>适应症</h4><ul><li>|型拔牙窝</li><li>患牙牙周健康</li><li>龈缘稳定，与对侧同名牙齐平</li><li>没有急性感染</li><li>即刻种植</li></ul><h4 id="禁忌症"><a href="#禁忌症" class="headerlink" title="禁忌症"></a>禁忌症</h4><ul><li>牙周病</li><li>牙齿松动或牙周膜增宽</li><li>牙根纵折</li><li>骨下牙根横折</li><li>牙根外吸收&#x2F;内吸收</li></ul><h4 id="预备技术要点"><a href="#预备技术要点" class="headerlink" title="预备技术要点"></a>预备技术要点</h4><ul><li>根盾的预备应保证完整去除带根尖的腭侧片，并保证根尖区的完全清创</li><li>唇侧的根片需保证稳定不动，直至种植体植入，以预防感染、吸收、移<br>动</li><li>根片应足够薄，避免与植体接触。但过薄的根片易发生松动及移位。</li><li>根片应有一定厚度，以避免与唇侧骨板分离。但过厚的根片易于与种植<br>体接触</li></ul><h4 id="理想的根片"><a href="#理想的根片" class="headerlink" title="理想的根片"></a>理想的根片</h4><ul><li>根片不应有任何牙根腭侧及根尖部分</li><li>根片的长度不应小于8mm或原根长的2&#x2F;3</li><li>根片的宽度应为原牙根宽度的1&#x2F;4或至少1.5mm</li><li>根片内侧弧度应与唇侧骨板（从近中至远中线脚）相一致</li><li>根片应与唇侧骨嵴顶高度一致</li><li>根片的内侧应有S形弧度或斜面</li></ul><h4 id="根盾术并发症"><a href="#根盾术并发症" class="headerlink" title="根盾术并发症"></a>根盾术并发症</h4><ul><li>感染</li><li>根盾内暴露</li><li>根盾外暴露</li></ul><h4 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h4><ul><li>存活率98.6%，效果良好</li><li>技术敏感性高</li><li>长期疗效待验证</li><li>材料选择争议</li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;主讲人:李昀生老师&lt;/p&gt;
-&lt;h3 id=&quot;基础背景&quot;&gt;&lt;a href=&quot;#基础背景&quot; class=&quot;headerlink&quot; title=&quot;基础背景&quot;&gt;&lt;/a&gt;基础背景&lt;/h3&gt;&lt;h4 id=&quot;拔牙后软硬组织变化&quot;&gt;&lt;a href=&quot;#拔牙后软硬组织变化&quot; class=&quot;h</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="即刻种植" scheme="https://zwdnet.github.io/tags/%E5%8D%B3%E5%88%BB%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="线上课" scheme="https://zwdnet.github.io/tags/%E7%BA%BF%E4%B8%8A%E8%AF%BE/"/>
     
   </entry>
   
