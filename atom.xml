@@ -1,639 +1,455 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>赵瑜敏的口腔医学专业学习博客</title>
-  
-  
-  <link href="https://zwdnet.github.io/atom.xml" rel="self"/>
-  
-  <link href="https://zwdnet.github.io/"/>
-  <updated>2026-07-31T09:29:19.334Z</updated>
-  <id>https://zwdnet.github.io/</id>
-  
   <author>
     <name>赵瑜敏</name>
-    
   </author>
-  
   <generator uri="https://hexo.io/">Hexo</generator>
-  
+  <id>https://zwdnet.github.io/</id>
+  <link href="https://zwdnet.github.io/" rel="alternate"/>
+  <link href="https://zwdnet.github.io/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, 赵瑜敏</rights>
+  <subtitle>我是昆明牙医赵瑜敏，这个博客是关于口腔医学专业学习的博客，欢迎同行交流。</subtitle>
+  <title>赵瑜敏的口腔医学专业学习博客</title>
+  <updated>2026-08-30T09:22:18.153Z</updated>
   <entry>
-    <title>植体种多深</title>
-    <link href="https://zwdnet.github.io/2026/07/31/%E6%A4%8D%E4%BD%93%E7%A7%8D%E5%A4%9A%E6%B7%B1/"/>
-    <id>https://zwdnet.github.io/2026/07/31/%E6%A4%8D%E4%BD%93%E7%A7%8D%E5%A4%9A%E6%B7%B1/</id>
-    <published>2026-07-31T08:53:09.000Z</published>
-    <updated>2026-07-31T09:29:19.334Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近种了几颗，有个问题很困惑:到底要种多深?查了下资料。</p><p>1.口腔种植关键技术实战图解&#x2F;谭震主编.一北京：人民卫生出版社，2014<br>种植体的粗糙部分应位于牙槽嵴顶平齐或嵴顶下lmm 范围内（Buser 2000，Cochran 2000），而理想的种植体肩台(软组织水平种植体)位于种植修复体唇侧龈缘中点根方约2mm。而骨水平种植体肩台要比标准种植体植入深约1mm(Buser &amp; Belser 1995）,即位于龈边缘中点以下3mm左右。植入过深会加重牙槽嵴顶的骨吸收(Hermann 1997,Cochran 1997,Pontes 2008)。</p><p>2.口腔种植临床操作图解&#x2F;谷志远主编.一北京：人民卫生出版社，2010.7<br>种植体的粗糙面位于骨面稍下方。<br>一般备洞时要求深度增加1mm，使种植体植入后颈缘低于骨面1mm。</p><p>3.实用口腔种植学&#x2F;(英）塞西（Sethi，A.)，（英）考斯（Kaus,T.)编著；耿威译.-北京：人民军医出版社，2009.11<br>需要设计种植窝预备的深度比选择的种植体长度深1mm。<br>种植体与骨面平齐通常会有大约3mm厚的附着龈来建立外形。</p><p>4.黄江琴,王轶,岑雯,等.种植体植入深度对边缘骨水平影响的临床研究[J].中国口腔种植学杂志,2019,24(1):14-18.<br>种植体的植入深度对种植体边缘骨吸收有着重要的影响。<br>研究的是插接式植体(Bicon)。<br>对传统种植体植入位置进行研究，认为植入深度与骨吸收量呈负相关关系，即种植体植入越深，术后的骨吸收量将越多。<br>我们认为在患者缺牙区骨高度足够而颌间距不足或牙槽嵴上部窄而底部宽的情况下，可以将种植体植入较深的部位，种植二期手术时去除部分骨组织使冠边缘位于龈下或选择长穿龈基台，从而降低种植手术的难度、获得满意的临床效果同时最大限度地保存患者种植位点的骨量。</p><p>5.陈世玉,李昀生,邵健,等.种植体植入深度对周围硬组织影响的系统回顾及Meta分析[J].中国当代医药,2017,24(8):14-18.<br>不考虑是否使用平台转移情况下，早期阶段平骨水平组骨吸收量少于骨下水平组[MD&#x3D;0.30，95%CI（0.20，0.39），P&lt;0.000 01]。亚组分析时，2项研究与平台转移相关，但未能得出有意义结果（P&#x3D;0.99）。 4项研究与非平台转移相关，分别在 3~6个月，平骨水平组骨吸收量少于骨下水平组[MD&#x3D;0.26，95%CI （0.15，0.38），P&lt;0.000 01]；＞12个月时间段， 骨上水平组骨吸收量少于平骨水平组 [MD&#x3D; 0.59，95%CI（-0.72，-0.46），P&lt;0.000 01]。结论骨水平种植体植入骨下水平时，在骨重建过程中的边缘骨吸收量可能大于平骨水平或骨上水平。<br>边缘骨吸收被认为是一个不可避免的生理性骨重建过程。 因此，减少种植体边缘骨的吸收，维持周围硬组织水平的稳定，是保证种植体长期行使功能以及维持美学修复效果的重要前提。<br>目前根据种植体-基台界面（impant-abutment junction，IAJ）相对于牙槽嵴的垂直向关系，种植体的植入深度主要分为 3种：骨上水平、平骨水平、骨下水平。</p><p>6.邹晋阳,谢志刚.软硬组织美学风险及前牙即刻种植中植入深度的研究进展[J].医学综述,2018,24(5):972-976.<br>当前研究共识认为，上颌前牙美学区种植体唇腭向的植入位置应在新鲜拔牙窝腭侧 1 ～ 2 mm的骨组织内，种植体边缘与唇侧骨板间的间隙应＞2 mm，在该间隙中植入适当的骨替代材料能保证种植体唇侧骨板的厚度，过于偏唇的植入轴向，会导致唇侧骨板的吸收和软组织的退缩。<br>要想达到较理想的美学效果，种植体的植入深度应在合理的范围内，过浅或过深的植入将增加美学风险。<br>2006年，Lazzara首次提出平台迁移概念，即两段式种植体采用直径小于种植体肩台的基台，修复基台的边缘止于种植体肩台边缘的内侧。大量临床研究证明，种植体周骨组织在具有平台迁移设计的种植体中能更好地保存，主要是该设计可显著减少微动、微间隙的细菌作用，增加种植体的生物学宽度，分散种植体颈部的应力，从而减少骨吸收。此外，研究证明，基台直径与种植体直径差值越大，种植体颈部的骨组织丧失越少。基于大量学者的研究成果，在前牙区选择平台迁移的种植体能避免大量骨的吸收。<br>目前认为上颌前牙美学区种植体植入深度要求种植体颈部的位置应位于邻牙或理想种植体龈缘线的根方 3 ～4 mm，当种植体肩台与龈缘或邻牙釉牙骨质界之间的距离 ＜2 mm时，种植体的植入深度不足，种植体上部修复体与邻牙的形态难以协调。当种植体肩台在冠根向低于釉牙骨质界 4 mm时，为了补偿植体植入深度过深造成的美学效果不协调，通常需要上部结构位于更深的龈下位置和增加较多的软组织来覆盖修复体。因此，上颌前牙区种植体在冠根向的植入深度不应大于邻牙釉牙本质界4 mm。<br>距釉牙骨质界下 3 mm的深度植入种植体，5年内软组织情况较为稳定。</p><p>7.罗佳,胡秀莲,林野,等.下后牙区平台转移设计种植体植入深度对边缘骨水平影响的临床研究[J].北京大学学报(医学版),2012,44(1):65-69.<br>植入种植体水平低于、平齐或高于骨面，边缘骨吸收绝对值的差异无统计学意义(P&gt;0．05)；经过功能性负重后，植入于骨面以下的位点中有67．7％边缘骨稳定于肩台水平或之上，32．3％吸收于平台之下；植入平齐骨面的位点分别为19．7％和80．3％，<br>两者差异具有统计学意义(P&lt;0．001)。结论：植入水平低于牙槽嵴顶有利于维持种植体颈部边缘骨组织长期(3 年以上)稳定于种植体肩台水平。<br>本研究发现，种植体植入时肩台水平低于牙槽嵴顶的位点，通过骨改建，颈部边缘骨组织将更有可能不发生垂直向骨吸收，稳定于种植体肩台水平或之上，而将种植体肩台植入平齐或高于牙槽嵴顶的位点，颈部边缘骨组织大多发生了垂直向的骨吸收，即生物学宽度的形成。<br>成功的种植修复体功能性负重后，边缘骨吸收主要发生在第1年，此后若颈部软组织封闭良好，将很大程度降低种植体周围炎的发生率。<br>平台转移设计种植体若形成了高于种植体平台的边缘封闭，种植体周围炎的发生率极低。将种植体植入于牙槽嵴顶水平以下时，经过骨改建形成了良好的软硬组织封闭，边缘骨有可能仍然位于种植体肩台水平甚至向肩台中央发生迁移，而使种植体颈部完全封闭于骨组织之内，将有可能更利于种植体的长期稳定。</p><p>8.李莹.种植体植入深度对二期种植体平台表面骨覆盖的影响[D].大连医科大学，2021.<br>将种植体放置在平骨面可能会增加种植体暴露的风险。<br>负荷后每年0.1至0.2 mm的骨丢失可以被认为是正常且成功的。将种植体放在骨下可最大程度地降低这种风险，平台转移式种植体的骨下植入可以使骨头稳定或在种植体肩部生长，安装修复元件时也无须完全去除覆盖种植体平台边缘的骨质。</p><p>9.Huang B, Meng H, Piao M, Xu L, Zhang L, Zhu W. Influence of placement depth on bone remodeling around tapered internal connection implant: a clinical and radiographic study in dogs. J Periodontol. 2012 Sep;83(9):1164-71. doi: 10.1902&#x2F;jop.2012.110617. Epub 2012 Jan 5. PMID: 22220773.<br>用狗做的实验，结论:Tapered internal IAI configuration had no significant effect on crestal bone resorption. Moreover, subcrestal placement of tapered internal IAI had a positive impact on crestal bone preservation around the cervix of the implant. 牙槽嵴以下种植与齐牙槽嵴种植相比有助于保留骨量。</p><p>10.Yi JM, Lee JK, Um HS, Chang BS, Lee MK. Marginal bony changes in relation to different vertical positions of dental implants. J Periodontal Implant Sci. 2010 Oct;40(5):244-8. doi: 10.5051&#x2F;jpis.2010.40.5.244. Epub 2010 Oct 31. PMID: 21072222; PMCID: PMC2967813.<br>临床研究，按植入深度分骨下、齐骨、骨上三类</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0474-howdeep/01.jpg"><br>植入后骨丧失主要发生在植入早期。主要是植入后至戴牙后6个月。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0474-howdeep/02.jpg"></p><p>骨丧失最少的是骨上植入的，最多的是骨下植入的。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0474-howdeep/03.jpg"><br>建议临床医生必须在“初期稳定性”和“保存边缘骨量”之间找到平衡，尽可能将种植体平台放在最佳位置（倾向于骨平齐或骨上），而不是为了美观盲目深埋。</p><p>总结一下:一般种到骨下1mm。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;最近种了几颗，有个问题很困惑:到底要种多深?查了下资料。&lt;/p&gt;
-&lt;p&gt;1.口腔种植关键技术实战图解&amp;#x2F;谭震主编.一北京：人民卫生出版社，2014&lt;br&gt;种植体的粗糙部分应位于牙槽嵴顶平齐或嵴顶下lmm 范围内（Buser 2000，Cochran 2000），而理</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔综合" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E7%BB%BC%E5%90%88/"/>
+    <category term="学习笔记" scheme="https://zwdnet.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔综合" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E7%BB%BC%E5%90%88/"/>
+    <category term="局部麻醉" scheme="https://zwdnet.github.io/tags/%E5%B1%80%E9%83%A8%E9%BA%BB%E9%86%89/"/>
     <category term="文献阅读" scheme="https://zwdnet.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
+    <content>
+      <![CDATA[<p>我在<a href="https://mp.weixin.qq.com/s/38umsk3mvtcHUMrCi8d7Dw">上述口腔</a> 上看到的文章。我找到的原始文章读了，并在临床中试了几例，感觉不错。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0475-mazui/01.jpg"></p><p>下牙槽神经阻滞麻醉失败率报道不一，5%-20%。成功的关键是准确定位下颌孔的位置。较高的下颌骨密度、解剖变异、需要较深地刺入软组织等因素，使得下牙槽神经阻滞麻醉成功率低于上颌的麻醉。<br>作者测量了193个颌骨标本(146例恒牙列，47例乳牙列)，提出了寻找下牙槽神经阻滞麻醉进针点的改进技术:</p><ul><li>参考牙齿为麻醉侧对侧的第一恒磨牙和\或第二乳磨牙，位置正确，无移位。</li><li>参考牙颊侧有两条发育沟，将颊面分成三部分。舌侧有一条发育沟，将舌侧牙面分成两部分。因此合面有五个牙尖。95.5%的牙齿都有上述结构。</li><li>进针点确定方法:<ul><li><p>连接近中颊沟与远舌尖近中斜面中点。<br><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0475-mazui/02.jpg"></p></li><li><p>第一条辅助线穿过上述两点。</p></li></ul></li></ul><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0475-mazui/03.jpg"></p><pre><code>- 第二条辅助线为麻醉侧的颌平面。(文章的“颌平面”occlusal plane定义不是太清楚，看图片是3的牙尖与6的远中中央或7的远颊尖的连线，主要是确定进针高度的)</code></pre><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0475-mazui/04.jpg"></p><pre><code>- 两条辅助线的交点即为进针点。</code></pre><p>用该技术确定的进针点，80.82%(118例)的恒牙和93.62%(44例)的乳牙进针点位置在下颌孔中心附近3.5mm范围内，被认为是有效的。若不在该范围内(无效)，针尖偏离下颌孔的平均距离在0.8mm以内。而乳牙不重合时无远中偏移，全是近中偏移。因此即使尖端未正对孔中心，注射的麻药扩散范围（半径远大于0.8mm）仍足以覆盖神经。<br>该技术尤其适合于儿牙局麻。<br>用DeepSeek生成的几种方法对比:</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0475-mazui/05.jpg"><br>文末作者称正在进行临床实验，但我用几位作者名字搜，都没有相关文章。<br>找到一篇关于颌平面的文章:</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0475-mazui/05.jpg"><br>下次分享吧。</p><p>参考文献:<br>1.Palti DG, Almeida CM, Rodrigues Ade C, Andreo JC, Lima JE. Anesthetic technique for inferior alveolar nerve block: a new approach. J Appl Oral Sci. 2011 Jan-Feb;19(1):11-5. doi: 10.1590&#x2F;s1678-77572011000100004. PMID: 21437463; PMCID: PMC4245857.<br>2.Feuerstein D, Costa-Mendes L, Esclassan R, Marty M, Vaysse F, Noirrit E. The mandibular plane: a stable reference to localize the mandibular foramen, even during growth. Oral Radiol. 2020 Jan;36(1):69-79. doi: 10.1007&#x2F;s11282-019-00381-6. Epub 2019 Apr 3. PMID: 30945083; PMCID: PMC6942014.</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
+    <id>https://zwdnet.github.io/2026/08/30/%E4%B8%80%E7%A7%8D%E4%B8%8B%E7%89%99%E6%A7%BD%E7%A5%9E%E7%BB%8F%E9%98%BB%E6%BB%9E%E9%BA%BB%E9%86%89%E7%9A%84%E6%96%B0%E6%96%B9%E6%B3%95/</id>
+    <link href="https://zwdnet.github.io/2026/08/30/%E4%B8%80%E7%A7%8D%E4%B8%8B%E7%89%99%E6%A7%BD%E7%A5%9E%E7%BB%8F%E9%98%BB%E6%BB%9E%E9%BA%BB%E9%86%89%E7%9A%84%E6%96%B0%E6%96%B9%E6%B3%95/"/>
+    <published>2026-08-30T06:58:55.000Z</published>
+    <summary>
+      <![CDATA[<p>我在<a href="https://mp.weixin.qq.com/s/38umsk3mvtcHUMrCi8d7Dw">上述口腔</a> 上看到的文章。我找到的原始文章读了，并在临床中试了几例，感觉不错。</p>
+<p><img src="https://zymblog]]>
+    </summary>
+    <title>一种下牙槽神经阻滞麻醉的新方法</title>
+    <updated>2026-08-30T09:22:18.153Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="文献阅读" scheme="https://zwdnet.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     <category term="深度" scheme="https://zwdnet.github.io/tags/%E6%B7%B1%E5%BA%A6/"/>
-    
+    <category term="循证" scheme="https://zwdnet.github.io/tags/%E5%BE%AA%E8%AF%81/"/>
+    <content>
+      <![CDATA[<p>最近种了几颗，有个问题很困惑:到底要种多深?查了下资料。</p><p>1.口腔种植关键技术实战图解&#x2F;谭震主编.一北京：人民卫生出版社，2014<br>种植体的粗糙部分应位于牙槽嵴顶平齐或嵴顶下lmm 范围内（Buser 2000，Cochran 2000），而理想的种植体肩台(软组织水平种植体)位于种植修复体唇侧龈缘中点根方约2mm。而骨水平种植体肩台要比标准种植体植入深约1mm(Buser &amp; Belser 1995）,即位于龈边缘中点以下3mm左右。植入过深会加重牙槽嵴顶的骨吸收(Hermann 1997,Cochran 1997,Pontes 2008)。</p><p>2.口腔种植临床操作图解&#x2F;谷志远主编.一北京：人民卫生出版社，2010.7<br>种植体的粗糙面位于骨面稍下方。<br>一般备洞时要求深度增加1mm，使种植体植入后颈缘低于骨面1mm。</p><p>3.实用口腔种植学&#x2F;(英）塞西（Sethi，A.)，（英）考斯（Kaus,T.)编著；耿威译.-北京：人民军医出版社，2009.11<br>需要设计种植窝预备的深度比选择的种植体长度深1mm。<br>种植体与骨面平齐通常会有大约3mm厚的附着龈来建立外形。</p><p>4.黄江琴,王轶,岑雯,等.种植体植入深度对边缘骨水平影响的临床研究[J].中国口腔种植学杂志,2019,24(1):14-18.<br>种植体的植入深度对种植体边缘骨吸收有着重要的影响。<br>研究的是插接式植体(Bicon)。<br>对传统种植体植入位置进行研究，认为植入深度与骨吸收量呈负相关关系，即种植体植入越深，术后的骨吸收量将越多。<br>我们认为在患者缺牙区骨高度足够而颌间距不足或牙槽嵴上部窄而底部宽的情况下，可以将种植体植入较深的部位，种植二期手术时去除部分骨组织使冠边缘位于龈下或选择长穿龈基台，从而降低种植手术的难度、获得满意的临床效果同时最大限度地保存患者种植位点的骨量。</p><p>5.陈世玉,李昀生,邵健,等.种植体植入深度对周围硬组织影响的系统回顾及Meta分析[J].中国当代医药,2017,24(8):14-18.<br>不考虑是否使用平台转移情况下，早期阶段平骨水平组骨吸收量少于骨下水平组[MD&#x3D;0.30，95%CI（0.20，0.39），P&lt;0.000 01]。亚组分析时，2项研究与平台转移相关，但未能得出有意义结果（P&#x3D;0.99）。 4项研究与非平台转移相关，分别在 3~6个月，平骨水平组骨吸收量少于骨下水平组[MD&#x3D;0.26，95%CI （0.15，0.38），P&lt;0.000 01]；＞12个月时间段， 骨上水平组骨吸收量少于平骨水平组 [MD&#x3D; 0.59，95%CI（-0.72，-0.46），P&lt;0.000 01]。结论骨水平种植体植入骨下水平时，在骨重建过程中的边缘骨吸收量可能大于平骨水平或骨上水平。<br>边缘骨吸收被认为是一个不可避免的生理性骨重建过程。 因此，减少种植体边缘骨的吸收，维持周围硬组织水平的稳定，是保证种植体长期行使功能以及维持美学修复效果的重要前提。<br>目前根据种植体-基台界面（impant-abutment junction，IAJ）相对于牙槽嵴的垂直向关系，种植体的植入深度主要分为 3种：骨上水平、平骨水平、骨下水平。</p><p>6.邹晋阳,谢志刚.软硬组织美学风险及前牙即刻种植中植入深度的研究进展[J].医学综述,2018,24(5):972-976.<br>当前研究共识认为，上颌前牙美学区种植体唇腭向的植入位置应在新鲜拔牙窝腭侧 1 ～ 2 mm的骨组织内，种植体边缘与唇侧骨板间的间隙应＞2 mm，在该间隙中植入适当的骨替代材料能保证种植体唇侧骨板的厚度，过于偏唇的植入轴向，会导致唇侧骨板的吸收和软组织的退缩。<br>要想达到较理想的美学效果，种植体的植入深度应在合理的范围内，过浅或过深的植入将增加美学风险。<br>2006年，Lazzara首次提出平台迁移概念，即两段式种植体采用直径小于种植体肩台的基台，修复基台的边缘止于种植体肩台边缘的内侧。大量临床研究证明，种植体周骨组织在具有平台迁移设计的种植体中能更好地保存，主要是该设计可显著减少微动、微间隙的细菌作用，增加种植体的生物学宽度，分散种植体颈部的应力，从而减少骨吸收。此外，研究证明，基台直径与种植体直径差值越大，种植体颈部的骨组织丧失越少。基于大量学者的研究成果，在前牙区选择平台迁移的种植体能避免大量骨的吸收。<br>目前认为上颌前牙美学区种植体植入深度要求种植体颈部的位置应位于邻牙或理想种植体龈缘线的根方 3 ～4 mm，当种植体肩台与龈缘或邻牙釉牙骨质界之间的距离 ＜2 mm时，种植体的植入深度不足，种植体上部修复体与邻牙的形态难以协调。当种植体肩台在冠根向低于釉牙骨质界 4 mm时，为了补偿植体植入深度过深造成的美学效果不协调，通常需要上部结构位于更深的龈下位置和增加较多的软组织来覆盖修复体。因此，上颌前牙区种植体在冠根向的植入深度不应大于邻牙釉牙本质界4 mm。<br>距釉牙骨质界下 3 mm的深度植入种植体，5年内软组织情况较为稳定。</p><p>7.罗佳,胡秀莲,林野,等.下后牙区平台转移设计种植体植入深度对边缘骨水平影响的临床研究[J].北京大学学报(医学版),2012,44(1):65-69.<br>植入种植体水平低于、平齐或高于骨面，边缘骨吸收绝对值的差异无统计学意义(P&gt;0．05)；经过功能性负重后，植入于骨面以下的位点中有67．7％边缘骨稳定于肩台水平或之上，32．3％吸收于平台之下；植入平齐骨面的位点分别为19．7％和80．3％，<br>两者差异具有统计学意义(P&lt;0．001)。结论：植入水平低于牙槽嵴顶有利于维持种植体颈部边缘骨组织长期(3 年以上)稳定于种植体肩台水平。<br>本研究发现，种植体植入时肩台水平低于牙槽嵴顶的位点，通过骨改建，颈部边缘骨组织将更有可能不发生垂直向骨吸收，稳定于种植体肩台水平或之上，而将种植体肩台植入平齐或高于牙槽嵴顶的位点，颈部边缘骨组织大多发生了垂直向的骨吸收，即生物学宽度的形成。<br>成功的种植修复体功能性负重后，边缘骨吸收主要发生在第1年，此后若颈部软组织封闭良好，将很大程度降低种植体周围炎的发生率。<br>平台转移设计种植体若形成了高于种植体平台的边缘封闭，种植体周围炎的发生率极低。将种植体植入于牙槽嵴顶水平以下时，经过骨改建形成了良好的软硬组织封闭，边缘骨有可能仍然位于种植体肩台水平甚至向肩台中央发生迁移，而使种植体颈部完全封闭于骨组织之内，将有可能更利于种植体的长期稳定。</p><p>8.李莹.种植体植入深度对二期种植体平台表面骨覆盖的影响[D].大连医科大学，2021.<br>将种植体放置在平骨面可能会增加种植体暴露的风险。<br>负荷后每年0.1至0.2 mm的骨丢失可以被认为是正常且成功的。将种植体放在骨下可最大程度地降低这种风险，平台转移式种植体的骨下植入可以使骨头稳定或在种植体肩部生长，安装修复元件时也无须完全去除覆盖种植体平台边缘的骨质。</p><p>9.Huang B, Meng H, Piao M, Xu L, Zhang L, Zhu W. Influence of placement depth on bone remodeling around tapered internal connection implant: a clinical and radiographic study in dogs. J Periodontol. 2012 Sep;83(9):1164-71. doi: 10.1902&#x2F;jop.2012.110617. Epub 2012 Jan 5. PMID: 22220773.<br>用狗做的实验，结论:Tapered internal IAI configuration had no significant effect on crestal bone resorption. Moreover, subcrestal placement of tapered internal IAI had a positive impact on crestal bone preservation around the cervix of the implant. 牙槽嵴以下种植与齐牙槽嵴种植相比有助于保留骨量。</p><p>10.Yi JM, Lee JK, Um HS, Chang BS, Lee MK. Marginal bony changes in relation to different vertical positions of dental implants. J Periodontal Implant Sci. 2010 Oct;40(5):244-8. doi: 10.5051&#x2F;jpis.2010.40.5.244. Epub 2010 Oct 31. PMID: 21072222; PMCID: PMC2967813.<br>临床研究，按植入深度分骨下、齐骨、骨上三类</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0474-howdeep/01.jpg"><br>植入后骨丧失主要发生在植入早期。主要是植入后至戴牙后6个月。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0474-howdeep/02.jpg"></p><p>骨丧失最少的是骨上植入的，最多的是骨下植入的。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0474-howdeep/03.jpg"><br>建议临床医生必须在“初期稳定性”和“保存边缘骨量”之间找到平衡，尽可能将种植体平台放在最佳位置（倾向于骨平齐或骨上），而不是为了美观盲目深埋。</p><p>总结一下:一般种到骨下1mm。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
+    <id>https://zwdnet.github.io/2026/07/31/%E6%A4%8D%E4%BD%93%E7%A7%8D%E5%A4%9A%E6%B7%B1/</id>
+    <link href="https://zwdnet.github.io/2026/07/31/%E6%A4%8D%E4%BD%93%E7%A7%8D%E5%A4%9A%E6%B7%B1/"/>
+    <published>2026-07-31T08:53:09.000Z</published>
+    <summary>
+      <![CDATA[<p>最近种了几颗，有个问题很困惑:到底要种多深?查了下资料。</p>
+<p>1.口腔种植关键技术实战图解&#x2F;谭震主编.一北京：人民卫生出版社，2014<br>种植体的粗糙部分应位于牙槽嵴顶平齐或嵴顶下lmm 范围内（Buser 2000，Cochran 2000），而理]]>
+    </summary>
+    <title>植体种多深</title>
+    <updated>2026-08-01T09:42:35.157Z</updated>
   </entry>
-  
   <entry>
-    <title>精准缝合08——缝合器械的选择和临床应用</title>
-    <link href="https://zwdnet.github.io/2026/06/09/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8808%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E5%99%A8%E6%A2%B0%E7%9A%84%E9%80%89%E6%8B%A9%E5%92%8C%E4%B8%B4%E5%BA%8A%E5%BA%94%E7%94%A8/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
+    <content>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h2 id="缝合器械的选择和临床应用"><a href="#缝合器械的选择和临床应用" class="headerlink" title="缝合器械的选择和临床应用"></a>缝合器械的选择和临床应用</h2><h3 id="缝针"><a href="#缝针" class="headerlink" title="缝针"></a>缝针</h3><p>长度:8-15mm<br>弯度:1&#x2F;4弧、3&#x2F;8弧、1&#x2F;2弧、5&#x2F;8弧。还有复合弧度的。<br>截面形态:圆针、三角针、反三角针。圆针没有切割力，用于皮下组织或较为薄弱的组织;三角针切割力强，用于较为坚韧的组织;反三角针，三角针的改进，避免创口撕裂。<br>针体形态:正圆形、椭圆形、梯形、三角形等。圆针创伤最小，但夹持困难。<br>使用过程中，缝合针会发生变形，使可操作性降低，甚至断针。缝合黏骨膜瓣2-3次应换针。夹持时避开针尖部位。缝针的进出针方向尽量与组织保持垂直。进针点到切口的距离应为黏膜瓣厚度的两倍。<br>不同缝针的取舍:缝合位置、操作方式、周围结构。<br>理想的缝针:</p><ul><li>长度:前牙区:8-12mm;后牙区:13-15mm。</li><li>弧的弯度:切口较深:1&#x2F;2弧;切口浅:3&#x2F;8弧。</li><li>截面形态:建议反三角形切割针。</li></ul><h3 id="缝线"><a href="#缝线" class="headerlink" title="缝线"></a>缝线</h3><p>直径:1-0至8-0(美国药典)<br>长度:45-75mm<br>横截面:单股缝线和多股缝线。单股缝线更顺滑，细菌定植少。更可能发生结松解。多股缝线弹性更显著，柔韧性更好。穿过组织时摩擦力更大，创口过热的缝线。细菌定植。<br>材料组分:不可吸收缝线:丝线、尼龙线、聚丙烯缝线;天然可吸收缝线:羊肠线;合成可吸收缝线。<br>缝线失效:</p><ul><li>张力:无张力缝合，充分减张。</li><li>缝线断裂:弹性，缝线与组织匹配性。</li><li>线结松解:线结是缝线最薄弱的部分。在保证线结安全的情况下，尽可能减小线头长度和线结体积。术者的操作是关键。</li></ul><p>缝线的取舍:</p><ul><li>缝合位置:<ul><li>材料组分<ul><li>深部:可吸收</li><li>暴露于口腔:不可吸收</li></ul></li><li>直径<ul><li>骨增量区:5-0，6-0</li><li>无张力术区:7-0</li><li>有张力术区(冠向复位等):5-0，6-0</li></ul></li><li>截面形态:首选单股。</li></ul></li><li>操作方式<ul><li>打结方式:弹性记忆能力越高，打结数量越多。</li><li>拉线力度:术区黏膜不发白，创口良好对位。</li><li>线头长度:浅表创口丝线2-3mm，尼龙线3-5mm。深部创口1-2mm。</li></ul></li></ul><h3 id="缝合手术器械"><a href="#缝合手术器械" class="headerlink" title="缝合手术器械"></a>缝合手术器械</h3><h4 id="持针器"><a href="#持针器" class="headerlink" title="持针器"></a>持针器</h4><p>喙部尺寸需与缝合针类型和直径相匹配。</p><h4 id="手术镊"><a href="#手术镊" class="headerlink" title="手术镊"></a>手术镊</h4><p>缝合过程中夹住、暂时固定或移动组织瓣。还用于术中材料递送。</p><h4 id="手术剪"><a href="#手术剪" class="headerlink" title="手术剪"></a>手术剪</h4><p>分为组织剪和线剪，不能混用。前者刃面锋利，弯的。后者刃较厚，直的。</p><p>总的原则:微创。在保证缝合成功的前提下，选择对组织损伤最小、最有利于修复的器械和操作方式。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2026/06/09/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8808%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E5%99%A8%E6%A2%B0%E7%9A%84%E9%80%89%E6%8B%A9%E5%92%8C%E4%B8%B4%E5%BA%8A%E5%BA%94%E7%94%A8/</id>
+    <link href="https://zwdnet.github.io/2026/06/09/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8808%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E5%99%A8%E6%A2%B0%E7%9A%84%E9%80%89%E6%8B%A9%E5%92%8C%E4%B8%B4%E5%BA%8A%E5%BA%94%E7%94%A8/"/>
     <published>2026-06-09T06:00:01.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p>
+<h2 id="缝合器械的选择和临床应用"><a href="#缝合器械的选择和临床应用" class="headerlink" title="缝合器械的选择和临床应用"></a>缝合器械的选择和临床应用</]]>
+    </summary>
+    <title>精准缝合08——缝合器械的选择和临床应用</title>
     <updated>2026-06-09T10:31:27.087Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h2 id="缝合器械的选择和临床应用"><a href="#缝合器械的选择和临床应用" class="headerlink" title="缝合器械的选择和临床应用"></a>缝合器械的选择和临床应用</h2><h3 id="缝针"><a href="#缝针" class="headerlink" title="缝针"></a>缝针</h3><p>长度:8-15mm<br>弯度:1&#x2F;4弧、3&#x2F;8弧、1&#x2F;2弧、5&#x2F;8弧。还有复合弧度的。<br>截面形态:圆针、三角针、反三角针。圆针没有切割力，用于皮下组织或较为薄弱的组织;三角针切割力强，用于较为坚韧的组织;反三角针，三角针的改进，避免创口撕裂。<br>针体形态:正圆形、椭圆形、梯形、三角形等。圆针创伤最小，但夹持困难。<br>使用过程中，缝合针会发生变形，使可操作性降低，甚至断针。缝合黏骨膜瓣2-3次应换针。夹持时避开针尖部位。缝针的进出针方向尽量与组织保持垂直。进针点到切口的距离应为黏膜瓣厚度的两倍。<br>不同缝针的取舍:缝合位置、操作方式、周围结构。<br>理想的缝针:</p><ul><li>长度:前牙区:8-12mm;后牙区:13-15mm。</li><li>弧的弯度:切口较深:1&#x2F;2弧;切口浅:3&#x2F;8弧。</li><li>截面形态:建议反三角形切割针。</li></ul><h3 id="缝线"><a href="#缝线" class="headerlink" title="缝线"></a>缝线</h3><p>直径:1-0至8-0(美国药典)<br>长度:45-75mm<br>横截面:单股缝线和多股缝线。单股缝线更顺滑，细菌定植少。更可能发生结松解。多股缝线弹性更显著，柔韧性更好。穿过组织时摩擦力更大，创口过热的缝线。细菌定植。<br>材料组分:不可吸收缝线:丝线、尼龙线、聚丙烯缝线;天然可吸收缝线:羊肠线;合成可吸收缝线。<br>缝线失效:</p><ul><li>张力:无张力缝合，充分减张。</li><li>缝线断裂:弹性，缝线与组织匹配性。</li><li>线结松解:线结是缝线最薄弱的部分。在保证线结安全的情况下，尽可能减小线头长度和线结体积。术者的操作是关键。</li></ul><p>缝线的取舍:</p><ul><li>缝合位置:<ul><li>材料组分<ul><li>深部:可吸收</li><li>暴露于口腔:不可吸收</li></ul></li><li>直径<ul><li>骨增量区:5-0，6-0</li><li>无张力术区:7-0</li><li>有张力术区(冠向复位等):5-0，6-0</li></ul></li><li>截面形态:首选单股。</li></ul></li><li>操作方式<ul><li>打结方式:弹性记忆能力越高，打结数量越多。</li><li>拉线力度:术区黏膜不发白，创口良好对位。</li><li>线头长度:浅表创口丝线2-3mm，尼龙线3-5mm。深部创口1-2mm。</li></ul></li></ul><h3 id="缝合手术器械"><a href="#缝合手术器械" class="headerlink" title="缝合手术器械"></a>缝合手术器械</h3><h4 id="持针器"><a href="#持针器" class="headerlink" title="持针器"></a>持针器</h4><p>喙部尺寸需与缝合针类型和直径相匹配。</p><h4 id="手术镊"><a href="#手术镊" class="headerlink" title="手术镊"></a>手术镊</h4><p>缝合过程中夹住、暂时固定或移动组织瓣。还用于术中材料递送。</p><h4 id="手术剪"><a href="#手术剪" class="headerlink" title="手术剪"></a>手术剪</h4><p>分为组织剪和线剪，不能混用。前者刃面锋利，弯的。后者刃较厚，直的。</p><p>总的原则:微创。在保证缝合成功的前提下，选择对组织损伤最小、最有利于修复的器械和操作方式。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。&lt;/p&gt;
-&lt;h2 id=&quot;缝合器械的选择和临床应用&quot;&gt;&lt;a href=&quot;#缝合器械的选择和临床应用&quot; class=&quot;headerlink&quot; title=&quot;缝合器械的选择和临床应用&quot;&gt;&lt;/a&gt;缝合器械的选择和临床应用&lt;/</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准缝合07——不同临床情境的缝合抉择与误差防范2</title>
-    <link href="https://zwdnet.github.io/2026/05/10/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8807%E2%80%94%E2%80%94%E4%B8%8D%E5%90%8C%E4%B8%B4%E5%BA%8A%E6%83%85%E5%A2%83%E7%9A%84%E7%BC%9D%E5%90%88%E6%8A%89%E6%8B%A9%E4%B8%8E%E8%AF%AF%E5%B7%AE%E9%98%B2%E8%8C%832/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
+    <content>
+      <![CDATA[<h3 id="种植二期手术"><a href="#种植二期手术" class="headerlink" title="种植二期手术"></a>种植二期手术</h3><h4 id="常规二期手术"><a href="#常规二期手术" class="headerlink" title="常规二期手术"></a>常规二期手术</h4><p>从愈合帽暴露处，近远中牙槽嵴切口，近远中间断缝合。</p><h4 id="偏舌侧切口二期手术"><a href="#偏舌侧切口二期手术" class="headerlink" title="偏舌侧切口二期手术"></a>偏舌侧切口二期手术</h4><p>颊侧黏膜丰满度稍不足的病例。牙槽嵴顶偏舌侧切口，近远中间断缝合。注意舌侧黏膜可能肿胀爬上愈合帽，可在间断缝合之外，在愈合帽周围使用一针交叉外8字缝合，颊侧愈合帽两端分别进出针，然后绕过愈合帽到舌侧，在愈合帽两端进出针，最后打结缝合。这样缝线对愈合帽周围软组织压迫、固定、辅助塑形。</p><h4 id="L型转瓣技术"><a href="#L型转瓣技术" class="headerlink" title="L型转瓣技术"></a>L型转瓣技术</h4><p>愈合帽周围软组织瓣难以直接拉拢对位缝合的，偏舌侧切口，在颊侧瓣上做一L形切口，形成一带蒂条形软组织，再将其转向愈合帽近中。同时L形切口在愈合帽远中也形成一较短的条形瓣。它们与舌侧瓣对位，避免骨暴露。<br>L切口中的短切口长度等于愈合帽边缘到邻牙的距离。长切口的长度等于切口起点到对侧组织瓣的距离。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0473-fh/01.jpg"><br>缝合时先在舌侧固定处穿针，再穿条形瓣，最后拉拢缝合。</p><h4 id="腭侧带蒂半厚瓣唇侧卷入技术"><a href="#腭侧带蒂半厚瓣唇侧卷入技术" class="headerlink" title="腭侧带蒂半厚瓣唇侧卷入技术"></a>腭侧带蒂半厚瓣唇侧卷入技术</h4><p>种植位点软组织条件不理想的情况。</p><h4 id="根向复位瓣技术"><a href="#根向复位瓣技术" class="headerlink" title="根向复位瓣技术"></a>根向复位瓣技术</h4><p>角化黏膜不足的情况。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2026/05/10/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8807%E2%80%94%E2%80%94%E4%B8%8D%E5%90%8C%E4%B8%B4%E5%BA%8A%E6%83%85%E5%A2%83%E7%9A%84%E7%BC%9D%E5%90%88%E6%8A%89%E6%8B%A9%E4%B8%8E%E8%AF%AF%E5%B7%AE%E9%98%B2%E8%8C%832/</id>
+    <link href="https://zwdnet.github.io/2026/05/10/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8807%E2%80%94%E2%80%94%E4%B8%8D%E5%90%8C%E4%B8%B4%E5%BA%8A%E6%83%85%E5%A2%83%E7%9A%84%E7%BC%9D%E5%90%88%E6%8A%89%E6%8B%A9%E4%B8%8E%E8%AF%AF%E5%B7%AE%E9%98%B2%E8%8C%832/"/>
     <published>2026-05-10T01:06:08.000Z</published>
+    <summary>
+      <![CDATA[<h3 id="种植二期手术"><a href="#种植二期手术" class="headerlink" title="种植二期手术"></a>种植二期手术</h3><h4 id="常规二期手术"><a href="#常规二期手术" class="headerlink" titl]]>
+    </summary>
+    <title>精准缝合07——不同临床情境的缝合抉择与误差防范2</title>
     <updated>2026-05-10T10:22:24.980Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="种植二期手术"><a href="#种植二期手术" class="headerlink" title="种植二期手术"></a>种植二期手术</h3><h4 id="常规二期手术"><a href="#常规二期手术" class="headerlink" title="常规二期手术"></a>常规二期手术</h4><p>从愈合帽暴露处，近远中牙槽嵴切口，近远中间断缝合。</p><h4 id="偏舌侧切口二期手术"><a href="#偏舌侧切口二期手术" class="headerlink" title="偏舌侧切口二期手术"></a>偏舌侧切口二期手术</h4><p>颊侧黏膜丰满度稍不足的病例。牙槽嵴顶偏舌侧切口，近远中间断缝合。注意舌侧黏膜可能肿胀爬上愈合帽，可在间断缝合之外，在愈合帽周围使用一针交叉外8字缝合，颊侧愈合帽两端分别进出针，然后绕过愈合帽到舌侧，在愈合帽两端进出针，最后打结缝合。这样缝线对愈合帽周围软组织压迫、固定、辅助塑形。</p><h4 id="L型转瓣技术"><a href="#L型转瓣技术" class="headerlink" title="L型转瓣技术"></a>L型转瓣技术</h4><p>愈合帽周围软组织瓣难以直接拉拢对位缝合的，偏舌侧切口，在颊侧瓣上做一L形切口，形成一带蒂条形软组织，再将其转向愈合帽近中。同时L形切口在愈合帽远中也形成一较短的条形瓣。它们与舌侧瓣对位，避免骨暴露。<br>L切口中的短切口长度等于愈合帽边缘到邻牙的距离。长切口的长度等于切口起点到对侧组织瓣的距离。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0473-fh/01.jpg"><br>缝合时先在舌侧固定处穿针，再穿条形瓣，最后拉拢缝合。</p><h4 id="腭侧带蒂半厚瓣唇侧卷入技术"><a href="#腭侧带蒂半厚瓣唇侧卷入技术" class="headerlink" title="腭侧带蒂半厚瓣唇侧卷入技术"></a>腭侧带蒂半厚瓣唇侧卷入技术</h4><p>种植位点软组织条件不理想的情况。</p><h4 id="根向复位瓣技术"><a href="#根向复位瓣技术" class="headerlink" title="根向复位瓣技术"></a>根向复位瓣技术</h4><p>角化黏膜不足的情况。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;种植二期手术&quot;&gt;&lt;a href=&quot;#种植二期手术&quot; class=&quot;headerlink&quot; title=&quot;种植二期手术&quot;&gt;&lt;/a&gt;种植二期手术&lt;/h3&gt;&lt;h4 id=&quot;常规二期手术&quot;&gt;&lt;a href=&quot;#常规二期手术&quot; class=&quot;headerlink&quot; titl</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准缝合06——不同临床情境的缝合抉择与误差防范</title>
-    <link href="https://zwdnet.github.io/2026/04/11/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8806%E2%80%94%E2%80%94%E4%B8%8D%E5%90%8C%E4%B8%B4%E5%BA%8A%E6%83%85%E5%A2%83%E7%9A%84%E7%BC%9D%E5%90%88%E6%8A%89%E6%8B%A9%E4%B8%8E%E8%AF%AF%E5%B7%AE%E9%98%B2%E8%8C%83/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
+    <content>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h2 id="不同临床情境的缝合抉择与误差防范"><a href="#不同临床情境的缝合抉择与误差防范" class="headerlink" title="不同临床情境的缝合抉择与误差防范"></a>不同临床情境的缝合抉择与误差防范</h2><h3 id="一期手术"><a href="#一期手术" class="headerlink" title="一期手术"></a>一期手术</h3><h4 id="骨增量手术"><a href="#骨增量手术" class="headerlink" title="骨增量手术"></a>骨增量手术</h4><p>水平内褥式缝合固定胶原膜。<br>固定胶原膜后，减张缝合关闭创口。</p><h4 id="牙槽嵴顶切口"><a href="#牙槽嵴顶切口" class="headerlink" title="牙槽嵴顶切口"></a>牙槽嵴顶切口</h4><p>在牙龈乳头等解剖标志点采用垂直内褥式缝合帮助对位。再采用水平内褥式缝合加间断缝合来关闭整个牙槽嵴顶切口。</p><h4 id="牙龈乳头切口"><a href="#牙龈乳头切口" class="headerlink" title="牙龈乳头切口"></a>牙龈乳头切口</h4><p>两侧黏膜瓣对位的要求更高，张力不会太大。改良水平褥式缝合。</p><h4 id="垂直切口"><a href="#垂直切口" class="headerlink" title="垂直切口"></a>垂直切口</h4><p>借助腭侧的组织进行加强，即采用单侧加强间断缝合。</p><h3 id="种植体周手术"><a href="#种植体周手术" class="headerlink" title="种植体周手术"></a>种植体周手术</h3><h4 id="种植体周再生性手术-维持稳定的成骨空间"><a href="#种植体周再生性手术-维持稳定的成骨空间" class="headerlink" title="种植体周再生性手术:维持稳定的成骨空间"></a>种植体周再生性手术:维持稳定的成骨空间</h4><p>Gottlow缝合，较宽的唇侧牙龈乳头处，水平进出针。较狭长的腭侧牙龈乳头处采用垂直进出针。然后在腭侧线穿过线圈。</p><h4 id="种植体周软组织移植手术-固定软组织"><a href="#种植体周软组织移植手术-固定软组织" class="headerlink" title="种植体周软组织移植手术:固定软组织"></a>种植体周软组织移植手术:固定软组织</h4><p>通过在四个角上间断缝合固定移植软组织。</p><h3 id="早期及延期种植手术"><a href="#早期及延期种植手术" class="headerlink" title="早期及延期种植手术"></a>早期及延期种植手术</h3><h4 id="不植骨"><a href="#不植骨" class="headerlink" title="不植骨"></a>不植骨</h4><p>缝合目的主要是关创。可直接使用间断缝合。缝线粗细均可，较粗缝线易形成压痕。可采用缓冲缝合:先绕三圈拉紧，再绕两圈不拉紧，两次之间预留一个空圈为组织肿胀预留空间。<br>间断缝合基本原则:</p><ul><li>缝合应从游离侧至固定侧。</li><li>垂直进出针。</li><li>进出针点与切口距离应一致。</li><li>进出针点至切口距离至少3mm，建议为进出针深度的2倍。</li><li>缝合间隔密度(针距)均匀。</li><li>缝线应在引导组织瓣良好对位的前提下保持最小张力。</li><li>缝合区应该在角化黏膜内。</li></ul><p>多颗连续种植:连续锁边缝合。可采用中间打结法或结合间断缝合。</p><h4 id="种植同期GBR"><a href="#种植同期GBR" class="headerlink" title="种植同期GBR"></a>种植同期GBR</h4><p>植骨盖膜占用空间，易造成组织瓣及邻牙牙龈乳头等对位不良。<br>恰当的缝合可以从以下3个方面考虑：辅助骨代用材料和胶原膜稳定在恰当的位置；帮助抵抗口轮匝肌等肌肉运动带来的外力干扰；对位组织瓣，关闭切口，促进良好愈合。<br>垂直切口更容易拉拢实现无张力关闭，可使用较细的缝线。</p><h4 id="即刻种植"><a href="#即刻种植" class="headerlink" title="即刻种植"></a>即刻种植</h4><p>唇侧骨板厚度＞1mm，骨量足以支持种植体获得初期稳定性，即可考虑即刻种植。愈合帽辅助关创、自体反应性软组织辅助关创、直接使用生物材料关创(不推荐)。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2026/04/11/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8806%E2%80%94%E2%80%94%E4%B8%8D%E5%90%8C%E4%B8%B4%E5%BA%8A%E6%83%85%E5%A2%83%E7%9A%84%E7%BC%9D%E5%90%88%E6%8A%89%E6%8B%A9%E4%B8%8E%E8%AF%AF%E5%B7%AE%E9%98%B2%E8%8C%83/</id>
+    <link href="https://zwdnet.github.io/2026/04/11/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8806%E2%80%94%E2%80%94%E4%B8%8D%E5%90%8C%E4%B8%B4%E5%BA%8A%E6%83%85%E5%A2%83%E7%9A%84%E7%BC%9D%E5%90%88%E6%8A%89%E6%8B%A9%E4%B8%8E%E8%AF%AF%E5%B7%AE%E9%98%B2%E8%8C%83/"/>
     <published>2026-04-11T02:46:03.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p>
+<h2 id="不同临床情境的缝合抉择与误差防范"><a href="#不同临床情境的缝合抉择与误差防范" class="headerlink" title="不同临床情境的缝合抉择与误差防范"></a>不同]]>
+    </summary>
+    <title>精准缝合06——不同临床情境的缝合抉择与误差防范</title>
     <updated>2026-04-11T09:23:53.538Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h2 id="不同临床情境的缝合抉择与误差防范"><a href="#不同临床情境的缝合抉择与误差防范" class="headerlink" title="不同临床情境的缝合抉择与误差防范"></a>不同临床情境的缝合抉择与误差防范</h2><h3 id="一期手术"><a href="#一期手术" class="headerlink" title="一期手术"></a>一期手术</h3><h4 id="骨增量手术"><a href="#骨增量手术" class="headerlink" title="骨增量手术"></a>骨增量手术</h4><p>水平内褥式缝合固定胶原膜。<br>固定胶原膜后，减张缝合关闭创口。</p><h4 id="牙槽嵴顶切口"><a href="#牙槽嵴顶切口" class="headerlink" title="牙槽嵴顶切口"></a>牙槽嵴顶切口</h4><p>在牙龈乳头等解剖标志点采用垂直内褥式缝合帮助对位。再采用水平内褥式缝合加间断缝合来关闭整个牙槽嵴顶切口。</p><h4 id="牙龈乳头切口"><a href="#牙龈乳头切口" class="headerlink" title="牙龈乳头切口"></a>牙龈乳头切口</h4><p>两侧黏膜瓣对位的要求更高，张力不会太大。改良水平褥式缝合。</p><h4 id="垂直切口"><a href="#垂直切口" class="headerlink" title="垂直切口"></a>垂直切口</h4><p>借助腭侧的组织进行加强，即采用单侧加强间断缝合。</p><h3 id="种植体周手术"><a href="#种植体周手术" class="headerlink" title="种植体周手术"></a>种植体周手术</h3><h4 id="种植体周再生性手术-维持稳定的成骨空间"><a href="#种植体周再生性手术-维持稳定的成骨空间" class="headerlink" title="种植体周再生性手术:维持稳定的成骨空间"></a>种植体周再生性手术:维持稳定的成骨空间</h4><p>Gottlow缝合，较宽的唇侧牙龈乳头处，水平进出针。较狭长的腭侧牙龈乳头处采用垂直进出针。然后在腭侧线穿过线圈。</p><h4 id="种植体周软组织移植手术-固定软组织"><a href="#种植体周软组织移植手术-固定软组织" class="headerlink" title="种植体周软组织移植手术:固定软组织"></a>种植体周软组织移植手术:固定软组织</h4><p>通过在四个角上间断缝合固定移植软组织。</p><h3 id="早期及延期种植手术"><a href="#早期及延期种植手术" class="headerlink" title="早期及延期种植手术"></a>早期及延期种植手术</h3><h4 id="不植骨"><a href="#不植骨" class="headerlink" title="不植骨"></a>不植骨</h4><p>缝合目的主要是关创。可直接使用间断缝合。缝线粗细均可，较粗缝线易形成压痕。可采用缓冲缝合:先绕三圈拉紧，再绕两圈不拉紧，两次之间预留一个空圈为组织肿胀预留空间。<br>间断缝合基本原则:</p><ul><li>缝合应从游离侧至固定侧。</li><li>垂直进出针。</li><li>进出针点与切口距离应一致。</li><li>进出针点至切口距离至少3mm，建议为进出针深度的2倍。</li><li>缝合间隔密度(针距)均匀。</li><li>缝线应在引导组织瓣良好对位的前提下保持最小张力。</li><li>缝合区应该在角化黏膜内。</li></ul><p>多颗连续种植:连续锁边缝合。可采用中间打结法或结合间断缝合。</p><h4 id="种植同期GBR"><a href="#种植同期GBR" class="headerlink" title="种植同期GBR"></a>种植同期GBR</h4><p>植骨盖膜占用空间，易造成组织瓣及邻牙牙龈乳头等对位不良。<br>恰当的缝合可以从以下3个方面考虑：辅助骨代用材料和胶原膜稳定在恰当的位置；帮助抵抗口轮匝肌等肌肉运动带来的外力干扰；对位组织瓣，关闭切口，促进良好愈合。<br>垂直切口更容易拉拢实现无张力关闭，可使用较细的缝线。</p><h4 id="即刻种植"><a href="#即刻种植" class="headerlink" title="即刻种植"></a>即刻种植</h4><p>唇侧骨板厚度＞1mm，骨量足以支持种植体获得初期稳定性，即可考虑即刻种植。愈合帽辅助关创、自体反应性软组织辅助关创、直接使用生物材料关创(不推荐)。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。&lt;/p&gt;
-&lt;h2 id=&quot;不同临床情境的缝合抉择与误差防范&quot;&gt;&lt;a href=&quot;#不同临床情境的缝合抉择与误差防范&quot; class=&quot;headerlink&quot; title=&quot;不同临床情境的缝合抉择与误差防范&quot;&gt;&lt;/a&gt;不同</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准缝合05——缝合方法3</title>
-    <link href="https://zwdnet.github.io/2026/03/22/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8805%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E6%96%B9%E6%B3%953/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
+    <content>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h3 id="交叉8字缝合"><a href="#交叉8字缝合" class="headerlink" title="交叉8字缝合"></a>交叉8字缝合</h3><p>褥式缝合经过切缘时缝线相互平行。<br>交叉8字缝合分为交叉外8字缝合和交叉内8字缝合。</p><h4 id="交叉外8字缝合"><a href="#交叉外8字缝合" class="headerlink" title="交叉外8字缝合"></a>交叉外8字缝合</h4><p>最常见应用在种植二期手术，缝线在愈合帽一侧形成交叉，起到固定角化黏膜的作用。还可以形成膜瓣的内卷。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/01.jpg"></p><h4 id="交叉内8字缝合"><a href="#交叉内8字缝合" class="headerlink" title="交叉内8字缝合"></a>交叉内8字缝合</h4><p>缝线经过创口时位于其内侧，从而形成创口的外翻，并在创口下方形成缝线的交叉，可用于固定生物材料。</p><h3 id="悬吊缝合"><a href="#悬吊缝合" class="headerlink" title="悬吊缝合"></a>悬吊缝合</h3><p>对软组织持续施加某一方向上牵拉力量。分为单乳头悬吊缝合、双乳头悬吊缝合、双交叉悬吊缝合、双交叉悬吊缝合、龈缘悬吊缝合。</p><h4 id="单乳头悬吊缝合"><a href="#单乳头悬吊缝合" class="headerlink" title="单乳头悬吊缝合"></a>单乳头悬吊缝合</h4><p>天然牙一侧单个牙龈乳头存在一定退缩、有冠向复位需求时。有效降低术后其退缩风险。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/02.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/03.jpg"></p><h4 id="双乳头悬吊缝合"><a href="#双乳头悬吊缝合" class="headerlink" title="双乳头悬吊缝合"></a>双乳头悬吊缝合</h4><p>天然牙一侧同时存在两个牙龈乳头退缩，均具有冠向复位需求。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/04.jpg"></p><h4 id="双交叉悬吊缝合"><a href="#双交叉悬吊缝合" class="headerlink" title="双交叉悬吊缝合"></a>双交叉悬吊缝合</h4><p>天然牙唇颊侧及舌腭侧牙龈乳头同时翻起，且均具有冠向复位需求。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/05.jpg"></p><h4 id="龈缘悬吊缝合"><a href="#龈缘悬吊缝合" class="headerlink" title="龈缘悬吊缝合"></a>龈缘悬吊缝合</h4><p>使唇侧黏膜瓣整体获得良好的冠向复位效果，除对牙龈乳头的悬吊外，还需对龈缘进行悬吊。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/06.jpg"></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2026/03/22/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8805%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E6%96%B9%E6%B3%953/</id>
+    <link href="https://zwdnet.github.io/2026/03/22/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8805%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E6%96%B9%E6%B3%953/"/>
     <published>2026-03-22T02:12:52.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p>
+<h3 id="交叉8字缝合"><a href="#交叉8字缝合" class="headerlink" title="交叉8字缝合"></a>交叉8字缝合</h3><p>褥式缝合经过切缘时缝线相互平行。<b]]>
+    </summary>
+    <title>精准缝合05——缝合方法3</title>
     <updated>2026-03-22T10:18:27.345Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h3 id="交叉8字缝合"><a href="#交叉8字缝合" class="headerlink" title="交叉8字缝合"></a>交叉8字缝合</h3><p>褥式缝合经过切缘时缝线相互平行。<br>交叉8字缝合分为交叉外8字缝合和交叉内8字缝合。</p><h4 id="交叉外8字缝合"><a href="#交叉外8字缝合" class="headerlink" title="交叉外8字缝合"></a>交叉外8字缝合</h4><p>最常见应用在种植二期手术，缝线在愈合帽一侧形成交叉，起到固定角化黏膜的作用。还可以形成膜瓣的内卷。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/01.jpg"></p><h4 id="交叉内8字缝合"><a href="#交叉内8字缝合" class="headerlink" title="交叉内8字缝合"></a>交叉内8字缝合</h4><p>缝线经过创口时位于其内侧，从而形成创口的外翻，并在创口下方形成缝线的交叉，可用于固定生物材料。</p><h3 id="悬吊缝合"><a href="#悬吊缝合" class="headerlink" title="悬吊缝合"></a>悬吊缝合</h3><p>对软组织持续施加某一方向上牵拉力量。分为单乳头悬吊缝合、双乳头悬吊缝合、双交叉悬吊缝合、双交叉悬吊缝合、龈缘悬吊缝合。</p><h4 id="单乳头悬吊缝合"><a href="#单乳头悬吊缝合" class="headerlink" title="单乳头悬吊缝合"></a>单乳头悬吊缝合</h4><p>天然牙一侧单个牙龈乳头存在一定退缩、有冠向复位需求时。有效降低术后其退缩风险。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/02.jpg"></p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/03.jpg"></p><h4 id="双乳头悬吊缝合"><a href="#双乳头悬吊缝合" class="headerlink" title="双乳头悬吊缝合"></a>双乳头悬吊缝合</h4><p>天然牙一侧同时存在两个牙龈乳头退缩，均具有冠向复位需求。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/04.jpg"></p><h4 id="双交叉悬吊缝合"><a href="#双交叉悬吊缝合" class="headerlink" title="双交叉悬吊缝合"></a>双交叉悬吊缝合</h4><p>天然牙唇颊侧及舌腭侧牙龈乳头同时翻起，且均具有冠向复位需求。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/05.jpg"></p><h4 id="龈缘悬吊缝合"><a href="#龈缘悬吊缝合" class="headerlink" title="龈缘悬吊缝合"></a>龈缘悬吊缝合</h4><p>使唇侧黏膜瓣整体获得良好的冠向复位效果，除对牙龈乳头的悬吊外，还需对龈缘进行悬吊。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0472-fh2/06.jpg"></p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。&lt;/p&gt;
-&lt;h3 id=&quot;交叉8字缝合&quot;&gt;&lt;a href=&quot;#交叉8字缝合&quot; class=&quot;headerlink&quot; title=&quot;交叉8字缝合&quot;&gt;&lt;/a&gt;交叉8字缝合&lt;/h3&gt;&lt;p&gt;褥式缝合经过切缘时缝线相互平行。&lt;b</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准缝合04——缝合方法2</title>
-    <link href="https://zwdnet.github.io/2026/03/08/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8804%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E6%96%B9%E6%B3%952/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
+    <content>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h3 id="连续缝合"><a href="#连续缝合" class="headerlink" title="连续缝合"></a>连续缝合</h3><p>连续多颗牙缺失或无牙颌种植手术。</p><h4 id="连续锁边正绕式缝合"><a href="#连续锁边正绕式缝合" class="headerlink" title="连续锁边正绕式缝合"></a>连续锁边正绕式缝合</h4><p>先间断缝合，不剪带针一端，连续往前按间断缝合进针，缝针穿过形成的线圈。最后一针不拉紧，打结。缺点是任何一处缝线断裂，整个结都会滑脱。第一个结易被拉扯导致牙龈乳头处愈合不良。</p><h3 id="褥式缝合"><a href="#褥式缝合" class="headerlink" title="褥式缝合"></a>褥式缝合</h3><p>实现固定、减张、压迫、内卷、外翻等多种不同的功能。<br>垂直褥式和水平褥式，根据一侧创口进出针点的关系来命名。<br>内褥式和外褥式，根据缝线跨两侧创口时是在切缘内还是切缘外来确定。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0471-fh/01.jpg"><br>水平内褥式缝合能够较长时间内维持术区创口处于低张力乃至无张力的状态从而促进创口的愈合。也可用来固定胶原膜。还具有应力阻断作用，也可用于结缔组织的固定。<br>水平外褥式缝合，实现内卷、关创、固定等多种功能。可用于创口关闭，如位点保存和即刻种植。还可用于根向复位瓣术中受区角化黏膜移植条带的固定。<br>垂直内褥式缝合，穿针位点连线与切缘相垂直，只对小范围软组织进行控制，利于实现更为精准的黏膜瓣或牙龈乳头对位。<br>垂直外褥式缝合，创口内卷，产生向下方的压力，将黏膜瓣加压固定于骨面之上。常用于天然牙冠延长术进行双侧根向复位瓣的固定、牙周炎和种植体周围炎切除性手术</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2026/03/08/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8804%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E6%96%B9%E6%B3%952/</id>
+    <link href="https://zwdnet.github.io/2026/03/08/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8804%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E6%96%B9%E6%B3%952/"/>
     <published>2026-03-08T01:28:17.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p>
+<h3 id="连续缝合"><a href="#连续缝合" class="headerlink" title="连续缝合"></a>连续缝合</h3><p>连续多颗牙缺失或无牙颌种植手术。</p>
+<h4 i]]>
+    </summary>
+    <title>精准缝合04——缝合方法2</title>
     <updated>2026-03-08T09:38:34.431Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h3 id="连续缝合"><a href="#连续缝合" class="headerlink" title="连续缝合"></a>连续缝合</h3><p>连续多颗牙缺失或无牙颌种植手术。</p><h4 id="连续锁边正绕式缝合"><a href="#连续锁边正绕式缝合" class="headerlink" title="连续锁边正绕式缝合"></a>连续锁边正绕式缝合</h4><p>先间断缝合，不剪带针一端，连续往前按间断缝合进针，缝针穿过形成的线圈。最后一针不拉紧，打结。缺点是任何一处缝线断裂，整个结都会滑脱。第一个结易被拉扯导致牙龈乳头处愈合不良。</p><h3 id="褥式缝合"><a href="#褥式缝合" class="headerlink" title="褥式缝合"></a>褥式缝合</h3><p>实现固定、减张、压迫、内卷、外翻等多种不同的功能。<br>垂直褥式和水平褥式，根据一侧创口进出针点的关系来命名。<br>内褥式和外褥式，根据缝线跨两侧创口时是在切缘内还是切缘外来确定。</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0471-fh/01.jpg"><br>水平内褥式缝合能够较长时间内维持术区创口处于低张力乃至无张力的状态从而促进创口的愈合。也可用来固定胶原膜。还具有应力阻断作用，也可用于结缔组织的固定。<br>水平外褥式缝合，实现内卷、关创、固定等多种功能。可用于创口关闭，如位点保存和即刻种植。还可用于根向复位瓣术中受区角化黏膜移植条带的固定。<br>垂直内褥式缝合，穿针位点连线与切缘相垂直，只对小范围软组织进行控制，利于实现更为精准的黏膜瓣或牙龈乳头对位。<br>垂直外褥式缝合，创口内卷，产生向下方的压力，将黏膜瓣加压固定于骨面之上。常用于天然牙冠延长术进行双侧根向复位瓣的固定、牙周炎和种植体周围炎切除性手术</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。&lt;/p&gt;
-&lt;h3 id=&quot;连续缝合&quot;&gt;&lt;a href=&quot;#连续缝合&quot; class=&quot;headerlink&quot; title=&quot;连续缝合&quot;&gt;&lt;/a&gt;连续缝合&lt;/h3&gt;&lt;p&gt;连续多颗牙缺失或无牙颌种植手术。&lt;/p&gt;
-&lt;h4 i</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准缝合03——缝合方法</title>
-    <link href="https://zwdnet.github.io/2026/02/11/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8803%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E6%96%B9%E6%B3%95/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
+    <content>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h2 id="二、缝合方法"><a href="#二、缝合方法" class="headerlink" title="二、缝合方法"></a>二、缝合方法</h2><h3 id="间断缝合"><a href="#间断缝合" class="headerlink" title="间断缝合"></a>间断缝合</h3><h4 id="常规间断缝合误差及分析"><a href="#常规间断缝合误差及分析" class="headerlink" title="常规间断缝合误差及分析"></a>常规间断缝合误差及分析</h4><p>瓣膜没有严密对位。<br>针距分布不均匀，边距不合理。一般针距为3-5mm。<br>缝合顺序:建议先缝中间再缝两边。</p><h4 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h4><p>一侧外进内出，另一侧内进外出，打结。</p><h4 id="拆线操作"><a href="#拆线操作" class="headerlink" title="拆线操作"></a>拆线操作</h4><p>在结靠近组织一侧剪断，从另一侧拉出。避免暴露的缝线进入组织。</p><h3 id="垂直切口冠方-单侧加强的间断缝合"><a href="#垂直切口冠方-单侧加强的间断缝合" class="headerlink" title="垂直切口冠方:单侧加强的间断缝合"></a>垂直切口冠方:单侧加强的间断缝合</h3><h4 id="误差及分析"><a href="#误差及分析" class="headerlink" title="误差及分析"></a>误差及分析</h4><p>一端游离一端固定。难以达到垂直进针和针距3mm要求，且极易造成软组织撕裂。游离牙龈也容易翘起。</p><h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><p>从邻牙牙乳头处穿至腭侧再穿回来，打结。</p><h3 id="用于垂直切口根方-斜向冠方的间断缝合"><a href="#用于垂直切口根方-斜向冠方的间断缝合" class="headerlink" title="用于垂直切口根方:斜向冠方的间断缝合"></a>用于垂直切口根方:斜向冠方的间断缝合</h3><p>游离侧进针，斜向冠方至固定侧出针。要缝合到固定侧的角化黏膜或者骨膜上。</p><h3 id="L形转瓣的间断缝合"><a href="#L形转瓣的间断缝合" class="headerlink" title="L形转瓣的间断缝合"></a>L形转瓣的间断缝合</h3><p>先进针，再利用缝线拉拢对位。</p><h3 id="锚式间断缝合"><a href="#锚式间断缝合" class="headerlink" title="锚式间断缝合"></a>锚式间断缝合</h3><p>植骨放膜时用。间断缝合，但是绕过邻牙再回来打结。</p><h3 id="双结缝合"><a href="#双结缝合" class="headerlink" title="双结缝合"></a>双结缝合</h3><p>有效避免狭小薄弱组织的撕裂。两次穿进穿出，两次打结。</p><h3 id="缓冲间断缝合"><a href="#缓冲间断缝合" class="headerlink" title="缓冲间断缝合"></a>缓冲间断缝合</h3><p>避免软组织勒痕。第一结拉紧，第二结不拉紧，为组织肿胀预留空间。剪线时两个线头分别剪开，避免拉紧。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2026/02/11/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8803%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E6%96%B9%E6%B3%95/</id>
+    <link href="https://zwdnet.github.io/2026/02/11/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8803%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E6%96%B9%E6%B3%95/"/>
     <published>2026-02-11T01:56:31.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p>
+<h2 id="二、缝合方法"><a href="#二、缝合方法" class="headerlink" title="二、缝合方法"></a>二、缝合方法</h2><h3 id="间断缝合"><a href]]>
+    </summary>
+    <title>精准缝合03——缝合方法</title>
     <updated>2026-02-11T10:18:59.589Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h2 id="二、缝合方法"><a href="#二、缝合方法" class="headerlink" title="二、缝合方法"></a>二、缝合方法</h2><h3 id="间断缝合"><a href="#间断缝合" class="headerlink" title="间断缝合"></a>间断缝合</h3><h4 id="常规间断缝合误差及分析"><a href="#常规间断缝合误差及分析" class="headerlink" title="常规间断缝合误差及分析"></a>常规间断缝合误差及分析</h4><p>瓣膜没有严密对位。<br>针距分布不均匀，边距不合理。一般针距为3-5mm。<br>缝合顺序:建议先缝中间再缝两边。</p><h4 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h4><p>一侧外进内出，另一侧内进外出，打结。</p><h4 id="拆线操作"><a href="#拆线操作" class="headerlink" title="拆线操作"></a>拆线操作</h4><p>在结靠近组织一侧剪断，从另一侧拉出。避免暴露的缝线进入组织。</p><h3 id="垂直切口冠方-单侧加强的间断缝合"><a href="#垂直切口冠方-单侧加强的间断缝合" class="headerlink" title="垂直切口冠方:单侧加强的间断缝合"></a>垂直切口冠方:单侧加强的间断缝合</h3><h4 id="误差及分析"><a href="#误差及分析" class="headerlink" title="误差及分析"></a>误差及分析</h4><p>一端游离一端固定。难以达到垂直进针和针距3mm要求，且极易造成软组织撕裂。游离牙龈也容易翘起。</p><h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><p>从邻牙牙乳头处穿至腭侧再穿回来，打结。</p><h3 id="用于垂直切口根方-斜向冠方的间断缝合"><a href="#用于垂直切口根方-斜向冠方的间断缝合" class="headerlink" title="用于垂直切口根方:斜向冠方的间断缝合"></a>用于垂直切口根方:斜向冠方的间断缝合</h3><p>游离侧进针，斜向冠方至固定侧出针。要缝合到固定侧的角化黏膜或者骨膜上。</p><h3 id="L形转瓣的间断缝合"><a href="#L形转瓣的间断缝合" class="headerlink" title="L形转瓣的间断缝合"></a>L形转瓣的间断缝合</h3><p>先进针，再利用缝线拉拢对位。</p><h3 id="锚式间断缝合"><a href="#锚式间断缝合" class="headerlink" title="锚式间断缝合"></a>锚式间断缝合</h3><p>植骨放膜时用。间断缝合，但是绕过邻牙再回来打结。</p><h3 id="双结缝合"><a href="#双结缝合" class="headerlink" title="双结缝合"></a>双结缝合</h3><p>有效避免狭小薄弱组织的撕裂。两次穿进穿出，两次打结。</p><h3 id="缓冲间断缝合"><a href="#缓冲间断缝合" class="headerlink" title="缓冲间断缝合"></a>缓冲间断缝合</h3><p>避免软组织勒痕。第一结拉紧，第二结不拉紧，为组织肿胀预留空间。剪线时两个线头分别剪开，避免拉紧。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。&lt;/p&gt;
-&lt;h2 id=&quot;二、缝合方法&quot;&gt;&lt;a href=&quot;#二、缝合方法&quot; class=&quot;headerlink&quot; title=&quot;二、缝合方法&quot;&gt;&lt;/a&gt;二、缝合方法&lt;/h2&gt;&lt;h3 id=&quot;间断缝合&quot;&gt;&lt;a href</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准缝合02——缝合的基本方法</title>
-    <link href="https://zwdnet.github.io/2026/01/26/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8802%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
+    <content>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h3 id="缝合的基本方法"><a href="#缝合的基本方法" class="headerlink" title="缝合的基本方法"></a>缝合的基本方法</h3><h4 id="精准进出针操作"><a href="#精准进出针操作" class="headerlink" title="精准进出针操作"></a>精准进出针操作</h4><p>缝针耐受沿针体方向的应力，而不耐受与针体垂直的应力。<br>(一)缝针夹持<br>位置:整个缝针弧度的后1&#x2F;3至后1&#x2F;4。<br>方向:针尖垂直进入软组织，再旋转腕部控制针体顺弧度穿过软组织。<br>切忌夹持缝针针尖。针尖变形立即弃用。<br>(二)持针器使用<br>应该采用掌握式而不是指握式。细针应采用精细持针器。空间受限时可选择执笔式。<br>(三)进出针位置<br>进出针位置距切口边缘距离应为黏膜厚度的两倍。进出针点到切口的距离应一致。<br>(四)助手的协调配合<br>每一位优秀的种植医生都是从助手做起的。<br>时刻保持术野清晰。<br>牵拉唇颊暴露视野。<br>帮助缝针进出。</p><h4 id="打结操作"><a href="#打结操作" class="headerlink" title="打结操作"></a>打结操作</h4><p>外科结<br>(一)打结的基本方法<br>持针器放在穿出组织的两缝线之间时向切口方向缠绕缝线，所形成的单结永远顺结。避免打滑结。<br>尽量减小线结的大小及线头的长度。所留长度为3-5mm。<br>将线结整理到切口的一侧，放在松弛一侧的软组织瓣上。<br>当固定暴露在口腔的生物材料时，应将线结放置在自体软组织上。<br>(二)避免线结松动、滑脱的改良方法</p><ul><li>压结:第一个单结拉拢对位后将较短的缝线调转方向拉到切口另一侧，增大两股缝线间的摩擦力。</li><li>助手辅助压结:持镊子按住第一个单结，直至术者拉拢对位第二个单结形成一个稳定的线结。</li><li>三叠结:在外科结的基础上再打一个单结。稳定性提高，但线结体积增大，增加了菌斑和食物残渣聚积的可能性。当软组织张力较大或切口易受肌肉运动影响时采用。</li></ul><p>(三)助手的协调配合<br>术者缠绕缝线时，助手用镊子夹住线尾，避免线被带出。<br>术者拉拢对位缝线时，助手及时止血暴露术野。辅助压结。<br>剪线，保留3-5mm。</p><h3 id="拆线基本方法"><a href="#拆线基本方法" class="headerlink" title="拆线基本方法"></a>拆线基本方法</h3><p>拆线时机:术后5-14天<br>要避免在拆线时将感染物质带入创口内。<br>拆线方法:</p><ul><li>检查创口愈合情况。</li><li>对缝线及周围软组织消毒</li><li>左手用镊子提起线结，暴露线结下方黏膜内的部分缝线，剪刀在紧贴黏膜处剪断缝线，向被剪断处拉出缝线。</li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2026/01/26/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8802%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95/</id>
+    <link href="https://zwdnet.github.io/2026/01/26/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8802%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95/"/>
     <published>2026-01-26T02:00:31.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p>
+<h3 id="缝合的基本方法"><a href="#缝合的基本方法" class="headerlink" title="缝合的基本方法"></a>缝合的基本方法</h3><h4 id="精准进出针操作">]]>
+    </summary>
+    <title>精准缝合02——缝合的基本方法</title>
     <updated>2026-01-26T10:23:08.312Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h3 id="缝合的基本方法"><a href="#缝合的基本方法" class="headerlink" title="缝合的基本方法"></a>缝合的基本方法</h3><h4 id="精准进出针操作"><a href="#精准进出针操作" class="headerlink" title="精准进出针操作"></a>精准进出针操作</h4><p>缝针耐受沿针体方向的应力，而不耐受与针体垂直的应力。<br>(一)缝针夹持<br>位置:整个缝针弧度的后1&#x2F;3至后1&#x2F;4。<br>方向:针尖垂直进入软组织，再旋转腕部控制针体顺弧度穿过软组织。<br>切忌夹持缝针针尖。针尖变形立即弃用。<br>(二)持针器使用<br>应该采用掌握式而不是指握式。细针应采用精细持针器。空间受限时可选择执笔式。<br>(三)进出针位置<br>进出针位置距切口边缘距离应为黏膜厚度的两倍。进出针点到切口的距离应一致。<br>(四)助手的协调配合<br>每一位优秀的种植医生都是从助手做起的。<br>时刻保持术野清晰。<br>牵拉唇颊暴露视野。<br>帮助缝针进出。</p><h4 id="打结操作"><a href="#打结操作" class="headerlink" title="打结操作"></a>打结操作</h4><p>外科结<br>(一)打结的基本方法<br>持针器放在穿出组织的两缝线之间时向切口方向缠绕缝线，所形成的单结永远顺结。避免打滑结。<br>尽量减小线结的大小及线头的长度。所留长度为3-5mm。<br>将线结整理到切口的一侧，放在松弛一侧的软组织瓣上。<br>当固定暴露在口腔的生物材料时，应将线结放置在自体软组织上。<br>(二)避免线结松动、滑脱的改良方法</p><ul><li>压结:第一个单结拉拢对位后将较短的缝线调转方向拉到切口另一侧，增大两股缝线间的摩擦力。</li><li>助手辅助压结:持镊子按住第一个单结，直至术者拉拢对位第二个单结形成一个稳定的线结。</li><li>三叠结:在外科结的基础上再打一个单结。稳定性提高，但线结体积增大，增加了菌斑和食物残渣聚积的可能性。当软组织张力较大或切口易受肌肉运动影响时采用。</li></ul><p>(三)助手的协调配合<br>术者缠绕缝线时，助手用镊子夹住线尾，避免线被带出。<br>术者拉拢对位缝线时，助手及时止血暴露术野。辅助压结。<br>剪线，保留3-5mm。</p><h3 id="拆线基本方法"><a href="#拆线基本方法" class="headerlink" title="拆线基本方法"></a>拆线基本方法</h3><p>拆线时机:术后5-14天<br>要避免在拆线时将感染物质带入创口内。<br>拆线方法:</p><ul><li>检查创口愈合情况。</li><li>对缝线及周围软组织消毒</li><li>左手用镊子提起线结，暴露线结下方黏膜内的部分缝线，剪刀在紧贴黏膜处剪断缝线，向被剪断处拉出缝线。</li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。&lt;/p&gt;
-&lt;h3 id=&quot;缝合的基本方法&quot;&gt;&lt;a href=&quot;#缝合的基本方法&quot; class=&quot;headerlink&quot; title=&quot;缝合的基本方法&quot;&gt;&lt;/a&gt;缝合的基本方法&lt;/h3&gt;&lt;h4 id=&quot;精准进出针操作&quot;&gt;</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准缝合01——缝合的基本方法及原则</title>
-    <link href="https://zwdnet.github.io/2026/01/14/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8801%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95%E5%8F%8A%E5%8E%9F%E5%88%99/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
+    <content>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h2 id="一、缝合的基本方法及原则"><a href="#一、缝合的基本方法及原则" class="headerlink" title="一、缝合的基本方法及原则"></a>一、缝合的基本方法及原则</h2><h3 id="缝合的常见误差"><a href="#缝合的常见误差" class="headerlink" title="缝合的常见误差"></a>缝合的常见误差</h3><h4 id="无骨增量病例中的常见缝合误差"><a href="#无骨增量病例中的常见缝合误差" class="headerlink" title="无骨增量病例中的常见缝合误差"></a>无骨增量病例中的常见缝合误差</h4><p>创口未良好对位，边缘内卷，愈合不良。<br>缝合过紧，压迫软组织，局部缺血，黏膜坏死。</p><h4 id="水平骨增量中常见的缝合误差"><a href="#水平骨增量中常见的缝合误差" class="headerlink" title="水平骨增量中常见的缝合误差"></a>水平骨增量中常见的缝合误差</h4><p>需初期无张力创口关闭。<br>没有良好对位，创口有张力关闭。</p><h4 id="垂直骨增量中常见的缝合误差"><a href="#垂直骨增量中常见的缝合误差" class="headerlink" title="垂直骨增量中常见的缝合误差"></a>垂直骨增量中常见的缝合误差</h4><p>没有进行规范良好的水平内褥式缝合，创口处呈断面对位的情况。缝线断裂或撕脱，创口裂开。缝合前未充分减张。</p><h4 id="缝线选择中的常见误差"><a href="#缝线选择中的常见误差" class="headerlink" title="缝线选择中的常见误差"></a>缝线选择中的常见误差</h4><p>尼龙线优于丝线，结不应位于创口正上方。缝线并非越细越好。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2026/01/14/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8801%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95%E5%8F%8A%E5%8E%9F%E5%88%99/</id>
+    <link href="https://zwdnet.github.io/2026/01/14/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%8801%E2%80%94%E2%80%94%E7%BC%9D%E5%90%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95%E5%8F%8A%E5%8E%9F%E5%88%99/"/>
     <published>2026-01-14T01:30:48.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p>
+<h2 id="一、缝合的基本方法及原则"><a href="#一、缝合的基本方法及原则" class="headerlink" title="一、缝合的基本方法及原则"></a>一、缝合的基本方法及原则</]]>
+    </summary>
+    <title>精准缝合01——缝合的基本方法及原则</title>
     <updated>2026-01-14T10:50:58.814Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。</p><h2 id="一、缝合的基本方法及原则"><a href="#一、缝合的基本方法及原则" class="headerlink" title="一、缝合的基本方法及原则"></a>一、缝合的基本方法及原则</h2><h3 id="缝合的常见误差"><a href="#缝合的常见误差" class="headerlink" title="缝合的常见误差"></a>缝合的常见误差</h3><h4 id="无骨增量病例中的常见缝合误差"><a href="#无骨增量病例中的常见缝合误差" class="headerlink" title="无骨增量病例中的常见缝合误差"></a>无骨增量病例中的常见缝合误差</h4><p>创口未良好对位，边缘内卷，愈合不良。<br>缝合过紧，压迫软组织，局部缺血，黏膜坏死。</p><h4 id="水平骨增量中常见的缝合误差"><a href="#水平骨增量中常见的缝合误差" class="headerlink" title="水平骨增量中常见的缝合误差"></a>水平骨增量中常见的缝合误差</h4><p>需初期无张力创口关闭。<br>没有良好对位，创口有张力关闭。</p><h4 id="垂直骨增量中常见的缝合误差"><a href="#垂直骨增量中常见的缝合误差" class="headerlink" title="垂直骨增量中常见的缝合误差"></a>垂直骨增量中常见的缝合误差</h4><p>没有进行规范良好的水平内褥式缝合，创口处呈断面对位的情况。缝线断裂或撕脱，创口裂开。缝合前未充分减张。</p><h4 id="缝线选择中的常见误差"><a href="#缝线选择中的常见误差" class="headerlink" title="缝线选择中的常见误差"></a>缝线选择中的常见误差</h4><p>尼龙线优于丝线，结不应位于创口正上方。缝线并非越细越好。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《精准缝合——种植及相关术式中的应用》读书笔记。&lt;/p&gt;
-&lt;h2 id=&quot;一、缝合的基本方法及原则&quot;&gt;&lt;a href=&quot;#一、缝合的基本方法及原则&quot; class=&quot;headerlink&quot; title=&quot;一、缝合的基本方法及原则&quot;&gt;&lt;/a&gt;一、缝合的基本方法及原则&lt;/</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准缝合" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E7%BC%9D%E5%90%88/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准戴牙08——口腔种植戴牙后可能发生的机械及工艺并发症</title>
-    <link href="https://zwdnet.github.io/2026/01/08/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9908%E2%80%94%E2%80%94%E5%8F%A3%E8%85%94%E7%A7%8D%E6%A4%8D%E6%88%B4%E7%89%99%E5%90%8E%E5%8F%AF%E8%83%BD%E5%8F%91%E7%94%9F%E7%9A%84%E6%9C%BA%E6%A2%B0%E5%8F%8A%E5%B7%A5%E8%89%BA%E5%B9%B6%E5%8F%91%E7%97%87/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
+    <content>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h2 id="六、口腔种植戴牙后可能发生的机械及工艺并发症"><a href="#六、口腔种植戴牙后可能发生的机械及工艺并发症" class="headerlink" title="六、口腔种植戴牙后可能发生的机械及工艺并发症"></a>六、口腔种植戴牙后可能发生的机械及工艺并发症</h2><h3 id="上部修复结构相关机械并发症"><a href="#上部修复结构相关机械并发症" class="headerlink" title="上部修复结构相关机械并发症"></a>上部修复结构相关机械并发症</h3><h4 id="崩瓷"><a href="#崩瓷" class="headerlink" title="崩瓷"></a>崩瓷</h4><p>种植支持全瓷单冠5年崩瓷发生率9.0%，基底冠折裂5年发生率1.9%。<br>发生因素:</p><ul><li>生理因素:种植体与骨之间刚性连接，缺少缓冲。较大咬合力，患者缺乏相应的避让。</li><li>工艺因素:将基底冠设计为解剖形态，使饰面瓷厚度均一，减少崩瓷发生概率。</li><li>咬合因素:侧向力过大，过长的悬臂设计等。是否做到被动就位，精准调颌。</li><li>习惯因素:有咬合过载或磨牙症等副功能运动。</li></ul><p>崩瓷、基台中央螺丝等连接配件、种植体本身，都有可能发生折裂，称为机械及工艺并发症。</p><h4 id="连接部件相关机械并发症"><a href="#连接部件相关机械并发症" class="headerlink" title="连接部件相关机械并发症"></a>连接部件相关机械并发症</h4><p>牙冠松动的鉴别诊断:牙冠松动应尽快复诊。并嘱患者不要再用患牙咀嚼。<br>鉴别诊断</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0470-implant/01.jpg"></p><p>中央螺丝松动、变形及折断:<br>中央螺丝松动，不建议直接拧紧，建议立即更换中央螺丝。<br>基台及中央螺丝折断:建立可视化通道，建议显微镜下操作。从低风险(超声工作尖或普通探针或植体配套工具)到高风险(快机在螺丝断面磨出槽)操作尝试取出折断螺丝。若无法在不破坏植体的情况下取出折断螺丝，考虑将植体当做天然牙牙根进行桩核冠修复。或取出植体重新植入。<br>影响中央螺丝折断的因素:</p><ul><li>施加扭矩:严格按厂商推荐值施加扭矩。</li><li>种植体、基台、螺丝设计。尽量使用原厂配件。</li><li>机械疲劳及被动就位。义齿制作时使用技工螺丝，避免使用临床螺丝反复旋紧拧松。修复体应该被动就位。</li><li>咬合习惯:磨牙症等。</li><li>种植体位置设计:有悬臂，使用角度基台等。</li><li>精细调颌，降低侧向咬合力。</li></ul><p>基台折断<br>主诉牙冠松动，立即复诊。判断是牙冠、中央螺丝或种植体松动。再进行后续操作。</p><ul><li>修复体脱粘接:影像检查无问题，取下修复体重新粘结。基台固位力较差，重新取模更换基台和修复体。</li><li>中央螺丝或基台松动。<ul><li>松动时间长，大概率内连接或螺纹有损伤。</li><li>颌面有螺丝孔，打开螺丝通道，取出中央螺丝，判断植体无问题，重新更换上部结构。</li><li>颌面无螺丝孔，磨除颌面牙冠，暴露螺丝孔道。</li><li>中央螺丝无法取出，则可以破冠并磨除基台。若无法取出中央螺丝或折断基台，或判断种植体内连接已损坏，考虑拔除种植体。</li><li>非螺纹固位的锥形锁柱连接，可以夹持牙冠，旋转取出基台。</li></ul></li></ul><p>种植体折裂或松动:尽快拔除种植体。</p><h4 id="种植体相关机械并发症"><a href="#种植体相关机械并发症" class="headerlink" title="种植体相关机械并发症"></a>种植体相关机械并发症</h4><p>种植体内连接损坏<br>去除骨阻力时建议连接覆盖螺丝，直视下操作，避免损伤种植体内连接结构。<br>处理方案:</p><ul><li>拔除种植体</li><li>保留种植体，利用内连接进行桩核冠修复</li><li>现有种植体埋入式愈合</li></ul><p>种植体折裂及折断:<br>折裂:裂纹处微渗漏及基台微动，常引起种植体周围骨吸收，软组织炎症等表现。借助放大设备更容易发现。通过愈合基台施加扭矩，患者可有疼痛反应。<br>取出植体方法:</p><ul><li>原厂或通用取出工具盒:首选</li><li>环钻</li><li>超声骨刀</li><li>拔牙套装</li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2026/01/08/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9908%E2%80%94%E2%80%94%E5%8F%A3%E8%85%94%E7%A7%8D%E6%A4%8D%E6%88%B4%E7%89%99%E5%90%8E%E5%8F%AF%E8%83%BD%E5%8F%91%E7%94%9F%E7%9A%84%E6%9C%BA%E6%A2%B0%E5%8F%8A%E5%B7%A5%E8%89%BA%E5%B9%B6%E5%8F%91%E7%97%87/</id>
+    <link href="https://zwdnet.github.io/2026/01/08/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9908%E2%80%94%E2%80%94%E5%8F%A3%E8%85%94%E7%A7%8D%E6%A4%8D%E6%88%B4%E7%89%99%E5%90%8E%E5%8F%AF%E8%83%BD%E5%8F%91%E7%94%9F%E7%9A%84%E6%9C%BA%E6%A2%B0%E5%8F%8A%E5%B7%A5%E8%89%BA%E5%B9%B6%E5%8F%91%E7%97%87/"/>
     <published>2026-01-08T01:48:27.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p>
+<h2 id="六、口腔种植戴牙后可能发生的机械及工艺并发症"><a href="#六、口腔种植戴牙后可能发生的机械及工艺并发症" class="headerlink" title="六、口腔种植戴牙后可能发生的]]>
+    </summary>
+    <title>精准戴牙08——口腔种植戴牙后可能发生的机械及工艺并发症</title>
     <updated>2026-01-08T01:54:22.446Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h2 id="六、口腔种植戴牙后可能发生的机械及工艺并发症"><a href="#六、口腔种植戴牙后可能发生的机械及工艺并发症" class="headerlink" title="六、口腔种植戴牙后可能发生的机械及工艺并发症"></a>六、口腔种植戴牙后可能发生的机械及工艺并发症</h2><h3 id="上部修复结构相关机械并发症"><a href="#上部修复结构相关机械并发症" class="headerlink" title="上部修复结构相关机械并发症"></a>上部修复结构相关机械并发症</h3><h4 id="崩瓷"><a href="#崩瓷" class="headerlink" title="崩瓷"></a>崩瓷</h4><p>种植支持全瓷单冠5年崩瓷发生率9.0%，基底冠折裂5年发生率1.9%。<br>发生因素:</p><ul><li>生理因素:种植体与骨之间刚性连接，缺少缓冲。较大咬合力，患者缺乏相应的避让。</li><li>工艺因素:将基底冠设计为解剖形态，使饰面瓷厚度均一，减少崩瓷发生概率。</li><li>咬合因素:侧向力过大，过长的悬臂设计等。是否做到被动就位，精准调颌。</li><li>习惯因素:有咬合过载或磨牙症等副功能运动。</li></ul><p>崩瓷、基台中央螺丝等连接配件、种植体本身，都有可能发生折裂，称为机械及工艺并发症。</p><h4 id="连接部件相关机械并发症"><a href="#连接部件相关机械并发症" class="headerlink" title="连接部件相关机械并发症"></a>连接部件相关机械并发症</h4><p>牙冠松动的鉴别诊断:牙冠松动应尽快复诊。并嘱患者不要再用患牙咀嚼。<br>鉴别诊断</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/blog0470-implant/01.jpg"></p><p>中央螺丝松动、变形及折断:<br>中央螺丝松动，不建议直接拧紧，建议立即更换中央螺丝。<br>基台及中央螺丝折断:建立可视化通道，建议显微镜下操作。从低风险(超声工作尖或普通探针或植体配套工具)到高风险(快机在螺丝断面磨出槽)操作尝试取出折断螺丝。若无法在不破坏植体的情况下取出折断螺丝，考虑将植体当做天然牙牙根进行桩核冠修复。或取出植体重新植入。<br>影响中央螺丝折断的因素:</p><ul><li>施加扭矩:严格按厂商推荐值施加扭矩。</li><li>种植体、基台、螺丝设计。尽量使用原厂配件。</li><li>机械疲劳及被动就位。义齿制作时使用技工螺丝，避免使用临床螺丝反复旋紧拧松。修复体应该被动就位。</li><li>咬合习惯:磨牙症等。</li><li>种植体位置设计:有悬臂，使用角度基台等。</li><li>精细调颌，降低侧向咬合力。</li></ul><p>基台折断<br>主诉牙冠松动，立即复诊。判断是牙冠、中央螺丝或种植体松动。再进行后续操作。</p><ul><li>修复体脱粘接:影像检查无问题，取下修复体重新粘结。基台固位力较差，重新取模更换基台和修复体。</li><li>中央螺丝或基台松动。<ul><li>松动时间长，大概率内连接或螺纹有损伤。</li><li>颌面有螺丝孔，打开螺丝通道，取出中央螺丝，判断植体无问题，重新更换上部结构。</li><li>颌面无螺丝孔，磨除颌面牙冠，暴露螺丝孔道。</li><li>中央螺丝无法取出，则可以破冠并磨除基台。若无法取出中央螺丝或折断基台，或判断种植体内连接已损坏，考虑拔除种植体。</li><li>非螺纹固位的锥形锁柱连接，可以夹持牙冠，旋转取出基台。</li></ul></li></ul><p>种植体折裂或松动:尽快拔除种植体。</p><h4 id="种植体相关机械并发症"><a href="#种植体相关机械并发症" class="headerlink" title="种植体相关机械并发症"></a>种植体相关机械并发症</h4><p>种植体内连接损坏<br>去除骨阻力时建议连接覆盖螺丝，直视下操作，避免损伤种植体内连接结构。<br>处理方案:</p><ul><li>拔除种植体</li><li>保留种植体，利用内连接进行桩核冠修复</li><li>现有种植体埋入式愈合</li></ul><p>种植体折裂及折断:<br>折裂:裂纹处微渗漏及基台微动，常引起种植体周围骨吸收，软组织炎症等表现。借助放大设备更容易发现。通过愈合基台施加扭矩，患者可有疼痛反应。<br>取出植体方法:</p><ul><li>原厂或通用取出工具盒:首选</li><li>环钻</li><li>超声骨刀</li><li>拔牙套装</li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。&lt;/p&gt;
-&lt;h2 id=&quot;六、口腔种植戴牙后可能发生的机械及工艺并发症&quot;&gt;&lt;a href=&quot;#六、口腔种植戴牙后可能发生的机械及工艺并发症&quot; class=&quot;headerlink&quot; title=&quot;六、口腔种植戴牙后可能发生的</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准戴牙07——种植义齿修复后的常见生物学并发症</title>
-    <link href="https://zwdnet.github.io/2025/12/17/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9907%E2%80%94%E2%80%94%E7%A7%8D%E6%A4%8D%E4%B9%89%E9%BD%BF%E4%BF%AE%E5%A4%8D%E5%90%8E%E7%9A%84%E5%B8%B8%E8%A7%81%E7%94%9F%E7%89%A9%E5%AD%A6%E5%B9%B6%E5%8F%91%E7%97%87/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
+    <content>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h2 id="五、种植义齿修复后的常见生物学并发症"><a href="#五、种植义齿修复后的常见生物学并发症" class="headerlink" title="五、种植义齿修复后的常见生物学并发症"></a>五、种植义齿修复后的常见生物学并发症</h2><p>种植义齿修复后生物学并发症:种植体完成骨结合之后，种植体周围组织发生的感染性疾病。包括种植体周黏膜炎和种植体周炎。</p><h3 id="种植体周黏膜炎的临床诊疗"><a href="#种植体周黏膜炎的临床诊疗" class="headerlink" title="种植体周黏膜炎的临床诊疗"></a>种植体周黏膜炎的临床诊疗</h3><h4 id="致病因素及临床表现"><a href="#致病因素及临床表现" class="headerlink" title="致病因素及临床表现"></a>致病因素及临床表现</h4><p>局部致病因素:口腔卫生状况、邻接丧失、食物嵌塞、异物残留、修复轮廓设计不当、消毒不当。<br>种植体生物学宽度:种植体周屏障上皮和结缔组织附着构成，从屏障上皮最冠方到牙槽嵴顶之间约3-4mm的距离，也称为生物学屏障。<br>全身致病因素:</p><ul><li>吸烟:重度吸烟(＞20只&#x2F;天)的种植失败率是轻中度吸烟的失败率的3倍。</li><li>糖尿病:糖化血红蛋白≥8%，种植手术并发症及失败风险会增加。</li><li>未经控制牙周炎。</li></ul><p>良好控制探诊力度的探诊检查，影像学检查。<br>手术阶段因素:植入深度过大、种植体三维位置误差。</p><h4 id="治疗"><a href="#治疗" class="headerlink" title="治疗"></a>治疗</h4><p>处理原则:</p><ul><li>控制风险因素</li><li>规避可能引起种植体周围炎的手术阶段、修复阶段因素。</li><li>长期随访。</li></ul><p>治疗方法:</p><ul><li>全口牙周洁治及口腔卫生宣教</li><li>抗菌治疗<ul><li>激光</li><li>局部盐水冲洗，上药。</li></ul></li><li>对因治疗:<ul><li>邻接丧失的，修复体加瓷恢复邻接。</li><li>彻底清除残留异物。</li></ul></li></ul><h3 id="种植体周炎的临床诊疗"><a href="#种植体周炎的临床诊疗" class="headerlink" title="种植体周炎的临床诊疗"></a>种植体周炎的临床诊疗</h3><h4 id="致病因素及临床表现-1"><a href="#致病因素及临床表现-1" class="headerlink" title="致病因素及临床表现"></a>致病因素及临床表现</h4><p>诊断:</p><ul><li>种植体周软组织可见炎症变化，并伴有探诊出血和&#x2F;或溢脓。</li><li>与最终修复相比，探诊深度增加</li><li>影像学显示种植修复一年后，种植体周出现进行性骨吸收。</li><li>影像学检查显示植体周骨吸收≥3mm，或探诊深度≥6mm，同时伴明显的探诊出血。</li></ul><p>致病因素同种植体周黏膜炎。</p><h4 id="治疗-1"><a href="#治疗-1" class="headerlink" title="治疗"></a>治疗</h4><p>治疗目标:控制牙菌斑、去除种植体周感染组织、中断炎症进程、避免种植体周骨的进行性吸收、尽可能实现组织重建。<br>治疗应达到的种植体周组织状态:</p><ol><li>无红肿热痛、溢脓等炎症表现</li><li>无探诊出血，PDL≤5mm或与基线相比基本不变。</li><li>可以存在已经发生过牙槽骨吸收的种植体，但骨吸收呈静止状态，无进展性骨丧失。</li></ol><p>非手术治疗:手用器械刮治、局部&#x2F;全身使用抗生素、喷砂抛光及激光治疗。清除出现骨吸收的种植体周牙菌斑生物膜，有一定困难。<br>手术治疗:包括切除性手术和再生性手术。有利型骨缺损(骨下缺损)更容易通过再生性治疗得到有效控制。联合型骨缺损(骨上缺损+骨下缺损相结合)。不利型骨缺损(骨上缺损):微创&#x2F;切除&#x2F;根向复位瓣。</p><h4 id="美学区种植体周炎"><a href="#美学区种植体周炎" class="headerlink" title="美学区种植体周炎"></a>美学区种植体周炎</h4><p>在治疗种植体周炎的同时进行软组织增量。<br>美学区种植体周软组织退缩最关键的诱发因素是种植体的三维位置不佳。预防优于治疗。</p><p>当植体尚存1&#x2F;3以上骨结合面积时，建议尽可能保存种植体的功能。</p><h4 id="逆行性种植体周炎"><a href="#逆行性种植体周炎" class="headerlink" title="逆行性种植体周炎"></a>逆行性种植体周炎</h4><p>邻牙根尖周炎向植体扩散引起种植体周炎。<br>彻底治疗邻牙，并行种植体尖端切除术。</p><h4 id="种植体下沉-邻接点丧失"><a href="#种植体下沉-邻接点丧失" class="headerlink" title="种植体下沉&#x2F;邻接点丧失"></a>种植体下沉&#x2F;邻接点丧失</h4><p>种植体与牙槽骨结合后处于固连状态，没有动度。而成人颌骨仍有生长发育和牙齿萌出的潜力。种植体无法保持与邻牙一致的萌出状态，出现种植修复体明显低于天然牙的情况。即种植体下沉。<br>在水平方向上，种植体也无法像天然牙那样近中漂移，与天然牙之间产生间隙。<br>术前告知、间隙明显时更换修复体。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2025/12/17/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9907%E2%80%94%E2%80%94%E7%A7%8D%E6%A4%8D%E4%B9%89%E9%BD%BF%E4%BF%AE%E5%A4%8D%E5%90%8E%E7%9A%84%E5%B8%B8%E8%A7%81%E7%94%9F%E7%89%A9%E5%AD%A6%E5%B9%B6%E5%8F%91%E7%97%87/</id>
+    <link href="https://zwdnet.github.io/2025/12/17/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9907%E2%80%94%E2%80%94%E7%A7%8D%E6%A4%8D%E4%B9%89%E9%BD%BF%E4%BF%AE%E5%A4%8D%E5%90%8E%E7%9A%84%E5%B8%B8%E8%A7%81%E7%94%9F%E7%89%A9%E5%AD%A6%E5%B9%B6%E5%8F%91%E7%97%87/"/>
     <published>2025-12-17T02:32:17.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p>
+<h2 id="五、种植义齿修复后的常见生物学并发症"><a href="#五、种植义齿修复后的常见生物学并发症" class="headerlink" title="五、种植义齿修复后的常见生物学并发症"></]]>
+    </summary>
+    <title>精准戴牙07——种植义齿修复后的常见生物学并发症</title>
     <updated>2025-12-17T23:26:27.613Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h2 id="五、种植义齿修复后的常见生物学并发症"><a href="#五、种植义齿修复后的常见生物学并发症" class="headerlink" title="五、种植义齿修复后的常见生物学并发症"></a>五、种植义齿修复后的常见生物学并发症</h2><p>种植义齿修复后生物学并发症:种植体完成骨结合之后，种植体周围组织发生的感染性疾病。包括种植体周黏膜炎和种植体周炎。</p><h3 id="种植体周黏膜炎的临床诊疗"><a href="#种植体周黏膜炎的临床诊疗" class="headerlink" title="种植体周黏膜炎的临床诊疗"></a>种植体周黏膜炎的临床诊疗</h3><h4 id="致病因素及临床表现"><a href="#致病因素及临床表现" class="headerlink" title="致病因素及临床表现"></a>致病因素及临床表现</h4><p>局部致病因素:口腔卫生状况、邻接丧失、食物嵌塞、异物残留、修复轮廓设计不当、消毒不当。<br>种植体生物学宽度:种植体周屏障上皮和结缔组织附着构成，从屏障上皮最冠方到牙槽嵴顶之间约3-4mm的距离，也称为生物学屏障。<br>全身致病因素:</p><ul><li>吸烟:重度吸烟(＞20只&#x2F;天)的种植失败率是轻中度吸烟的失败率的3倍。</li><li>糖尿病:糖化血红蛋白≥8%，种植手术并发症及失败风险会增加。</li><li>未经控制牙周炎。</li></ul><p>良好控制探诊力度的探诊检查，影像学检查。<br>手术阶段因素:植入深度过大、种植体三维位置误差。</p><h4 id="治疗"><a href="#治疗" class="headerlink" title="治疗"></a>治疗</h4><p>处理原则:</p><ul><li>控制风险因素</li><li>规避可能引起种植体周围炎的手术阶段、修复阶段因素。</li><li>长期随访。</li></ul><p>治疗方法:</p><ul><li>全口牙周洁治及口腔卫生宣教</li><li>抗菌治疗<ul><li>激光</li><li>局部盐水冲洗，上药。</li></ul></li><li>对因治疗:<ul><li>邻接丧失的，修复体加瓷恢复邻接。</li><li>彻底清除残留异物。</li></ul></li></ul><h3 id="种植体周炎的临床诊疗"><a href="#种植体周炎的临床诊疗" class="headerlink" title="种植体周炎的临床诊疗"></a>种植体周炎的临床诊疗</h3><h4 id="致病因素及临床表现-1"><a href="#致病因素及临床表现-1" class="headerlink" title="致病因素及临床表现"></a>致病因素及临床表现</h4><p>诊断:</p><ul><li>种植体周软组织可见炎症变化，并伴有探诊出血和&#x2F;或溢脓。</li><li>与最终修复相比，探诊深度增加</li><li>影像学显示种植修复一年后，种植体周出现进行性骨吸收。</li><li>影像学检查显示植体周骨吸收≥3mm，或探诊深度≥6mm，同时伴明显的探诊出血。</li></ul><p>致病因素同种植体周黏膜炎。</p><h4 id="治疗-1"><a href="#治疗-1" class="headerlink" title="治疗"></a>治疗</h4><p>治疗目标:控制牙菌斑、去除种植体周感染组织、中断炎症进程、避免种植体周骨的进行性吸收、尽可能实现组织重建。<br>治疗应达到的种植体周组织状态:</p><ol><li>无红肿热痛、溢脓等炎症表现</li><li>无探诊出血，PDL≤5mm或与基线相比基本不变。</li><li>可以存在已经发生过牙槽骨吸收的种植体，但骨吸收呈静止状态，无进展性骨丧失。</li></ol><p>非手术治疗:手用器械刮治、局部&#x2F;全身使用抗生素、喷砂抛光及激光治疗。清除出现骨吸收的种植体周牙菌斑生物膜，有一定困难。<br>手术治疗:包括切除性手术和再生性手术。有利型骨缺损(骨下缺损)更容易通过再生性治疗得到有效控制。联合型骨缺损(骨上缺损+骨下缺损相结合)。不利型骨缺损(骨上缺损):微创&#x2F;切除&#x2F;根向复位瓣。</p><h4 id="美学区种植体周炎"><a href="#美学区种植体周炎" class="headerlink" title="美学区种植体周炎"></a>美学区种植体周炎</h4><p>在治疗种植体周炎的同时进行软组织增量。<br>美学区种植体周软组织退缩最关键的诱发因素是种植体的三维位置不佳。预防优于治疗。</p><p>当植体尚存1&#x2F;3以上骨结合面积时，建议尽可能保存种植体的功能。</p><h4 id="逆行性种植体周炎"><a href="#逆行性种植体周炎" class="headerlink" title="逆行性种植体周炎"></a>逆行性种植体周炎</h4><p>邻牙根尖周炎向植体扩散引起种植体周炎。<br>彻底治疗邻牙，并行种植体尖端切除术。</p><h4 id="种植体下沉-邻接点丧失"><a href="#种植体下沉-邻接点丧失" class="headerlink" title="种植体下沉&#x2F;邻接点丧失"></a>种植体下沉&#x2F;邻接点丧失</h4><p>种植体与牙槽骨结合后处于固连状态，没有动度。而成人颌骨仍有生长发育和牙齿萌出的潜力。种植体无法保持与邻牙一致的萌出状态，出现种植修复体明显低于天然牙的情况。即种植体下沉。<br>在水平方向上，种植体也无法像天然牙那样近中漂移，与天然牙之间产生间隙。<br>术前告知、间隙明显时更换修复体。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。&lt;/p&gt;
-&lt;h2 id=&quot;五、种植义齿修复后的常见生物学并发症&quot;&gt;&lt;a href=&quot;#五、种植义齿修复后的常见生物学并发症&quot; class=&quot;headerlink&quot; title=&quot;五、种植义齿修复后的常见生物学并发症&quot;&gt;&lt;/</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准戴牙06——美学区种植修复体设计与戴牙及其常见问题与防范</title>
-    <link href="https://zwdnet.github.io/2025/12/12/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9906%E2%80%94%E2%80%94%E7%BE%8E%E5%AD%A6%E5%8C%BA%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E4%BD%93%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%88%B4%E7%89%99%E5%8F%8A%E5%85%B6%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E9%98%B2%E8%8C%83/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
+    <content>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h2 id="四、美学区种植修复体设计与戴牙及其常见问题与防范"><a href="#四、美学区种植修复体设计与戴牙及其常见问题与防范" class="headerlink" title="四、美学区种植修复体设计与戴牙及其常见问题与防范"></a>四、美学区种植修复体设计与戴牙及其常见问题与防范</h2><h3 id="美学区修复体的设计原则"><a href="#美学区修复体的设计原则" class="headerlink" title="美学区修复体的设计原则"></a>美学区修复体的设计原则</h3><h4 id="基台的选择"><a href="#基台的选择" class="headerlink" title="基台的选择"></a>基台的选择</h4><p>前牙研磨基台的个性化设计原则:</p><ol><li>近远中、颊舌侧轴壁形态清晰</li><li>轴壁聚合度＜5°</li><li>轴面线角圆钝。</li><li>各面粘接高度不低于5mm，唇腭侧无法满足时，应尽量增加其他轴面面积。</li><li>轴面可增加固位沟槽</li><li>根据穿龈轮廓情况，唇侧肩台边缘位于龈下0.5-1.0mm，腭侧肩台边缘齐龈或位于龈下0.5mm</li><li>基牙与牙冠比例协调，且基台腭侧距离对颌牙切端0.7-2.0mm</li></ol><p>一般建议角度基台偏差控制在25°以内。前牙美学区修复基台应首选螺丝固位。在前牙美学区薄龈生物型患者中应谨慎使用钛基台。全瓷基台主要是氧化锆全瓷基台。使用时要保证足够的强度。</p><h4 id="穿龈轮廓的设计"><a href="#穿龈轮廓的设计" class="headerlink" title="穿龈轮廓的设计"></a>穿龈轮廓的设计</h4><p>穿龈轮廓分为关键区域(critical contour，龈缘根方1mm以内区域)和次关键区域(subcritical contour，龈缘根方1mm到种植体平台区域)。<br>关键区域形态主要影响龈缘形态及龈缘最高点位置，修复体应呈微凸型，起到支撑软组织，获得良好龈缘形态的作用。次关键区域内修复体应呈浅凹型，具有双曲度的“S”形。但微凸和浅凹程度不宜过大。</p><ol><li>唇侧穿龈轮廓设计:龈缘根方1mm到种植体平台间次关键区域设计为平直型或浅凹型。龈缘根方1mm以内关键区域设计为浅凹型。</li><li>邻面穿龈轮廓设计:从种植平台开始，设计为平直微凹型。</li><li>舌腭侧穿龈轮廓设计:从种植平台开始，设计为平直微凹型。</li></ol><h4 id="龈外展隙"><a href="#龈外展隙" class="headerlink" title="龈外展隙"></a>龈外展隙</h4><p>适当预留龈外展隙空间，避免侵占龈乳头生长空间。</p><h4 id="形态的设计"><a href="#形态的设计" class="headerlink" title="形态的设计"></a>形态的设计</h4><p>充分考虑对侧同名牙的形态，获得良好、协调的前牙美观效果。</p><h4 id="咬合的设计"><a href="#咬合的设计" class="headerlink" title="咬合的设计"></a>咬合的设计</h4><p>“轻咬合不接触，重咬合轻接触”。注意避免非轴向力的干扰。若为切牙，前伸颌由种植牙和天然牙共同引导，但引导痕迹弱于天然牙。侧方为尖牙保护颌，脱离接触。若为尖牙，前伸时脱离接触，侧方颌为组牙保护颌。种植体支持式固定桥，基牙桥体共同引导。</p><h4 id="其它考量"><a href="#其它考量" class="headerlink" title="其它考量"></a>其它考量</h4><ul><li>比色:将目标牙体分为颈部、体部和切端三个部分，按照明度、饱和度、色相的步骤进行比色。</li><li>拍摄:将比色片纳入、比色片与目标牙位于同一冠状平面且背景颜色相同、分区比色时比色片尽量与比色区域靠近、使用标准板作为背景。一张照片不要放过多比色片。根据修复类型、修复材料和基牙颜色，合理选择基牙比色板进行比色。</li><li>个性化设计:间隙、牙周病牙龈退缩。</li><li>医技沟通:比色照片、动态信息、修复体设计。</li></ul><h3 id="美学区种植修复戴牙的流程"><a href="#美学区种植修复戴牙的流程" class="headerlink" title="美学区种植修复戴牙的流程"></a>美学区种植修复戴牙的流程</h3><h4 id="单颗粘接固位种植修复戴牙"><a href="#单颗粘接固位种植修复戴牙" class="headerlink" title="单颗粘接固位种植修复戴牙"></a>单颗粘接固位种植修复戴牙</h4><ul><li>模型检查</li><li>口内检查及戴牙物品准备:检查牙龈塑形情况:<ul><li>牙龈高度与对侧同名牙一致</li><li>边缘曲线与对侧同名牙协调对称。</li><li>临时修复体近远中无“黑三角”，龈乳头充填满意。</li><li>牙龈唇侧丰满度与邻牙协调一致。</li><li>种植体周形成稳定的角化黏膜。</li></ul></li><li>基台就位。基台-种植体连接处存在抗旋结构，基台就位，若唇侧标记正对唇侧，说明水平向关系转移正确。否则重新取模。</li><li>试戴牙冠:检查邻接，就位情况。</li><li>根尖片辅助检查:确定基台和牙冠是否完全就位。</li><li>调颌</li><li>施加扭矩负荷，封闭螺丝孔。严格按厂家说明要求进行。</li><li>粘接牙冠。美学区牙冠可能无法设计开孔。<ul><li>排溢孔:基台边缘位于唇侧牙龈下1mm以内粘接固位，在修复体加工制作时设计排溢孔，局麻下，尽量直视以彻底清除残留粘接剂。</li><li>修复体无法开排溢孔的前牙修复体，可制作粘接代型进行预粘接。</li><li>预埋牙线:基台边缘位于龈下1mm以内病例，在两侧邻牙的龈沟内预埋牙线，牙冠缓压就位，使粘接剂逐渐溢出。牙冠就位后，去除溢出的粘固剂。用牙线在唇颊侧(不要从颌方用力)拉出粘固剂。</li></ul></li><li>检查调整咬合</li><li>定期复查。</li></ul><h4 id="单颗螺丝固定种植修复戴牙"><a href="#单颗螺丝固定种植修复戴牙" class="headerlink" title="单颗螺丝固定种植修复戴牙"></a>单颗螺丝固定种植修复戴牙</h4><p>之前步骤同上。</p><ul><li>修复体就位:若修复体螺丝拧1-2圈时阻力缓慢增加，等待片刻(30s以上)还能再次用手拧紧，且可以进一步旋入，说明邻接过紧或存在软组织阻力，应解除阻力。在修复体完全被动就位之前，不可以最大扭矩拧紧修复体螺丝，避免中央螺丝疲劳。</li><li>根尖片辅助检查。</li><li>调磨咬合。</li><li>施加扭矩负荷及封闭螺丝孔。</li><li>再次检查咬合。</li><li>定期复查。</li></ul><h4 id="联冠-固定桥种植修复戴牙"><a href="#联冠-固定桥种植修复戴牙" class="headerlink" title="联冠&#x2F;固定桥种植修复戴牙"></a>联冠&#x2F;固定桥种植修复戴牙</h4><ul><li>模型检查<ul><li>基台粘接高度</li><li>瓷层空间</li><li>牙冠固位力</li><li>修复体外部形态</li><li>与余留天然牙的协调性</li><li>龈外展隙</li></ul></li><li>口内检查及戴牙物品检查</li><li>基台就位</li><li>试戴牙冠:用40μm咬合纸去除邻牙阻力，至牙线可以有阻力通过而不拉丝。</li><li>根尖片辅助检查</li><li>调磨咬合</li><li>施加扭矩负荷，封闭螺丝孔</li><li>粘接牙冠</li><li>定期复查</li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2025/12/12/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9906%E2%80%94%E2%80%94%E7%BE%8E%E5%AD%A6%E5%8C%BA%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E4%BD%93%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%88%B4%E7%89%99%E5%8F%8A%E5%85%B6%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E9%98%B2%E8%8C%83/</id>
+    <link href="https://zwdnet.github.io/2025/12/12/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9906%E2%80%94%E2%80%94%E7%BE%8E%E5%AD%A6%E5%8C%BA%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E4%BD%93%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%88%B4%E7%89%99%E5%8F%8A%E5%85%B6%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E9%98%B2%E8%8C%83/"/>
     <published>2025-12-12T07:19:47.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p>
+<h2 id="四、美学区种植修复体设计与戴牙及其常见问题与防范"><a href="#四、美学区种植修复体设计与戴牙及其常见问题与防范" class="headerlink" title="四、美学区种植修复体]]>
+    </summary>
+    <title>精准戴牙06——美学区种植修复体设计与戴牙及其常见问题与防范</title>
     <updated>2025-12-13T00:05:11.444Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h2 id="四、美学区种植修复体设计与戴牙及其常见问题与防范"><a href="#四、美学区种植修复体设计与戴牙及其常见问题与防范" class="headerlink" title="四、美学区种植修复体设计与戴牙及其常见问题与防范"></a>四、美学区种植修复体设计与戴牙及其常见问题与防范</h2><h3 id="美学区修复体的设计原则"><a href="#美学区修复体的设计原则" class="headerlink" title="美学区修复体的设计原则"></a>美学区修复体的设计原则</h3><h4 id="基台的选择"><a href="#基台的选择" class="headerlink" title="基台的选择"></a>基台的选择</h4><p>前牙研磨基台的个性化设计原则:</p><ol><li>近远中、颊舌侧轴壁形态清晰</li><li>轴壁聚合度＜5°</li><li>轴面线角圆钝。</li><li>各面粘接高度不低于5mm，唇腭侧无法满足时，应尽量增加其他轴面面积。</li><li>轴面可增加固位沟槽</li><li>根据穿龈轮廓情况，唇侧肩台边缘位于龈下0.5-1.0mm，腭侧肩台边缘齐龈或位于龈下0.5mm</li><li>基牙与牙冠比例协调，且基台腭侧距离对颌牙切端0.7-2.0mm</li></ol><p>一般建议角度基台偏差控制在25°以内。前牙美学区修复基台应首选螺丝固位。在前牙美学区薄龈生物型患者中应谨慎使用钛基台。全瓷基台主要是氧化锆全瓷基台。使用时要保证足够的强度。</p><h4 id="穿龈轮廓的设计"><a href="#穿龈轮廓的设计" class="headerlink" title="穿龈轮廓的设计"></a>穿龈轮廓的设计</h4><p>穿龈轮廓分为关键区域(critical contour，龈缘根方1mm以内区域)和次关键区域(subcritical contour，龈缘根方1mm到种植体平台区域)。<br>关键区域形态主要影响龈缘形态及龈缘最高点位置，修复体应呈微凸型，起到支撑软组织，获得良好龈缘形态的作用。次关键区域内修复体应呈浅凹型，具有双曲度的“S”形。但微凸和浅凹程度不宜过大。</p><ol><li>唇侧穿龈轮廓设计:龈缘根方1mm到种植体平台间次关键区域设计为平直型或浅凹型。龈缘根方1mm以内关键区域设计为浅凹型。</li><li>邻面穿龈轮廓设计:从种植平台开始，设计为平直微凹型。</li><li>舌腭侧穿龈轮廓设计:从种植平台开始，设计为平直微凹型。</li></ol><h4 id="龈外展隙"><a href="#龈外展隙" class="headerlink" title="龈外展隙"></a>龈外展隙</h4><p>适当预留龈外展隙空间，避免侵占龈乳头生长空间。</p><h4 id="形态的设计"><a href="#形态的设计" class="headerlink" title="形态的设计"></a>形态的设计</h4><p>充分考虑对侧同名牙的形态，获得良好、协调的前牙美观效果。</p><h4 id="咬合的设计"><a href="#咬合的设计" class="headerlink" title="咬合的设计"></a>咬合的设计</h4><p>“轻咬合不接触，重咬合轻接触”。注意避免非轴向力的干扰。若为切牙，前伸颌由种植牙和天然牙共同引导，但引导痕迹弱于天然牙。侧方为尖牙保护颌，脱离接触。若为尖牙，前伸时脱离接触，侧方颌为组牙保护颌。种植体支持式固定桥，基牙桥体共同引导。</p><h4 id="其它考量"><a href="#其它考量" class="headerlink" title="其它考量"></a>其它考量</h4><ul><li>比色:将目标牙体分为颈部、体部和切端三个部分，按照明度、饱和度、色相的步骤进行比色。</li><li>拍摄:将比色片纳入、比色片与目标牙位于同一冠状平面且背景颜色相同、分区比色时比色片尽量与比色区域靠近、使用标准板作为背景。一张照片不要放过多比色片。根据修复类型、修复材料和基牙颜色，合理选择基牙比色板进行比色。</li><li>个性化设计:间隙、牙周病牙龈退缩。</li><li>医技沟通:比色照片、动态信息、修复体设计。</li></ul><h3 id="美学区种植修复戴牙的流程"><a href="#美学区种植修复戴牙的流程" class="headerlink" title="美学区种植修复戴牙的流程"></a>美学区种植修复戴牙的流程</h3><h4 id="单颗粘接固位种植修复戴牙"><a href="#单颗粘接固位种植修复戴牙" class="headerlink" title="单颗粘接固位种植修复戴牙"></a>单颗粘接固位种植修复戴牙</h4><ul><li>模型检查</li><li>口内检查及戴牙物品准备:检查牙龈塑形情况:<ul><li>牙龈高度与对侧同名牙一致</li><li>边缘曲线与对侧同名牙协调对称。</li><li>临时修复体近远中无“黑三角”，龈乳头充填满意。</li><li>牙龈唇侧丰满度与邻牙协调一致。</li><li>种植体周形成稳定的角化黏膜。</li></ul></li><li>基台就位。基台-种植体连接处存在抗旋结构，基台就位，若唇侧标记正对唇侧，说明水平向关系转移正确。否则重新取模。</li><li>试戴牙冠:检查邻接，就位情况。</li><li>根尖片辅助检查:确定基台和牙冠是否完全就位。</li><li>调颌</li><li>施加扭矩负荷，封闭螺丝孔。严格按厂家说明要求进行。</li><li>粘接牙冠。美学区牙冠可能无法设计开孔。<ul><li>排溢孔:基台边缘位于唇侧牙龈下1mm以内粘接固位，在修复体加工制作时设计排溢孔，局麻下，尽量直视以彻底清除残留粘接剂。</li><li>修复体无法开排溢孔的前牙修复体，可制作粘接代型进行预粘接。</li><li>预埋牙线:基台边缘位于龈下1mm以内病例，在两侧邻牙的龈沟内预埋牙线，牙冠缓压就位，使粘接剂逐渐溢出。牙冠就位后，去除溢出的粘固剂。用牙线在唇颊侧(不要从颌方用力)拉出粘固剂。</li></ul></li><li>检查调整咬合</li><li>定期复查。</li></ul><h4 id="单颗螺丝固定种植修复戴牙"><a href="#单颗螺丝固定种植修复戴牙" class="headerlink" title="单颗螺丝固定种植修复戴牙"></a>单颗螺丝固定种植修复戴牙</h4><p>之前步骤同上。</p><ul><li>修复体就位:若修复体螺丝拧1-2圈时阻力缓慢增加，等待片刻(30s以上)还能再次用手拧紧，且可以进一步旋入，说明邻接过紧或存在软组织阻力，应解除阻力。在修复体完全被动就位之前，不可以最大扭矩拧紧修复体螺丝，避免中央螺丝疲劳。</li><li>根尖片辅助检查。</li><li>调磨咬合。</li><li>施加扭矩负荷及封闭螺丝孔。</li><li>再次检查咬合。</li><li>定期复查。</li></ul><h4 id="联冠-固定桥种植修复戴牙"><a href="#联冠-固定桥种植修复戴牙" class="headerlink" title="联冠&#x2F;固定桥种植修复戴牙"></a>联冠&#x2F;固定桥种植修复戴牙</h4><ul><li>模型检查<ul><li>基台粘接高度</li><li>瓷层空间</li><li>牙冠固位力</li><li>修复体外部形态</li><li>与余留天然牙的协调性</li><li>龈外展隙</li></ul></li><li>口内检查及戴牙物品检查</li><li>基台就位</li><li>试戴牙冠:用40μm咬合纸去除邻牙阻力，至牙线可以有阻力通过而不拉丝。</li><li>根尖片辅助检查</li><li>调磨咬合</li><li>施加扭矩负荷，封闭螺丝孔</li><li>粘接牙冠</li><li>定期复查</li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。&lt;/p&gt;
-&lt;h2 id=&quot;四、美学区种植修复体设计与戴牙及其常见问题与防范&quot;&gt;&lt;a href=&quot;#四、美学区种植修复体设计与戴牙及其常见问题与防范&quot; class=&quot;headerlink&quot; title=&quot;四、美学区种植修复体</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准戴牙05——连续多颗后牙种植修复戴牙的流程</title>
-    <link href="https://zwdnet.github.io/2025/12/08/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9905%E2%80%94%E2%80%94%E8%BF%9E%E7%BB%AD%E5%A4%9A%E9%A2%97%E5%90%8E%E7%89%99%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%88%B4%E7%89%99%E7%9A%84%E6%B5%81%E7%A8%8B/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
+    <content>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h2 id="三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范"><a href="#三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范" class="headerlink" title="三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范"></a>三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范</h2><h3 id="连续多颗后牙修复体的设计原则"><a href="#连续多颗后牙修复体的设计原则" class="headerlink" title="连续多颗后牙修复体的设计原则"></a>连续多颗后牙修复体的设计原则</h3><h4 id="共同就位道的获取和确认"><a href="#共同就位道的获取和确认" class="headerlink" title="共同就位道的获取和确认"></a>共同就位道的获取和确认</h4><p>多颗种植常采用开窗式取模，以更精确。但取模步骤多，各个步骤均有可能出现误差。在制作最终牙冠前，应先进行基台校正。具体操作:</p><ol><li>模型检查:</li></ol><ul><li>基台各面粘接高度应≥5mm，且在正颊侧进行标记。</li><li>基台与对颌牙之间至少有0.7mm的空间容纳氧化锆全瓷瓷层。</li><li>基台具有一定的抗修复体旋转作用。</li><li>树脂key与基台颌面、基台边缘及邻牙接触密合无缝隙。</li></ul><ol start="2"><li>基台就位:若基台可轻旋至完全就位，所有基台标记均正对颊侧，初步判断水平方向关系转移准确无误。否则则可能转移出现误差，树脂key可能无法就位。</li><li>就位树脂key。从颌面被动就位树脂key，并检查key是否与基台颌面、基台边缘、邻近天然牙颌面接触区密合。任何一个位置不密合即表明存在模型误差。</li></ol><p>若存在误差重新取模，同时取两副印模，供技师交叉验证。<br>植体轴向偏差过大的，采用复合基台进行角度调整，已获取共同就位道。</p><h4 id="咬合间隙的确认及咬合记录的再次获取"><a href="#咬合间隙的确认及咬合记录的再次获取" class="headerlink" title="咬合间隙的确认及咬合记录的再次获取"></a>咬合间隙的确认及咬合记录的再次获取</h4><p>当存在穿龈较深、咬合距离较高、种植体轴向与对颌牙功能尖错位等情况时，建议在基台校正同期，再次进行咬合记录的制取。</p><ol><li>检查修复距离和患者咬合情况。</li><li>制取咬合记录。先用封孔材料临时封闭基台螺丝孔，注入咬合硅胶于患者上颌牙颌面，嘱患者慢慢闭口至上下颌牙轻咬。后牙游离缺失或咬合不稳定的患者，可制取双侧后牙区咬合记录。</li><li>咬合记录的修整。取下咬合记录，口外修整。去除与黏膜接触、进入倒凹区的多余部分。咬合记录上咬穿或即将咬穿部分也应用刀片轻轻去除。</li><li>口内确认咬合记录就位情况。</li></ol><h4 id="修复体形态设计"><a href="#修复体形态设计" class="headerlink" title="修复体形态设计"></a>修复体形态设计</h4><p>在联冠及固定桥修复时，也应尽可能打开龈外展隙，便于患者日常自洁。<br>桥体部分组织面应高度抛光，曲线圆滑，设计成改良鞍式或卵圆形的形态。<br>颌面形态设计，做出适当的点隙窝沟形态，构建食物溢出通道，同时增加咀嚼效率。</p><h3 id="连续多颗后牙种植修复戴牙的流程"><a href="#连续多颗后牙种植修复戴牙的流程" class="headerlink" title="连续多颗后牙种植修复戴牙的流程"></a>连续多颗后牙种植修复戴牙的流程</h3><h4 id="多颗单冠种植修复戴牙"><a href="#多颗单冠种植修复戴牙" class="headerlink" title="多颗单冠种植修复戴牙"></a>多颗单冠种植修复戴牙</h4><ol><li>模型检查:基台、瓷层空间、牙冠固位力、修复体完整性外形及边缘密合性、修复体与对颌牙之间咬合。</li><li>口内检查、物品准备。</li><li>基台就位。</li><li>试戴牙冠。去除邻牙阻力，标准牙线能有阻力通过且不拉丝。检查牙冠就位情况。牙冠与基台之间应无明显台阶。游离端缺失的，先戴近中修复体，再戴远中。若有阻力则调整。</li><li>根尖片辅助检查。平行投照技术。</li><li>调磨咬合。对游离端缺失3个单位及以上的种植体支持的修复体，参考天然牙咬合进行调整。若数量过多，可先就位近中修复体并调颌，再就位并整体调颌。</li><li>粘接牙冠、去除粘接剂。口内粘接，通过螺丝孔取下修复体及基台，在口外去除粘固剂。</li><li>基台施加扭矩负荷，封孔。按厂商建议值施加扭矩负荷，一次施加到位，避免反复施加扭矩导致基台中央螺丝疲劳。用封孔材料覆盖螺丝孔，通过树脂充填封闭牙冠开孔，再次检查咬合。</li><li>定期复查。戴牙后1个月、3个月、6个月、及每年定期复查。</li></ol><h4 id="联冠-固定桥种植修复戴牙"><a href="#联冠-固定桥种植修复戴牙" class="headerlink" title="联冠&#x2F;固定桥种植修复戴牙"></a>联冠&#x2F;固定桥种植修复戴牙</h4><ol><li>模型检查，特别注意龈外展隙是否打开，固定桥部分组织面的形态，形成高度抛光、曲线圆滑的改良鞍式或卵圆形接触形式。</li><li>口内检查及戴牙物品准备。</li><li>基台就位。修复基台肩台宽度往往大于转移体宽度，注意去除骨阻力，避免基台就位时骨阻挡。</li><li>牙冠就位、临时粘接及根尖片辅助检查。</li><li>调磨咬合。与单颗修复类似。但一侧或双侧后牙完全为种植修复体修复时，参考天然牙咬合进行调整。</li><li>粘接牙冠、去除粘结剂。不能像单冠一样粘固后取下去除粘固剂，可采用粘接代型法、预留牙线法、橡皮障法、排溢孔法等。</li><li>基台施加扭矩负荷、封孔。</li><li>调磨咬合。</li><li>术后复查。</li></ol><h4 id="复合基台水平的种植修复戴牙"><a href="#复合基台水平的种植修复戴牙" class="headerlink" title="复合基台水平的种植修复戴牙"></a>复合基台水平的种植修复戴牙</h4><ol><li>桥架试戴。桥架上基台高度大于5mm，有0.7mm瓷层空间，各基台呈预备体形态，桥架与复合基台代型边缘密合。口内试戴桥架检查是否对软组织有压迫，桥架与复合基台之间是否密合，修复空间是否足够，通过根尖片评价桥架被动就位情况。确定桥架就位后，再次制取咬合记录。</li><li>修复体模型检查。</li></ol><ul><li>修复体完整性、外形及边缘密合性。</li><li>修复体与对颌牙之间咬合、邻接</li><li>修复体形态。</li></ul><ol start="3"><li>口内检查、物品准备</li><li>修复体试戴及根尖片辅助检查。</li><li>调颌，参考天然牙进行调整。</li><li>基台施加扭矩负荷、封孔。</li><li>定期复查。</li></ol><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2025/12/08/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9905%E2%80%94%E2%80%94%E8%BF%9E%E7%BB%AD%E5%A4%9A%E9%A2%97%E5%90%8E%E7%89%99%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%88%B4%E7%89%99%E7%9A%84%E6%B5%81%E7%A8%8B/</id>
+    <link href="https://zwdnet.github.io/2025/12/08/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9905%E2%80%94%E2%80%94%E8%BF%9E%E7%BB%AD%E5%A4%9A%E9%A2%97%E5%90%8E%E7%89%99%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%88%B4%E7%89%99%E7%9A%84%E6%B5%81%E7%A8%8B/"/>
     <published>2025-12-08T08:39:24.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p>
+<h2 id="三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范"><a href="#三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范" class="headerlink" title="三、连续]]>
+    </summary>
+    <title>精准戴牙05——连续多颗后牙种植修复戴牙的流程</title>
     <updated>2025-12-09T00:33:03.380Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h2 id="三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范"><a href="#三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范" class="headerlink" title="三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范"></a>三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范</h2><h3 id="连续多颗后牙修复体的设计原则"><a href="#连续多颗后牙修复体的设计原则" class="headerlink" title="连续多颗后牙修复体的设计原则"></a>连续多颗后牙修复体的设计原则</h3><h4 id="共同就位道的获取和确认"><a href="#共同就位道的获取和确认" class="headerlink" title="共同就位道的获取和确认"></a>共同就位道的获取和确认</h4><p>多颗种植常采用开窗式取模，以更精确。但取模步骤多，各个步骤均有可能出现误差。在制作最终牙冠前，应先进行基台校正。具体操作:</p><ol><li>模型检查:</li></ol><ul><li>基台各面粘接高度应≥5mm，且在正颊侧进行标记。</li><li>基台与对颌牙之间至少有0.7mm的空间容纳氧化锆全瓷瓷层。</li><li>基台具有一定的抗修复体旋转作用。</li><li>树脂key与基台颌面、基台边缘及邻牙接触密合无缝隙。</li></ul><ol start="2"><li>基台就位:若基台可轻旋至完全就位，所有基台标记均正对颊侧，初步判断水平方向关系转移准确无误。否则则可能转移出现误差，树脂key可能无法就位。</li><li>就位树脂key。从颌面被动就位树脂key，并检查key是否与基台颌面、基台边缘、邻近天然牙颌面接触区密合。任何一个位置不密合即表明存在模型误差。</li></ol><p>若存在误差重新取模，同时取两副印模，供技师交叉验证。<br>植体轴向偏差过大的，采用复合基台进行角度调整，已获取共同就位道。</p><h4 id="咬合间隙的确认及咬合记录的再次获取"><a href="#咬合间隙的确认及咬合记录的再次获取" class="headerlink" title="咬合间隙的确认及咬合记录的再次获取"></a>咬合间隙的确认及咬合记录的再次获取</h4><p>当存在穿龈较深、咬合距离较高、种植体轴向与对颌牙功能尖错位等情况时，建议在基台校正同期，再次进行咬合记录的制取。</p><ol><li>检查修复距离和患者咬合情况。</li><li>制取咬合记录。先用封孔材料临时封闭基台螺丝孔，注入咬合硅胶于患者上颌牙颌面，嘱患者慢慢闭口至上下颌牙轻咬。后牙游离缺失或咬合不稳定的患者，可制取双侧后牙区咬合记录。</li><li>咬合记录的修整。取下咬合记录，口外修整。去除与黏膜接触、进入倒凹区的多余部分。咬合记录上咬穿或即将咬穿部分也应用刀片轻轻去除。</li><li>口内确认咬合记录就位情况。</li></ol><h4 id="修复体形态设计"><a href="#修复体形态设计" class="headerlink" title="修复体形态设计"></a>修复体形态设计</h4><p>在联冠及固定桥修复时，也应尽可能打开龈外展隙，便于患者日常自洁。<br>桥体部分组织面应高度抛光，曲线圆滑，设计成改良鞍式或卵圆形的形态。<br>颌面形态设计，做出适当的点隙窝沟形态，构建食物溢出通道，同时增加咀嚼效率。</p><h3 id="连续多颗后牙种植修复戴牙的流程"><a href="#连续多颗后牙种植修复戴牙的流程" class="headerlink" title="连续多颗后牙种植修复戴牙的流程"></a>连续多颗后牙种植修复戴牙的流程</h3><h4 id="多颗单冠种植修复戴牙"><a href="#多颗单冠种植修复戴牙" class="headerlink" title="多颗单冠种植修复戴牙"></a>多颗单冠种植修复戴牙</h4><ol><li>模型检查:基台、瓷层空间、牙冠固位力、修复体完整性外形及边缘密合性、修复体与对颌牙之间咬合。</li><li>口内检查、物品准备。</li><li>基台就位。</li><li>试戴牙冠。去除邻牙阻力，标准牙线能有阻力通过且不拉丝。检查牙冠就位情况。牙冠与基台之间应无明显台阶。游离端缺失的，先戴近中修复体，再戴远中。若有阻力则调整。</li><li>根尖片辅助检查。平行投照技术。</li><li>调磨咬合。对游离端缺失3个单位及以上的种植体支持的修复体，参考天然牙咬合进行调整。若数量过多，可先就位近中修复体并调颌，再就位并整体调颌。</li><li>粘接牙冠、去除粘接剂。口内粘接，通过螺丝孔取下修复体及基台，在口外去除粘固剂。</li><li>基台施加扭矩负荷，封孔。按厂商建议值施加扭矩负荷，一次施加到位，避免反复施加扭矩导致基台中央螺丝疲劳。用封孔材料覆盖螺丝孔，通过树脂充填封闭牙冠开孔，再次检查咬合。</li><li>定期复查。戴牙后1个月、3个月、6个月、及每年定期复查。</li></ol><h4 id="联冠-固定桥种植修复戴牙"><a href="#联冠-固定桥种植修复戴牙" class="headerlink" title="联冠&#x2F;固定桥种植修复戴牙"></a>联冠&#x2F;固定桥种植修复戴牙</h4><ol><li>模型检查，特别注意龈外展隙是否打开，固定桥部分组织面的形态，形成高度抛光、曲线圆滑的改良鞍式或卵圆形接触形式。</li><li>口内检查及戴牙物品准备。</li><li>基台就位。修复基台肩台宽度往往大于转移体宽度，注意去除骨阻力，避免基台就位时骨阻挡。</li><li>牙冠就位、临时粘接及根尖片辅助检查。</li><li>调磨咬合。与单颗修复类似。但一侧或双侧后牙完全为种植修复体修复时，参考天然牙咬合进行调整。</li><li>粘接牙冠、去除粘结剂。不能像单冠一样粘固后取下去除粘固剂，可采用粘接代型法、预留牙线法、橡皮障法、排溢孔法等。</li><li>基台施加扭矩负荷、封孔。</li><li>调磨咬合。</li><li>术后复查。</li></ol><h4 id="复合基台水平的种植修复戴牙"><a href="#复合基台水平的种植修复戴牙" class="headerlink" title="复合基台水平的种植修复戴牙"></a>复合基台水平的种植修复戴牙</h4><ol><li>桥架试戴。桥架上基台高度大于5mm，有0.7mm瓷层空间，各基台呈预备体形态，桥架与复合基台代型边缘密合。口内试戴桥架检查是否对软组织有压迫，桥架与复合基台之间是否密合，修复空间是否足够，通过根尖片评价桥架被动就位情况。确定桥架就位后，再次制取咬合记录。</li><li>修复体模型检查。</li></ol><ul><li>修复体完整性、外形及边缘密合性。</li><li>修复体与对颌牙之间咬合、邻接</li><li>修复体形态。</li></ul><ol start="3"><li>口内检查、物品准备</li><li>修复体试戴及根尖片辅助检查。</li><li>调颌，参考天然牙进行调整。</li><li>基台施加扭矩负荷、封孔。</li><li>定期复查。</li></ol><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。&lt;/p&gt;
-&lt;h2 id=&quot;三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范&quot;&gt;&lt;a href=&quot;#三、连续多颗后牙种植修复体设计与戴牙及其常见问题与防范&quot; class=&quot;headerlink&quot; title=&quot;三、连续</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准戴牙04——单颗后牙种植修复戴牙的流程</title>
-    <link href="https://zwdnet.github.io/2025/12/03/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9904%E2%80%94%E2%80%94%E5%8D%95%E9%A2%97%E5%90%8E%E7%89%99%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%88%B4%E7%89%99%E7%9A%84%E6%B5%81%E7%A8%8B/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
+    <content>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h3 id="单颗后牙种植修复戴牙的流程"><a href="#单颗后牙种植修复戴牙的流程" class="headerlink" title="单颗后牙种植修复戴牙的流程"></a>单颗后牙种植修复戴牙的流程</h3><h4 id="粘接固位种植修复戴牙"><a href="#粘接固位种植修复戴牙" class="headerlink" title="粘接固位种植修复戴牙"></a>粘接固位种植修复戴牙</h4><ol><li>模型检查<ul><li>基台各面粘接高度，应≥5mm。检查正颊侧是否已经标记。</li><li>瓷层空间:基台与对颌牙间至少0.7mm的空间。</li><li>牙冠固位力:基台具有一定的抗修复体旋转作用。</li><li>修复体完整性、外形及边缘密合性。</li><li>修复体与对颌牙之间的咬合。检查咬合是否紧密，邻接是否良好。</li></ul></li><li>口内检查及戴牙物品准备。</li><li>基台就位:取下愈合基台，生理盐水冲洗袖口，基台口外消毒，在口内就位。看颊侧标记是否正对颊侧。也可利用树脂key辅助检查。二期手术时，应注意去除种植体颈部多余的骨，直至种植体平台完全暴露。若软组织阻力过大，局部浸润下行十字或米字形切口解除阻力。</li><li>试戴牙冠。如就位有阻力，要判断阻力来源。主要有软组织、硬组织和邻牙。<ul><li>邻牙阻力:用牙线判断，如拉丝，用40μm咬合纸检查。少量多次磨除，反复用牙线检查。理想状态下牙线应有阻力且不拉丝地通过。</li><li>软组织阻力:牙冠就位时牙龈发白，无法被动就位。按压牙冠出现下沉。</li><li>骨阻力:去骨。最好二期时去除。</li></ul></li><li>根尖片辅助检查:观察牙冠与基台之间，基台与种植体之间有无间隙，确认各部分之间连接紧密，基台与牙冠完全就位。</li><li>调磨咬合。重咬轻接触，轻咬不接触。侧方和前伸咬合两点接触无干扰。</li><li>粘接牙冠，去除粘接剂。先对牙冠进行清洗抛光。然后消毒。在口外粘固牙冠，去除多余粘固剂。</li><li>基台施加扭矩负荷及封孔。扭矩大小，次数，严格按厂家要求进行。封孔材料封闭螺丝孔，树脂封闭冠开口。</li><li>定期复查。戴牙后1个月，3个月，6个月，1年及此后每年进行定期复查。<ul><li>探诊检查:牙周探诊。</li><li>角化黏膜宽度。</li><li>邻接检查。</li><li>咬合检查。</li><li>影像学检查。建议平行投照根尖片。</li></ul></li></ol><h4 id="螺丝固位种植修复戴牙"><a href="#螺丝固位种植修复戴牙" class="headerlink" title="螺丝固位种植修复戴牙"></a>螺丝固位种植修复戴牙</h4><ol><li>将植体基台一体化冠在口内就位，牙线检查邻接。完全就位前，不可以最大扭矩拧紧修复体螺丝。</li><li>根尖片检查就位情况。</li><li>调颌，根据厂商要求施加扭矩负荷。</li><li>定期复查。</li></ol><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2025/12/03/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9904%E2%80%94%E2%80%94%E5%8D%95%E9%A2%97%E5%90%8E%E7%89%99%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%88%B4%E7%89%99%E7%9A%84%E6%B5%81%E7%A8%8B/</id>
+    <link href="https://zwdnet.github.io/2025/12/03/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9904%E2%80%94%E2%80%94%E5%8D%95%E9%A2%97%E5%90%8E%E7%89%99%E7%A7%8D%E6%A4%8D%E4%BF%AE%E5%A4%8D%E6%88%B4%E7%89%99%E7%9A%84%E6%B5%81%E7%A8%8B/"/>
     <published>2025-12-03T02:34:23.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p>
+<h3 id="单颗后牙种植修复戴牙的流程"><a href="#单颗后牙种植修复戴牙的流程" class="headerlink" title="单颗后牙种植修复戴牙的流程"></a>单颗后牙种植修复戴牙的流程]]>
+    </summary>
+    <title>精准戴牙04——单颗后牙种植修复戴牙的流程</title>
     <updated>2025-12-04T04:19:08.523Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h3 id="单颗后牙种植修复戴牙的流程"><a href="#单颗后牙种植修复戴牙的流程" class="headerlink" title="单颗后牙种植修复戴牙的流程"></a>单颗后牙种植修复戴牙的流程</h3><h4 id="粘接固位种植修复戴牙"><a href="#粘接固位种植修复戴牙" class="headerlink" title="粘接固位种植修复戴牙"></a>粘接固位种植修复戴牙</h4><ol><li>模型检查<ul><li>基台各面粘接高度，应≥5mm。检查正颊侧是否已经标记。</li><li>瓷层空间:基台与对颌牙间至少0.7mm的空间。</li><li>牙冠固位力:基台具有一定的抗修复体旋转作用。</li><li>修复体完整性、外形及边缘密合性。</li><li>修复体与对颌牙之间的咬合。检查咬合是否紧密，邻接是否良好。</li></ul></li><li>口内检查及戴牙物品准备。</li><li>基台就位:取下愈合基台，生理盐水冲洗袖口，基台口外消毒，在口内就位。看颊侧标记是否正对颊侧。也可利用树脂key辅助检查。二期手术时，应注意去除种植体颈部多余的骨，直至种植体平台完全暴露。若软组织阻力过大，局部浸润下行十字或米字形切口解除阻力。</li><li>试戴牙冠。如就位有阻力，要判断阻力来源。主要有软组织、硬组织和邻牙。<ul><li>邻牙阻力:用牙线判断，如拉丝，用40μm咬合纸检查。少量多次磨除，反复用牙线检查。理想状态下牙线应有阻力且不拉丝地通过。</li><li>软组织阻力:牙冠就位时牙龈发白，无法被动就位。按压牙冠出现下沉。</li><li>骨阻力:去骨。最好二期时去除。</li></ul></li><li>根尖片辅助检查:观察牙冠与基台之间，基台与种植体之间有无间隙，确认各部分之间连接紧密，基台与牙冠完全就位。</li><li>调磨咬合。重咬轻接触，轻咬不接触。侧方和前伸咬合两点接触无干扰。</li><li>粘接牙冠，去除粘接剂。先对牙冠进行清洗抛光。然后消毒。在口外粘固牙冠，去除多余粘固剂。</li><li>基台施加扭矩负荷及封孔。扭矩大小，次数，严格按厂家要求进行。封孔材料封闭螺丝孔，树脂封闭冠开口。</li><li>定期复查。戴牙后1个月，3个月，6个月，1年及此后每年进行定期复查。<ul><li>探诊检查:牙周探诊。</li><li>角化黏膜宽度。</li><li>邻接检查。</li><li>咬合检查。</li><li>影像学检查。建议平行投照根尖片。</li></ul></li></ol><h4 id="螺丝固位种植修复戴牙"><a href="#螺丝固位种植修复戴牙" class="headerlink" title="螺丝固位种植修复戴牙"></a>螺丝固位种植修复戴牙</h4><ol><li>将植体基台一体化冠在口内就位，牙线检查邻接。完全就位前，不可以最大扭矩拧紧修复体螺丝。</li><li>根尖片检查就位情况。</li><li>调颌，根据厂商要求施加扭矩负荷。</li><li>定期复查。</li></ol><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。&lt;/p&gt;
-&lt;h3 id=&quot;单颗后牙种植修复戴牙的流程&quot;&gt;&lt;a href=&quot;#单颗后牙种植修复戴牙的流程&quot; class=&quot;headerlink&quot; title=&quot;单颗后牙种植修复戴牙的流程&quot;&gt;&lt;/a&gt;单颗后牙种植修复戴牙的流程</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准戴牙03——单颗后牙修复体的设计原则</title>
-    <link href="https://zwdnet.github.io/2025/11/29/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9903%E2%80%94%E2%80%94%E5%8D%95%E9%A2%97%E5%90%8E%E7%89%99%E4%BF%AE%E5%A4%8D%E4%BD%93%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
+    <content>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h3 id="单颗后牙修复体的设计原则"><a href="#单颗后牙修复体的设计原则" class="headerlink" title="单颗后牙修复体的设计原则"></a>单颗后牙修复体的设计原则</h3><p>基台轴面形态圆滑，粘接面积及抗旋形态相对不足，可能是修复体脱落的重要原因。<br>对颌伸长，产生非轴向力，也是原因之一。<br>设计原则:</p><ol><li>基台的选择:粘接高度至少应为5mm，单颗后牙的垂直修复空间至少应为8mm。增加基台的粘接强度，包括增加粘接高度、粘接宽度、表面粗糙度及适当的固位形。可研磨基台为一种好选择。应参照天然牙形态研磨，有明显的四个轴壁，轴面较方，线角圆钝，颌方观察呈备牙型。各面粘接高度不小于5mm。轴面增加固位沟槽，肩台位于龈下0.5mm-1mm。顶端距离对颌牙0.7-2.0mm。</li><li>穿龈轮廓的设计:穿龈轮廓凸度增加，或穿龈角度大于30度，均易影响牙龈血供，导致种植体周围炎和骨吸收。建议选用平直型或浅凹型穿龈设计。将基台和牙冠作为整体考虑，选择合理穿龈水平的基台，使基台和牙冠构成的整体穿龈轮廓过渡自然。</li><li>龈外展隙的设计。打开龈外展隙，恢复与邻牙协调的正常龈外展隙形态。</li><li>邻接设计。邻牙有倾斜或凸度太大的情况，因调磨邻牙，增大接触面积。邻牙有明显间隙时，种植修复体也可预留1mm间隙，以利清洁。</li><li>咬合设计。应当设计为轻咬合。“重咬轻接触，轻咬不接触”。尽量减小侧向力。保留适当的尖窝点隙沟形态。前伸侧方运动时无咬合。</li></ol><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2025/11/29/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9903%E2%80%94%E2%80%94%E5%8D%95%E9%A2%97%E5%90%8E%E7%89%99%E4%BF%AE%E5%A4%8D%E4%BD%93%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</id>
+    <link href="https://zwdnet.github.io/2025/11/29/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9903%E2%80%94%E2%80%94%E5%8D%95%E9%A2%97%E5%90%8E%E7%89%99%E4%BF%AE%E5%A4%8D%E4%BD%93%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
     <published>2025-11-29T01:33:07.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p>
+<h3 id="单颗后牙修复体的设计原则"><a href="#单颗后牙修复体的设计原则" class="headerlink" title="单颗后牙修复体的设计原则"></a>单颗后牙修复体的设计原则</h3]]>
+    </summary>
+    <title>精准戴牙03——单颗后牙修复体的设计原则</title>
     <updated>2025-11-30T00:42:38.216Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h3 id="单颗后牙修复体的设计原则"><a href="#单颗后牙修复体的设计原则" class="headerlink" title="单颗后牙修复体的设计原则"></a>单颗后牙修复体的设计原则</h3><p>基台轴面形态圆滑，粘接面积及抗旋形态相对不足，可能是修复体脱落的重要原因。<br>对颌伸长，产生非轴向力，也是原因之一。<br>设计原则:</p><ol><li>基台的选择:粘接高度至少应为5mm，单颗后牙的垂直修复空间至少应为8mm。增加基台的粘接强度，包括增加粘接高度、粘接宽度、表面粗糙度及适当的固位形。可研磨基台为一种好选择。应参照天然牙形态研磨，有明显的四个轴壁，轴面较方，线角圆钝，颌方观察呈备牙型。各面粘接高度不小于5mm。轴面增加固位沟槽，肩台位于龈下0.5mm-1mm。顶端距离对颌牙0.7-2.0mm。</li><li>穿龈轮廓的设计:穿龈轮廓凸度增加，或穿龈角度大于30度，均易影响牙龈血供，导致种植体周围炎和骨吸收。建议选用平直型或浅凹型穿龈设计。将基台和牙冠作为整体考虑，选择合理穿龈水平的基台，使基台和牙冠构成的整体穿龈轮廓过渡自然。</li><li>龈外展隙的设计。打开龈外展隙，恢复与邻牙协调的正常龈外展隙形态。</li><li>邻接设计。邻牙有倾斜或凸度太大的情况，因调磨邻牙，增大接触面积。邻牙有明显间隙时，种植修复体也可预留1mm间隙，以利清洁。</li><li>咬合设计。应当设计为轻咬合。“重咬轻接触，轻咬不接触”。尽量减小侧向力。保留适当的尖窝点隙沟形态。前伸侧方运动时无咬合。</li></ol><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。&lt;/p&gt;
-&lt;h3 id=&quot;单颗后牙修复体的设计原则&quot;&gt;&lt;a href=&quot;#单颗后牙修复体的设计原则&quot; class=&quot;headerlink&quot; title=&quot;单颗后牙修复体的设计原则&quot;&gt;&lt;/a&gt;单颗后牙修复体的设计原则&lt;/h3</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准戴牙02——口腔种植戴牙流程</title>
-    <link href="https://zwdnet.github.io/2025/11/25/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9902%E2%80%94%E2%80%94%E5%8F%A3%E8%85%94%E7%A7%8D%E6%A4%8D%E6%88%B4%E7%89%99%E6%B5%81%E7%A8%8B/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
+    <content>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h3 id="口腔种植戴牙的基本流程"><a href="#口腔种植戴牙的基本流程" class="headerlink" title="口腔种植戴牙的基本流程"></a>口腔种植戴牙的基本流程</h3><h4 id="一、模型检查"><a href="#一、模型检查" class="headerlink" title="一、模型检查"></a>一、模型检查</h4><p>由根方至冠方:</p><ol><li>基台各面粘接高度应≥5mm，且检查正颊侧是否已经标记。</li><li>瓷层空间:基台和对颌牙之间，氧化锆至少需要0.7mm。</li><li>牙冠固位力:基台具有一定的抗修复体旋转作用，牙冠不能在基台上出现明显相对旋转。</li><li>修复体完整性、外形及边缘密合性。</li><li>修复体与对颌牙之间的咬合。检查咬合及邻接。</li></ol><h4 id="二、口内检查及戴牙物品准备"><a href="#二、口内检查及戴牙物品准备" class="headerlink" title="二、口内检查及戴牙物品准备"></a>二、口内检查及戴牙物品准备</h4><p>12μm、40μm、100μm三种咬合纸。螺丝刀等器械上拴线。</p><h4 id="三、基台就位"><a href="#三、基台就位" class="headerlink" title="三、基台就位"></a>三、基台就位</h4><ol><li>冲洗牙龈袖口</li><li>口内就位基台:可用加工厂提供的就位导板。注意正颊侧标记是否就位于正颊侧。</li><li>试戴牙冠。</li></ol><ul><li>去除邻牙阻力。可借助40μm咬合纸判断邻牙阻力。牙线可有阻力地通过且不拉丝。</li><li>检查冠就位情况。用探针，牙冠与基台之间无明显台阶。</li></ul><h4 id="五、根尖片辅助检查"><a href="#五、根尖片辅助检查" class="headerlink" title="五、根尖片辅助检查"></a>五、根尖片辅助检查</h4><p>牙冠与基台的连接处、基台与种植体的连接处是否密合无缝隙。采用平行投照技术。</p><h4 id="六、调磨咬合"><a href="#六、调磨咬合" class="headerlink" title="六、调磨咬合"></a>六、调磨咬合</h4><p>建议先调颌再永久粘接。<br>戴冠前先预留全牙列的咬合记录，以便在调颌时对比。<br>重咬轻咬合，轻咬不接触，且无工作侧、非工作侧的咬合干扰和前伸颌干扰。<br>三种位置的调颌方法:双侧同时放咬合纸</p><ol><li>牙尖交错颌:100μm蓝色和12μm红色。天然牙蓝红都有印迹，种植牙上只有均匀分布的蓝色的印迹，调磨红印迹。</li><li>侧方颌:先100μm蓝色侧方咬合，然后100μm红色牙尖交错颌。种植牙上无红色印迹上延伸出来的蓝色印迹。</li><li>前伸颌:先100μm蓝色前伸咬合，然后100μm红色牙尖交错颌。</li></ol><h4 id="七、粘接牙冠及去除粘接剂"><a href="#七、粘接牙冠及去除粘接剂" class="headerlink" title="七、粘接牙冠及去除粘接剂"></a>七、粘接牙冠及去除粘接剂</h4><h4 id="八、基台施加扭矩负荷及封孔"><a href="#八、基台施加扭矩负荷及封孔" class="headerlink" title="八、基台施加扭矩负荷及封孔"></a>八、基台施加扭矩负荷及封孔</h4><p>按种植系统要求进行。注意一次性施加到位，避免反复施加扭矩负荷，造成基台中央螺丝疲劳。<br>封孔材料封闭螺丝孔，复合树脂充填封闭牙冠开孔。再次检查口内咬合，避免树脂形成咬合高点。<br>对牙冠未开孔病例，应先施加扭矩负荷，封闭螺丝孔后，采用预留牙线法结合粘接代型法粘接牙冠，去除残留粘接剂。戴牙后1个月，3个月，6个月，1年及此后每年进行定期复诊。</p><h3 id="口腔种植戴牙与天然牙戴牙"><a href="#口腔种植戴牙与天然牙戴牙" class="headerlink" title="口腔种植戴牙与天然牙戴牙"></a>口腔种植戴牙与天然牙戴牙</h3><p>与种植戴牙相比，天然牙戴牙流程相对简单，省去了基台就位、对基台施加扭矩负荷及封孔等环节，但由于其最终粘接过程只能在口内完成，可能导致溢出的粘接剂清理不干净。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2025/11/25/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9902%E2%80%94%E2%80%94%E5%8F%A3%E8%85%94%E7%A7%8D%E6%A4%8D%E6%88%B4%E7%89%99%E6%B5%81%E7%A8%8B/</id>
+    <link href="https://zwdnet.github.io/2025/11/25/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9902%E2%80%94%E2%80%94%E5%8F%A3%E8%85%94%E7%A7%8D%E6%A4%8D%E6%88%B4%E7%89%99%E6%B5%81%E7%A8%8B/"/>
     <published>2025-11-25T01:05:07.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p>
+<h3 id="口腔种植戴牙的基本流程"><a href="#口腔种植戴牙的基本流程" class="headerlink" title="口腔种植戴牙的基本流程"></a>口腔种植戴牙的基本流程</h3><h4]]>
+    </summary>
+    <title>精准戴牙02——口腔种植戴牙流程</title>
     <updated>2025-11-25T22:01:15.070Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h3 id="口腔种植戴牙的基本流程"><a href="#口腔种植戴牙的基本流程" class="headerlink" title="口腔种植戴牙的基本流程"></a>口腔种植戴牙的基本流程</h3><h4 id="一、模型检查"><a href="#一、模型检查" class="headerlink" title="一、模型检查"></a>一、模型检查</h4><p>由根方至冠方:</p><ol><li>基台各面粘接高度应≥5mm，且检查正颊侧是否已经标记。</li><li>瓷层空间:基台和对颌牙之间，氧化锆至少需要0.7mm。</li><li>牙冠固位力:基台具有一定的抗修复体旋转作用，牙冠不能在基台上出现明显相对旋转。</li><li>修复体完整性、外形及边缘密合性。</li><li>修复体与对颌牙之间的咬合。检查咬合及邻接。</li></ol><h4 id="二、口内检查及戴牙物品准备"><a href="#二、口内检查及戴牙物品准备" class="headerlink" title="二、口内检查及戴牙物品准备"></a>二、口内检查及戴牙物品准备</h4><p>12μm、40μm、100μm三种咬合纸。螺丝刀等器械上拴线。</p><h4 id="三、基台就位"><a href="#三、基台就位" class="headerlink" title="三、基台就位"></a>三、基台就位</h4><ol><li>冲洗牙龈袖口</li><li>口内就位基台:可用加工厂提供的就位导板。注意正颊侧标记是否就位于正颊侧。</li><li>试戴牙冠。</li></ol><ul><li>去除邻牙阻力。可借助40μm咬合纸判断邻牙阻力。牙线可有阻力地通过且不拉丝。</li><li>检查冠就位情况。用探针，牙冠与基台之间无明显台阶。</li></ul><h4 id="五、根尖片辅助检查"><a href="#五、根尖片辅助检查" class="headerlink" title="五、根尖片辅助检查"></a>五、根尖片辅助检查</h4><p>牙冠与基台的连接处、基台与种植体的连接处是否密合无缝隙。采用平行投照技术。</p><h4 id="六、调磨咬合"><a href="#六、调磨咬合" class="headerlink" title="六、调磨咬合"></a>六、调磨咬合</h4><p>建议先调颌再永久粘接。<br>戴冠前先预留全牙列的咬合记录，以便在调颌时对比。<br>重咬轻咬合，轻咬不接触，且无工作侧、非工作侧的咬合干扰和前伸颌干扰。<br>三种位置的调颌方法:双侧同时放咬合纸</p><ol><li>牙尖交错颌:100μm蓝色和12μm红色。天然牙蓝红都有印迹，种植牙上只有均匀分布的蓝色的印迹，调磨红印迹。</li><li>侧方颌:先100μm蓝色侧方咬合，然后100μm红色牙尖交错颌。种植牙上无红色印迹上延伸出来的蓝色印迹。</li><li>前伸颌:先100μm蓝色前伸咬合，然后100μm红色牙尖交错颌。</li></ol><h4 id="七、粘接牙冠及去除粘接剂"><a href="#七、粘接牙冠及去除粘接剂" class="headerlink" title="七、粘接牙冠及去除粘接剂"></a>七、粘接牙冠及去除粘接剂</h4><h4 id="八、基台施加扭矩负荷及封孔"><a href="#八、基台施加扭矩负荷及封孔" class="headerlink" title="八、基台施加扭矩负荷及封孔"></a>八、基台施加扭矩负荷及封孔</h4><p>按种植系统要求进行。注意一次性施加到位，避免反复施加扭矩负荷，造成基台中央螺丝疲劳。<br>封孔材料封闭螺丝孔，复合树脂充填封闭牙冠开孔。再次检查口内咬合，避免树脂形成咬合高点。<br>对牙冠未开孔病例，应先施加扭矩负荷，封闭螺丝孔后，采用预留牙线法结合粘接代型法粘接牙冠，去除残留粘接剂。戴牙后1个月，3个月，6个月，1年及此后每年进行定期复诊。</p><h3 id="口腔种植戴牙与天然牙戴牙"><a href="#口腔种植戴牙与天然牙戴牙" class="headerlink" title="口腔种植戴牙与天然牙戴牙"></a>口腔种植戴牙与天然牙戴牙</h3><p>与种植戴牙相比，天然牙戴牙流程相对简单，省去了基台就位、对基台施加扭矩负荷及封孔等环节，但由于其最终粘接过程只能在口内完成，可能导致溢出的粘接剂清理不干净。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。&lt;/p&gt;
-&lt;h3 id=&quot;口腔种植戴牙的基本流程&quot;&gt;&lt;a href=&quot;#口腔种植戴牙的基本流程&quot; class=&quot;headerlink&quot; title=&quot;口腔种植戴牙的基本流程&quot;&gt;&lt;/a&gt;口腔种植戴牙的基本流程&lt;/h3&gt;&lt;h4</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准戴牙01——口腔种植戴牙常见误差及种植体基台</title>
-    <link href="https://zwdnet.github.io/2025/11/23/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9901%E2%80%94%E2%80%94%E5%8F%A3%E8%85%94%E7%A7%8D%E6%A4%8D%E6%88%B4%E7%89%99%E5%B8%B8%E8%A7%81%E8%AF%AF%E5%B7%AE%E5%8F%8A%E7%A7%8D%E6%A4%8D%E4%BD%93%E5%9F%BA%E5%8F%B0/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
+    <content>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h2 id="一、口腔种植戴牙"><a href="#一、口腔种植戴牙" class="headerlink" title="一、口腔种植戴牙"></a>一、口腔种植戴牙</h2><h3 id="口腔种植戴牙常见误差"><a href="#口腔种植戴牙常见误差" class="headerlink" title="口腔种植戴牙常见误差"></a>口腔种植戴牙常见误差</h3><h4 id="组件未就位相关误差"><a href="#组件未就位相关误差" class="headerlink" title="组件未就位相关误差"></a>组件未就位相关误差</h4><ul><li>基台未就位:骨阻力。</li><li>修复体未就位:建议采用平行投照根尖片判断。</li></ul><h4 id="粘接相关误差"><a href="#粘接相关误差" class="headerlink" title="粘接相关误差"></a>粘接相关误差</h4><ul><li>粘接剂残留:种植单冠中，72.48%有粘接剂残留。冠边缘在黏膜下越深，粘接剂的残留率越高。</li><li>修复体脱粘接:基台粘接高度过短。</li></ul><h4 id="机械相关误差"><a href="#机械相关误差" class="headerlink" title="机械相关误差"></a>机械相关误差</h4><ul><li>螺丝折断</li><li>种植体折裂</li></ul><h4 id="生物学相关误差"><a href="#生物学相关误差" class="headerlink" title="生物学相关误差"></a>生物学相关误差</h4><ul><li>美学区“黑三角”</li><li>种植体周围炎</li></ul><h4 id="其它误差"><a href="#其它误差" class="headerlink" title="其它误差"></a>其它误差</h4><ul><li>咬合过高或过低</li><li>食物嵌塞</li></ul><p>种植单冠，修复前10年就有至少10%的修复体因发生各种并发症需要拆除与更换。</p><h3 id="口腔种植修复体的基本概念"><a href="#口腔种植修复体的基本概念" class="headerlink" title="口腔种植修复体的基本概念"></a>口腔种植修复体的基本概念</h3><h4 id="种植体基台"><a href="#种植体基台" class="headerlink" title="种植体基台"></a>种植体基台</h4><p>连接种植体与修复体的部件，分为上部结构、穿龈部分和下部结构。</p><h4 id="基台分类"><a href="#基台分类" class="headerlink" title="基台分类"></a>基台分类</h4><ul><li>按修复体固位形式:<ul><li>粘接固位基台:先将基台用中央螺丝固定于种植体上，再用粘接剂将修复体粘固于基台上。</li><li>螺丝固位基台:修复体与基台为一体的，通过中央螺丝固定于植体上。</li></ul></li><li>按基台的角度分类:<ul><li>直基台</li><li>角度基台</li></ul></li><li>按修复时机分类:<ul><li>临时基台:不承受或只承受很小的咬合力</li><li>永久基台</li></ul></li><li>按抗旋能力:<ul><li>抗旋基台:基台与植体连接部分有抗旋结构，就位后不能旋转。使修复体有抗旋能力。常用于单冠。</li><li>非抗旋基台:无抗旋结构。</li></ul></li><li>按不同材料分类:<ul><li>钛基台:最常用</li><li>瓷基台:美学性能</li><li>金基台</li></ul></li><li>个性化基台:<ul><li>预成基台研磨、加焊或用树脂堆塑</li><li>可铸造基台</li><li>CAD&#x2F;CAM制作</li></ul></li><li>其它特殊设计基台<ul><li>靠摩擦力固位基台:植体内部和基台内部无螺纹，有一定锥度，敲击就位。完全依靠摩擦力固位。</li><li>复合基台:多颗植体用来消除角度差异获得共同就位道。具有锥形上部结构，有多种角度规格供选择。</li><li>覆盖义齿基台:落扣(locator)基台。分为阳性部分(与口内种植体连接)和阴性部分(修复体组织面内)，二者嵌合提供固位力。</li><li>角度螺丝通道(angulated srew channel, ASC)基台:螺丝通道与中央螺丝成一定角度，避免螺丝开孔于唇侧或颌方影响美观与咬合。</li><li>ON1基台:骨水平种植体植入同期安装ON1基台。此后不再取下，愈合基台，修复基台等部件都安装在它上面。</li><li>一体式基台:螺丝与基台其它结构是一体式的，形成一个整体。</li><li>第三方基台:有价格优势，但与原厂基台存在差异。</li></ul></li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2025/11/23/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9901%E2%80%94%E2%80%94%E5%8F%A3%E8%85%94%E7%A7%8D%E6%A4%8D%E6%88%B4%E7%89%99%E5%B8%B8%E8%A7%81%E8%AF%AF%E5%B7%AE%E5%8F%8A%E7%A7%8D%E6%A4%8D%E4%BD%93%E5%9F%BA%E5%8F%B0/</id>
+    <link href="https://zwdnet.github.io/2025/11/23/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%9901%E2%80%94%E2%80%94%E5%8F%A3%E8%85%94%E7%A7%8D%E6%A4%8D%E6%88%B4%E7%89%99%E5%B8%B8%E8%A7%81%E8%AF%AF%E5%B7%AE%E5%8F%8A%E7%A7%8D%E6%A4%8D%E4%BD%93%E5%9F%BA%E5%8F%B0/"/>
     <published>2025-11-23T09:30:05.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p>
+<h2 id="一、口腔种植戴牙"><a href="#一、口腔种植戴牙" class="headerlink" title="一、口腔种植戴牙"></a>一、口腔种植戴牙</h2><h3 id="口腔种植戴牙常]]>
+    </summary>
+    <title>精准戴牙01——口腔种植戴牙常见误差及种植体基台</title>
     <updated>2025-11-24T00:33:12.700Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。</p><h2 id="一、口腔种植戴牙"><a href="#一、口腔种植戴牙" class="headerlink" title="一、口腔种植戴牙"></a>一、口腔种植戴牙</h2><h3 id="口腔种植戴牙常见误差"><a href="#口腔种植戴牙常见误差" class="headerlink" title="口腔种植戴牙常见误差"></a>口腔种植戴牙常见误差</h3><h4 id="组件未就位相关误差"><a href="#组件未就位相关误差" class="headerlink" title="组件未就位相关误差"></a>组件未就位相关误差</h4><ul><li>基台未就位:骨阻力。</li><li>修复体未就位:建议采用平行投照根尖片判断。</li></ul><h4 id="粘接相关误差"><a href="#粘接相关误差" class="headerlink" title="粘接相关误差"></a>粘接相关误差</h4><ul><li>粘接剂残留:种植单冠中，72.48%有粘接剂残留。冠边缘在黏膜下越深，粘接剂的残留率越高。</li><li>修复体脱粘接:基台粘接高度过短。</li></ul><h4 id="机械相关误差"><a href="#机械相关误差" class="headerlink" title="机械相关误差"></a>机械相关误差</h4><ul><li>螺丝折断</li><li>种植体折裂</li></ul><h4 id="生物学相关误差"><a href="#生物学相关误差" class="headerlink" title="生物学相关误差"></a>生物学相关误差</h4><ul><li>美学区“黑三角”</li><li>种植体周围炎</li></ul><h4 id="其它误差"><a href="#其它误差" class="headerlink" title="其它误差"></a>其它误差</h4><ul><li>咬合过高或过低</li><li>食物嵌塞</li></ul><p>种植单冠，修复前10年就有至少10%的修复体因发生各种并发症需要拆除与更换。</p><h3 id="口腔种植修复体的基本概念"><a href="#口腔种植修复体的基本概念" class="headerlink" title="口腔种植修复体的基本概念"></a>口腔种植修复体的基本概念</h3><h4 id="种植体基台"><a href="#种植体基台" class="headerlink" title="种植体基台"></a>种植体基台</h4><p>连接种植体与修复体的部件，分为上部结构、穿龈部分和下部结构。</p><h4 id="基台分类"><a href="#基台分类" class="headerlink" title="基台分类"></a>基台分类</h4><ul><li>按修复体固位形式:<ul><li>粘接固位基台:先将基台用中央螺丝固定于种植体上，再用粘接剂将修复体粘固于基台上。</li><li>螺丝固位基台:修复体与基台为一体的，通过中央螺丝固定于植体上。</li></ul></li><li>按基台的角度分类:<ul><li>直基台</li><li>角度基台</li></ul></li><li>按修复时机分类:<ul><li>临时基台:不承受或只承受很小的咬合力</li><li>永久基台</li></ul></li><li>按抗旋能力:<ul><li>抗旋基台:基台与植体连接部分有抗旋结构，就位后不能旋转。使修复体有抗旋能力。常用于单冠。</li><li>非抗旋基台:无抗旋结构。</li></ul></li><li>按不同材料分类:<ul><li>钛基台:最常用</li><li>瓷基台:美学性能</li><li>金基台</li></ul></li><li>个性化基台:<ul><li>预成基台研磨、加焊或用树脂堆塑</li><li>可铸造基台</li><li>CAD&#x2F;CAM制作</li></ul></li><li>其它特殊设计基台<ul><li>靠摩擦力固位基台:植体内部和基台内部无螺纹，有一定锥度，敲击就位。完全依靠摩擦力固位。</li><li>复合基台:多颗植体用来消除角度差异获得共同就位道。具有锥形上部结构，有多种角度规格供选择。</li><li>覆盖义齿基台:落扣(locator)基台。分为阳性部分(与口内种植体连接)和阴性部分(修复体组织面内)，二者嵌合提供固位力。</li><li>角度螺丝通道(angulated srew channel, ASC)基台:螺丝通道与中央螺丝成一定角度，避免螺丝开孔于唇侧或颌方影响美观与咬合。</li><li>ON1基台:骨水平种植体植入同期安装ON1基台。此后不再取下，愈合基台，修复基台等部件都安装在它上面。</li><li>一体式基台:螺丝与基台其它结构是一体式的，形成一个整体。</li><li>第三方基台:有价格优势，但与原厂基台存在差异。</li></ul></li></ul><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《口腔种植的精准戴牙技巧和并发症防治》笔记。&lt;/p&gt;
-&lt;h2 id=&quot;一、口腔种植戴牙&quot;&gt;&lt;a href=&quot;#一、口腔种植戴牙&quot; class=&quot;headerlink&quot; title=&quot;一、口腔种植戴牙&quot;&gt;&lt;/a&gt;一、口腔种植戴牙&lt;/h2&gt;&lt;h3 id=&quot;口腔种植戴牙常</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准戴牙" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E6%88%B4%E7%89%99/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准二期及取模08——全口种植取模</title>
-    <link href="https://zwdnet.github.io/2025/11/19/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F%E5%8F%8A%E5%8F%96%E6%A8%A108%E2%80%94%E2%80%94%E5%85%A8%E5%8F%A3%E7%A7%8D%E6%A4%8D%E5%8F%96%E6%A8%A1/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准二期" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F/"/>
+    <content>
+      <![CDATA[<p>满毅老师《口腔种植的精准二期手术和取模技巧》笔记。</p><h2 id="六、全口取模及常见问题和防范"><a href="#六、全口取模及常见问题和防范" class="headerlink" title="六、全口取模及常见问题和防范"></a>六、全口取模及常见问题和防范</h2><h3 id="常见问题及防范"><a href="#常见问题及防范" class="headerlink" title="常见问题及防范"></a>常见问题及防范</h3><p>全口取模时，需将开窗式转移体进行刚性连接，保证开窗式转移体之间相对位置的稳定，从而精准的制备印模。</p><h3 id="种植全口固定义齿的取模"><a href="#种植全口固定义齿的取模" class="headerlink" title="种植全口固定义齿的取模"></a>种植全口固定义齿的取模</h3><h4 id="初印模"><a href="#初印模" class="headerlink" title="初印模"></a>初印模</h4><p>用开窗取模法制取初印模。</p><h4 id="制作树脂夹板和个性化托盘"><a href="#制作树脂夹板和个性化托盘" class="headerlink" title="制作树脂夹板和个性化托盘"></a>制作树脂夹板和个性化托盘</h4><p>在初印模上制作树脂夹板作为连接部件。每个转移体上的树脂夹板之间必须留有一定的距离，从而避免影响转移体在口内就位。在初模型上制作个性化托盘。</p><h4 id="终印模"><a href="#终印模" class="headerlink" title="终印模"></a>终印模</h4><p>连接体在口内就位，如果有阻挡无法就位，调磨树脂夹板。确保转移体完全就位。用低收缩率树脂在口内连接各树脂夹板，从而实现了转移体的刚性连接。使用个别托盘进行取模，然后将临时修复体戴回患者口内。<br>在佩戴临时修复体的情况下用面弓进行水平关系的转移，用咬合记录硅橡胶记录牙尖交错位和前伸运动的咬合情况。以临时义齿作为媒介上颌架。牙龈比色，沟通牙齿形态和颜色。<br>关键在于刚性连接转移体，但需要两次取模。也可在口内用车针和粗的钢丝贴在转移体上，用低收缩率树脂包绕转移体。用成品托盘取模，可能由于印模材料厚度不均匀，收缩不一致，黏膜部分的精准性欠佳，但尚可接受。<br>可以采用石膏夹板验证模型的精确性:在终模型上连接各个转移体，用白石膏将各个连接体转移，形成石膏夹板。再将石膏夹板戴入口内，就能通过检查各个转移体是否完全就位来判断模型的精准与否。</p><h3 id="全口种植覆盖义齿取模"><a href="#全口种植覆盖义齿取模" class="headerlink" title="全口种植覆盖义齿取模"></a>全口种植覆盖义齿取模</h3><p>种植支持的覆盖义齿分为球帽式、Locator、磁性附着体、杆卡附着式、套筒冠附着式种植覆盖义齿。<br>按标准流程制作全口义齿，之后在椅旁进行阴性部件pick-up，以达到功能状态下种植体和黏膜的均匀受力。适用于Locator、球帽、磁性等附着体。对于杆卡式，及套筒冠等精密附着体，建议采用全口种植固定义齿的取模方式获取精确的种植体位置，并结合全口义齿的标准取模流程进行修复体的制作。<br>以Locator覆盖义齿为例:<br>第一次就诊，藻酸盐制取初步印模，获取初步垂直距离。制作个别托盘。<br>第二次就诊，硅橡胶制取终印模。确定颌位关系。上颌架。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2025/11/19/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F%E5%8F%8A%E5%8F%96%E6%A8%A108%E2%80%94%E2%80%94%E5%85%A8%E5%8F%A3%E7%A7%8D%E6%A4%8D%E5%8F%96%E6%A8%A1/</id>
+    <link href="https://zwdnet.github.io/2025/11/19/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F%E5%8F%8A%E5%8F%96%E6%A8%A108%E2%80%94%E2%80%94%E5%85%A8%E5%8F%A3%E7%A7%8D%E6%A4%8D%E5%8F%96%E6%A8%A1/"/>
     <published>2025-11-19T07:23:21.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《口腔种植的精准二期手术和取模技巧》笔记。</p>
+<h2 id="六、全口取模及常见问题和防范"><a href="#六、全口取模及常见问题和防范" class="headerlink" title="六、全口取模及常见问题和防范"></a>六、全口取模及常见问题]]>
+    </summary>
+    <title>精准二期及取模08——全口种植取模</title>
     <updated>2025-11-20T01:00:16.336Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《口腔种植的精准二期手术和取模技巧》笔记。</p><h2 id="六、全口取模及常见问题和防范"><a href="#六、全口取模及常见问题和防范" class="headerlink" title="六、全口取模及常见问题和防范"></a>六、全口取模及常见问题和防范</h2><h3 id="常见问题及防范"><a href="#常见问题及防范" class="headerlink" title="常见问题及防范"></a>常见问题及防范</h3><p>全口取模时，需将开窗式转移体进行刚性连接，保证开窗式转移体之间相对位置的稳定，从而精准的制备印模。</p><h3 id="种植全口固定义齿的取模"><a href="#种植全口固定义齿的取模" class="headerlink" title="种植全口固定义齿的取模"></a>种植全口固定义齿的取模</h3><h4 id="初印模"><a href="#初印模" class="headerlink" title="初印模"></a>初印模</h4><p>用开窗取模法制取初印模。</p><h4 id="制作树脂夹板和个性化托盘"><a href="#制作树脂夹板和个性化托盘" class="headerlink" title="制作树脂夹板和个性化托盘"></a>制作树脂夹板和个性化托盘</h4><p>在初印模上制作树脂夹板作为连接部件。每个转移体上的树脂夹板之间必须留有一定的距离，从而避免影响转移体在口内就位。在初模型上制作个性化托盘。</p><h4 id="终印模"><a href="#终印模" class="headerlink" title="终印模"></a>终印模</h4><p>连接体在口内就位，如果有阻挡无法就位，调磨树脂夹板。确保转移体完全就位。用低收缩率树脂在口内连接各树脂夹板，从而实现了转移体的刚性连接。使用个别托盘进行取模，然后将临时修复体戴回患者口内。<br>在佩戴临时修复体的情况下用面弓进行水平关系的转移，用咬合记录硅橡胶记录牙尖交错位和前伸运动的咬合情况。以临时义齿作为媒介上颌架。牙龈比色，沟通牙齿形态和颜色。<br>关键在于刚性连接转移体，但需要两次取模。也可在口内用车针和粗的钢丝贴在转移体上，用低收缩率树脂包绕转移体。用成品托盘取模，可能由于印模材料厚度不均匀，收缩不一致，黏膜部分的精准性欠佳，但尚可接受。<br>可以采用石膏夹板验证模型的精确性:在终模型上连接各个转移体，用白石膏将各个连接体转移，形成石膏夹板。再将石膏夹板戴入口内，就能通过检查各个转移体是否完全就位来判断模型的精准与否。</p><h3 id="全口种植覆盖义齿取模"><a href="#全口种植覆盖义齿取模" class="headerlink" title="全口种植覆盖义齿取模"></a>全口种植覆盖义齿取模</h3><p>种植支持的覆盖义齿分为球帽式、Locator、磁性附着体、杆卡附着式、套筒冠附着式种植覆盖义齿。<br>按标准流程制作全口义齿，之后在椅旁进行阴性部件pick-up，以达到功能状态下种植体和黏膜的均匀受力。适用于Locator、球帽、磁性等附着体。对于杆卡式，及套筒冠等精密附着体，建议采用全口种植固定义齿的取模方式获取精确的种植体位置，并结合全口义齿的标准取模流程进行修复体的制作。<br>以Locator覆盖义齿为例:<br>第一次就诊，藻酸盐制取初步印模，获取初步垂直距离。制作个别托盘。<br>第二次就诊，硅橡胶制取终印模。确定颌位关系。上颌架。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《口腔种植的精准二期手术和取模技巧》笔记。&lt;/p&gt;
-&lt;h2 id=&quot;六、全口取模及常见问题和防范&quot;&gt;&lt;a href=&quot;#六、全口取模及常见问题和防范&quot; class=&quot;headerlink&quot; title=&quot;六、全口取模及常见问题和防范&quot;&gt;&lt;/a&gt;六、全口取模及常见问题</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准二期" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F/"/>
-    
   </entry>
-  
   <entry>
-    <title>精准二期及取模07——美学区取模</title>
-    <link href="https://zwdnet.github.io/2025/11/18/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F%E5%8F%8A%E5%8F%96%E6%A8%A107%E2%80%94%E2%80%94%E7%BE%8E%E5%AD%A6%E5%8C%BA%E5%8F%96%E6%A8%A1/"/>
+    <author>
+      <name>赵瑜敏</name>
+    </author>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
+    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
+    <category term="精准二期" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F/"/>
+    <content>
+      <![CDATA[<p>满毅老师《口腔种植的精准二期手术和取模技巧》笔记。</p><h2 id="五、美学区取模及常见问题和防范"><a href="#五、美学区取模及常见问题和防范" class="headerlink" title="五、美学区取模及常见问题和防范"></a>五、美学区取模及常见问题和防范</h2><p>在取下临时修复体后，牙龈失去支持会出现一定程度的塌陷，但常规转移体结构形态固定，获取的穿龈轮廓往往与临时修复体的穿龈轮廓不符，故无法将临时修复体的穿龈轮廓转移至最终修复体。因此在此类病例中，我们往往需要采取个性化取模或者数字化取模方式。</p><h3 id="即刻修复取模"><a href="#即刻修复取模" class="headerlink" title="即刻修复取模"></a>即刻修复取模</h3><p>即刻修复的条件:</p><ul><li>初稳良好。</li><li>健康状态良好。</li><li>咬合稳定。</li><li>无不良习惯。</li><li>无磨牙症。</li><li>可以保持良好的卫生习惯。</li><li>依从性较好，可以保证定期复诊。</li></ul><h4 id="树脂翼板取模法"><a href="#树脂翼板取模法" class="headerlink" title="树脂翼板取模法"></a>树脂翼板取模法</h4><p>术前取模，磨除要拔的患牙，注意保留龈缘。并在未来种植体植入区域磨出孔洞以利于替代体就位。<br>植入种植体，确认初稳良好后，进行种植体位置关系转移。选择较长的开窗式转移体(无菌)，旋入植体内部连接就位。速凝树脂将转移体与邻牙相连接，形成双侧翼板，树脂凝固后取下转移体。应由主刀和助手之外的巡回人员注射，枪头避免直接接触术区。树脂不要进入倒凹区。建议覆盖至邻近两颗牙。拧松和取下转移体时，注意不要触碰树脂，避免污染。<br>取下转移体移至手术室外，在模型上与替代体连接，调磨石膏确定被动就位。再连接合适的临时基台。按照理想的穿龈形态制作临时修复体，当天配戴临时修复体。</p><h4 id="即刻修复数字化取模法"><a href="#即刻修复数字化取模法" class="headerlink" title="即刻修复数字化取模法"></a>即刻修复数字化取模法</h4><p>植入植体，初稳良好。连接专用扫描杆，口扫，CAD&#x2F;CAM制作临时修复体。</p><h4 id="临时修复体预成法-数字化导板引导种植体植入"><a href="#临时修复体预成法-数字化导板引导种植体植入" class="headerlink" title="临时修复体预成法(数字化导板引导种植体植入)"></a>临时修复体预成法(数字化导板引导种植体植入)</h4><p>术前口扫，拍摄CBCT。设计临时修复体，口扫数据与CBCT结合，进行种植体植入设计，制作导板。术前即可获得预成的临时修复体。在导板引导下精确植入，在口内试戴预成临时修复体。可进行适当调改。</p><h3 id="个性化取模时机"><a href="#个性化取模时机" class="headerlink" title="个性化取模时机"></a>个性化取模时机</h3><p>个性化取模前，需要判断种植术区牙龈是否已经完成塑形，获得良好的软组织形态。时机:</p><ul><li>牙龈高度与对侧同名牙牙龈高度一致。</li><li>临时修复体牙龈边缘曲线与对侧同名牙协调对称。</li><li>近远中无黑三角，牙龈乳头充填满意。</li><li>牙龈唇侧丰满度与邻牙协调一致。</li><li>种植体周围形成稳定的角化黏膜。</li></ul><p>应尽量在满足功能需求的条件下，力求达到更高的美学标准。</p><h3 id="个性化取模方法、常见问题和防范"><a href="#个性化取模方法、常见问题和防范" class="headerlink" title="个性化取模方法、常见问题和防范"></a>个性化取模方法、常见问题和防范</h3><h4 id="开窗式个性化转移体法"><a href="#开窗式个性化转移体法" class="headerlink" title="开窗式个性化转移体法"></a>开窗式个性化转移体法</h4><p>完全复制患者牙龈袖口的形态，将临时修复体的穿龈部分复制到传统的开窗式转移体上，制作该牙位的个性化转移体。<br>取下临时修复体，在口外将临时修复体与替代体进行连接。利用硅橡胶对临时修复体穿龈部位及替代体进行包绕。应包绕超过临时修复体穿龈部位1-2mm。<br>硅橡胶硬固后，取下临时修复体，替代体上方形成临时修复体的阴模，将开窗式转移体与硅橡胶内的替代体相连，阴模内注入流动树脂以复制临时修复体的穿龈形态，戴树脂硬固后取下开窗式转移体，即复制了临时修复体的穿龈形态，形成个性化转移体。<br>最后用该转移体于口内就位后取模。<br>常见问题:替代体在硅橡胶内没有很好固位，被带出或位置改变，使得转移体在口内无法就位。可利用石膏、速凝树脂等材料在替代体表面添加抗旋材料，增加替代体固位力。</p><h4 id="非开窗式修复体水平取模"><a href="#非开窗式修复体水平取模" class="headerlink" title="非开窗式修复体水平取模"></a>非开窗式修复体水平取模</h4><p>后牙临时修复体预备一些固位沟，可以当作一个非开窗式转移体。采用闭口式取模法取模，旋下临时修复体，与替代体连接，根据磨出的沟纹在模型上复位，注入人工牙龈，灌制模型。模型硬固，临时修复体需要修补后才能再戴，占用椅旁时间。</p><h4 id="人工牙龈充填法取模"><a href="#人工牙龈充填法取模" class="headerlink" title="人工牙龈充填法取模"></a>人工牙龈充填法取模</h4><p>在临时修复体周围预留空间，直接使用人工牙龈充填，得到个性化穿龈形态。用硅橡胶获取临时修复体区阴模，用普通转移体取模，获得模型后修整石膏至替代体边缘下1-2mm水平。将临时修复体与模型连接好。在硅橡胶阴模对应于牙龈石膏的位置制作好注射通道和排溢通道，硅橡胶阴模复位。凝固后即可获得具有个性化穿龈形态的模型。</p><h4 id="数字化取模法制取终印模"><a href="#数字化取模法制取终印模" class="headerlink" title="数字化取模法制取终印模"></a>数字化取模法制取终印模</h4><p>先戴着临时修复体口扫，得到临时修复体与口内软硬组织状态;再取下临时修复体，安装扫描杆后口扫，获取植体位置;最后口外扫描临时修复体获取其包括穿龈区在内的整体形态。将三组图像进行配准重叠，最终以临时修复体的穿龈轮廓为基础生成组织袖口，进行最终修复体制作。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]>
+    </content>
     <id>https://zwdnet.github.io/2025/11/18/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F%E5%8F%8A%E5%8F%96%E6%A8%A107%E2%80%94%E2%80%94%E7%BE%8E%E5%AD%A6%E5%8C%BA%E5%8F%96%E6%A8%A1/</id>
+    <link href="https://zwdnet.github.io/2025/11/18/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F%E5%8F%8A%E5%8F%96%E6%A8%A107%E2%80%94%E2%80%94%E7%BE%8E%E5%AD%A6%E5%8C%BA%E5%8F%96%E6%A8%A1/"/>
     <published>2025-11-18T08:17:12.000Z</published>
+    <summary>
+      <![CDATA[<p>满毅老师《口腔种植的精准二期手术和取模技巧》笔记。</p>
+<h2 id="五、美学区取模及常见问题和防范"><a href="#五、美学区取模及常见问题和防范" class="headerlink" title="五、美学区取模及常见问题和防范"></a>五、美学区取模及]]>
+    </summary>
+    <title>精准二期及取模07——美学区取模</title>
     <updated>2025-11-19T00:08:33.622Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《口腔种植的精准二期手术和取模技巧》笔记。</p><h2 id="五、美学区取模及常见问题和防范"><a href="#五、美学区取模及常见问题和防范" class="headerlink" title="五、美学区取模及常见问题和防范"></a>五、美学区取模及常见问题和防范</h2><p>在取下临时修复体后，牙龈失去支持会出现一定程度的塌陷，但常规转移体结构形态固定，获取的穿龈轮廓往往与临时修复体的穿龈轮廓不符，故无法将临时修复体的穿龈轮廓转移至最终修复体。因此在此类病例中，我们往往需要采取个性化取模或者数字化取模方式。</p><h3 id="即刻修复取模"><a href="#即刻修复取模" class="headerlink" title="即刻修复取模"></a>即刻修复取模</h3><p>即刻修复的条件:</p><ul><li>初稳良好。</li><li>健康状态良好。</li><li>咬合稳定。</li><li>无不良习惯。</li><li>无磨牙症。</li><li>可以保持良好的卫生习惯。</li><li>依从性较好，可以保证定期复诊。</li></ul><h4 id="树脂翼板取模法"><a href="#树脂翼板取模法" class="headerlink" title="树脂翼板取模法"></a>树脂翼板取模法</h4><p>术前取模，磨除要拔的患牙，注意保留龈缘。并在未来种植体植入区域磨出孔洞以利于替代体就位。<br>植入种植体，确认初稳良好后，进行种植体位置关系转移。选择较长的开窗式转移体(无菌)，旋入植体内部连接就位。速凝树脂将转移体与邻牙相连接，形成双侧翼板，树脂凝固后取下转移体。应由主刀和助手之外的巡回人员注射，枪头避免直接接触术区。树脂不要进入倒凹区。建议覆盖至邻近两颗牙。拧松和取下转移体时，注意不要触碰树脂，避免污染。<br>取下转移体移至手术室外，在模型上与替代体连接，调磨石膏确定被动就位。再连接合适的临时基台。按照理想的穿龈形态制作临时修复体，当天配戴临时修复体。</p><h4 id="即刻修复数字化取模法"><a href="#即刻修复数字化取模法" class="headerlink" title="即刻修复数字化取模法"></a>即刻修复数字化取模法</h4><p>植入植体，初稳良好。连接专用扫描杆，口扫，CAD&#x2F;CAM制作临时修复体。</p><h4 id="临时修复体预成法-数字化导板引导种植体植入"><a href="#临时修复体预成法-数字化导板引导种植体植入" class="headerlink" title="临时修复体预成法(数字化导板引导种植体植入)"></a>临时修复体预成法(数字化导板引导种植体植入)</h4><p>术前口扫，拍摄CBCT。设计临时修复体，口扫数据与CBCT结合，进行种植体植入设计，制作导板。术前即可获得预成的临时修复体。在导板引导下精确植入，在口内试戴预成临时修复体。可进行适当调改。</p><h3 id="个性化取模时机"><a href="#个性化取模时机" class="headerlink" title="个性化取模时机"></a>个性化取模时机</h3><p>个性化取模前，需要判断种植术区牙龈是否已经完成塑形，获得良好的软组织形态。时机:</p><ul><li>牙龈高度与对侧同名牙牙龈高度一致。</li><li>临时修复体牙龈边缘曲线与对侧同名牙协调对称。</li><li>近远中无黑三角，牙龈乳头充填满意。</li><li>牙龈唇侧丰满度与邻牙协调一致。</li><li>种植体周围形成稳定的角化黏膜。</li></ul><p>应尽量在满足功能需求的条件下，力求达到更高的美学标准。</p><h3 id="个性化取模方法、常见问题和防范"><a href="#个性化取模方法、常见问题和防范" class="headerlink" title="个性化取模方法、常见问题和防范"></a>个性化取模方法、常见问题和防范</h3><h4 id="开窗式个性化转移体法"><a href="#开窗式个性化转移体法" class="headerlink" title="开窗式个性化转移体法"></a>开窗式个性化转移体法</h4><p>完全复制患者牙龈袖口的形态，将临时修复体的穿龈部分复制到传统的开窗式转移体上，制作该牙位的个性化转移体。<br>取下临时修复体，在口外将临时修复体与替代体进行连接。利用硅橡胶对临时修复体穿龈部位及替代体进行包绕。应包绕超过临时修复体穿龈部位1-2mm。<br>硅橡胶硬固后，取下临时修复体，替代体上方形成临时修复体的阴模，将开窗式转移体与硅橡胶内的替代体相连，阴模内注入流动树脂以复制临时修复体的穿龈形态，戴树脂硬固后取下开窗式转移体，即复制了临时修复体的穿龈形态，形成个性化转移体。<br>最后用该转移体于口内就位后取模。<br>常见问题:替代体在硅橡胶内没有很好固位，被带出或位置改变，使得转移体在口内无法就位。可利用石膏、速凝树脂等材料在替代体表面添加抗旋材料，增加替代体固位力。</p><h4 id="非开窗式修复体水平取模"><a href="#非开窗式修复体水平取模" class="headerlink" title="非开窗式修复体水平取模"></a>非开窗式修复体水平取模</h4><p>后牙临时修复体预备一些固位沟，可以当作一个非开窗式转移体。采用闭口式取模法取模，旋下临时修复体，与替代体连接，根据磨出的沟纹在模型上复位，注入人工牙龈，灌制模型。模型硬固，临时修复体需要修补后才能再戴，占用椅旁时间。</p><h4 id="人工牙龈充填法取模"><a href="#人工牙龈充填法取模" class="headerlink" title="人工牙龈充填法取模"></a>人工牙龈充填法取模</h4><p>在临时修复体周围预留空间，直接使用人工牙龈充填，得到个性化穿龈形态。用硅橡胶获取临时修复体区阴模，用普通转移体取模，获得模型后修整石膏至替代体边缘下1-2mm水平。将临时修复体与模型连接好。在硅橡胶阴模对应于牙龈石膏的位置制作好注射通道和排溢通道，硅橡胶阴模复位。凝固后即可获得具有个性化穿龈形态的模型。</p><h4 id="数字化取模法制取终印模"><a href="#数字化取模法制取终印模" class="headerlink" title="数字化取模法制取终印模"></a>数字化取模法制取终印模</h4><p>先戴着临时修复体口扫，得到临时修复体与口内软硬组织状态;再取下临时修复体，安装扫描杆后口扫，获取植体位置;最后口外扫描临时修复体获取其包括穿龈区在内的整体形态。将三组图像进行配准重叠，最终以临时修复体的穿龈轮廓为基础生成组织袖口，进行最终修复体制作。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《口腔种植的精准二期手术和取模技巧》笔记。&lt;/p&gt;
-&lt;h2 id=&quot;五、美学区取模及常见问题和防范&quot;&gt;&lt;a href=&quot;#五、美学区取模及常见问题和防范&quot; class=&quot;headerlink&quot; title=&quot;五、美学区取模及常见问题和防范&quot;&gt;&lt;/a&gt;五、美学区取模及</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准二期" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F/"/>
-    
   </entry>
-  
-  <entry>
-    <title>精准二期及取模06——连续多颗后牙取模</title>
-    <link href="https://zwdnet.github.io/2025/11/16/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F%E5%8F%8A%E5%8F%96%E6%A8%A106%E2%80%94%E2%80%94%E8%BF%9E%E7%BB%AD%E5%A4%9A%E9%A2%97%E5%90%8E%E7%89%99%E5%8F%96%E6%A8%A1/"/>
-    <id>https://zwdnet.github.io/2025/11/16/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F%E5%8F%8A%E5%8F%96%E6%A8%A106%E2%80%94%E2%80%94%E8%BF%9E%E7%BB%AD%E5%A4%9A%E9%A2%97%E5%90%8E%E7%89%99%E5%8F%96%E6%A8%A1/</id>
-    <published>2025-11-16T07:48:15.000Z</published>
-    <updated>2025-11-17T00:10:29.405Z</updated>
-    
-    <content type="html"><![CDATA[<p>满毅老师《口腔种植的精准二期手术和取模技巧》笔记。</p><h2 id="四、连续多颗后牙取模及常见问题和防范"><a href="#四、连续多颗后牙取模及常见问题和防范" class="headerlink" title="四、连续多颗后牙取模及常见问题和防范"></a>四、连续多颗后牙取模及常见问题和防范</h2><h3 id="初学者的常见问题和防范"><a href="#初学者的常见问题和防范" class="headerlink" title="初学者的常见问题和防范"></a>初学者的常见问题和防范</h3><h4 id="取模方法选择误差"><a href="#取模方法选择误差" class="headerlink" title="取模方法选择误差"></a>取模方法选择误差</h4><p>联冠或桥体修复，建议采用开窗式取模法。<br>抗旋部分应位于龈上。</p><h4 id="转移体连接误差"><a href="#转移体连接误差" class="headerlink" title="转移体连接误差"></a>转移体连接误差</h4><p>开窗式取模时，需要将转移体之间做刚性连接，防止连接体之间相对位置改变。连接强度要足够，建议用金刚砂车针进行连接，或口外制作收缩率低的树脂夹板，在口外连接转移体并剪断，在口内再用少量收缩率低的树脂连接断口。</p><h4 id="咬合记录相关的临床误差"><a href="#咬合记录相关的临床误差" class="headerlink" title="咬合记录相关的临床误差"></a>咬合记录相关的临床误差</h4><ul><li>未检查患者咬合情况:患者可能存在多种咬合状态，只记录一种可能使修复体产生偏差。应先调整咬合，待其稳定后再取咬合。</li><li>未修整咬合硅橡胶:咬合硅橡胶与软组织接触，或进入天然牙倒凹区，均会影响咬合记录的就位。需在口外对咬合硅橡胶进行修整，去除与黏膜接触部分和进入邻牙倒凹区部分。</li></ul><p>取咬合记录:就位较高的愈合基台或转移体，将硅橡胶咬合记录就位于上颌(而不是下颌，避免重力的因素影响)，嘱患者慢慢闭口至上下颌轻咬。硬固后取下修整，用刀片去除牙冠外形高点线以下(即倒凹区)的硅橡胶，只保留功能尖窝印记。圆柱形愈合基台，硅橡胶颌龈向不可太厚，以免进入邻牙倒凹区。锥形愈合基台，只能保留覆盖基台最上方的薄薄一层。复合形基台上部为圆柱形，要求与圆柱形基台相同。咬合记录上咬穿或将要咬穿的点周围的印模材料要去除，防止抬高咬合。修整咬合记录后要放回口内验证无误。</p><h3 id="连续多颗后牙取模的标准流程"><a href="#连续多颗后牙取模的标准流程" class="headerlink" title="连续多颗后牙取模的标准流程"></a>连续多颗后牙取模的标准流程</h3><h4 id="连续多颗后牙单冠修复"><a href="#连续多颗后牙单冠修复" class="headerlink" title="连续多颗后牙单冠修复"></a>连续多颗后牙单冠修复</h4><p>可以选择非开窗式，通过调整牙冠之间的接触点可以达到完全就位。也可使用开窗式提高精确性。</p><h4 id="连续多颗后牙联冠修复"><a href="#连续多颗后牙联冠修复" class="headerlink" title="连续多颗后牙联冠修复"></a>连续多颗后牙联冠修复</h4><p>对基台共同就位道有严格要求，采用更精确的开窗式取模法，并在取模前对各转移体进行刚性连接。<br>当植体之间轴向存在一定角度(20°-25°之内)时，建议使用非抗旋转移体取模。抗旋转移体与植体之间有多边形抗旋结构，而非抗旋转移体与植体之间是锥形设计紧密接触。<br>如果角度过大，可用多基基台将轴向调整到有共同就位道可以取模的程度，用基台水平取模。<br>复杂情况可能存在误差，通过模型校正对印模准确性进行进一步确认。在模型上重新就位转移体，并使用石膏夹板固定两个转移体。将两个固定的转移体移至口内就位。转移体若能被动就位，石膏夹板未出现折断，确认制取的印模已达到标准。</p><h4 id="开窗取模流程"><a href="#开窗取模流程" class="headerlink" title="开窗取模流程"></a>开窗取模流程</h4><ul><li>取下愈合帽</li><li>生理盐水冲洗</li><li>就位转移体，拍片确认。</li><li>车针或树脂夹板连接转移体。</li><li>开窗托盘完成印模</li><li>连接种植体替代体与转移体</li><li>制作咬合记录</li><li>更换或安装愈合帽</li><li>人工牙龈石膏模型</li><li>模型校正</li><li>比色</li><li>制作修复体</li></ul><p>数字化印模<br>与单颗牙修复相比，连续缺失的数字化取模精准度可能会受到种植体间距及角度等因素的影响。现阶段连续多颗后牙取模，更倾向于传统印模技术。</p><p>我发文章的三个地方，欢迎大家在朋友圈等地方分享，欢迎点“在看”。</p><p>我的个人博客地址：<a href="https://zwdnet.github.io/">https://zwdnet.github.io</a></p><p>博客的RSS订阅地址: <a href="https://zwdnet.github.io/atom.xml">https://zwdnet.github.io/atom.xml</a></p><p>我的知乎文章地址： <a href="https://www.zhihu.com/people/zhao-you-min/posts">https://www.zhihu.com/people/zhao-you-min/posts</a></p><p>我的微信个人订阅号：赵瑜敏的口腔医学学习园地</p><p><img src="https://zymblog-1258069789.cos.ap-chengdu.myqcloud.com/other/wx.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;满毅老师《口腔种植的精准二期手术和取模技巧》笔记。&lt;/p&gt;
-&lt;h2 id=&quot;四、连续多颗后牙取模及常见问题和防范&quot;&gt;&lt;a href=&quot;#四、连续多颗后牙取模及常见问题和防范&quot; class=&quot;headerlink&quot; title=&quot;四、连续多颗后牙取模及常见问题和防范&quot;&gt;&lt;/a</summary>
-      
-    
-    
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/categories/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    
-    <category term="读书笔记" scheme="https://zwdnet.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="口腔修复" scheme="https://zwdnet.github.io/tags/%E5%8F%A3%E8%85%94%E4%BF%AE%E5%A4%8D/"/>
-    
-    <category term="种植" scheme="https://zwdnet.github.io/tags/%E7%A7%8D%E6%A4%8D/"/>
-    
-    <category term="精准二期" scheme="https://zwdnet.github.io/tags/%E7%B2%BE%E5%87%86%E4%BA%8C%E6%9C%9F/"/>
-    
-  </entry>
-  
 </feed>
